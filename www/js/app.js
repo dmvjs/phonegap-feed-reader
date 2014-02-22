@@ -11,28 +11,28 @@ var notify = require('./notify')
 	, getFileEntry = require('./getFileEntry')
 	, writeFile = require('./writeFile');
 
-function tryToWriteFile(p, filesystem, filename, fileentry, filewriter, contents) {
+function tryToWriteFile(p, filewriter, contents) {
 	$.when(writeFile(filewriter, contents))
 		.done(p.y).fail(p.n);
 }
 
-function tryToGetFileEntry(p, filesystem, filename, fileentry, contents) {
+function tryToGetFileEntry(p, fileentry, contents) {
 	$.when(getFileEntry(fileentry))
 		.done(function (filewriter) {
-			tryToWriteFile(p, filesystem, filename, fileentry, filewriter, contents);
+			tryToWriteFile(p, filewriter, contents);
 		});
 }
 
 function tryToGetFile(p, filesystem, filename, contents) {
 	$.when(getFile(filesystem, filename, {create: true, exclusive: false}))
 		.done(function (fileentry) {
-			tryToGetFileEntry(p, filesystem, filename, fileentry, contents);
+			tryToGetFileEntry(p, fileentry, contents);
 		});
 }
 
 function tryToGetFileSystem(p, filename, contents) {
-    $.when(getFileSystem())
-    	.done(function (filesystem) {
+	$.when(getFileSystem())
+		.done(function (filesystem) {
 			tryToGetFile(p, filesystem, filename, contents);
 		});
 }
@@ -219,14 +219,16 @@ module.exports = {
 var promise = require('./promise').promise;
 
 module.exports = function (filewriter, contents) {
-	var p = promise()
+	var p = promise();
 
     filewriter.onwriteend = function(e) {
-        p.y()
+        p.y();
     };
+
     filewriter.onerror = function (e) {
-    	p.n()
-    }
+    	p.n();
+    };
+
     filewriter.write(contents);
 
     return p.p;
