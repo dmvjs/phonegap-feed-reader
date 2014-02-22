@@ -1,7 +1,7 @@
-var notify = require('./notify'),
-	promise = require('./promise'),
-	getFileSystem = require('./getFileSystem'),
-	getFile = require('./getFile');
+var notify = require('./notify')
+	, promise = require('./promise').promise
+	, getFileSystem = require('./getFileSystem')
+	, getFile = require('./getFile');
 
 function tryToGetFile(p, filesystem, filename) {
 	$.when(getFile(filesystem, filename))

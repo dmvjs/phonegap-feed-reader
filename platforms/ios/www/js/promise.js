@@ -1,4 +1,4 @@
-module.exports = function () {
+function promise() {
 	var deferred = new $.Deferred();
 	return {
 		y: function (res) {
@@ -9,4 +9,8 @@ module.exports = function () {
 		}
 		, p: deferred.promise()
 	}
+}
+
+module.exports = {
+	promise: promise
 };
