@@ -22,6 +22,5 @@ module.exports = (function () {
 
     function appReady() {
         var getFeeds = require('./feeds');
-        //navigator.notification.alert(getFeeds, $.noop, 'title', 'Label');
     }
 }());
