@@ -1,8 +1,9 @@
 module.exports = (function () {
 	var config = require('./config')
-		, notify = require('./notify')
-		, doesFileExist = require('./doesFileExist')
-		, createFileWithContents = require('./createFileWithContents');
+		, notify = require('./util/notify')
+		, doesFileExist = require('./io/doesFileExist')
+		, createFileWithContents = require('./io/createFileWithContents')
+		, getFileContents = require('./io/getFileContents');
 
 	$(function() {
 		$('body').append($('<div/>', {
@@ -17,9 +18,12 @@ module.exports = (function () {
 			},
 			'click': function () {
 				var url = config[0].url
-				$.ajax(url)
+				$.ajax({
+						url: url,
+						dataType: 'text'
+					})
 					.done(function (res) {
-						checkFileWithPromise(url.split('/').pop())
+						checkFileWithPromise(url.split('/').pop(), res)
 					})
 					.error(function () {
 						//must be offline, or bad url, or...
@@ -29,14 +33,15 @@ module.exports = (function () {
 		}))
 	});
 
-	function checkFileWithPromise(filename) {
+	function checkFileWithPromise(filename, res) {
 		$.when(doesFileExist(filename))
 			.done(function(){
-				notify.y('from checkFileWithPromise');
+				//notify.y('from checkFileWithPromise');
 				//writeFileWithPromise(filename, 'ZZSUPERCALI')
+				readFileWithPromise(filename);
 			})
 			.fail(function(){
-				writeFileWithPromise(filename, 'ZZSUPERCALI')
+				writeFileWithPromise(filename, res)
 				//notify.n();
 			});
 	}
@@ -44,10 +49,22 @@ module.exports = (function () {
 	function writeFileWithPromise(filename, contents) {
 		$.when(createFileWithContents(filename, contents))
 			.done(function(){
-				notify.y('from writeFileWithPromise');
+				//notify.y('from writeFileWithPromise');
+				readFileWithPromise(filename);
 			})
 			.fail(function(){
 				notify.n('from writeFileWithPromise');
+			});
+	}
+
+	function readFileWithPromise(filename) {
+		$.when(getFileContents(filename))
+			.done(function(res){
+				console.log(res)
+				notify.y('from readFileWithPromise');
+			})
+			.fail(function(){
+				notify.n('from readFileWithPromise');
 			});
 	}
 }())
