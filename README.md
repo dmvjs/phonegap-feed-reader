@@ -6,5 +6,6 @@ a PhoneGap Feed Reader (only iOS so far but this will support iOS, Android, FFOS
 nowhere near complete as of yet
 
 includes:
-promises-style check to see if a file exists using PhoneGap API
-promises-style file create using PhoneGap API
+promises-style check to see if a file exists using PhoneGap File API
+promises-style file create using PhoneGap File API
+promises-style file read using PhoneGap File API
