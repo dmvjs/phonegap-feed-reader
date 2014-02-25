@@ -1,4 +1,4 @@
-var promise = require('./promise').promise;
+var promise = require('../util/promise').promise;
 
 module.exports = function (filewriter, contents) {
 	var p = promise();

@@ -734,3 +734,149 @@
 2014-02-22 15:47:32.897 HelloWorld[23864:80b] Resetting plugins due to page load.
 2014-02-22 15:47:32.947 HelloWorld[23864:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/AFD6892E-2480-4BC9-A81B-71720171C38E/HelloWorld.app/www/index.html
 2014-02-22 15:47:48.792 HelloWorld[23864:80b] THREAD WARNING: ['Notification'] took '15.966797' ms. Plugin should use a background thread.
+2014-02-24 15:01:52.152 HelloWorld[69467:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 15:01:52.227 HelloWorld[69467:80b] Unlimited access to network resources
+2014-02-24 15:01:52.619 HelloWorld[69467:80b] Resetting plugins due to page load.
+2014-02-24 15:01:52.732 HelloWorld[69467:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/AFD6892E-2480-4BC9-A81B-71720171C38E/HelloWorld.app/www/index.html
+2014-02-24 15:02:58.347 HelloWorld[70595:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 15:02:58.357 HelloWorld[70595:80b] Unlimited access to network resources
+2014-02-24 15:02:58.500 HelloWorld[70595:80b] Resetting plugins due to page load.
+2014-02-24 15:02:58.557 HelloWorld[70595:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/AFD6892E-2480-4BC9-A81B-71720171C38E/HelloWorld.app/www/index.html
+2014-02-24 15:03:01.963 HelloWorld[70595:80b] THREAD WARNING: ['Notification'] took '60.576172' ms. Plugin should use a background thread.
+2014-02-24 15:03:05.587 HelloWorld[70595:80b] THREAD WARNING: ['Notification'] took '14.410156' ms. Plugin should use a background thread.
+2014-02-24 15:03:57.044 HelloWorld[71699:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 15:03:57.054 HelloWorld[71699:80b] Unlimited access to network resources
+2014-02-24 15:03:57.193 HelloWorld[71699:80b] Resetting plugins due to page load.
+2014-02-24 15:03:57.255 HelloWorld[71699:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/98D78C63-3306-4A87-B60A-638765FE8B13/HelloWorld.app/www/index.html
+2014-02-24 15:04:06.799 HelloWorld[71699:80b] THREAD WARNING: ['Notification'] took '22.342041' ms. Plugin should use a background thread.
+2014-02-24 15:05:28.674 HelloWorld[72831:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 15:05:28.683 HelloWorld[72831:80b] Unlimited access to network resources
+2014-02-24 15:05:28.801 HelloWorld[72831:80b] Resetting plugins due to page load.
+2014-02-24 15:05:28.858 HelloWorld[72831:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/98D78C63-3306-4A87-B60A-638765FE8B13/HelloWorld.app/www/index.html
+2014-02-24 15:05:46.354 HelloWorld[72831:80b] THREAD WARNING: ['Notification'] took '26.550781' ms. Plugin should use a background thread.
+2014-02-24 15:07:07.457 HelloWorld[73965:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 15:07:07.464 HelloWorld[73965:80b] Unlimited access to network resources
+2014-02-24 15:07:07.575 HelloWorld[73965:80b] Resetting plugins due to page load.
+2014-02-24 15:07:07.628 HelloWorld[73965:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/98D78C63-3306-4A87-B60A-638765FE8B13/HelloWorld.app/www/index.html
+2014-02-24 15:07:14.933 HelloWorld[73965:80b] THREAD WARNING: ['Notification'] took '22.984863' ms. Plugin should use a background thread.
+2014-02-24 15:10:45.851 HelloWorld[73965:80b] THREAD WARNING: ['Notification'] took '16.608154' ms. Plugin should use a background thread.
+2014-02-24 17:53:47.651 HelloWorld[81760:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 17:53:47.698 HelloWorld[81760:80b] Unlimited access to network resources
+2014-02-24 17:53:48.086 HelloWorld[81760:80b] Resetting plugins due to page load.
+2014-02-24 17:53:48.177 HelloWorld[81760:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/98D78C63-3306-4A87-B60A-638765FE8B13/HelloWorld.app/www/index.html
+2014-02-24 17:54:13.955 HelloWorld[81760:80b] THREAD WARNING: ['Notification'] took '36.194580' ms. Plugin should use a background thread.
+2014-02-24 17:54:52.699 HelloWorld[82880:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 17:54:52.719 HelloWorld[82880:80b] Unlimited access to network resources
+2014-02-24 17:54:52.888 HelloWorld[82880:80b] Resetting plugins due to page load.
+2014-02-24 17:54:52.943 HelloWorld[82880:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/EB1D2135-DC57-4E26-8ECA-C1F562AC9FC5/HelloWorld.app/www/index.html
+2014-02-24 17:54:57.395 HelloWorld[82880:80b] THREAD WARNING: ['Notification'] took '22.540039' ms. Plugin should use a background thread.
+2014-02-24 17:55:04.189 HelloWorld[82880:80b] THREAD WARNING: ['Notification'] took '14.301025' ms. Plugin should use a background thread.
+2014-02-24 17:57:32.681 HelloWorld[84030:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 17:57:32.688 HelloWorld[84030:80b] Unlimited access to network resources
+2014-02-24 17:57:32.820 HelloWorld[84030:80b] Resetting plugins due to page load.
+2014-02-24 17:57:32.875 HelloWorld[84030:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/6FD7097D-D9F2-477F-BAF6-DC0625FA78F1/HelloWorld.app/www/index.html
+2014-02-24 17:57:37.554 HelloWorld[84030:80b] THREAD WARNING: ['Notification'] took '25.122803' ms. Plugin should use a background thread.
+2014-02-24 17:58:18.853 HelloWorld[84030:80b] THREAD WARNING: ['Notification'] took '15.339111' ms. Plugin should use a background thread.
+2014-02-24 17:59:13.760 HelloWorld[85149:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 17:59:13.770 HelloWorld[85149:80b] Unlimited access to network resources
+2014-02-24 17:59:13.900 HelloWorld[85149:80b] Resetting plugins due to page load.
+2014-02-24 17:59:13.953 HelloWorld[85149:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/F6A7A901-BA45-474F-A6F3-2C63BBC3F514/HelloWorld.app/www/index.html
+2014-02-24 17:59:15.657 HelloWorld[85149:80b] THREAD WARNING: ['Notification'] took '16.192871' ms. Plugin should use a background thread.
+2014-02-24 22:09:27.433 HelloWorld[89603:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 22:09:27.459 HelloWorld[89603:80b] Unlimited access to network resources
+2014-02-24 22:09:28.126 HelloWorld[89603:80b] Resetting plugins due to page load.
+2014-02-24 22:09:28.231 HelloWorld[89603:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/F6A7A901-BA45-474F-A6F3-2C63BBC3F514/HelloWorld.app/www/index.html
+2014-02-24 22:33:42.645 HelloWorld[91096:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 22:33:42.678 HelloWorld[91096:80b] Unlimited access to network resources
+2014-02-24 22:33:43.066 HelloWorld[91096:80b] Resetting plugins due to page load.
+2014-02-24 22:33:43.150 HelloWorld[91096:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/F6A7A901-BA45-474F-A6F3-2C63BBC3F514/HelloWorld.app/www/index.html
+2014-02-24 22:33:51.135 HelloWorld[91096:80b] THREAD WARNING: ['Notification'] took '38.493896' ms. Plugin should use a background thread.
+2014-02-24 22:35:08.206 HelloWorld[92232:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 22:35:08.213 HelloWorld[92232:80b] Unlimited access to network resources
+2014-02-24 22:35:08.320 HelloWorld[92232:80b] Resetting plugins due to page load.
+2014-02-24 22:35:08.371 HelloWorld[92232:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/F6A7A901-BA45-474F-A6F3-2C63BBC3F514/HelloWorld.app/www/index.html
+2014-02-24 22:36:14.218 HelloWorld[93448:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 22:36:14.224 HelloWorld[93448:80b] Unlimited access to network resources
+2014-02-24 22:36:14.323 HelloWorld[93448:80b] Resetting plugins due to page load.
+2014-02-24 22:36:14.373 HelloWorld[93448:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/F6A7A901-BA45-474F-A6F3-2C63BBC3F514/HelloWorld.app/www/index.html
+2014-02-24 22:38:03.992 HelloWorld[94593:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 22:38:03.999 HelloWorld[94593:80b] Unlimited access to network resources
+2014-02-24 22:38:04.115 HelloWorld[94593:80b] Resetting plugins due to page load.
+2014-02-24 22:38:04.169 HelloWorld[94593:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/F6A7A901-BA45-474F-A6F3-2C63BBC3F514/HelloWorld.app/www/index.html
+2014-02-24 22:38:10.385 HelloWorld[94593:80b] THREAD WARNING: ['File'] took '13.809082' ms. Plugin should use a background thread.
+2014-02-24 22:40:54.571 HelloWorld[95757:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 22:40:54.578 HelloWorld[95757:80b] Unlimited access to network resources
+2014-02-24 22:40:54.700 HelloWorld[95757:80b] Resetting plugins due to page load.
+2014-02-24 22:40:54.750 HelloWorld[95757:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/F6A7A901-BA45-474F-A6F3-2C63BBC3F514/HelloWorld.app/www/index.html
+2014-02-24 22:41:01.878 HelloWorld[95757:4003] bool _WebTryThreadLock(bool), 0xa473a60: Multiple locks on web thread not allowed! Please file a bug. Crashing now...
+1   0x4f201b8 WebRunLoopLock(__CFRunLoopObserver*, unsigned long, void*)
+2   0xb653e __CFRUNLOOP_IS_CALLING_OUT_TO_AN_OBSERVER_CALLBACK_FUNCTION__
+3   0xb648f __CFRunLoopDoObservers
+4   0x942de __CFRunLoopRun
+5   0x93b33 CFRunLoopRunSpecific
+6   0x9394b CFRunLoopRunInMode
+7   0x4f20180 RunWebThread(void*)
+8   0x29d55fb _pthread_body
+9   0x29d5485 _pthread_struct_init
+10  0x29dacf2 thread_start
+2014-02-24 22:42:07.566 HelloWorld[96889:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 22:42:07.575 HelloWorld[96889:80b] Unlimited access to network resources
+2014-02-24 22:42:07.744 HelloWorld[96889:80b] Resetting plugins due to page load.
+2014-02-24 22:42:07.795 HelloWorld[96889:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/F6A7A901-BA45-474F-A6F3-2C63BBC3F514/HelloWorld.app/www/index.html
+2014-02-24 22:48:15.416 HelloWorld[98101:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 22:48:15.424 HelloWorld[98101:80b] Unlimited access to network resources
+2014-02-24 22:48:15.536 HelloWorld[98101:80b] Resetting plugins due to page load.
+2014-02-24 22:48:15.591 HelloWorld[98101:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/F6A7A901-BA45-474F-A6F3-2C63BBC3F514/HelloWorld.app/www/index.html
+2014-02-24 22:48:22.134 HelloWorld[98101:80b] THREAD WARNING: ['Notification'] took '23.704834' ms. Plugin should use a background thread.
+2014-02-24 22:54:29.769 HelloWorld[99428:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 22:54:29.779 HelloWorld[99428:80b] Unlimited access to network resources
+2014-02-24 22:54:29.887 HelloWorld[99428:80b] Resetting plugins due to page load.
+2014-02-24 22:54:29.940 HelloWorld[99428:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/F6A7A901-BA45-474F-A6F3-2C63BBC3F514/HelloWorld.app/www/index.html
+2014-02-24 22:54:35.848 HelloWorld[99428:80b] THREAD WARNING: ['Notification'] took '24.105225' ms. Plugin should use a background thread.
+2014-02-24 23:03:58.858 HelloWorld[2053:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 23:03:58.866 HelloWorld[2053:80b] Unlimited access to network resources
+2014-02-24 23:03:58.976 HelloWorld[2053:80b] Resetting plugins due to page load.
+2014-02-24 23:03:59.031 HelloWorld[2053:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/F6A7A901-BA45-474F-A6F3-2C63BBC3F514/HelloWorld.app/www/index.html
+2014-02-24 23:04:04.663 HelloWorld[2053:80b] THREAD WARNING: ['Notification'] took '15.727051' ms. Plugin should use a background thread.
+2014-02-24 23:04:12.103 HelloWorld[2053:80b] THREAD WARNING: ['Notification'] took '14.914062' ms. Plugin should use a background thread.
+2014-02-24 23:10:19.363 HelloWorld[3341:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 23:10:19.372 HelloWorld[3341:80b] Unlimited access to network resources
+2014-02-24 23:10:19.512 HelloWorld[3341:80b] Resetting plugins due to page load.
+2014-02-24 23:10:19.581 HelloWorld[3341:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/F6A7A901-BA45-474F-A6F3-2C63BBC3F514/HelloWorld.app/www/index.html
+2014-02-24 23:10:25.557 HelloWorld[3341:80b] THREAD WARNING: ['Notification'] took '15.406982' ms. Plugin should use a background thread.
+2014-02-24 23:10:33.383 HelloWorld[3341:80b] THREAD WARNING: ['Notification'] took '15.757080' ms. Plugin should use a background thread.
+2014-02-24 23:14:22.106 HelloWorld[4539:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 23:14:22.115 HelloWorld[4539:80b] Unlimited access to network resources
+2014-02-24 23:14:22.233 HelloWorld[4539:80b] Resetting plugins due to page load.
+2014-02-24 23:14:22.283 HelloWorld[4539:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/DA7400B7-D15E-4127-A228-0EF6B746C694/HelloWorld.app/www/index.html
+2014-02-24 23:15:46.565 HelloWorld[5677:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 23:15:46.574 HelloWorld[5677:80b] Unlimited access to network resources
+2014-02-24 23:15:46.688 HelloWorld[5677:80b] Resetting plugins due to page load.
+2014-02-24 23:15:46.734 HelloWorld[5677:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/DA7400B7-D15E-4127-A228-0EF6B746C694/HelloWorld.app/www/index.html
+2014-02-24 23:16:36.558 HelloWorld[6805:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 23:16:36.567 HelloWorld[6805:80b] Unlimited access to network resources
+2014-02-24 23:16:36.766 HelloWorld[6805:80b] Resetting plugins due to page load.
+2014-02-24 23:16:36.825 HelloWorld[6805:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/DA7400B7-D15E-4127-A228-0EF6B746C694/HelloWorld.app/www/index.html
+2014-02-24 23:16:46.365 HelloWorld[6805:80b] THREAD WARNING: ['File'] took '12.550293' ms. Plugin should use a background thread.
+2014-02-24 23:16:46.382 HelloWorld[6805:80b] THREAD WARNING: ['File'] took '16.861816' ms. Plugin should use a background thread.
+2014-02-24 23:16:46.409 HelloWorld[6805:80b] THREAD WARNING: ['Notification'] took '23.532227' ms. Plugin should use a background thread.
+2014-02-24 23:18:22.720 HelloWorld[7956:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 23:18:22.729 HelloWorld[7956:80b] Unlimited access to network resources
+2014-02-24 23:18:22.851 HelloWorld[7956:80b] Resetting plugins due to page load.
+2014-02-24 23:18:22.893 HelloWorld[7956:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/5AAB7539-5EF6-4703-95F8-3493319548EA/HelloWorld.app/www/index.html
+2014-02-24 23:18:28.231 HelloWorld[7956:80b] THREAD WARNING: ['Notification'] took '22.306152' ms. Plugin should use a background thread.
+2014-02-24 23:20:12.549 HelloWorld[9100:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 23:20:12.557 HelloWorld[9100:80b] Unlimited access to network resources
+2014-02-24 23:20:12.678 HelloWorld[9100:80b] Resetting plugins due to page load.
+2014-02-24 23:20:12.721 HelloWorld[9100:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/5AAB7539-5EF6-4703-95F8-3493319548EA/HelloWorld.app/www/index.html
+2014-02-24 23:20:18.950 HelloWorld[9100:80b] THREAD WARNING: ['Notification'] took '22.660889' ms. Plugin should use a background thread.
+2014-02-24 23:21:19.665 HelloWorld[10231:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 23:21:19.672 HelloWorld[10231:80b] Unlimited access to network resources
+2014-02-24 23:21:19.789 HelloWorld[10231:80b] Resetting plugins due to page load.
+2014-02-24 23:21:19.842 HelloWorld[10231:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/5AAB7539-5EF6-4703-95F8-3493319548EA/HelloWorld.app/www/index.html
+2014-02-24 23:21:25.671 HelloWorld[10231:80b] THREAD WARNING: ['Notification'] took '22.562988' ms. Plugin should use a background thread.
+2014-02-24 23:22:40.076 HelloWorld[11367:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-24 23:22:40.082 HelloWorld[11367:80b] Unlimited access to network resources
+2014-02-24 23:22:40.179 HelloWorld[11367:80b] Resetting plugins due to page load.
+2014-02-24 23:22:40.246 HelloWorld[11367:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/5AAB7539-5EF6-4703-95F8-3493319548EA/HelloWorld.app/www/index.html
+2014-02-24 23:22:49.075 HelloWorld[11367:80b] THREAD WARNING: ['Notification'] took '22.332275' ms. Plugin should use a background thread.
