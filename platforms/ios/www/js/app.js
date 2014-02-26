@@ -41,40 +41,33 @@ module.exports = (function () {
 
 	function checkFileWithPromise(filename, res) {
 		$.when(doesFileExist(filename))
-			.done(function(){
-				//notify.y('from checkFileWithPromise');
-				//writeFileWithPromise(filename, 'ZZSUPERCALI')
-				readFileWithPromise(filename);
-			})
-			.fail(function(){
-				writeFileWithPromise(filename, res)
-				//notify.n();
-			});
+			.then(function() {
+					readFileWithPromise(filename);
+				}, function(err) {
+					writeFileWithPromise(filename, res)
+				});
 	}
 
 	function writeFileWithPromise(filename, contents) {
 		$.when(createFileWithContents(filename, contents))
-			.done(function(){
-				//notify.y('from writeFileWithPromise');
-				readFileWithPromise(filename);
-			})
-			.fail(function(){
-				notify.n('from writeFileWithPromise');
-			});
+			.then(function() {
+					readFileWithPromise(filename);
+				}, function(err) {
+					notify.n('from writeFileWithPromise');
+				});
 	}
 
 	function readFileWithPromise(filename) {
 		$.when(getFileContents(filename))
-			.done(function(res){
-				console.log(res)
-				notify.y('from readFileWithPromise');
-			})
-			.fail(function(){
-				notify.n('from readFileWithPromise');
-			});
+			.then(function(res) {
+					console.log(res);
+					notify.y('from readFileWithPromise');
+				}, function(err) {
+					notify.n('from readFileWithPromise');
+				});
 	}
 }())
-},{"./config":1,"./io/createFileWithContents":4,"./io/doesFileExist":5,"./io/getFileContents":7,"./util/notify":12}],3:[function(require,module,exports){
+},{"./config":1,"./io/createFileWithContents":4,"./io/doesFileExist":5,"./io/getFileContents":8,"./util/notify":13}],3:[function(require,module,exports){
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -104,132 +97,84 @@ module.exports = (function () {
 
 },{"./feeds":2}],4:[function(require,module,exports){
 var notify = require('../util/notify')
-	, promise = require('../util/promise').promise
+	, promise = require('../util/promise').wrap
 	, getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
 	, getFileEntry = require('./getFileEntry')
-	, writeFile = require('./writeFile');
-
-function tryToWriteFile(p, filewriter, contents) {
-	$.when(writeFile(filewriter, contents))
-		.done(p.y).fail(p.n);
-}
-
-function tryToGetFileEntry(p, fileentry, contents) {
-	$.when(getFileEntry(fileentry))
-		.done(function (filewriter) {
-			tryToWriteFile(p, filewriter, contents);
-		});
-}
-
-function tryToGetFile(p, filesystem, filename, contents) {
-	$.when(getFile(filesystem, filename, {create: true, exclusive: false}))
-		.done(function (fileentry) {
-			tryToGetFileEntry(p, fileentry, contents);
-		});
-}
-
-function tryToGetFileSystem(p, filename, contents) {
-	$.when(getFileSystem())
-		.done(function (filesystem) {
-			tryToGetFile(p, filesystem, filename, contents);
-		});
-}
+	, writeFile = require('./writeFile')
+	, err = require('./error');
 
 module.exports = function (filename, contents) {
-	var p = promise();
-	tryToGetFileSystem({y:p.y, n:p.n}, filename, contents);
-	return p.p;
-}
-
-
-},{"../util/notify":12,"../util/promise":13,"./getFile":6,"./getFileEntry":8,"./getFileSystem":9,"./writeFile":11}],5:[function(require,module,exports){
+	return promise(function (p) {
+		getFileSystem().then(function (filesystem) {
+			getFile(filesystem, filename, true).then(function (fileentry) {  
+				getFileEntry(fileentry).then(function (filewriter) {
+					writeFile(filewriter, contents).then(p.y, p.n);
+				}, err);
+			}, err);
+		}, err);
+	})
+};
+},{"../util/notify":13,"../util/promise":14,"./error":6,"./getFile":7,"./getFileEntry":9,"./getFileSystem":10,"./writeFile":12}],5:[function(require,module,exports){
 var notify = require('../util/notify')
-	, promise = require('../util/promise').promise
+	, promise = require('../util/promise').wrap
 	, getFileSystem = require('./getFileSystem')
-	, getFile = require('./getFile');
-
-function tryToGetFile(p, filesystem, filename) {
-	$.when(getFile(filesystem, filename))
-		.done(p.y).fail(p.n);
-}
-
-function tryToGetFileSystem(p, filename) {
-	$.when(getFileSystem())
-		.done(function (filesystem) {
-			tryToGetFile(p, filesystem, filename);
-		});
-}
+	, getFile = require('./getFile')
+	, err = require('./error');
 
 module.exports = function (filename) {
-	var p = promise()
-	tryToGetFileSystem({y:p.y, n:p.n}, filename);
-	return p.p;
+	return promise(function (p) {
+		getFileSystem().then(function (filesystem) {
+			getFile(filesystem, filename).then(p.y, p.n);
+		}, err);
+	})
 }
-
-
-},{"../util/notify":12,"../util/promise":13,"./getFile":6,"./getFileSystem":9}],6:[function(require,module,exports){
-module.exports = function (filesystem, filename, options) {
-	var promise = require('../util/promise').promise
-		, p = promise()
-		, params = options || {create: false, exclusive: false};
-	filesystem.root.getFile(filename, params, p.y, p.n);
-	return p.p;
+},{"../util/notify":13,"../util/promise":14,"./error":6,"./getFile":7,"./getFileSystem":10}],6:[function(require,module,exports){
+module.exports = function (err) {
+  console.log(err);
+};
+},{}],7:[function(require,module,exports){
+module.exports = function (filesystem, filename, create) {
+	var promise = require('../util/promise').roll;
+	return promise(filesystem.root.getFile, [filename, {create: !!create, exclusive: false}], filesystem.root);
 }
-},{"../util/promise":13}],7:[function(require,module,exports){
+},{"../util/promise":14}],8:[function(require,module,exports){
 var notify = require('../util/notify')
-  , promise = require('../util/promise').promise
+  , promise = require('../util/promise').wrap
   , getFileSystem = require('./getFileSystem')
   , getFile = require('./getFile')
-  , readFile = require('./readFile');
-
-function tryToReadFile(p, fileentry) {
-  $.when(readFile(fileentry))
-    .done(p.y).fail(p.n);
-}
-
-function tryToGetFile(p, filesystem, filename) {
-  $.when(getFile(filesystem, filename))
-    .done(function (fileentry) {
-      tryToReadFile(p, fileentry);
-    });
-}
-
-function tryToGetFileSystem(p, filename) {
-  $.when(getFileSystem())
-    .done(function (filesystem) {
-      tryToGetFile(p, filesystem, filename);
-    });
-}
+  , readFile = require('./readFile')
+  , err = require('./error');
 
 module.exports = function (filename) {
-  var p = promise();
-  tryToGetFileSystem({y:p.y, n:p.n}, filename);
-  return p.p;
+  return promise(function (p) {
+    getFileSystem().then(function (filesystem) {
+      getFile(filesystem, filename).then(function (fileentry) {
+        readFile(fileentry).then(p.y, p.n);
+      }, err);
+    }, err);
+  })
 }
-},{"../util/notify":12,"../util/promise":13,"./getFile":6,"./getFileSystem":9,"./readFile":10}],8:[function(require,module,exports){
+},{"../util/notify":13,"../util/promise":14,"./error":6,"./getFile":7,"./getFileSystem":10,"./readFile":11}],9:[function(require,module,exports){
 module.exports = function (fileentry) {
-	var promise = require('../util/promise').promise
-		, p = promise();
-	fileentry.createWriter(p.y, p.n);
-	return p.p;
-}
-},{"../util/promise":13}],9:[function(require,module,exports){
+	var promise = require('../util/promise').roll;
+	return promise(fileentry.createWriter, [], fileentry);
+};
+},{"../util/promise":14}],10:[function(require,module,exports){
 module.exports = function () {
-	var promise = require('../util/promise').promise,
-		p = promise();
-	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, p.y, p.n);
-	return p.p;
-}
-},{"../util/promise":13}],10:[function(require,module,exports){
+	var promise = require('../util/promise').roll;
+	return promise(window.requestFileSystem, [LocalFileSystem.PERSISTENT, 0]);
+};
+},{"../util/promise":14}],11:[function(require,module,exports){
 var promise = require('../util/promise').promise;
 
-module.exports = function (file) {
+module.exports = function (fileentry) {
     var p = promise()
     , reader = new FileReader();
 
-    file.file(function (f) {
+    fileentry.file(function (f) {
         reader.onloadend = function(e) {
+            console.log(e)
             p.y(e.target.result);
         };
 
@@ -242,27 +187,27 @@ module.exports = function (file) {
 
     return p.p;
 }
-},{"../util/promise":13}],11:[function(require,module,exports){
+},{"../util/promise":14}],12:[function(require,module,exports){
 var promise = require('../util/promise').promise;
 
 module.exports = function (filewriter, contents) {
 	var p = promise();
 
-    filewriter.onwriteend = function(e) {
-        p.y();
-    };
+  filewriter.onwriteend = function(e) {
+    p.y();
+  };
 
-    filewriter.onerror = function (e) {
-    	p.n();
-    };
+  filewriter.onerror = function (e) {
+  	p.n();
+  };
 
-    filewriter.write(contents);
+  filewriter.write(contents);
 
-    return p.p;
+  return p.p;
 }
 
 
-},{"../util/promise":13}],12:[function(require,module,exports){
+},{"../util/promise":14}],13:[function(require,module,exports){
 function alert(message, callback, title, buttonLabel) {
 	navigator.notification.alert(message, callback, title, buttonLabel);
 }
@@ -287,7 +232,7 @@ module.exports = {
 	y: y,
 	n: n
 };
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 function promise() {
 	var deferred = new $.Deferred();
 	return {
@@ -302,6 +247,45 @@ function promise() {
 }
 
 module.exports = {
-	promise: promise
+	promise: promise,
+	wrap: function (fn, args) {
+		var p = promise()
+			, po = {y:p.y, n:p.n}
+			, a;
+
+		if (Array.isArray(args)) {
+			a = [po]
+			$.each(args, function (index, element) {
+				a.push(element);
+			})
+		} else if (args === undefined) {
+			a = [po];
+		} else {
+			a = [po, args];
+		}
+		fn.apply(null, a);
+		return p.p;
+	},
+	roll: function (fn, args, that) {
+		var p = promise()
+			, a;
+
+		if (Array.isArray(args)) {
+			a = []
+			$.each(args, function (index, element) {
+				a.push(element);
+			})
+			a.push(p.y);
+			a.push(p.n);
+		} else if (args === undefined) {
+			a = [p.y, p.n];
+		} else {
+			args.push(p.y);
+			args.push(p.n);
+			a = args;
+		}
+		fn.apply(that || null, a);
+		return p.p;
+	}
 };
 },{}]},{},[3])

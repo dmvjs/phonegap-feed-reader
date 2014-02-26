@@ -1,23 +1,13 @@
 var notify = require('../util/notify')
-	, promise = require('../util/promise').promise
+	, promise = require('../util/promise').wrap
 	, getFileSystem = require('./getFileSystem')
-	, getFile = require('./getFile');
-
-function tryToGetFile(p, filesystem, filename) {
-	$.when(getFile(filesystem, filename))
-		.done(p.y).fail(p.n);
-}
-
-function tryToGetFileSystem(p, filename) {
-	$.when(getFileSystem())
-		.done(function (filesystem) {
-			tryToGetFile(p, filesystem, filename);
-		});
-}
+	, getFile = require('./getFile')
+	, err = require('./error');
 
 module.exports = function (filename) {
-	var p = promise()
-	tryToGetFileSystem({y:p.y, n:p.n}, filename);
-	return p.p;
+	return promise(function (p) {
+		getFileSystem().then(function (filesystem) {
+			getFile(filesystem, filename).then(p.y, p.n);
+		}, err);
+	})
 }
-
