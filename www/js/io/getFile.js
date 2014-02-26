@@ -1,7 +1,4 @@
-module.exports = function (filesystem, filename, options) {
-	var promise = require('../util/promise').promise
-		, p = promise()
-		, params = options || {create: false, exclusive: false};
-	filesystem.root.getFile(filename, params, p.y, p.n);
-	return p.p;
+module.exports = function (filesystem, filename, create) {
+	var promise = require('../util/promise').roll;
+	return promise(filesystem.root.getFile, [filename, {create: !!create, exclusive: false}], filesystem.root);
 }

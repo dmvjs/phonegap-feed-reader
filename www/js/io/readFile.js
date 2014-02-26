@@ -1,10 +1,10 @@
 var promise = require('../util/promise').promise;
 
-module.exports = function (file) {
+module.exports = function (fileentry) {
     var p = promise()
     , reader = new FileReader();
 
-    file.file(function (f) {
+    fileentry.file(function (f) {
         reader.onloadend = function(e) {
             p.y(e.target.result);
         };

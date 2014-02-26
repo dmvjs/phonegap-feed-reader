@@ -35,36 +35,29 @@ module.exports = (function () {
 
 	function checkFileWithPromise(filename, res) {
 		$.when(doesFileExist(filename))
-			.done(function(){
-				//notify.y('from checkFileWithPromise');
-				//writeFileWithPromise(filename, 'ZZSUPERCALI')
-				readFileWithPromise(filename);
-			})
-			.fail(function(){
-				writeFileWithPromise(filename, res)
-				//notify.n();
-			});
+			.then(function() {
+					readFileWithPromise(filename);
+				}, function(err) {
+					writeFileWithPromise(filename, res)
+				});
 	}
 
 	function writeFileWithPromise(filename, contents) {
 		$.when(createFileWithContents(filename, contents))
-			.done(function(){
-				//notify.y('from writeFileWithPromise');
-				readFileWithPromise(filename);
-			})
-			.fail(function(){
-				notify.n('from writeFileWithPromise');
-			});
+			.then(function() {
+					readFileWithPromise(filename);
+				}, function(err) {
+					notify.n('from writeFileWithPromise');
+				});
 	}
 
 	function readFileWithPromise(filename) {
 		$.when(getFileContents(filename))
-			.done(function(res){
-				console.log(res)
-				notify.y('from readFileWithPromise');
-			})
-			.fail(function(){
-				notify.n('from readFileWithPromise');
-			});
+			.then(function(res) {
+					console.log(res);
+					notify.y('from readFileWithPromise');
+				}, function(err) {
+					notify.n('from readFileWithPromise');
+				});
 	}
 }())
