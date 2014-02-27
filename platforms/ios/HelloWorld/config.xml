@@ -20,8 +20,14 @@
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
+    <feature name="Notification">
+        <param name="ios-package" value="CDVNotification" />
+    </feature>
     <feature name="File">
         <param name="ios-package" value="CDVFile" />
+    </feature>
+    <feature name="FileTransfer">
+        <param name="ios-package" value="CDVFileTransfer" />
     </feature>
     <name>HelloWorld</name>
     <description>
@@ -47,9 +53,7 @@
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
     <icon src="icon.png" />
-    <feature name="Notification">
-        <param name="ios-package" value="CDVNotification" />
-    </feature>
+    <plugin name="Notification" value="CDVNotification" />
     <plugin name="File" value="CDVFile" />
     <plugin name="FileTransfer" value="CDVFileTransfer" />
     <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />

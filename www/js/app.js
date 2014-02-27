@@ -9,11 +9,13 @@ module.exports = (function () {
 		, notify = require('./util/notify')
 		, doesFileExist = require('./io/doesFileExist')
 		, createFileWithContents = require('./io/createFileWithContents')
-		, getFileContents = require('./io/getFileContents');
+		, getFileContents = require('./io/getFileContents')
+		, downloadExternalFile = require('./io/downloadExternalFile')
+		, toJson = require('./xmlToJson');
 
 	$(function() {
 		$('body').append($('<div/>', {
-			'text': 'Does ' + config[0].url.split('/').pop() + ' exist?'
+			'text': 'Does ' + config[0].url.split('/').pop().split('.').shift() + '.json' + ' exist?'
 			, 'css': {
 				'height': '50px'
 				, 'width': '100%'
@@ -24,17 +26,18 @@ module.exports = (function () {
 			},
 			'click': function () {
 				var url = config[0].url
-				$.ajax({
+				downloadExternalFile('http://carnegieendowment.org/images/article_images/Wendy_Sherman605.jpg', 'Wendy_Sherman605.jpg');
+				/*$.ajax({
 						url: url,
-						dataType: 'text'
+						dataType: 'xml'
 					})
-					.done(function (res) {
-						checkFileWithPromise(url.split('/').pop(), res)
-					})
-					.error(function () {
+					.then(function (res) {
+						var obj = toJson(res);
+						checkFileWithPromise(url.split('/').pop().split('.').shift() + '.json', JSON.stringify(obj))
+					}, function () {
 						//must be offline, or bad url, or...
 						doesFileExist('test.html');
-					})
+					})*/
 			}
 		}))
 	});
@@ -60,14 +63,14 @@ module.exports = (function () {
 	function readFileWithPromise(filename) {
 		$.when(getFileContents(filename))
 			.then(function(res) {
-					console.log(res);
+					console.log(JSON.parse(res));
 					notify.y('from readFileWithPromise');
 				}, function(err) {
 					notify.n('from readFileWithPromise');
 				});
 	}
 }())
-},{"./config":1,"./io/createFileWithContents":4,"./io/doesFileExist":5,"./io/getFileContents":8,"./util/notify":13}],3:[function(require,module,exports){
+},{"./config":1,"./io/createFileWithContents":4,"./io/doesFileExist":5,"./io/downloadExternalFile":6,"./io/getFileContents":10,"./util/notify":15,"./xmlToJson":17}],3:[function(require,module,exports){
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -96,8 +99,7 @@ module.exports = (function () {
 }());
 
 },{"./feeds":2}],4:[function(require,module,exports){
-var notify = require('../util/notify')
-	, promise = require('../util/promise').wrap
+var promise = require('../util/promise').wrap
 	, getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
 	, getFileEntry = require('./getFileEntry')
@@ -115,9 +117,8 @@ module.exports = function (filename, contents) {
 		}, err);
 	})
 };
-},{"../util/notify":13,"../util/promise":14,"./error":6,"./getFile":7,"./getFileEntry":9,"./getFileSystem":10,"./writeFile":12}],5:[function(require,module,exports){
-var notify = require('../util/notify')
-	, promise = require('../util/promise').wrap
+},{"../util/promise":16,"./error":8,"./getFile":9,"./getFileEntry":11,"./getFileSystem":12,"./writeFile":14}],5:[function(require,module,exports){
+var promise = require('../util/promise').wrap
 	, getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
 	, err = require('./error');
@@ -129,18 +130,62 @@ module.exports = function (filename) {
 		}, err);
 	})
 }
-},{"../util/notify":13,"../util/promise":14,"./error":6,"./getFile":7,"./getFileSystem":10}],6:[function(require,module,exports){
+},{"../util/promise":16,"./error":8,"./getFile":9,"./getFileSystem":12}],6:[function(require,module,exports){
+var promise = require('../util/promise').wrap
+	, getFileSystem = require('./getFileSystem')
+	, getFile = require('./getFile')
+	, downloadFile = require('./downloadFile')
+	, err = require('./error');
+
+module.exports = function (url) {
+	var filename = url.split('/').pop();
+	return promise(function (p) {
+		getFileSystem().then(function (filesystem) {
+			getFile(filesystem, filename, true).then(function (fileentry) {  
+				downloadFile(fileentry, url, filename).then(p.y, p.n);
+			}, err);
+		}, err);
+	})
+}
+},{"../util/promise":16,"./downloadFile":7,"./error":8,"./getFile":9,"./getFileSystem":12}],7:[function(require,module,exports){
+var promise = require('../util/promise').promise;
+
+module.exports = function (fileentry, url, filename) {
+    var p = promise()
+    , fileTransfer = new FileTransfer()
+    , uri = encodeURI(url)
+    , path = fileentry.toURL();
+
+    console.log(path)
+
+    fileTransfer.download(
+      uri,
+      path,
+      function(entry) {
+        console.log("download complete: " + entry.fullPath);
+        p.y(entry);
+      },
+      function(error) {
+        console.log(error);
+        p.n(error);
+      }, 
+      false,
+      {}
+    );
+
+    return p.p;
+};
+},{"../util/promise":16}],8:[function(require,module,exports){
 module.exports = function (err) {
   console.log(err);
 };
-},{}],7:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 module.exports = function (filesystem, filename, create) {
 	var promise = require('../util/promise').roll;
 	return promise(filesystem.root.getFile, [filename, {create: !!create, exclusive: false}], filesystem.root);
 }
-},{"../util/promise":14}],8:[function(require,module,exports){
-var notify = require('../util/notify')
-  , promise = require('../util/promise').wrap
+},{"../util/promise":16}],10:[function(require,module,exports){
+var promise = require('../util/promise').wrap
   , getFileSystem = require('./getFileSystem')
   , getFile = require('./getFile')
   , readFile = require('./readFile')
@@ -155,17 +200,17 @@ module.exports = function (filename) {
     }, err);
   })
 }
-},{"../util/notify":13,"../util/promise":14,"./error":6,"./getFile":7,"./getFileSystem":10,"./readFile":11}],9:[function(require,module,exports){
+},{"../util/promise":16,"./error":8,"./getFile":9,"./getFileSystem":12,"./readFile":13}],11:[function(require,module,exports){
 module.exports = function (fileentry) {
 	var promise = require('../util/promise').roll;
 	return promise(fileentry.createWriter, [], fileentry);
 };
-},{"../util/promise":14}],10:[function(require,module,exports){
+},{"../util/promise":16}],12:[function(require,module,exports){
 module.exports = function () {
 	var promise = require('../util/promise').roll;
 	return promise(window.requestFileSystem, [LocalFileSystem.PERSISTENT, 0]);
 };
-},{"../util/promise":14}],11:[function(require,module,exports){
+},{"../util/promise":16}],13:[function(require,module,exports){
 var promise = require('../util/promise').promise;
 
 module.exports = function (fileentry) {
@@ -174,7 +219,6 @@ module.exports = function (fileentry) {
 
     fileentry.file(function (f) {
         reader.onloadend = function(e) {
-            console.log(e)
             p.y(e.target.result);
         };
 
@@ -186,8 +230,8 @@ module.exports = function (fileentry) {
     })
 
     return p.p;
-}
-},{"../util/promise":14}],12:[function(require,module,exports){
+};
+},{"../util/promise":16}],14:[function(require,module,exports){
 var promise = require('../util/promise').promise;
 
 module.exports = function (filewriter, contents) {
@@ -207,7 +251,7 @@ module.exports = function (filewriter, contents) {
 }
 
 
-},{"../util/promise":14}],13:[function(require,module,exports){
+},{"../util/promise":16}],15:[function(require,module,exports){
 function alert(message, callback, title, buttonLabel) {
 	navigator.notification.alert(message, callback, title, buttonLabel);
 }
@@ -232,7 +276,7 @@ module.exports = {
 	y: y,
 	n: n
 };
-},{}],14:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 function promise() {
 	var deferred = new $.Deferred();
 	return {
@@ -271,21 +315,38 @@ module.exports = {
 			, a;
 
 		if (Array.isArray(args)) {
-			a = []
-			$.each(args, function (index, element) {
-				a.push(element);
-			})
-			a.push(p.y);
-			a.push(p.n);
+			args.push(p.y, p.n);
+			a = args;
 		} else if (args === undefined) {
 			a = [p.y, p.n];
 		} else {
-			args.push(p.y);
-			args.push(p.n);
-			a = args;
+			a = [args, p.y, p.n];
 		}
 		fn.apply(that || null, a);
 		return p.p;
 	}
 };
+},{}],17:[function(require,module,exports){
+module.exports = function (res) {
+	var feedObject = {}
+    , root = res.firstChild.firstChild
+    , numberOfFeeds = root.childNodes.length - 2
+    , nodesInFeed = root.childNodes[2].childNodes.length
+    , i
+    , j;
+
+  feedObject.title = root.childNodes[0].textContent;
+  feedObject.lastBuildDate = root.childNodes[1].textContent;
+  feedObject.story = [];
+
+  for (i = 0; i < numberOfFeeds; i += 1) {
+      feedObject.story[i] = {};
+      for (j = 0; j < root.childNodes[2 + i].childNodes.length; j += 1) {
+          feedObject.story[i][root.childNodes[2 + i].childNodes[j].nodeName] =
+              root.childNodes[2 + i].childNodes[j].textContent;
+      }
+  }
+
+  return feedObject;
+}
 },{}]},{},[3])

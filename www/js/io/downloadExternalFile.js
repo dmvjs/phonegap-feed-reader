@@ -1,18 +1,16 @@
 var promise = require('../util/promise').wrap
 	, getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
-	, getFileEntry = require('./getFileEntry')
-	, writeFile = require('./writeFile')
+	, downloadFile = require('./downloadFile')
 	, err = require('./error');
 
-module.exports = function (filename, contents) {
+module.exports = function (url) {
+	var filename = url.split('/').pop();
 	return promise(function (p) {
 		getFileSystem().then(function (filesystem) {
 			getFile(filesystem, filename, true).then(function (fileentry) {  
-				getFileEntry(fileentry).then(function (filewriter) {
-					writeFile(filewriter, contents).then(p.y, p.n);
-				}, err);
+				downloadFile(fileentry, url, filename).then(p.y, p.n);
 			}, err);
 		}, err);
 	})
-};
+}

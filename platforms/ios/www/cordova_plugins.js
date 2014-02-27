@@ -142,13 +142,28 @@ module.exports = [
         "merges": [
             "window.FileSystem"
         ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file-transfer/www/FileTransferError.js",
+        "id": "org.apache.cordova.file-transfer.FileTransferError",
+        "clobbers": [
+            "window.FileTransferError"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file-transfer/www/FileTransfer.js",
+        "id": "org.apache.cordova.file-transfer.FileTransfer",
+        "clobbers": [
+            "window.FileTransfer"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
     "org.apache.cordova.dialogs": "0.2.6",
-    "org.apache.cordova.file": "1.0.0"
+    "org.apache.cordova.file": "1.0.0",
+    "org.apache.cordova.file-transfer": "0.4.1"
 }
 // BOTTOM OF METADATA
 });

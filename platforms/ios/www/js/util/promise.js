@@ -36,18 +36,12 @@ module.exports = {
 			, a;
 
 		if (Array.isArray(args)) {
-			a = []
-			$.each(args, function (index, element) {
-				a.push(element);
-			})
-			a.push(p.y);
-			a.push(p.n);
+			args.push(p.y, p.n);
+			a = args;
 		} else if (args === undefined) {
 			a = [p.y, p.n];
 		} else {
-			args.push(p.y);
-			args.push(p.n);
-			a = args;
+			a = [args, p.y, p.n];
 		}
 		fn.apply(that || null, a);
 		return p.p;

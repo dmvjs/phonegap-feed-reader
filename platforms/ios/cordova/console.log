@@ -1328,3 +1328,851 @@
 2014-02-26 13:26:10.237 HelloWorld[42446:80b] Resetting plugins due to page load.
 2014-02-26 13:26:10.328 HelloWorld[42446:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/9585B53C-1463-42A6-94A4-D7B1824E5951/HelloWorld.app/www/index.html
 2014-02-26 13:26:22.750 HelloWorld[42446:80b] THREAD WARNING: ['Notification'] took '22.378174' ms. Plugin should use a background thread.
+2014-02-26 13:43:45.018 HelloWorld[43903:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 13:43:45.045 HelloWorld[43903:80b] Unlimited access to network resources
+2014-02-26 13:43:45.490 HelloWorld[43903:80b] Resetting plugins due to page load.
+2014-02-26 13:43:45.622 HelloWorld[43903:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/194F846F-0622-4CA1-879E-A7CEE5FC3B9D/HelloWorld.app/www/index.html
+2014-02-26 13:43:50.354 HelloWorld[43903:4003] bool _WebTryThreadLock(bool), 0xa627110: Multiple locks on web thread not allowed! Please file a bug. Crashing now...
+1   0x4f201b8 WebRunLoopLock(__CFRunLoopObserver*, unsigned long, void*)
+2   0xb653e __CFRUNLOOP_IS_CALLING_OUT_TO_AN_OBSERVER_CALLBACK_FUNCTION__
+3   0xb648f __CFRunLoopDoObservers
+4   0x942de __CFRunLoopRun
+5   0x93b33 CFRunLoopRunSpecific
+6   0x9394b CFRunLoopRunInMode
+7   0x4f20180 RunWebThread(void*)
+8   0x29d55fb _pthread_body
+9   0x29d5485 _pthread_struct_init
+10  0x29dacf2 thread_start
+2014-02-26 13:50:51.318 HelloWorld[45136:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 13:50:51.325 HelloWorld[45136:80b] Unlimited access to network resources
+2014-02-26 13:50:51.423 HelloWorld[45136:80b] Resetting plugins due to page load.
+2014-02-26 13:50:51.481 HelloWorld[45136:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/194F846F-0622-4CA1-879E-A7CEE5FC3B9D/HelloWorld.app/www/index.html
+2014-02-26 13:51:00.718 HelloWorld[45136:3f03] bool _WebTryThreadLock(bool), 0xa80add0: Multiple locks on web thread not allowed! Please file a bug. Crashing now...
+1   0x4f201b8 WebRunLoopLock(__CFRunLoopObserver*, unsigned long, void*)
+2   0xb653e __CFRUNLOOP_IS_CALLING_OUT_TO_AN_OBSERVER_CALLBACK_FUNCTION__
+3   0xb648f __CFRunLoopDoObservers
+4   0x942de __CFRunLoopRun
+5   0x93b33 CFRunLoopRunSpecific
+6   0x9394b CFRunLoopRunInMode
+7   0x4f20180 RunWebThread(void*)
+8   0x29d55fb _pthread_body
+9   0x29d5485 _pthread_struct_init
+10  0x29dacf2 thread_start
+2014-02-26 13:58:39.796 HelloWorld[46382:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 13:58:39.805 HelloWorld[46382:80b] Unlimited access to network resources
+2014-02-26 13:58:39.935 HelloWorld[46382:80b] Resetting plugins due to page load.
+2014-02-26 13:58:39.996 HelloWorld[46382:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/194F846F-0622-4CA1-879E-A7CEE5FC3B9D/HelloWorld.app/www/index.html
+2014-02-26 13:58:47.280 HelloWorld[46382:80b] THREAD WARNING: ['Notification'] took '23.216064' ms. Plugin should use a background thread.
+2014-02-26 13:59:29.669 HelloWorld[47512:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 13:59:29.678 HelloWorld[47512:80b] Unlimited access to network resources
+2014-02-26 13:59:29.806 HelloWorld[47512:80b] Resetting plugins due to page load.
+2014-02-26 13:59:29.870 HelloWorld[47512:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/97C69448-2C65-4414-B312-626923780D1F/HelloWorld.app/www/index.html
+2014-02-26 13:59:36.257 HelloWorld[47512:80b] THREAD WARNING: ['Notification'] took '23.239014' ms. Plugin should use a background thread.
+2014-02-26 14:00:26.791 HelloWorld[48668:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 14:00:26.797 HelloWorld[48668:80b] Unlimited access to network resources
+2014-02-26 14:00:26.925 HelloWorld[48668:80b] Resetting plugins due to page load.
+2014-02-26 14:00:26.971 HelloWorld[48668:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/DFE0BEF0-2F26-40CE-9BC3-5E003FFAAC2A/HelloWorld.app/www/index.html
+2014-02-26 14:00:32.173 HelloWorld[48668:80b] THREAD WARNING: ['Notification'] took '21.987793' ms. Plugin should use a background thread.
+2014-02-26 14:02:10.024 HelloWorld[49817:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 14:02:10.033 HelloWorld[49817:80b] Unlimited access to network resources
+2014-02-26 14:02:10.210 HelloWorld[49817:80b] Resetting plugins due to page load.
+2014-02-26 14:02:10.270 HelloWorld[49817:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/85027790-4D4D-49AF-A293-A0DE7213E170/HelloWorld.app/www/index.html
+2014-02-26 14:03:37.664 HelloWorld[50975:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 14:03:37.670 HelloWorld[50975:80b] Unlimited access to network resources
+2014-02-26 14:03:37.783 HelloWorld[50975:80b] Resetting plugins due to page load.
+2014-02-26 14:03:37.831 HelloWorld[50975:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/29326496-806B-4D29-BC4A-BCACE1D3FCF7/HelloWorld.app/www/index.html
+2014-02-26 14:03:47.419 HelloWorld[50975:80b] THREAD WARNING: ['Notification'] took '22.087891' ms. Plugin should use a background thread.
+2014-02-26 15:25:29.914 HelloWorld[53516:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 15:25:29.964 HelloWorld[53516:80b] Unlimited access to network resources
+2014-02-26 15:25:30.247 HelloWorld[53516:80b] Resetting plugins due to page load.
+2014-02-26 15:25:30.388 HelloWorld[53516:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/13A5FA9E-162A-4581-8D2D-0F947C2F232C/HelloWorld.app/www/index.html
+2014-02-26 15:26:39.733 HelloWorld[54662:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 15:26:39.742 HelloWorld[54662:80b] Unlimited access to network resources
+2014-02-26 15:26:39.846 HelloWorld[54662:80b] Resetting plugins due to page load.
+2014-02-26 15:26:39.895 HelloWorld[54662:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/13A5FA9E-162A-4581-8D2D-0F947C2F232C/HelloWorld.app/www/index.html
+2014-02-26 15:36:04.697 HelloWorld[55930:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 15:36:04.706 HelloWorld[55930:80b] Unlimited access to network resources
+2014-02-26 15:36:04.852 HelloWorld[55930:80b] Resetting plugins due to page load.
+2014-02-26 15:36:04.900 HelloWorld[55930:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/13A5FA9E-162A-4581-8D2D-0F947C2F232C/HelloWorld.app/www/index.html
+2014-02-26 15:37:37.568 HelloWorld[57081:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 15:37:37.575 HelloWorld[57081:80b] Unlimited access to network resources
+2014-02-26 15:37:37.690 HelloWorld[57081:80b] Resetting plugins due to page load.
+2014-02-26 15:37:37.745 HelloWorld[57081:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/493E40D8-88DE-439E-8BCF-C2659C251DCD/HelloWorld.app/www/index.html
+2014-02-26 15:45:31.073 HelloWorld[58327:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 15:45:31.083 HelloWorld[58327:80b] Unlimited access to network resources
+2014-02-26 15:45:31.206 HelloWorld[58327:80b] Resetting plugins due to page load.
+2014-02-26 15:45:31.260 HelloWorld[58327:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/56CDC980-8AD6-41E9-8EAA-ECDC48C688C0/HelloWorld.app/www/index.html
+2014-02-26 15:45:51.413 HelloWorld[58327:80b] THREAD WARNING: ['Notification'] took '23.024902' ms. Plugin should use a background thread.
+2014-02-26 16:48:19.837 HelloWorld[60388:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 16:48:19.875 HelloWorld[60388:80b] Unlimited access to network resources
+2014-02-26 16:48:20.227 HelloWorld[60388:80b] Resetting plugins due to page load.
+2014-02-26 16:48:20.344 HelloWorld[60388:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/4DC48391-3A57-4B4E-8923-50DA490A44C0/HelloWorld.app/www/index.html
+2014-02-26 16:50:24.920 HelloWorld[62696:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 16:50:24.926 HelloWorld[62696:80b] Unlimited access to network resources
+2014-02-26 16:50:25.040 HelloWorld[62696:80b] Resetting plugins due to page load.
+2014-02-26 16:50:25.097 HelloWorld[62696:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/AD6D5D3D-10F0-4AD5-BA16-D473CA377785/HelloWorld.app/www/index.html
+2014-02-26 16:50:31.779 HelloWorld[62696:80b] THREAD WARNING: ['Notification'] took '24.553955' ms. Plugin should use a background thread.
+2014-02-26 16:54:48.076 HelloWorld[63932:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 16:54:48.085 HelloWorld[63932:80b] Unlimited access to network resources
+2014-02-26 16:54:48.197 HelloWorld[63932:80b] Resetting plugins due to page load.
+2014-02-26 16:54:48.247 HelloWorld[63932:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/2F7706A0-F618-4D02-8248-264666631646/HelloWorld.app/www/index.html
+2014-02-26 16:55:54.922 HelloWorld[65085:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 16:55:54.931 HelloWorld[65085:80b] Unlimited access to network resources
+2014-02-26 16:55:55.043 HelloWorld[65085:80b] Resetting plugins due to page load.
+2014-02-26 16:55:55.097 HelloWorld[65085:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/A508B0BD-4D1F-4C37-B35A-B434E7A493CD/HelloWorld.app/www/index.html
+2014-02-26 16:56:51.514 HelloWorld[66233:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 16:56:51.524 HelloWorld[66233:80b] Unlimited access to network resources
+2014-02-26 16:56:51.642 HelloWorld[66233:80b] Resetting plugins due to page load.
+2014-02-26 16:56:51.691 HelloWorld[66233:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/71FCB044-1D8E-4537-9B89-BCB4ED8445F5/HelloWorld.app/www/index.html
+2014-02-26 16:58:54.621 HelloWorld[67451:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 16:58:54.638 HelloWorld[67451:80b] Unlimited access to network resources
+2014-02-26 16:58:54.803 HelloWorld[67451:80b] Resetting plugins due to page load.
+2014-02-26 16:58:54.874 HelloWorld[67451:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/CB867E58-1AE5-4FDB-9032-AEB960C95640/HelloWorld.app/www/index.html
+2014-02-26 16:59:01.187 HelloWorld[67451:80b] FileTransferError {
+    body = "Could not create target file";
+    code = 1;
+    "http_status" = 200;
+    source = "http://carnegieendowment.org/images/article_images/Wendy_Sherman605.jpg";
+}
+2014-02-26 16:59:01.188 HelloWorld[67451:80b] File Transfer Error: Could not create target file
+2014-02-26 16:59:01.315 HelloWorld[67451:80b] THREAD WARNING: ['Notification'] took '22.479004' ms. Plugin should use a background thread.
+2014-02-26 17:04:30.912 HelloWorld[68697:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:04:30.918 HelloWorld[68697:80b] Unlimited access to network resources
+2014-02-26 17:04:31.024 HelloWorld[68697:80b] Resetting plugins due to page load.
+2014-02-26 17:04:31.080 HelloWorld[68697:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/CB867E58-1AE5-4FDB-9032-AEB960C95640/HelloWorld.app/www/index.html
+2014-02-26 17:04:36.318 HelloWorld[68697:80b] -[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa61aad0
+2014-02-26 17:04:36.344 HelloWorld[68697:80b] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa61aad0'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x000fe5e4 __exceptionPreprocess + 180
+	1   libobjc.A.dylib                     0x020f18b6 objc_exception_throw + 44
+	2   CoreFoundation                      0x0019b903 -[NSObject(NSObject) doesNotRecognizeSelector:] + 275
+	3   libobjc.A.dylib                     0x02103959 -[NSObject forwardInvocation:] + 68
+	4   CoreFoundation                      0x000ee6da ___forwarding___ + 458
+	5   CoreFoundation                      0x000ee4ee _CF_forwarding_prep_0 + 14
+	6   HelloWorld                          0x00025e86 -[CDVFile fileSystemURLforLocalPath:] + 406
+	7   HelloWorld                          0x0003a4cc -[CDVFileTransfer download:] + 844
+	8   HelloWorld                          0x0001a996 -[CDVCommandQueue execute:] + 902
+	9   HelloWorld                          0x0001a1a9 -[CDVCommandQueue executePending] + 697
+	10  HelloWorld                          0x00019cb9 -[CDVCommandQueue enqueCommandBatch:] + 153
+	11  HelloWorld                          0x00019ecf -[CDVCommandQueue fetchCommandsFromJs] + 207
+	12  HelloWorld                          0x00019dc6 -[CDVCommandQueue maybeFetchCommandsFromJs:] + 230
+	13  libobjc.A.dylib                     0x0210381f -[NSObject performSelector:withObject:] + 70
+	14  Foundation                          0x01d46c18 __NSThreadPerformPerform + 285
+	15  CoreFoundation                      0x000878af __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + 15
+	16  CoreFoundation                      0x0008723b __CFRunLoopDoSources0 + 235
+	17  CoreFoundation                      0x000a430e __CFRunLoopRun + 910
+	18  CoreFoundation                      0x000a3b33 CFRunLoopRunSpecific + 467
+	19  CoreFoundation                      0x000a394b CFRunLoopRunInMode + 123
+	20  GraphicsServices                    0x0358f9d7 GSEventRunModal + 192
+	21  GraphicsServices                    0x0358f7fe GSEventRun + 104
+	22  UIKit                               0x0036494b UIApplicationMain + 1225
+	23  HelloWorld                          0x00020fcc main + 92
+	24  HelloWorld                          0x00020f5d start + 53
+)
+libc++abi.dylib: terminating with uncaught exception of type NSException
+2014-02-26 17:07:14.062 HelloWorld[69921:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:07:14.080 HelloWorld[69921:80b] Unlimited access to network resources
+2014-02-26 17:07:14.187 HelloWorld[69921:80b] Resetting plugins due to page load.
+2014-02-26 17:07:14.241 HelloWorld[69921:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/0A154585-DA57-4B4D-8BF6-695A1DAD0554/HelloWorld.app/www/index.html
+2014-02-26 17:07:19.077 HelloWorld[69921:80b] -[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa55bca0
+2014-02-26 17:07:19.078 HelloWorld[69921:80b] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa55bca0'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x000fe5e4 __exceptionPreprocess + 180
+	1   libobjc.A.dylib                     0x020f18b6 objc_exception_throw + 44
+	2   CoreFoundation                      0x0019b903 -[NSObject(NSObject) doesNotRecognizeSelector:] + 275
+	3   libobjc.A.dylib                     0x02103959 -[NSObject forwardInvocation:] + 68
+	4   CoreFoundation                      0x000ee6da ___forwarding___ + 458
+	5   CoreFoundation                      0x000ee4ee _CF_forwarding_prep_0 + 14
+	6   HelloWorld                          0x00025e86 -[CDVFile fileSystemURLforLocalPath:] + 406
+	7   HelloWorld                          0x0003a4cc -[CDVFileTransfer download:] + 844
+	8   HelloWorld                          0x0001a996 -[CDVCommandQueue execute:] + 902
+	9   HelloWorld                          0x0001a1a9 -[CDVCommandQueue executePending] + 697
+	10  HelloWorld                          0x00019cb9 -[CDVCommandQueue enqueCommandBatch:] + 153
+	11  HelloWorld                          0x00019ecf -[CDVCommandQueue fetchCommandsFromJs] + 207
+	12  HelloWorld                          0x00019dc6 -[CDVCommandQueue maybeFetchCommandsFromJs:] + 230
+	13  libobjc.A.dylib                     0x0210381f -[NSObject performSelector:withObject:] + 70
+	14  Foundation                          0x01d46c18 __NSThreadPerformPerform + 285
+	15  CoreFoundation                      0x000878af __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + 15
+	16  CoreFoundation                      0x0008723b __CFRunLoopDoSources0 + 235
+	17  CoreFoundation                      0x000a430e __CFRunLoopRun + 910
+	18  CoreFoundation                      0x000a3b33 CFRunLoopRunSpecific + 467
+	19  CoreFoundation                      0x000a394b CFRunLoopRunInMode + 123
+	20  GraphicsServices                    0x0358f9d7 GSEventRunModal + 192
+	21  GraphicsServices                    0x0358f7fe GSEventRun + 104
+	22  UIKit                               0x0036494b UIApplicationMain + 1225
+	23  HelloWorld                          0x00020fcc main + 92
+	24  HelloWorld                          0x00020f5d start + 53
+)
+libc++abi.dylib: terminating with uncaught exception of type NSException
+2014-02-26 17:10:30.461 HelloWorld[71134:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:10:30.472 HelloWorld[71134:80b] Unlimited access to network resources
+2014-02-26 17:10:30.647 HelloWorld[71134:80b] Resetting plugins due to page load.
+2014-02-26 17:10:30.704 HelloWorld[71134:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/06C92B80-BDC0-4C6F-867B-08FD7FFFA6AA/HelloWorld.app/www/index.html
+2014-02-26 17:10:35.703 HelloWorld[71134:80b] -[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa686530
+2014-02-26 17:10:35.707 HelloWorld[71134:80b] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa686530'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x000fe5e4 __exceptionPreprocess + 180
+	1   libobjc.A.dylib                     0x020f18b6 objc_exception_throw + 44
+	2   CoreFoundation                      0x0019b903 -[NSObject(NSObject) doesNotRecognizeSelector:] + 275
+	3   libobjc.A.dylib                     0x02103959 -[NSObject forwardInvocation:] + 68
+	4   CoreFoundation                      0x000ee6da ___forwarding___ + 458
+	5   CoreFoundation                      0x000ee4ee _CF_forwarding_prep_0 + 14
+	6   HelloWorld                          0x00025e86 -[CDVFile fileSystemURLforLocalPath:] + 406
+	7   HelloWorld                          0x0003a4cc -[CDVFileTransfer download:] + 844
+	8   HelloWorld                          0x0001a996 -[CDVCommandQueue execute:] + 902
+	9   HelloWorld                          0x0001a1a9 -[CDVCommandQueue executePending] + 697
+	10  HelloWorld                          0x00019cb9 -[CDVCommandQueue enqueCommandBatch:] + 153
+	11  HelloWorld                          0x00019ecf -[CDVCommandQueue fetchCommandsFromJs] + 207
+	12  HelloWorld                          0x00019dc6 -[CDVCommandQueue maybeFetchCommandsFromJs:] + 230
+	13  libobjc.A.dylib                     0x0210381f -[NSObject performSelector:withObject:] + 70
+	14  Foundation                          0x01d46c18 __NSThreadPerformPerform + 285
+	15  CoreFoundation                      0x000878af __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + 15
+	16  CoreFoundation                      0x0008723b __CFRunLoopDoSources0 + 235
+	17  CoreFoundation                      0x000a430e __CFRunLoopRun + 910
+	18  CoreFoundation                      0x000a3b33 CFRunLoopRunSpecific + 467
+	19  CoreFoundation                      0x000a394b CFRunLoopRunInMode + 123
+	20  GraphicsServices                    0x0358f9d7 GSEventRunModal + 192
+	21  GraphicsServices                    0x0358f7fe GSEventRun + 104
+	22  UIKit                               0x0036494b UIApplicationMain + 1225
+	23  HelloWorld                          0x00020fcc main + 92
+	24  HelloWorld                          0x00020f5d start + 53
+)
+libc++abi.dylib: terminating with uncaught exception of type NSException
+2014-02-26 17:11:47.244 HelloWorld[72311:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:11:47.254 HelloWorld[72311:80b] Unlimited access to network resources
+2014-02-26 17:11:47.374 HelloWorld[72311:80b] Resetting plugins due to page load.
+2014-02-26 17:11:47.429 HelloWorld[72311:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/44A2072F-9C6A-4489-8E1C-1B767EA3A069/HelloWorld.app/www/index.html
+2014-02-26 17:11:51.075 HelloWorld[72311:80b] -[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xab3f810
+2014-02-26 17:11:51.076 HelloWorld[72311:80b] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xab3f810'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x000fe5e4 __exceptionPreprocess + 180
+	1   libobjc.A.dylib                     0x020f18b6 objc_exception_throw + 44
+	2   CoreFoundation                      0x0019b903 -[NSObject(NSObject) doesNotRecognizeSelector:] + 275
+	3   libobjc.A.dylib                     0x02103959 -[NSObject forwardInvocation:] + 68
+	4   CoreFoundation                      0x000ee6da ___forwarding___ + 458
+	5   CoreFoundation                      0x000ee4ee _CF_forwarding_prep_0 + 14
+	6   HelloWorld                          0x00025e86 -[CDVFile fileSystemURLforLocalPath:] + 406
+	7   HelloWorld                          0x0003a4cc -[CDVFileTransfer download:] + 844
+	8   HelloWorld                          0x0001a996 -[CDVCommandQueue execute:] + 902
+	9   HelloWorld                          0x0001a1a9 -[CDVCommandQueue executePending] + 697
+	10  HelloWorld                          0x00019cb9 -[CDVCommandQueue enqueCommandBatch:] + 153
+	11  HelloWorld                          0x00019ecf -[CDVCommandQueue fetchCommandsFromJs] + 207
+	12  HelloWorld                          0x00019dc6 -[CDVCommandQueue maybeFetchCommandsFromJs:] + 230
+	13  libobjc.A.dylib                     0x0210381f -[NSObject performSelector:withObject:] + 70
+	14  Foundation                          0x01d46c18 __NSThreadPerformPerform + 285
+	15  CoreFoundation                      0x000878af __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + 15
+	16  CoreFoundation                      0x0008723b __CFRunLoopDoSources0 + 235
+	17  CoreFoundation                      0x000a430e __CFRunLoopRun + 910
+	18  CoreFoundation                      0x000a3b33 CFRunLoopRunSpecific + 467
+	19  CoreFoundation                      0x000a394b CFRunLoopRunInMode + 123
+	20  GraphicsServices                    0x0358f9d7 GSEventRunModal + 192
+	21  GraphicsServices                    0x0358f7fe GSEventRun + 104
+	22  UIKit                               0x0036494b UIApplicationMain + 1225
+	23  HelloWorld                          0x00020fcc main + 92
+	24  HelloWorld                          0x00020f5d start + 53
+)
+libc++abi.dylib: terminating with uncaught exception of type NSException
+2014-02-26 17:13:20.905 HelloWorld[73493:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:13:20.912 HelloWorld[73493:80b] Unlimited access to network resources
+2014-02-26 17:13:21.023 HelloWorld[73493:80b] Resetting plugins due to page load.
+2014-02-26 17:13:21.070 HelloWorld[73493:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/06CD73E3-0CE0-4BEC-84CE-8E8518990EAD/HelloWorld.app/www/index.html
+2014-02-26 17:13:25.723 HelloWorld[73493:80b] -[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa76a420
+2014-02-26 17:13:25.725 HelloWorld[73493:80b] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa76a420'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x000fe5e4 __exceptionPreprocess + 180
+	1   libobjc.A.dylib                     0x020f18b6 objc_exception_throw + 44
+	2   CoreFoundation                      0x0019b903 -[NSObject(NSObject) doesNotRecognizeSelector:] + 275
+	3   libobjc.A.dylib                     0x02103959 -[NSObject forwardInvocation:] + 68
+	4   CoreFoundation                      0x000ee6da ___forwarding___ + 458
+	5   CoreFoundation                      0x000ee4ee _CF_forwarding_prep_0 + 14
+	6   HelloWorld                          0x00025e86 -[CDVFile fileSystemURLforLocalPath:] + 406
+	7   HelloWorld                          0x0003a4cc -[CDVFileTransfer download:] + 844
+	8   HelloWorld                          0x0001a996 -[CDVCommandQueue execute:] + 902
+	9   HelloWorld                          0x0001a1a9 -[CDVCommandQueue executePending] + 697
+	10  HelloWorld                          0x00019cb9 -[CDVCommandQueue enqueCommandBatch:] + 153
+	11  HelloWorld                          0x00019ecf -[CDVCommandQueue fetchCommandsFromJs] + 207
+	12  HelloWorld                          0x00019dc6 -[CDVCommandQueue maybeFetchCommandsFromJs:] + 230
+	13  libobjc.A.dylib                     0x0210381f -[NSObject performSelector:withObject:] + 70
+	14  Foundation                          0x01d46c18 __NSThreadPerformPerform + 285
+	15  CoreFoundation                      0x000878af __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + 15
+	16  CoreFoundation                      0x0008723b __CFRunLoopDoSources0 + 235
+	17  CoreFoundation                      0x000a430e __CFRunLoopRun + 910
+	18  CoreFoundation                      0x000a3b33 CFRunLoopRunSpecific + 467
+	19  CoreFoundation                      0x000a394b CFRunLoopRunInMode + 123
+	20  GraphicsServices                    0x0358f9d7 GSEventRunModal + 192
+	21  GraphicsServices                    0x0358f7fe GSEventRun + 104
+	22  UIKit                               0x0036494b UIApplicationMain + 1225
+	23  HelloWorld                          0x00020fcc main + 92
+	24  HelloWorld                          0x00020f5d start + 53
+)
+libc++abi.dylib: terminating with uncaught exception of type NSException
+2014-02-26 17:15:06.741 HelloWorld[75820:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:15:06.756 HelloWorld[75820:80b] Unlimited access to network resources
+2014-02-26 17:15:06.889 HelloWorld[75820:80b] Resetting plugins due to page load.
+2014-02-26 17:15:06.964 HelloWorld[75820:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/82F66672-7145-4374-8586-A9335490BD68/HelloWorld.app/www/index.html
+2014-02-26 17:16:20.857 HelloWorld[77002:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:16:20.865 HelloWorld[77002:80b] Unlimited access to network resources
+2014-02-26 17:16:20.975 HelloWorld[77002:80b] Resetting plugins due to page load.
+2014-02-26 17:16:21.031 HelloWorld[77002:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/F4266176-7B9F-4D4C-A931-6EB8437679B8/HelloWorld.app/www/index.html
+2014-02-26 17:16:25.363 HelloWorld[77002:80b] -[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xab287d0
+2014-02-26 17:16:25.367 HelloWorld[77002:80b] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xab287d0'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x000fe5e4 __exceptionPreprocess + 180
+	1   libobjc.A.dylib                     0x020f18b6 objc_exception_throw + 44
+	2   CoreFoundation                      0x0019b903 -[NSObject(NSObject) doesNotRecognizeSelector:] + 275
+	3   libobjc.A.dylib                     0x02103959 -[NSObject forwardInvocation:] + 68
+	4   CoreFoundation                      0x000ee6da ___forwarding___ + 458
+	5   CoreFoundation                      0x000ee4ee _CF_forwarding_prep_0 + 14
+	6   HelloWorld                          0x00025e86 -[CDVFile fileSystemURLforLocalPath:] + 406
+	7   HelloWorld                          0x0003a4cc -[CDVFileTransfer download:] + 844
+	8   HelloWorld                          0x0001a996 -[CDVCommandQueue execute:] + 902
+	9   HelloWorld                          0x0001a1a9 -[CDVCommandQueue executePending] + 697
+	10  HelloWorld                          0x00019cb9 -[CDVCommandQueue enqueCommandBatch:] + 153
+	11  HelloWorld                          0x00019ecf -[CDVCommandQueue fetchCommandsFromJs] + 207
+	12  HelloWorld                          0x00019dc6 -[CDVCommandQueue maybeFetchCommandsFromJs:] + 230
+	13  libobjc.A.dylib                     0x0210381f -[NSObject performSelector:withObject:] + 70
+	14  Foundation                          0x01d46c18 __NSThreadPerformPerform + 285
+	15  CoreFoundation                      0x000878af __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + 15
+	16  CoreFoundation                      0x0008723b __CFRunLoopDoSources0 + 235
+	17  CoreFoundation                      0x000a430e __CFRunLoopRun + 910
+	18  CoreFoundation                      0x000a3b33 CFRunLoopRunSpecific + 467
+	19  CoreFoundation                      0x000a394b CFRunLoopRunInMode + 123
+	20  GraphicsServices                    0x0358f9d7 GSEventRunModal + 192
+	21  GraphicsServices                    0x0358f7fe GSEventRun + 104
+	22  UIKit                               0x0036494b UIApplicationMain + 1225
+	23  HelloWorld                          0x00020fcc main + 92
+	24  HelloWorld                          0x00020f5d start + 53
+)
+libc++abi.dylib: terminating with uncaught exception of type NSException
+2014-02-26 17:17:55.048 HelloWorld[79340:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:17:55.055 HelloWorld[79340:80b] Unlimited access to network resources
+2014-02-26 17:17:55.167 HelloWorld[79340:80b] Resetting plugins due to page load.
+2014-02-26 17:17:55.242 HelloWorld[79340:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/123FD8F3-CCFA-4E19-B446-0443338BCA29/HelloWorld.app/www/index.html
+2014-02-26 17:17:58.837 HelloWorld[79340:80b] -[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa957270
+2014-02-26 17:17:58.839 HelloWorld[79340:80b] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa957270'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x000fe5e4 __exceptionPreprocess + 180
+	1   libobjc.A.dylib                     0x020f18b6 objc_exception_throw + 44
+	2   CoreFoundation                      0x0019b903 -[NSObject(NSObject) doesNotRecognizeSelector:] + 275
+	3   libobjc.A.dylib                     0x02103959 -[NSObject forwardInvocation:] + 68
+	4   CoreFoundation                      0x000ee6da ___forwarding___ + 458
+	5   CoreFoundation                      0x000ee4ee _CF_forwarding_prep_0 + 14
+	6   HelloWorld                          0x00025e86 -[CDVFile fileSystemURLforLocalPath:] + 406
+	7   HelloWorld                          0x0003a4cc -[CDVFileTransfer download:] + 844
+	8   HelloWorld                          0x0001a996 -[CDVCommandQueue execute:] + 902
+	9   HelloWorld                          0x0001a1a9 -[CDVCommandQueue executePending] + 697
+	10  HelloWorld                          0x00019cb9 -[CDVCommandQueue enqueCommandBatch:] + 153
+	11  HelloWorld                          0x00019ecf -[CDVCommandQueue fetchCommandsFromJs] + 207
+	12  HelloWorld                          0x00019dc6 -[CDVCommandQueue maybeFetchCommandsFromJs:] + 230
+	13  libobjc.A.dylib                     0x0210381f -[NSObject performSelector:withObject:] + 70
+	14  Foundation                          0x01d46c18 __NSThreadPerformPerform + 285
+	15  CoreFoundation                      0x000878af __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + 15
+	16  CoreFoundation                      0x0008723b __CFRunLoopDoSources0 + 235
+	17  CoreFoundation                      0x000a430e __CFRunLoopRun + 910
+	18  CoreFoundation                      0x000a3b33 CFRunLoopRunSpecific + 467
+	19  CoreFoundation                      0x000a394b CFRunLoopRunInMode + 123
+	20  GraphicsServices                    0x0358f9d7 GSEventRunModal + 192
+	21  GraphicsServices                    0x0358f7fe GSEventRun + 104
+	22  UIKit                               0x0036494b UIApplicationMain + 1225
+	23  HelloWorld                          0x00020fcc main + 92
+	24  HelloWorld                          0x00020f5d start + 53
+)
+libc++abi.dylib: terminating with uncaught exception of type NSException
+2014-02-26 17:19:52.346 HelloWorld[81671:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:19:52.354 HelloWorld[81671:80b] Unlimited access to network resources
+2014-02-26 17:19:52.539 HelloWorld[81671:80b] Resetting plugins due to page load.
+2014-02-26 17:19:52.587 HelloWorld[81671:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/123FD8F3-CCFA-4E19-B446-0443338BCA29/HelloWorld.app/www/index.html
+2014-02-26 17:19:56.405 HelloWorld[81671:80b] FileTransferError {
+    body = "Could not create target file";
+    code = 1;
+    "http_status" = 200;
+    source = "http://carnegieendowment.org/images/article_images/Wendy_Sherman605.jpg";
+}
+2014-02-26 17:19:56.405 HelloWorld[81671:80b] File Transfer Error: Could not create target file
+2014-02-26 17:20:41.873 HelloWorld[82843:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:20:41.880 HelloWorld[82843:80b] Unlimited access to network resources
+2014-02-26 17:20:42.024 HelloWorld[82843:80b] Resetting plugins due to page load.
+2014-02-26 17:20:42.101 HelloWorld[82843:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/123FD8F3-CCFA-4E19-B446-0443338BCA29/HelloWorld.app/www/index.html
+2014-02-26 17:20:46.461 HelloWorld[82843:80b] FileTransferError {
+    body = "Could not create target file";
+    code = 1;
+    "http_status" = 200;
+    source = "http://carnegieendowment.org/images/article_images/Wendy_Sherman605.jpg";
+}
+2014-02-26 17:20:46.461 HelloWorld[82843:80b] File Transfer Error: Could not create target file
+2014-02-26 17:26:23.023 HelloWorld[84091:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:26:23.029 HelloWorld[84091:80b] Unlimited access to network resources
+2014-02-26 17:26:23.135 HelloWorld[84091:80b] Resetting plugins due to page load.
+2014-02-26 17:26:23.181 HelloWorld[84091:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/123FD8F3-CCFA-4E19-B446-0443338BCA29/HelloWorld.app/www/index.html
+2014-02-26 17:27:16.169 HelloWorld[85260:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:27:16.177 HelloWorld[85260:80b] Unlimited access to network resources
+2014-02-26 17:27:16.278 HelloWorld[85260:80b] Resetting plugins due to page load.
+2014-02-26 17:27:16.325 HelloWorld[85260:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/123FD8F3-CCFA-4E19-B446-0443338BCA29/HelloWorld.app/www/index.html
+2014-02-26 17:27:18.682 HelloWorld[85260:80b] -[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa644f40
+2014-02-26 17:27:18.684 HelloWorld[85260:80b] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa644f40'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x000fe5e4 __exceptionPreprocess + 180
+	1   libobjc.A.dylib                     0x020f18b6 objc_exception_throw + 44
+	2   CoreFoundation                      0x0019b903 -[NSObject(NSObject) doesNotRecognizeSelector:] + 275
+	3   libobjc.A.dylib                     0x02103959 -[NSObject forwardInvocation:] + 68
+	4   CoreFoundation                      0x000ee6da ___forwarding___ + 458
+	5   CoreFoundation                      0x000ee4ee _CF_forwarding_prep_0 + 14
+	6   HelloWorld                          0x00025e86 -[CDVFile fileSystemURLforLocalPath:] + 406
+	7   HelloWorld                          0x0003a4cc -[CDVFileTransfer download:] + 844
+	8   HelloWorld                          0x0001a996 -[CDVCommandQueue execute:] + 902
+	9   HelloWorld                          0x0001a1a9 -[CDVCommandQueue executePending] + 697
+	10  HelloWorld                          0x00019cb9 -[CDVCommandQueue enqueCommandBatch:] + 153
+	11  HelloWorld                          0x00019ecf -[CDVCommandQueue fetchCommandsFromJs] + 207
+	12  HelloWorld                          0x00019dc6 -[CDVCommandQueue maybeFetchCommandsFromJs:] + 230
+	13  libobjc.A.dylib                     0x0210381f -[NSObject performSelector:withObject:] + 70
+	14  Foundation                          0x01d46c18 __NSThreadPerformPerform + 285
+	15  CoreFoundation                      0x000878af __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + 15
+	16  CoreFoundation                      0x0008723b __CFRunLoopDoSources0 + 235
+	17  CoreFoundation                      0x000a430e __CFRunLoopRun + 910
+	18  CoreFoundation                      0x000a3b33 CFRunLoopRunSpecific + 467
+	19  CoreFoundation                      0x000a394b CFRunLoopRunInMode + 123
+	20  GraphicsServices                    0x0358f9d7 GSEventRunModal + 192
+	21  GraphicsServices                    0x0358f7fe GSEventRun + 104
+	22  UIKit                               0x0036494b UIApplicationMain + 1225
+	23  HelloWorld                          0x00020fcc main + 92
+	24  HelloWorld                          0x00020f5d start + 53
+)
+libc++abi.dylib: terminating with uncaught exception of type NSException
+2014-02-26 17:29:30.594 HelloWorld[86452:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:29:30.604 HelloWorld[86452:80b] Unlimited access to network resources
+2014-02-26 17:29:30.712 HelloWorld[86452:80b] Resetting plugins due to page load.
+2014-02-26 17:29:30.767 HelloWorld[86452:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/123FD8F3-CCFA-4E19-B446-0443338BCA29/HelloWorld.app/www/index.html
+2014-02-26 17:29:35.527 HelloWorld[86452:80b] -[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa6154f0
+2014-02-26 17:29:35.529 HelloWorld[86452:80b] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa6154f0'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x000fe5e4 __exceptionPreprocess + 180
+	1   libobjc.A.dylib                     0x020f18b6 objc_exception_throw + 44
+	2   CoreFoundation                      0x0019b903 -[NSObject(NSObject) doesNotRecognizeSelector:] + 275
+	3   libobjc.A.dylib                     0x02103959 -[NSObject forwardInvocation:] + 68
+	4   CoreFoundation                      0x000ee6da ___forwarding___ + 458
+	5   CoreFoundation                      0x000ee4ee _CF_forwarding_prep_0 + 14
+	6   HelloWorld                          0x00025e86 -[CDVFile fileSystemURLforLocalPath:] + 406
+	7   HelloWorld                          0x0003a4cc -[CDVFileTransfer download:] + 844
+	8   HelloWorld                          0x0001a996 -[CDVCommandQueue execute:] + 902
+	9   HelloWorld                          0x0001a1a9 -[CDVCommandQueue executePending] + 697
+	10  HelloWorld                          0x00019cb9 -[CDVCommandQueue enqueCommandBatch:] + 153
+	11  HelloWorld                          0x00019ecf -[CDVCommandQueue fetchCommandsFromJs] + 207
+	12  HelloWorld                          0x00019dc6 -[CDVCommandQueue maybeFetchCommandsFromJs:] + 230
+	13  libobjc.A.dylib                     0x0210381f -[NSObject performSelector:withObject:] + 70
+	14  Foundation                          0x01d46c18 __NSThreadPerformPerform + 285
+	15  CoreFoundation                      0x000878af __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + 15
+	16  CoreFoundation                      0x0008723b __CFRunLoopDoSources0 + 235
+	17  CoreFoundation                      0x000a430e __CFRunLoopRun + 910
+	18  CoreFoundation                      0x000a3b33 CFRunLoopRunSpecific + 467
+	19  CoreFoundation                      0x000a394b CFRunLoopRunInMode + 123
+	20  GraphicsServices                    0x0358f9d7 GSEventRunModal + 192
+	21  GraphicsServices                    0x0358f7fe GSEventRun + 104
+	22  UIKit                               0x0036494b UIApplicationMain + 1225
+	23  HelloWorld                          0x00020fcc main + 92
+	24  HelloWorld                          0x00020f5d start + 53
+)
+libc++abi.dylib: terminating with uncaught exception of type NSException
+2014-02-26 17:34:28.457 HelloWorld[87702:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:34:28.466 HelloWorld[87702:80b] Unlimited access to network resources
+2014-02-26 17:34:28.575 HelloWorld[87702:80b] Resetting plugins due to page load.
+2014-02-26 17:34:28.629 HelloWorld[87702:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/123FD8F3-CCFA-4E19-B446-0443338BCA29/HelloWorld.app/www/index.html
+2014-02-26 17:35:42.075 HelloWorld[88883:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:35:42.084 HelloWorld[88883:80b] Unlimited access to network resources
+2014-02-26 17:35:42.192 HelloWorld[88883:80b] Resetting plugins due to page load.
+2014-02-26 17:35:42.248 HelloWorld[88883:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/123FD8F3-CCFA-4E19-B446-0443338BCA29/HelloWorld.app/www/index.html
+2014-02-26 17:36:00.996 HelloWorld[88883:80b] FileTransferError {
+    body = "Could not create target file";
+    code = 1;
+    "http_status" = 200;
+    source = "http://carnegieendowment.org/images/article_images/Wendy_Sherman605.jpg";
+}
+2014-02-26 17:36:00.996 HelloWorld[88883:80b] File Transfer Error: Could not create target file
+2014-02-26 17:36:02.459 HelloWorld[88883:80b] FileTransferError {
+    body = "Could not create target file";
+    code = 1;
+    "http_status" = 200;
+    source = "http://carnegieendowment.org/images/article_images/Wendy_Sherman605.jpg";
+}
+2014-02-26 17:36:02.459 HelloWorld[88883:80b] File Transfer Error: Could not create target file
+2014-02-26 17:36:06.652 HelloWorld[88883:80b] FileTransferError {
+    body = "Could not create target file";
+    code = 1;
+    "http_status" = 200;
+    source = "http://carnegieendowment.org/images/article_images/Wendy_Sherman605.jpg";
+}
+2014-02-26 17:36:06.653 HelloWorld[88883:80b] File Transfer Error: Could not create target file
+2014-02-26 17:36:08.165 HelloWorld[88883:80b] FileTransferError {
+    body = "Could not create target file";
+    code = 1;
+    "http_status" = 200;
+    source = "http://carnegieendowment.org/images/article_images/Wendy_Sherman605.jpg";
+}
+2014-02-26 17:36:08.165 HelloWorld[88883:80b] File Transfer Error: Could not create target file
+2014-02-26 17:37:34.086 HelloWorld[90072:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:37:34.095 HelloWorld[90072:80b] Unlimited access to network resources
+2014-02-26 17:37:34.215 HelloWorld[90072:80b] Resetting plugins due to page load.
+2014-02-26 17:37:34.262 HelloWorld[90072:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/123FD8F3-CCFA-4E19-B446-0443338BCA29/HelloWorld.app/www/index.html
+2014-02-26 17:37:41.650 HelloWorld[90072:80b] FileTransferError {
+    body = "Could not create target file";
+    code = 1;
+    "http_status" = 200;
+    source = "http://carnegieendowment.org/images/article_images/Wendy_Sherman605.jpg";
+}
+2014-02-26 17:37:41.651 HelloWorld[90072:80b] File Transfer Error: Could not create target file
+2014-02-26 17:37:42.705 HelloWorld[90072:80b] FileTransferError {
+    body = "Could not create target file";
+    code = 1;
+    "http_status" = 200;
+    source = "http://carnegieendowment.org/images/article_images/Wendy_Sherman605.jpg";
+}
+2014-02-26 17:37:42.705 HelloWorld[90072:80b] File Transfer Error: Could not create target file
+2014-02-26 17:37:43.493 HelloWorld[90072:80b] FileTransferError {
+    body = "Could not create target file";
+    code = 1;
+    "http_status" = 200;
+    source = "http://carnegieendowment.org/images/article_images/Wendy_Sherman605.jpg";
+}
+2014-02-26 17:37:43.493 HelloWorld[90072:80b] File Transfer Error: Could not create target file
+2014-02-26 17:37:58.408 HelloWorld[90072:80b] FileTransferError {
+    body = "Could not create target file";
+    code = 1;
+    "http_status" = 200;
+    source = "http://carnegieendowment.org/images/article_images/Wendy_Sherman605.jpg";
+}
+2014-02-26 17:37:58.408 HelloWorld[90072:80b] File Transfer Error: Could not create target file
+2014-02-26 17:39:04.964 HelloWorld[91238:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:39:04.975 HelloWorld[91238:80b] Unlimited access to network resources
+2014-02-26 17:39:05.087 HelloWorld[91238:80b] Resetting plugins due to page load.
+2014-02-26 17:39:05.135 HelloWorld[91238:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/0837EDF4-F958-41DA-A276-C49D6BB969E9/HelloWorld.app/www/index.html
+2014-02-26 17:39:09.484 HelloWorld[91238:80b] FileTransferError {
+    body = "Could not create target file";
+    code = 1;
+    "http_status" = 200;
+    source = "http://carnegieendowment.org/images/article_images/Wendy_Sherman605.jpg";
+}
+2014-02-26 17:39:09.485 HelloWorld[91238:80b] File Transfer Error: Could not create target file
+2014-02-26 17:41:03.087 HelloWorld[92426:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:41:03.093 HelloWorld[92426:80b] Unlimited access to network resources
+2014-02-26 17:41:03.192 HelloWorld[92426:80b] Resetting plugins due to page load.
+2014-02-26 17:41:03.252 HelloWorld[92426:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/0837EDF4-F958-41DA-A276-C49D6BB969E9/HelloWorld.app/www/index.html
+2014-02-26 17:41:07.423 HelloWorld[92426:80b] FileTransferError {
+    body = "Could not create target file";
+    code = 1;
+    "http_status" = 200;
+    source = "http://carnegieendowment.org/images/article_images/Wendy_Sherman605.jpg";
+}
+2014-02-26 17:41:07.424 HelloWorld[92426:80b] File Transfer Error: Could not create target file
+2014-02-26 17:41:09.999 HelloWorld[92426:80b] FileTransferError {
+    body = "Could not create target file";
+    code = 1;
+    "http_status" = 200;
+    source = "http://carnegieendowment.org/images/article_images/Wendy_Sherman605.jpg";
+}
+2014-02-26 17:41:09.999 HelloWorld[92426:80b] File Transfer Error: Could not create target file
+2014-02-26 17:41:11.256 HelloWorld[92426:80b] FileTransferError {
+    body = "Could not create target file";
+    code = 1;
+    "http_status" = 200;
+    source = "http://carnegieendowment.org/images/article_images/Wendy_Sherman605.jpg";
+}
+2014-02-26 17:41:11.257 HelloWorld[92426:80b] File Transfer Error: Could not create target file
+2014-02-26 17:57:02.647 HelloWorld[93812:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:57:02.663 HelloWorld[93812:80b] Unlimited access to network resources
+2014-02-26 17:57:02.828 HelloWorld[93812:80b] Resetting plugins due to page load.
+2014-02-26 17:57:02.901 HelloWorld[93812:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/9B4A5B8B-B73A-41E0-8385-1AF0AD51DDCE/HelloWorld.app/www/index.html
+2014-02-26 17:57:08.182 HelloWorld[93812:4003] bool _WebTryThreadLock(bool), 0xaa32180: Multiple locks on web thread not allowed! Please file a bug. Crashing now...
+1   0x4f301b8 WebRunLoopLock(__CFRunLoopObserver*, unsigned long, void*)
+2   0xc653e __CFRUNLOOP_IS_CALLING_OUT_TO_AN_OBSERVER_CALLBACK_FUNCTION__
+3   0xc648f __CFRunLoopDoObservers
+4   0xa42de __CFRunLoopRun
+5   0xa3b33 CFRunLoopRunSpecific
+6   0xa394b CFRunLoopRunInMode
+7   0x4f30180 RunWebThread(void*)
+8   0x29e55fb _pthread_body
+9   0x29e5485 _pthread_struct_init
+10  0x29eacf2 thread_start
+2014-02-26 17:58:20.227 HelloWorld[94991:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 17:58:20.233 HelloWorld[94991:80b] Unlimited access to network resources
+2014-02-26 17:58:20.343 HelloWorld[94991:80b] Resetting plugins due to page load.
+2014-02-26 17:58:20.398 HelloWorld[94991:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/9B4A5B8B-B73A-41E0-8385-1AF0AD51DDCE/HelloWorld.app/www/index.html
+2014-02-26 17:58:23.964 HelloWorld[94991:80b] -[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa662560
+2014-02-26 17:58:23.986 HelloWorld[94991:80b] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa662560'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x000fe5e4 __exceptionPreprocess + 180
+	1   libobjc.A.dylib                     0x020f18b6 objc_exception_throw + 44
+	2   CoreFoundation                      0x0019b903 -[NSObject(NSObject) doesNotRecognizeSelector:] + 275
+	3   libobjc.A.dylib                     0x02103959 -[NSObject forwardInvocation:] + 68
+	4   CoreFoundation                      0x000ee6da ___forwarding___ + 458
+	5   CoreFoundation                      0x000ee4ee _CF_forwarding_prep_0 + 14
+	6   HelloWorld                          0x00025e86 -[CDVFile fileSystemURLforLocalPath:] + 406
+	7   HelloWorld                          0x0003a4cc -[CDVFileTransfer download:] + 844
+	8   HelloWorld                          0x0001a996 -[CDVCommandQueue execute:] + 902
+	9   HelloWorld                          0x0001a1a9 -[CDVCommandQueue executePending] + 697
+	10  HelloWorld                          0x00019cb9 -[CDVCommandQueue enqueCommandBatch:] + 153
+	11  HelloWorld                          0x00019ecf -[CDVCommandQueue fetchCommandsFromJs] + 207
+	12  HelloWorld                          0x00019dc6 -[CDVCommandQueue maybeFetchCommandsFromJs:] + 230
+	13  libobjc.A.dylib                     0x0210381f -[NSObject performSelector:withObject:] + 70
+	14  Foundation                          0x01d46c18 __NSThreadPerformPerform + 285
+	15  CoreFoundation                      0x000878af __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + 15
+	16  CoreFoundation                      0x0008723b __CFRunLoopDoSources0 + 235
+	17  CoreFoundation                      0x000a430e __CFRunLoopRun + 910
+	18  CoreFoundation                      0x000a3b33 CFRunLoopRunSpecific + 467
+	19  CoreFoundation                      0x000a394b CFRunLoopRunInMode + 123
+	20  GraphicsServices                    0x0358f9d7 GSEventRunModal + 192
+	21  GraphicsServices                    0x0358f7fe GSEventRun + 104
+	22  UIKit                               0x0036494b UIApplicationMain + 1225
+	23  HelloWorld                          0x00020fcc main + 92
+	24  HelloWorld                          0x00020f5d start + 53
+)
+libc++abi.dylib: terminating with uncaught exception of type NSException
+2014-02-26 18:00:22.192 HelloWorld[96185:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 18:00:22.199 HelloWorld[96185:80b] Unlimited access to network resources
+2014-02-26 18:00:22.309 HelloWorld[96185:80b] Resetting plugins due to page load.
+2014-02-26 18:00:22.362 HelloWorld[96185:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/E2052A72-7F1C-47AC-89AD-D80101464D84/HelloWorld.app/www/index.html
+2014-02-26 18:00:28.057 HelloWorld[96185:80b] -[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa570e80
+2014-02-26 18:00:28.059 HelloWorld[96185:80b] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa570e80'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x000fe5e4 __exceptionPreprocess + 180
+	1   libobjc.A.dylib                     0x020f18b6 objc_exception_throw + 44
+	2   CoreFoundation                      0x0019b903 -[NSObject(NSObject) doesNotRecognizeSelector:] + 275
+	3   libobjc.A.dylib                     0x02103959 -[NSObject forwardInvocation:] + 68
+	4   CoreFoundation                      0x000ee6da ___forwarding___ + 458
+	5   CoreFoundation                      0x000ee4ee _CF_forwarding_prep_0 + 14
+	6   HelloWorld                          0x00025e86 -[CDVFile fileSystemURLforLocalPath:] + 406
+	7   HelloWorld                          0x0003a4cc -[CDVFileTransfer download:] + 844
+	8   HelloWorld                          0x0001a996 -[CDVCommandQueue execute:] + 902
+	9   HelloWorld                          0x0001a1a9 -[CDVCommandQueue executePending] + 697
+	10  HelloWorld                          0x00019cb9 -[CDVCommandQueue enqueCommandBatch:] + 153
+	11  HelloWorld                          0x00019ecf -[CDVCommandQueue fetchCommandsFromJs] + 207
+	12  HelloWorld                          0x00019dc6 -[CDVCommandQueue maybeFetchCommandsFromJs:] + 230
+	13  libobjc.A.dylib                     0x0210381f -[NSObject performSelector:withObject:] + 70
+	14  Foundation                          0x01d46c18 __NSThreadPerformPerform + 285
+	15  CoreFoundation                      0x000878af __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + 15
+	16  CoreFoundation                      0x0008723b __CFRunLoopDoSources0 + 235
+	17  CoreFoundation                      0x000a430e __CFRunLoopRun + 910
+	18  CoreFoundation                      0x000a3b33 CFRunLoopRunSpecific + 467
+	19  CoreFoundation                      0x000a394b CFRunLoopRunInMode + 123
+	20  GraphicsServices                    0x0358f9d7 GSEventRunModal + 192
+	21  GraphicsServices                    0x0358f7fe GSEventRun + 104
+	22  UIKit                               0x0036494b UIApplicationMain + 1225
+	23  HelloWorld                          0x00020fcc main + 92
+	24  HelloWorld                          0x00020f5d start + 53
+)
+libc++abi.dylib: terminating with uncaught exception of type NSException
+2014-02-26 18:02:59.623 HelloWorld[97390:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 18:02:59.632 HelloWorld[97390:80b] Unlimited access to network resources
+2014-02-26 18:02:59.837 HelloWorld[97390:80b] Resetting plugins due to page load.
+2014-02-26 18:02:59.893 HelloWorld[97390:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/E2052A72-7F1C-47AC-89AD-D80101464D84/HelloWorld.app/www/index.html
+2014-02-26 18:06:02.971 HelloWorld[98612:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 18:06:02.981 HelloWorld[98612:80b] Unlimited access to network resources
+2014-02-26 18:06:03.113 HelloWorld[98612:80b] Resetting plugins due to page load.
+2014-02-26 18:06:03.165 HelloWorld[98612:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/E2052A72-7F1C-47AC-89AD-D80101464D84/HelloWorld.app/www/index.html
+2014-02-26 18:11:27.812 HelloWorld[98612:4003] bool _WebTryThreadLock(bool), 0xa927080: Multiple locks on web thread not allowed! Please file a bug. Crashing now...
+1   0x4f301b8 WebRunLoopLock(__CFRunLoopObserver*, unsigned long, void*)
+2   0xc653e __CFRUNLOOP_IS_CALLING_OUT_TO_AN_OBSERVER_CALLBACK_FUNCTION__
+3   0xc648f __CFRunLoopDoObservers
+4   0xa42de __CFRunLoopRun
+5   0xa3b33 CFRunLoopRunSpecific
+6   0xa394b CFRunLoopRunInMode
+7   0x4f30180 RunWebThread(void*)
+8   0x29e55fb _pthread_body
+9   0x29e5485 _pthread_struct_init
+10  0x29eacf2 thread_start
+2014-02-26 18:14:49.484 HelloWorld[99904:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 18:14:49.494 HelloWorld[99904:80b] Unlimited access to network resources
+2014-02-26 18:14:49.605 HelloWorld[99904:80b] Resetting plugins due to page load.
+2014-02-26 18:14:49.663 HelloWorld[99904:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/E2052A72-7F1C-47AC-89AD-D80101464D84/HelloWorld.app/www/index.html
+2014-02-26 18:14:52.722 HelloWorld[99904:3f03] bool _WebTryThreadLock(bool), 0xa72dd90: Multiple locks on web thread not allowed! Please file a bug. Crashing now...
+1   0x4f301b8 WebRunLoopLock(__CFRunLoopObserver*, unsigned long, void*)
+2   0xc653e __CFRUNLOOP_IS_CALLING_OUT_TO_AN_OBSERVER_CALLBACK_FUNCTION__
+3   0xc648f __CFRunLoopDoObservers
+4   0xa42de __CFRunLoopRun
+5   0xa3b33 CFRunLoopRunSpecific
+6   0xa394b CFRunLoopRunInMode
+7   0x4f30180 RunWebThread(void*)
+8   0x29e55fb _pthread_body
+9   0x29e5485 _pthread_struct_init
+10  0x29eacf2 thread_start
+2014-02-26 18:25:06.793 HelloWorld[1429:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 18:25:06.801 HelloWorld[1429:80b] Unlimited access to network resources
+2014-02-26 18:25:06.910 HelloWorld[1429:80b] Resetting plugins due to page load.
+2014-02-26 18:25:06.953 HelloWorld[1429:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/11E90ABF-0F20-4A6B-8472-5BFE34642C54/HelloWorld.app/www/index.html
+2014-02-26 18:25:12.774 HelloWorld[1429:80b] -[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa736b60
+2014-02-26 18:25:12.775 HelloWorld[1429:80b] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa736b60'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x000fe5e4 __exceptionPreprocess + 180
+	1   libobjc.A.dylib                     0x020f18b6 objc_exception_throw + 44
+	2   CoreFoundation                      0x0019b903 -[NSObject(NSObject) doesNotRecognizeSelector:] + 275
+	3   libobjc.A.dylib                     0x02103959 -[NSObject forwardInvocation:] + 68
+	4   CoreFoundation                      0x000ee6da ___forwarding___ + 458
+	5   CoreFoundation                      0x000ee4ee _CF_forwarding_prep_0 + 14
+	6   HelloWorld                          0x00025e86 -[CDVFile fileSystemURLforLocalPath:] + 406
+	7   HelloWorld                          0x0003a4cc -[CDVFileTransfer download:] + 844
+	8   HelloWorld                          0x0001a996 -[CDVCommandQueue execute:] + 902
+	9   HelloWorld                          0x0001a1a9 -[CDVCommandQueue executePending] + 697
+	10  HelloWorld                          0x00019cb9 -[CDVCommandQueue enqueCommandBatch:] + 153
+	11  HelloWorld                          0x00019ecf -[CDVCommandQueue fetchCommandsFromJs] + 207
+	12  HelloWorld                          0x00019dc6 -[CDVCommandQueue maybeFetchCommandsFromJs:] + 230
+	13  libobjc.A.dylib                     0x0210381f -[NSObject performSelector:withObject:] + 70
+	14  Foundation                          0x01d46c18 __NSThreadPerformPerform + 285
+	15  CoreFoundation                      0x000878af __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + 15
+	16  CoreFoundation                      0x0008723b __CFRunLoopDoSources0 + 235
+	17  CoreFoundation                      0x000a430e __CFRunLoopRun + 910
+	18  CoreFoundation                      0x000a3b33 CFRunLoopRunSpecific + 467
+	19  CoreFoundation                      0x000a394b CFRunLoopRunInMode + 123
+	20  GraphicsServices                    0x0358f9d7 GSEventRunModal + 192
+	21  GraphicsServices                    0x0358f7fe GSEventRun + 104
+	22  UIKit                               0x0036494b UIApplicationMain + 1225
+	23  HelloWorld                          0x00020fcc main + 92
+	24  HelloWorld                          0x00020f5d start + 53
+)
+libc++abi.dylib: terminating with uncaught exception of type NSException
+2014-02-26 18:28:23.141 HelloWorld[2664:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-26 18:28:23.147 HelloWorld[2664:80b] Unlimited access to network resources
+2014-02-26 18:28:23.257 HelloWorld[2664:80b] Resetting plugins due to page load.
+2014-02-26 18:28:23.303 HelloWorld[2664:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/CEDF2080-B898-4EA0-B059-EFE599B489CA/HelloWorld.app/www/index.html
+2014-02-26 18:28:29.790 HelloWorld[2664:80b] FileTransferError {
+    body = "Could not create target file";
+    code = 1;
+    "http_status" = 200;
+    source = "http://carnegieendowment.org/images/article_images/Wendy_Sherman605.jpg";
+}
+2014-02-26 18:28:29.790 HelloWorld[2664:80b] File Transfer Error: Could not create target file
+2014-02-27 08:02:41.235 HelloWorld[17610:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 08:02:41.263 HelloWorld[17610:80b] Unlimited access to network resources
+2014-02-27 08:02:41.618 HelloWorld[17610:80b] Resetting plugins due to page load.
+2014-02-27 08:02:41.704 HelloWorld[17610:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/9C59EAD1-50B1-412C-BC59-1AB16CA87A11/HelloWorld.app/www/index.html
+2014-02-27 08:02:47.365 HelloWorld[17610:80b] -[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa554da0
+2014-02-27 08:02:47.398 HelloWorld[17610:80b] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa554da0'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x000fe5e4 __exceptionPreprocess + 180
+	1   libobjc.A.dylib                     0x020f18b6 objc_exception_throw + 44
+	2   CoreFoundation                      0x0019b903 -[NSObject(NSObject) doesNotRecognizeSelector:] + 275
+	3   libobjc.A.dylib                     0x02103959 -[NSObject forwardInvocation:] + 68
+	4   CoreFoundation                      0x000ee6da ___forwarding___ + 458
+	5   CoreFoundation                      0x000ee4ee _CF_forwarding_prep_0 + 14
+	6   HelloWorld                          0x00025e86 -[CDVFile fileSystemURLforLocalPath:] + 406
+	7   HelloWorld                          0x0003a4cc -[CDVFileTransfer download:] + 844
+	8   HelloWorld                          0x0001a996 -[CDVCommandQueue execute:] + 902
+	9   HelloWorld                          0x0001a1a9 -[CDVCommandQueue executePending] + 697
+	10  HelloWorld                          0x00019cb9 -[CDVCommandQueue enqueCommandBatch:] + 153
+	11  HelloWorld                          0x00019ecf -[CDVCommandQueue fetchCommandsFromJs] + 207
+	12  HelloWorld                          0x00019dc6 -[CDVCommandQueue maybeFetchCommandsFromJs:] + 230
+	13  libobjc.A.dylib                     0x0210381f -[NSObject performSelector:withObject:] + 70
+	14  Foundation                          0x01d46c18 __NSThreadPerformPerform + 285
+	15  CoreFoundation                      0x000878af __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + 15
+	16  CoreFoundation                      0x0008723b __CFRunLoopDoSources0 + 235
+	17  CoreFoundation                      0x000a430e __CFRunLoopRun + 910
+	18  CoreFoundation                      0x000a3b33 CFRunLoopRunSpecific + 467
+	19  CoreFoundation                      0x000a394b CFRunLoopRunInMode + 123
+	20  GraphicsServices                    0x0358f9d7 GSEventRunModal + 192
+	21  GraphicsServices                    0x0358f7fe GSEventRun + 104
+	22  UIKit                               0x0036494b UIApplicationMain + 1225
+	23  HelloWorld                          0x00020fcc main + 92
+	24  HelloWorld                          0x00020f5d start + 53
+)
+libc++abi.dylib: terminating with uncaught exception of type NSException
+2014-02-27 08:04:11.241 HelloWorld[18800:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 08:04:11.251 HelloWorld[18800:80b] Unlimited access to network resources
+2014-02-27 08:04:11.423 HelloWorld[18800:80b] Resetting plugins due to page load.
+2014-02-27 08:04:11.482 HelloWorld[18800:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/E5599A0C-98D0-46C1-ABF2-36EA88CAD91B/HelloWorld.app/www/index.html
+2014-02-27 08:06:35.167 HelloWorld[20011:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 08:06:35.175 HelloWorld[20011:80b] Unlimited access to network resources
+2014-02-27 08:06:35.295 HelloWorld[20011:80b] Resetting plugins due to page load.
+2014-02-27 08:06:35.342 HelloWorld[20011:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/E5599A0C-98D0-46C1-ABF2-36EA88CAD91B/HelloWorld.app/www/index.html
+2014-02-27 08:06:40.101 HelloWorld[20011:80b] -[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa6192b0
+2014-02-27 08:06:40.127 HelloWorld[20011:80b] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xa6192b0'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x000fe5e4 __exceptionPreprocess + 180
+	1   libobjc.A.dylib                     0x020f18b6 objc_exception_throw + 44
+	2   CoreFoundation                      0x0019b903 -[NSObject(NSObject) doesNotRecognizeSelector:] + 275
+	3   libobjc.A.dylib                     0x02103959 -[NSObject forwardInvocation:] + 68
+	4   CoreFoundation                      0x000ee6da ___forwarding___ + 458
+	5   CoreFoundation                      0x000ee4ee _CF_forwarding_prep_0 + 14
+	6   HelloWorld                          0x00025e86 -[CDVFile fileSystemURLforLocalPath:] + 406
+	7   HelloWorld                          0x0003a4cc -[CDVFileTransfer download:] + 844
+	8   HelloWorld                          0x0001a996 -[CDVCommandQueue execute:] + 902
+	9   HelloWorld                          0x0001a1a9 -[CDVCommandQueue executePending] + 697
+	10  HelloWorld                          0x00019cb9 -[CDVCommandQueue enqueCommandBatch:] + 153
+	11  HelloWorld                          0x00019ecf -[CDVCommandQueue fetchCommandsFromJs] + 207
+	12  HelloWorld                          0x00019dc6 -[CDVCommandQueue maybeFetchCommandsFromJs:] + 230
+	13  libobjc.A.dylib                     0x0210381f -[NSObject performSelector:withObject:] + 70
+	14  Foundation                          0x01d46c18 __NSThreadPerformPerform + 285
+	15  CoreFoundation                      0x000878af __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + 15
+	16  CoreFoundation                      0x0008723b __CFRunLoopDoSources0 + 235
+	17  CoreFoundation                      0x000a430e __CFRunLoopRun + 910
+	18  CoreFoundation                      0x000a3b33 CFRunLoopRunSpecific + 467
+	19  CoreFoundation                      0x000a394b CFRunLoopRunInMode + 123
+	20  GraphicsServices                    0x0358f9d7 GSEventRunModal + 192
+	21  GraphicsServices                    0x0358f7fe GSEventRun + 104
+	22  UIKit                               0x0036494b UIApplicationMain + 1225
+	23  HelloWorld                          0x00020fcc main + 92
+	24  HelloWorld                          0x00020f5d start + 53
+)
+libc++abi.dylib: terminating with uncaught exception of type NSException
+2014-02-27 09:33:23.887 HelloWorld[22460:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 09:33:23.896 HelloWorld[22460:80b] Unlimited access to network resources
+2014-02-27 09:33:24.005 HelloWorld[22460:80b] Resetting plugins due to page load.
+2014-02-27 09:33:24.062 HelloWorld[22460:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/E5599A0C-98D0-46C1-ABF2-36EA88CAD91B/HelloWorld.app/www/index.html
+2014-02-27 10:09:54.112 HelloWorld[24156:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 10:09:54.119 HelloWorld[24156:80b] Unlimited access to network resources
+2014-02-27 10:09:54.239 HelloWorld[24156:80b] Resetting plugins due to page load.
+2014-02-27 10:09:54.289 HelloWorld[24156:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/E5599A0C-98D0-46C1-ABF2-36EA88CAD91B/HelloWorld.app/www/index.html
+2014-02-27 10:09:58.848 HelloWorld[24156:80b] -[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xaa5c550
+2014-02-27 10:09:58.850 HelloWorld[24156:80b] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[CDVAssetLibraryFilesystem URLforFilesystemPath:]: unrecognized selector sent to instance 0xaa5c550'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x000fe5e4 __exceptionPreprocess + 180
+	1   libobjc.A.dylib                     0x020f18b6 objc_exception_throw + 44
+	2   CoreFoundation                      0x0019b903 -[NSObject(NSObject) doesNotRecognizeSelector:] + 275
+	3   libobjc.A.dylib                     0x02103959 -[NSObject forwardInvocation:] + 68
+	4   CoreFoundation                      0x000ee6da ___forwarding___ + 458
+	5   CoreFoundation                      0x000ee4ee _CF_forwarding_prep_0 + 14
+	6   HelloWorld                          0x00025e86 -[CDVFile fileSystemURLforLocalPath:] + 406
+	7   HelloWorld                          0x0003a4cc -[CDVFileTransfer download:] + 844
+	8   HelloWorld                          0x0001a996 -[CDVCommandQueue execute:] + 902
+	9   HelloWorld                          0x0001a1a9 -[CDVCommandQueue executePending] + 697
+	10  HelloWorld                          0x00019cb9 -[CDVCommandQueue enqueCommandBatch:] + 153
+	11  HelloWorld                          0x00019ecf -[CDVCommandQueue fetchCommandsFromJs] + 207
+	12  HelloWorld                          0x00019dc6 -[CDVCommandQueue maybeFetchCommandsFromJs:] + 230
+	13  libobjc.A.dylib                     0x0210381f -[NSObject performSelector:withObject:] + 70
+	14  Foundation                          0x01d46c18 __NSThreadPerformPerform + 285
+	15  CoreFoundation                      0x000878af __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + 15
+	16  CoreFoundation                      0x0008723b __CFRunLoopDoSources0 + 235
+	17  CoreFoundation                      0x000a430e __CFRunLoopRun + 910
+	18  CoreFoundation                      0x000a3b33 CFRunLoopRunSpecific + 467
+	19  CoreFoundation                      0x000a394b CFRunLoopRunInMode + 123
+	20  GraphicsServices                    0x0358f9d7 GSEventRunModal + 192
+	21  GraphicsServices                    0x0358f7fe GSEventRun + 104
+	22  UIKit                               0x0036494b UIApplicationMain + 1225
+	23  HelloWorld                          0x00020fcc main + 92
+	24  HelloWorld                          0x00020f5d start + 53
+)
+libc++abi.dylib: terminating with uncaught exception of type NSException
+2014-02-27 10:16:21.430 HelloWorld[25417:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 10:16:21.440 HelloWorld[25417:80b] Unlimited access to network resources
+2014-02-27 10:16:21.611 HelloWorld[25417:80b] Resetting plugins due to page load.
+2014-02-27 10:16:21.666 HelloWorld[25417:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/8507D74A-3423-4B6A-A2DD-09D72E873F45/HelloWorld.app/www/index.html
+2014-02-27 10:18:03.611 HelloWorld[26610:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 10:18:03.620 HelloWorld[26610:80b] Unlimited access to network resources
+2014-02-27 10:18:03.725 HelloWorld[26610:80b] Resetting plugins due to page load.
+2014-02-27 10:18:03.770 HelloWorld[26610:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/8507D74A-3423-4B6A-A2DD-09D72E873F45/HelloWorld.app/www/index.html
+2014-02-27 10:19:17.665 HelloWorld[27788:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 10:19:17.674 HelloWorld[27788:80b] Unlimited access to network resources
+2014-02-27 10:19:17.779 HelloWorld[27788:80b] Resetting plugins due to page load.
+2014-02-27 10:19:17.823 HelloWorld[27788:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/8507D74A-3423-4B6A-A2DD-09D72E873F45/HelloWorld.app/www/index.html
+2014-02-27 10:19:22.679 HelloWorld[27788:80b] File Transfer Finished with response code 200

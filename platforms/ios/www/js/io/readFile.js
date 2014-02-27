@@ -6,7 +6,6 @@ module.exports = function (fileentry) {
 
     fileentry.file(function (f) {
         reader.onloadend = function(e) {
-            console.log(e)
             p.y(e.target.result);
         };
 
@@ -18,4 +17,4 @@ module.exports = function (fileentry) {
     })
 
     return p.p;
-}
+};

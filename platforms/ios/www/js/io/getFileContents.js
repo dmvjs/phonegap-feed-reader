@@ -1,5 +1,4 @@
-var notify = require('../util/notify')
-  , promise = require('../util/promise').wrap
+var promise = require('../util/promise').wrap
   , getFileSystem = require('./getFileSystem')
   , getFile = require('./getFile')
   , readFile = require('./readFile')
