@@ -17,4 +17,4 @@ module.exports = function (fileentry) {
     })
 
     return p.p;
-}
+};

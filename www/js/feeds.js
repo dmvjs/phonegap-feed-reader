@@ -3,11 +3,13 @@ module.exports = (function () {
 		, notify = require('./util/notify')
 		, doesFileExist = require('./io/doesFileExist')
 		, createFileWithContents = require('./io/createFileWithContents')
-		, getFileContents = require('./io/getFileContents');
+		, getFileContents = require('./io/getFileContents')
+		, downloadExternalFile = require('./io/downloadExternalFile')
+		, toJson = require('./xmlToJson');
 
 	$(function() {
 		$('body').append($('<div/>', {
-			'text': 'Does ' + config[0].url.split('/').pop() + ' exist?'
+			'text': 'Does ' + config[0].url.split('/').pop().split('.').shift() + '.json' + ' exist?'
 			, 'css': {
 				'height': '50px'
 				, 'width': '100%'
@@ -18,17 +20,18 @@ module.exports = (function () {
 			},
 			'click': function () {
 				var url = config[0].url
-				$.ajax({
+				downloadExternalFile('http://carnegieendowment.org/images/article_images/Wendy_Sherman605.jpg', 'Wendy_Sherman605.jpg');
+				/*$.ajax({
 						url: url,
-						dataType: 'text'
+						dataType: 'xml'
 					})
-					.done(function (res) {
-						checkFileWithPromise(url.split('/').pop(), res)
-					})
-					.error(function () {
+					.then(function (res) {
+						var obj = toJson(res);
+						checkFileWithPromise(url.split('/').pop().split('.').shift() + '.json', JSON.stringify(obj))
+					}, function () {
 						//must be offline, or bad url, or...
 						doesFileExist('test.html');
-					})
+					})*/
 			}
 		}))
 	});
@@ -54,7 +57,7 @@ module.exports = (function () {
 	function readFileWithPromise(filename) {
 		$.when(getFileContents(filename))
 			.then(function(res) {
-					console.log(res);
+					console.log(JSON.parse(res));
 					notify.y('from readFileWithPromise');
 				}, function(err) {
 					notify.n('from readFileWithPromise');
