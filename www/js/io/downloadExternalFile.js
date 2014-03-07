@@ -3,11 +3,8 @@ var getFileSystem = require('./getFileSystem')
 	, downloadFile = require('./downloadFile');
 
 module.exports = function (url) {
-	
 	var filename = url.split('/').pop();
-
 	return new Promise(function (resolve, reject) {
-
 		getFileSystem().then(function (filesystem) {
 			getFile(filesystem, filename, false).then(resolve,
 				function () {
@@ -16,6 +13,5 @@ module.exports = function (url) {
 				}, reject);
 			}) 
 		}, reject);
-
 	})
 }

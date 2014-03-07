@@ -171,9 +171,7 @@ var getFileSystem = require('./getFileSystem')
 	, writeFile = require('./writeFile');
 
 module.exports = function (filename, contents) {
-
 	return new Promise(function (resolve, reject) {
-
 		getFileSystem().then(function (filesystem) {
 			getFile(filesystem, filename, true).then(function (fileentry) {  
 				getFileEntry(fileentry).then(function (filewriter) {
@@ -181,7 +179,6 @@ module.exports = function (filename, contents) {
 				}, reject);
 			}, reject);
 		}, reject);
-
 	})
 };
 },{"./getFile":10,"./getFileEntry":12,"./getFileSystem":13,"./writeFile":15}],7:[function(require,module,exports){
@@ -190,11 +187,9 @@ var getFileSystem = require('./getFileSystem')
 
 module.exports = function (filename) {
 	return new Promise(function (resolve, reject) {
-
 		getFileSystem().then(function (filesystem) {
 			getFile(filesystem, filename).then(resolve, reject);
 		}, reject)
-
 	})
 }
 },{"./getFile":10,"./getFileSystem":13}],8:[function(require,module,exports){
@@ -203,11 +198,8 @@ var getFileSystem = require('./getFileSystem')
 	, downloadFile = require('./downloadFile');
 
 module.exports = function (url) {
-	
 	var filename = url.split('/').pop();
-
 	return new Promise(function (resolve, reject) {
-
 		getFileSystem().then(function (filesystem) {
 			getFile(filesystem, filename, false).then(resolve,
 				function () {
@@ -216,29 +208,22 @@ module.exports = function (url) {
 				}, reject);
 			}) 
 		}, reject);
-
 	})
 }
 },{"./downloadFile":9,"./getFile":10,"./getFileSystem":13}],9:[function(require,module,exports){
 module.exports = function (fileentry, url) {
-  
   var fileTransfer = new FileTransfer()
   , uri = encodeURI(url)
   , path = fileentry.toURL();
 
   return new Promise(function (resolve, reject) {
-
     fileTransfer.download(uri, path, resolve, reject, false, {})
-
   });
 };
 },{}],10:[function(require,module,exports){
 module.exports = function (filesystem, filename, create) {
-	
 	return new Promise(function (resolve, reject) {
-
 		filesystem.root.getFile(filename, {create: !!create, exclusive: false}, resolve, reject);
-
 	});
 }
 },{}],11:[function(require,module,exports){
@@ -247,66 +232,43 @@ var getFileSystem = require('./getFileSystem')
   , readFile = require('./readFile');
 
 module.exports = function (filename) {
-
   return new Promise(function (resolve, reject) {
-
     getFileSystem().then(function (filesystem) {
       getFile(filesystem, filename).then(function (fileentry) {
         readFile(fileentry).then(resolve, reject);
       }, reject);
     }, reject);
-
   })
 }
 },{"./getFile":10,"./getFileSystem":13,"./readFile":14}],12:[function(require,module,exports){
-var promise = require('../util/promise').roll;
-
 module.exports = function (fileentry) {
 	return new Promise(function (resolve, reject) {
-		
 		fileentry.createWriter(resolve, reject);
-	
 	})
 };
-},{"../util/promise":18}],13:[function(require,module,exports){
-var promise = require('../util/promise').roll;
-
+},{}],13:[function(require,module,exports){
 module.exports = function () {
 	return new Promise(function (resolve, reject) {
-
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, resolve, reject)
-
 	})
 };
-},{"../util/promise":18}],14:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 module.exports = function (fileentry) {
-    
     var reader = new FileReader();
-
     return new Promise(function (resolve, reject) {
-
         fileentry.file(function (f) {
-            
             reader.onloadend = resolve;
-
             reader.onerror = reject;
-
             reader.readAsText(f);
         })
-
     });
 };
 },{}],15:[function(require,module,exports){
 module.exports = function (filewriter, contents) {
-
   return new Promise(function (resolve, reject) {
-
     filewriter.onwriteend = resolve;
-
   	filewriter.onerror = reject;
-
     filewriter.write(contents);
-
   });
 }
 
@@ -354,60 +316,4 @@ module.exports = {
 	y: y,
 	n: n
 };
-},{}],18:[function(require,module,exports){
-function roll(func, args, context) {
-	// insert promise success & fail as the last two arguments of function signature
-	return  new Promise(function (resolve, reject) {
-		var a;
-
-		function success(response) {
-			resolve(response)
-		};
-
-		function fail(reason) {
-			reject(reason)
-		};
-
-		if (Array.isArray(args)) {
-			args.push(success, fail);
-			a = args;
-		} else if (args === undefined) {
-			a = [success, fail];
-		} else {
-			a = [args, success, fail];
-		}
-		
-		func.apply(context || null, a);
-	});
-}
-
-function wrap(func, args, context) {
-	// insert an object with success & fail properties as the first argument of function signature
-	return  new Promise(function (resolve, reject) {
-		var a = {success:success, fail:fail};
-
-		function success(response) {
-			resolve(response)
-		};
-
-		function fail(reason) {
-			reject(reason)
-		};
-
-		if (Array.isArray(args)) {
-			$.each(args, function (index, element) {
-				a.push(element);
-			})
-		} else if (args !== undefined){
-			a.push(args);
-		}
-
-		func.apply(context || null, a);
-	});
-}
-
-module.exports = {
-	wrap: wrap
-	, roll: roll
-}
 },{}]},{},[5])
