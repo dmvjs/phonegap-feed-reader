@@ -1,15 +1,16 @@
-var promise = require('../util/promise').wrap
-  , getFileSystem = require('./getFileSystem')
+var getFileSystem = require('./getFileSystem')
   , getFile = require('./getFile')
-  , readFile = require('./readFile')
-  , err = require('./error');
+  , readFile = require('./readFile');
 
 module.exports = function (filename) {
-  return promise(function (p) {
+
+  return new Promise(function (resolve, reject) {
+
     getFileSystem().then(function (filesystem) {
       getFile(filesystem, filename).then(function (fileentry) {
-        readFile(fileentry).then(p.y, p.n);
-      }, err);
-    }, err);
+        readFile(fileentry).then(resolve, reject);
+      }, reject);
+    }, reject);
+
   })
 }

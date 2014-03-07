@@ -2176,3 +2176,965 @@ libc++abi.dylib: terminating with uncaught exception of type NSException
 2014-02-27 10:19:17.779 HelloWorld[27788:80b] Resetting plugins due to page load.
 2014-02-27 10:19:17.823 HelloWorld[27788:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/8507D74A-3423-4B6A-A2DD-09D72E873F45/HelloWorld.app/www/index.html
 2014-02-27 10:19:22.679 HelloWorld[27788:80b] File Transfer Finished with response code 200
+2014-02-27 11:13:28.522 HelloWorld[29819:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 11:13:28.532 HelloWorld[29819:80b] Unlimited access to network resources
+2014-02-27 11:13:28.647 HelloWorld[29819:80b] Resetting plugins due to page load.
+2014-02-27 11:13:28.695 HelloWorld[29819:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/B7255430-FD46-46C5-A31A-F1C2A0312CA5/HelloWorld.app/www/index.html
+2014-02-27 11:25:35.056 HelloWorld[31287:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 11:25:35.065 HelloWorld[31287:80b] Unlimited access to network resources
+2014-02-27 11:25:35.154 HelloWorld[31287:80b] Resetting plugins due to page load.
+2014-02-27 11:25:35.204 HelloWorld[31287:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/D0360FA1-5E74-410B-9430-8D0980E05F26/HelloWorld.app/www/index.html
+2014-02-27 11:25:40.948 HelloWorld[31287:80b] THREAD WARNING: ['Notification'] took '27.364746' ms. Plugin should use a background thread.
+2014-02-27 11:29:41.649 HelloWorld[32512:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 11:29:41.658 HelloWorld[32512:80b] Unlimited access to network resources
+2014-02-27 11:29:41.775 HelloWorld[32512:80b] Resetting plugins due to page load.
+2014-02-27 11:29:41.822 HelloWorld[32512:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/1FD56C46-0A4E-4463-B69C-6D854DDBC0F6/HelloWorld.app/www/index.html
+2014-02-27 11:50:06.129 HelloWorld[34062:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 11:50:06.187 HelloWorld[34062:80b] Unlimited access to network resources
+2014-02-27 11:50:06.574 HelloWorld[34062:80b] Resetting plugins due to page load.
+2014-02-27 11:50:06.690 HelloWorld[34062:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/CA37D122-DFE9-4EFB-923B-C01EF0D28A68/HelloWorld.app/www/index.html
+2014-02-27 11:51:57.104 HelloWorld[35250:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 11:51:57.111 HelloWorld[35250:80b] Unlimited access to network resources
+2014-02-27 11:51:57.212 HelloWorld[35250:80b] Resetting plugins due to page load.
+2014-02-27 11:51:57.259 HelloWorld[35250:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/CA37D122-DFE9-4EFB-923B-C01EF0D28A68/HelloWorld.app/www/index.html
+2014-02-27 11:54:28.136 HelloWorld[36452:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 11:54:28.144 HelloWorld[36452:80b] Unlimited access to network resources
+2014-02-27 11:54:28.256 HelloWorld[36452:80b] Resetting plugins due to page load.
+2014-02-27 11:54:28.300 HelloWorld[36452:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/CA37D122-DFE9-4EFB-923B-C01EF0D28A68/HelloWorld.app/www/index.html
+2014-02-27 11:57:53.096 HelloWorld[37671:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 11:57:53.102 HelloWorld[37671:80b] Unlimited access to network resources
+2014-02-27 11:57:53.209 HelloWorld[37671:80b] Resetting plugins due to page load.
+2014-02-27 11:57:53.256 HelloWorld[37671:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/CA37D122-DFE9-4EFB-923B-C01EF0D28A68/HelloWorld.app/www/index.html
+2014-02-27 11:57:57.452 HelloWorld[37671:3f03] bool _WebTryThreadLock(bool), 0xa75d280: Multiple locks on web thread not allowed! Please file a bug. Crashing now...
+1   0x4f301b8 WebRunLoopLock(__CFRunLoopObserver*, unsigned long, void*)
+2   0xc653e __CFRUNLOOP_IS_CALLING_OUT_TO_AN_OBSERVER_CALLBACK_FUNCTION__
+3   0xc648f __CFRunLoopDoObservers
+4   0xa42de __CFRunLoopRun
+5   0xa3b33 CFRunLoopRunSpecific
+6   0xa394b CFRunLoopRunInMode
+7   0x4f30180 RunWebThread(void*)
+8   0x29e55fb _pthread_body
+9   0x29e5485 _pthread_struct_init
+10  0x29eacf2 thread_start
+2014-02-27 11:59:32.890 HelloWorld[38859:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 11:59:32.899 HelloWorld[38859:80b] Unlimited access to network resources
+2014-02-27 11:59:33.035 HelloWorld[38859:80b] Resetting plugins due to page load.
+2014-02-27 11:59:33.125 HelloWorld[38859:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/CA37D122-DFE9-4EFB-923B-C01EF0D28A68/HelloWorld.app/www/index.html
+2014-02-27 11:59:56.739 HelloWorld[38859:3f03] bool _WebTryThreadLock(bool), 0xa48a0e0: Multiple locks on web thread not allowed! Please file a bug. Crashing now...
+1   0x4f301b8 WebRunLoopLock(__CFRunLoopObserver*, unsigned long, void*)
+2   0xc653e __CFRUNLOOP_IS_CALLING_OUT_TO_AN_OBSERVER_CALLBACK_FUNCTION__
+3   0xc648f __CFRunLoopDoObservers
+4   0xa42de __CFRunLoopRun
+5   0xa3b33 CFRunLoopRunSpecific
+6   0xa394b CFRunLoopRunInMode
+7   0x4f30180 RunWebThread(void*)
+8   0x29e55fb _pthread_body
+9   0x29e5485 _pthread_struct_init
+10  0x29eacf2 thread_start
+2014-02-27 12:02:42.397 HelloWorld[40075:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 12:02:42.403 HelloWorld[40075:80b] Unlimited access to network resources
+2014-02-27 12:02:42.514 HelloWorld[40075:80b] Resetting plugins due to page load.
+2014-02-27 12:02:42.561 HelloWorld[40075:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/CA37D122-DFE9-4EFB-923B-C01EF0D28A68/HelloWorld.app/www/index.html
+2014-02-27 12:05:36.024 HelloWorld[41282:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 12:05:36.030 HelloWorld[41282:80b] Unlimited access to network resources
+2014-02-27 12:05:36.164 HelloWorld[41282:80b] Resetting plugins due to page load.
+2014-02-27 12:05:36.214 HelloWorld[41282:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/CA37D122-DFE9-4EFB-923B-C01EF0D28A68/HelloWorld.app/www/index.html
+2014-02-27 12:10:43.992 HelloWorld[42526:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 12:10:43.999 HelloWorld[42526:80b] Unlimited access to network resources
+2014-02-27 12:10:44.126 HelloWorld[42526:80b] Resetting plugins due to page load.
+2014-02-27 12:10:44.189 HelloWorld[42526:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/CA37D122-DFE9-4EFB-923B-C01EF0D28A68/HelloWorld.app/www/index.html
+2014-02-27 12:11:38.297 HelloWorld[43697:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 12:11:38.304 HelloWorld[43697:80b] Unlimited access to network resources
+2014-02-27 12:11:38.411 HelloWorld[43697:80b] Resetting plugins due to page load.
+2014-02-27 12:11:38.459 HelloWorld[43697:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/CA37D122-DFE9-4EFB-923B-C01EF0D28A68/HelloWorld.app/www/index.html
+2014-02-27 12:13:32.246 HelloWorld[44884:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 12:13:32.255 HelloWorld[44884:80b] Unlimited access to network resources
+2014-02-27 12:13:32.411 HelloWorld[44884:80b] Resetting plugins due to page load.
+2014-02-27 12:13:32.455 HelloWorld[44884:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/37632EC0-93E4-46D9-8876-1720547AF403/HelloWorld.app/www/index.html
+2014-02-27 12:16:40.530 HelloWorld[46091:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 12:16:40.540 HelloWorld[46091:80b] Unlimited access to network resources
+2014-02-27 12:16:40.669 HelloWorld[46091:80b] Resetting plugins due to page load.
+2014-02-27 12:16:40.724 HelloWorld[46091:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/37632EC0-93E4-46D9-8876-1720547AF403/HelloWorld.app/www/index.html
+2014-02-27 12:18:15.838 HelloWorld[47273:80b] Multi-tasking -> Device: YES, App: YES
+2014-02-27 12:18:15.844 HelloWorld[47273:80b] Unlimited access to network resources
+2014-02-27 12:18:15.950 HelloWorld[47273:80b] Resetting plugins due to page load.
+2014-02-27 12:18:15.999 HelloWorld[47273:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/37632EC0-93E4-46D9-8876-1720547AF403/HelloWorld.app/www/index.html
+2014-02-27 12:18:43.815 HelloWorld[47273:80b] File Transfer Finished with response code 200
+2014-03-05 00:25:15.957 HelloWorld[45368:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-05 00:25:15.985 HelloWorld[45368:80b] Unlimited access to network resources
+2014-03-05 00:25:16.243 HelloWorld[45368:80b] Resetting plugins due to page load.
+2014-03-05 00:25:16.340 HelloWorld[45368:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/37632EC0-93E4-46D9-8876-1720547AF403/HelloWorld.app/www/index.html
+2014-03-05 00:25:34.944 HelloWorld[45368:80b] File Transfer Finished with response code 200
+2014-03-05 01:26:46.147 HelloWorld[49904:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-05 01:26:46.158 HelloWorld[49904:80b] Unlimited access to network resources
+2014-03-05 01:26:46.322 HelloWorld[49904:80b] Resetting plugins due to page load.
+2014-03-05 01:26:46.372 HelloWorld[49904:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/52BA66FB-67CD-4F31-AA3B-E3D0CD28AE8E/HelloWorld.app/www/index.html
+2014-03-05 01:35:36.061 HelloWorld[51215:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-05 01:35:36.069 HelloWorld[51215:80b] Unlimited access to network resources
+2014-03-05 01:35:36.228 HelloWorld[51215:80b] Resetting plugins due to page load.
+2014-03-05 01:35:36.301 HelloWorld[51215:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/52BA66FB-67CD-4F31-AA3B-E3D0CD28AE8E/HelloWorld.app/www/index.html
+2014-03-05 01:35:44.959 HelloWorld[51215:80b] File Transfer Finished with response code 200
+2014-03-05 01:39:05.971 HelloWorld[52444:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-05 01:39:05.979 HelloWorld[52444:80b] Unlimited access to network resources
+2014-03-05 01:39:06.222 HelloWorld[52444:80b] Resetting plugins due to page load.
+2014-03-05 01:39:06.295 HelloWorld[52444:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/E2D4EA35-4E42-402E-A441-B12B03713855/HelloWorld.app/www/index.html
+2014-03-05 01:40:20.762 HelloWorld[53629:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-05 01:40:20.772 HelloWorld[53629:80b] Unlimited access to network resources
+2014-03-05 01:40:20.956 HelloWorld[53629:80b] Resetting plugins due to page load.
+2014-03-05 01:40:21.039 HelloWorld[53629:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/DF91C9A0-0E5C-41D2-B685-657B615E9B40/HelloWorld.app/www/index.html
+2014-03-05 01:49:49.534 HelloWorld[54934:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-05 01:49:49.544 HelloWorld[54934:80b] Unlimited access to network resources
+2014-03-05 01:49:49.643 HelloWorld[54934:80b] Resetting plugins due to page load.
+2014-03-05 01:49:49.696 HelloWorld[54934:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/DF91C9A0-0E5C-41D2-B685-657B615E9B40/HelloWorld.app/www/index.html
+2014-03-05 01:51:02.733 HelloWorld[56115:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-05 01:51:02.743 HelloWorld[56115:80b] Unlimited access to network resources
+2014-03-05 01:51:02.832 HelloWorld[56115:80b] Resetting plugins due to page load.
+2014-03-05 01:51:02.890 HelloWorld[56115:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/DF91C9A0-0E5C-41D2-B685-657B615E9B40/HelloWorld.app/www/index.html
+2014-03-05 01:51:11.888 HelloWorld[56115:80b] File Transfer Finished with response code 200
+2014-03-05 13:20:54.447 HelloWorld[65755:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-05 13:20:54.454 HelloWorld[65755:80b] Unlimited access to network resources
+2014-03-05 13:20:54.633 HelloWorld[65755:80b] Resetting plugins due to page load.
+2014-03-05 13:20:54.698 HelloWorld[65755:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/0001B779-BF6F-49F4-BF93-109BDA9A1837/HelloWorld.app/www/index.html
+2014-03-05 13:24:50.834 HelloWorld[66986:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-05 13:24:50.843 HelloWorld[66986:80b] Unlimited access to network resources
+2014-03-05 13:24:51.015 HelloWorld[66986:80b] Resetting plugins due to page load.
+2014-03-05 13:24:51.068 HelloWorld[66986:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/0001B779-BF6F-49F4-BF93-109BDA9A1837/HelloWorld.app/www/index.html
+2014-03-05 13:26:05.604 HelloWorld[66986:80b] File Transfer Finished with response code 200
+2014-03-05 23:39:29.346 HelloWorld[75632:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-05 23:39:29.355 HelloWorld[75632:80b] Unlimited access to network resources
+2014-03-05 23:39:29.469 HelloWorld[75632:80b] Resetting plugins due to page load.
+2014-03-05 23:39:29.515 HelloWorld[75632:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/B1DB5F4B-9038-4B53-877A-E0A97C933247/HelloWorld.app/www/index.html
+2014-03-05 23:40:36.936 HelloWorld[76819:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-05 23:40:36.945 HelloWorld[76819:80b] Unlimited access to network resources
+2014-03-05 23:40:37.073 HelloWorld[76819:80b] Resetting plugins due to page load.
+2014-03-05 23:40:37.127 HelloWorld[76819:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/B1DB5F4B-9038-4B53-877A-E0A97C933247/HelloWorld.app/www/index.html
+2014-03-05 23:42:21.602 HelloWorld[78110:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-05 23:42:21.611 HelloWorld[78110:80b] Unlimited access to network resources
+2014-03-05 23:42:21.782 HelloWorld[78110:80b] Resetting plugins due to page load.
+2014-03-05 23:42:21.848 HelloWorld[78110:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/9F6E4405-2255-4652-8BFF-BFFF90DDD5B2/HelloWorld.app/www/index.html
+2014-03-05 23:44:03.716 HelloWorld[79306:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-05 23:44:03.723 HelloWorld[79306:80b] Unlimited access to network resources
+2014-03-05 23:44:03.883 HelloWorld[79306:80b] Resetting plugins due to page load.
+2014-03-05 23:44:03.959 HelloWorld[79306:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/9F6E4405-2255-4652-8BFF-BFFF90DDD5B2/HelloWorld.app/www/index.html
+2014-03-05 23:44:12.426 HelloWorld[79306:80b] File Transfer Finished with response code 200
+2014-03-05 23:53:25.213 HelloWorld[80608:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-05 23:53:25.220 HelloWorld[80608:80b] Unlimited access to network resources
+2014-03-05 23:53:25.385 HelloWorld[80608:80b] Resetting plugins due to page load.
+2014-03-05 23:53:25.444 HelloWorld[80608:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/4C1D7FD9-E4DA-44EE-A67A-358BFF7D1C57/HelloWorld.app/www/index.html
+2014-03-05 23:54:36.066 HelloWorld[81791:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-05 23:54:36.072 HelloWorld[81791:80b] Unlimited access to network resources
+2014-03-05 23:54:36.203 HelloWorld[81791:80b] Resetting plugins due to page load.
+2014-03-05 23:54:36.256 HelloWorld[81791:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/4C1D7FD9-E4DA-44EE-A67A-358BFF7D1C57/HelloWorld.app/www/index.html
+2014-03-05 23:54:46.628 HelloWorld[81791:80b] File Transfer Finished with response code 200
+2014-03-05 23:55:50.580 HelloWorld[82977:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-05 23:55:50.592 HelloWorld[82977:80b] Unlimited access to network resources
+2014-03-05 23:55:50.766 HelloWorld[82977:80b] Resetting plugins due to page load.
+2014-03-05 23:55:50.833 HelloWorld[82977:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/F7FD3415-9C7F-4247-95B4-B36467CCD1C0/HelloWorld.app/www/index.html
+2014-03-06 00:05:25.452 HelloWorld[84288:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 00:05:25.459 HelloWorld[84288:80b] Unlimited access to network resources
+2014-03-06 00:05:25.632 HelloWorld[84288:80b] Resetting plugins due to page load.
+2014-03-06 00:05:25.701 HelloWorld[84288:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/1DC9A345-0116-406B-9664-C288608A01D1/HelloWorld.app/www/index.html
+2014-03-06 00:05:31.949 HelloWorld[84288:80b] File Transfer Finished with response code 200
+2014-03-06 00:07:31.275 HelloWorld[85486:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 00:07:31.283 HelloWorld[85486:80b] Unlimited access to network resources
+2014-03-06 00:07:31.502 HelloWorld[85486:80b] Resetting plugins due to page load.
+2014-03-06 00:07:31.555 HelloWorld[85486:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/1DC9A345-0116-406B-9664-C288608A01D1/HelloWorld.app/www/index.html
+2014-03-06 12:07:31.429 HelloWorld[95412:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 12:07:31.436 HelloWorld[95412:80b] Unlimited access to network resources
+2014-03-06 12:07:31.557 HelloWorld[95412:80b] Resetting plugins due to page load.
+2014-03-06 12:07:31.602 HelloWorld[95412:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/7CDFD73B-7C3F-44EB-8EB6-55FB9C361F9C/HelloWorld.app/www/index.html
+2014-03-06 12:11:28.858 HelloWorld[98947:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 12:11:28.867 HelloWorld[98947:80b] Unlimited access to network resources
+2014-03-06 12:11:29.042 HelloWorld[98947:80b] Resetting plugins due to page load.
+2014-03-06 12:11:29.100 HelloWorld[98947:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/5D0328C0-FD50-4050-BFDC-33E7D803DAD9/HelloWorld.app/www/index.html
+2014-03-06 12:11:35.999 HelloWorld[98947:80b] File Transfer Finished with response code 200
+2014-03-06 12:18:22.292 HelloWorld[375:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 12:18:22.302 HelloWorld[375:80b] Unlimited access to network resources
+2014-03-06 12:18:22.535 HelloWorld[375:80b] Resetting plugins due to page load.
+2014-03-06 12:18:22.586 HelloWorld[375:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/5D0328C0-FD50-4050-BFDC-33E7D803DAD9/HelloWorld.app/www/index.html
+2014-03-06 12:23:26.100 HelloWorld[1633:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 12:23:26.107 HelloWorld[1633:80b] Unlimited access to network resources
+2014-03-06 12:23:26.284 HelloWorld[1633:80b] Resetting plugins due to page load.
+2014-03-06 12:23:26.354 HelloWorld[1633:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/4269FEEB-8D87-4CEE-93FE-E0DABA60A05D/HelloWorld.app/www/index.html
+2014-03-06 12:23:54.284 HelloWorld[1633:80b] File Transfer Finished with response code 200
+2014-03-06 12:38:41.468 HelloWorld[3863:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 12:38:41.490 HelloWorld[3863:80b] Unlimited access to network resources
+2014-03-06 12:38:41.589 HelloWorld[3863:80b] Resetting plugins due to page load.
+2014-03-06 12:38:41.649 HelloWorld[3863:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/391E0376-C6C2-4D1A-82BB-C3D3B0B591AD/HelloWorld.app/www/index.html
+2014-03-06 12:41:20.288 HelloWorld[5072:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 12:41:20.297 HelloWorld[5072:80b] Unlimited access to network resources
+2014-03-06 12:41:20.470 HelloWorld[5072:80b] Resetting plugins due to page load.
+2014-03-06 12:41:20.517 HelloWorld[5072:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/E060F758-A716-40AD-94AA-A7AA699A7C25/HelloWorld.app/www/index.html
+2014-03-06 12:41:27.459 HelloWorld[5072:80b] THREAD WARNING: ['Notification'] took '29.663086' ms. Plugin should use a background thread.
+2014-03-06 12:41:30.347 HelloWorld[5072:80b] THREAD WARNING: ['Notification'] took '18.730957' ms. Plugin should use a background thread.
+2014-03-06 12:42:03.955 HelloWorld[5072:80b] THREAD WARNING: ['Notification'] took '14.533936' ms. Plugin should use a background thread.
+2014-03-06 12:43:16.318 HelloWorld[6267:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 12:43:16.327 HelloWorld[6267:80b] Unlimited access to network resources
+2014-03-06 12:43:16.493 HelloWorld[6267:80b] Resetting plugins due to page load.
+2014-03-06 12:43:16.556 HelloWorld[6267:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/3B833889-77E8-4A1F-A98B-8393B4BB3205/HelloWorld.app/www/index.html
+2014-03-06 12:43:36.070 HelloWorld[6267:80b] File Transfer Finished with response code 200
+2014-03-06 12:44:32.412 HelloWorld[7446:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 12:44:32.421 HelloWorld[7446:80b] Unlimited access to network resources
+2014-03-06 12:44:32.557 HelloWorld[7446:80b] Resetting plugins due to page load.
+2014-03-06 12:44:32.605 HelloWorld[7446:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/EF798993-A14F-44AD-AE3E-18DFF75EBF7D/HelloWorld.app/www/index.html
+2014-03-06 12:44:43.173 HelloWorld[7446:80b] File Transfer Finished with response code 200
+2014-03-06 12:46:01.369 HelloWorld[8638:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 12:46:01.375 HelloWorld[8638:80b] Unlimited access to network resources
+2014-03-06 12:46:01.540 HelloWorld[8638:80b] Resetting plugins due to page load.
+2014-03-06 12:46:01.602 HelloWorld[8638:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/5C599129-F4BD-4174-B13D-8687224AD89F/HelloWorld.app/www/index.html
+2014-03-06 12:46:07.781 HelloWorld[8638:80b] File Transfer Finished with response code 200
+2014-03-06 12:47:53.493 HelloWorld[10977:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 12:47:53.502 HelloWorld[10977:80b] Unlimited access to network resources
+2014-03-06 12:47:53.722 HelloWorld[10977:80b] Resetting plugins due to page load.
+2014-03-06 12:47:53.782 HelloWorld[10977:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/54D0F7A4-517D-46A0-8A01-E097D79E6C87/HelloWorld.app/www/index.html
+2014-03-06 12:48:01.646 HelloWorld[10977:80b] THREAD WARNING: ['Notification'] took '23.959229' ms. Plugin should use a background thread.
+2014-03-06 12:48:04.330 HelloWorld[10977:80b] THREAD WARNING: ['Notification'] took '15.817871' ms. Plugin should use a background thread.
+2014-03-06 12:49:30.810 HelloWorld[12166:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 12:49:30.819 HelloWorld[12166:80b] Unlimited access to network resources
+2014-03-06 12:49:30.987 HelloWorld[12166:80b] Resetting plugins due to page load.
+2014-03-06 12:49:31.048 HelloWorld[12166:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/81BFD2FE-7081-4B13-8A82-B1EE5AF24612/HelloWorld.app/www/index.html
+2014-03-06 12:49:40.477 HelloWorld[12166:80b] THREAD WARNING: ['Notification'] took '26.917969' ms. Plugin should use a background thread.
+2014-03-06 12:50:36.200 HelloWorld[13344:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 12:50:36.207 HelloWorld[13344:80b] Unlimited access to network resources
+2014-03-06 12:50:36.332 HelloWorld[13344:80b] Resetting plugins due to page load.
+2014-03-06 12:50:36.382 HelloWorld[13344:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/81BFD2FE-7081-4B13-8A82-B1EE5AF24612/HelloWorld.app/www/index.html
+2014-03-06 12:51:54.671 HelloWorld[14532:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 12:51:54.681 HelloWorld[14532:80b] Unlimited access to network resources
+2014-03-06 12:51:54.793 HelloWorld[14532:80b] Resetting plugins due to page load.
+2014-03-06 12:51:54.841 HelloWorld[14532:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/BDCC15F7-4983-45C2-801F-86122DFD7781/HelloWorld.app/www/index.html
+2014-03-06 12:52:07.440 HelloWorld[14532:80b] File Transfer Finished with response code 200
+2014-03-06 13:03:32.562 HelloWorld[15880:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 13:03:32.571 HelloWorld[15880:80b] Unlimited access to network resources
+2014-03-06 13:03:32.740 HelloWorld[15880:80b] Resetting plugins due to page load.
+2014-03-06 13:03:32.791 HelloWorld[15880:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/66224C9B-4538-48F5-ADF1-CB6219012DA4/HelloWorld.app/www/index.html
+2014-03-06 13:03:38.635 HelloWorld[15880:80b] File Transfer Finished with response code 200
+2014-03-06 13:11:43.671 HelloWorld[17190:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 13:11:43.677 HelloWorld[17190:80b] Unlimited access to network resources
+2014-03-06 13:11:43.841 HelloWorld[17190:80b] Resetting plugins due to page load.
+2014-03-06 13:11:43.913 HelloWorld[17190:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/296D1A23-6455-4E1C-9244-06401B856A82/HelloWorld.app/www/index.html
+2014-03-06 13:11:48.879 HelloWorld[17190:80b] THREAD WARNING: ['Notification'] took '29.288086' ms. Plugin should use a background thread.
+2014-03-06 13:12:40.235 HelloWorld[18358:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 13:12:40.244 HelloWorld[18358:80b] Unlimited access to network resources
+2014-03-06 13:12:40.426 HelloWorld[18358:80b] Resetting plugins due to page load.
+2014-03-06 13:12:40.498 HelloWorld[18358:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/AB3DF5BF-1879-49DC-B9D2-CFF84DF97978/HelloWorld.app/www/index.html
+2014-03-06 13:12:46.882 HelloWorld[18358:80b] THREAD WARNING: ['Notification'] took '24.207275' ms. Plugin should use a background thread.
+2014-03-06 13:14:00.181 HelloWorld[19537:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 13:14:00.191 HelloWorld[19537:80b] Unlimited access to network resources
+2014-03-06 13:14:00.358 HelloWorld[19537:80b] Resetting plugins due to page load.
+2014-03-06 13:14:00.433 HelloWorld[19537:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/23C08EEF-CE0F-4E4A-8341-0E770DF3F3EB/HelloWorld.app/www/index.html
+2014-03-06 13:14:13.387 HelloWorld[19537:80b] File Transfer Finished with response code 200
+2014-03-06 13:15:39.268 HelloWorld[20724:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 13:15:39.275 HelloWorld[20724:80b] Unlimited access to network resources
+2014-03-06 13:15:39.441 HelloWorld[20724:80b] Resetting plugins due to page load.
+2014-03-06 13:15:39.491 HelloWorld[20724:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/B76E1C4E-7366-4EB9-AFFC-C078953DCAA2/HelloWorld.app/www/index.html
+2014-03-06 13:15:43.839 HelloWorld[20724:80b] THREAD WARNING: ['Notification'] took '24.515137' ms. Plugin should use a background thread.
+2014-03-06 13:16:29.746 HelloWorld[21894:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 13:16:29.754 HelloWorld[21894:80b] Unlimited access to network resources
+2014-03-06 13:16:29.923 HelloWorld[21894:80b] Resetting plugins due to page load.
+2014-03-06 13:16:29.974 HelloWorld[21894:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/FC6E5AA0-D3AD-4DB5-8696-108BCE9706FB/HelloWorld.app/www/index.html
+2014-03-06 13:18:59.933 HelloWorld[21894:4503] bool _WebTryThreadLock(bool), 0xa9459d0: Multiple locks on web thread not allowed! Please file a bug. Crashing now...
+1   0x4f301b8 WebRunLoopLock(__CFRunLoopObserver*, unsigned long, void*)
+2   0xc653e __CFRUNLOOP_IS_CALLING_OUT_TO_AN_OBSERVER_CALLBACK_FUNCTION__
+3   0xc648f __CFRunLoopDoObservers
+4   0xa42de __CFRunLoopRun
+5   0xa3b33 CFRunLoopRunSpecific
+6   0xa394b CFRunLoopRunInMode
+7   0x4f30180 RunWebThread(void*)
+8   0x29e55fb _pthread_body
+9   0x29e5485 _pthread_struct_init
+10  0x29eacf2 thread_start
+2014-03-06 13:21:27.990 HelloWorld[23135:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 13:21:27.997 HelloWorld[23135:80b] Unlimited access to network resources
+2014-03-06 13:21:28.168 HelloWorld[23135:80b] Resetting plugins due to page load.
+2014-03-06 13:21:28.227 HelloWorld[23135:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/FC6E5AA0-D3AD-4DB5-8696-108BCE9706FB/HelloWorld.app/www/index.html
+2014-03-06 13:23:34.189 HelloWorld[24327:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 13:23:34.195 HelloWorld[24327:80b] Unlimited access to network resources
+2014-03-06 13:23:34.327 HelloWorld[24327:80b] Resetting plugins due to page load.
+2014-03-06 13:23:34.392 HelloWorld[24327:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/FC6E5AA0-D3AD-4DB5-8696-108BCE9706FB/HelloWorld.app/www/index.html
+2014-03-06 13:24:48.239 HelloWorld[25506:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 13:24:48.248 HelloWorld[25506:80b] Unlimited access to network resources
+2014-03-06 13:24:48.414 HelloWorld[25506:80b] Resetting plugins due to page load.
+2014-03-06 13:24:48.468 HelloWorld[25506:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/6655556D-C3C8-4F75-BA51-AE7C88D86309/HelloWorld.app/www/index.html
+2014-03-06 13:24:55.079 HelloWorld[25506:80b] File Transfer Finished with response code 200
+2014-03-06 13:47:02.939 HelloWorld[27008:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 13:47:02.947 HelloWorld[27008:80b] Unlimited access to network resources
+2014-03-06 13:47:03.115 HelloWorld[27008:80b] Resetting plugins due to page load.
+2014-03-06 13:47:03.164 HelloWorld[27008:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/F4BA95CB-CDE4-4945-A42B-1C8802D7B133/HelloWorld.app/www/index.html
+2014-03-06 13:47:37.449 HelloWorld[27008:80b] File Transfer Finished with response code 200
+2014-03-06 14:07:00.348 HelloWorld[28494:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 14:07:00.355 HelloWorld[28494:80b] Unlimited access to network resources
+2014-03-06 14:07:00.520 HelloWorld[28494:80b] Resetting plugins due to page load.
+2014-03-06 14:07:00.588 HelloWorld[28494:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/8C7C0C35-82C1-4C92-A7FE-F4001864038E/HelloWorld.app/www/index.html
+2014-03-06 16:34:07.363 HelloWorld[31597:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 16:34:07.371 HelloWorld[31597:80b] Unlimited access to network resources
+2014-03-06 16:34:07.494 HelloWorld[31597:80b] Resetting plugins due to page load.
+2014-03-06 16:34:07.551 HelloWorld[31597:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/B0C0EDD7-F182-40DB-B757-49EB255800D7/HelloWorld.app/www/index.html
+2014-03-06 16:37:39.902 HelloWorld[32814:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 16:37:39.912 HelloWorld[32814:80b] Unlimited access to network resources
+2014-03-06 16:37:40.108 HelloWorld[32814:80b] Resetting plugins due to page load.
+2014-03-06 16:37:40.183 HelloWorld[32814:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/D1CF05D1-8703-43A6-86EC-B32FF37BC1B3/HelloWorld.app/www/index.html
+2014-03-06 16:40:33.984 HelloWorld[34024:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 16:40:33.999 HelloWorld[34024:80b] Unlimited access to network resources
+2014-03-06 16:40:34.094 HelloWorld[34024:80b] Resetting plugins due to page load.
+2014-03-06 16:40:34.145 HelloWorld[34024:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/0F2D736A-7A2B-412B-812D-05A9D50C792C/HelloWorld.app/www/index.html
+2014-03-06 16:43:42.166 HelloWorld[35236:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 16:43:42.176 HelloWorld[35236:80b] Unlimited access to network resources
+2014-03-06 16:43:42.334 HelloWorld[35236:80b] Resetting plugins due to page load.
+2014-03-06 16:43:42.400 HelloWorld[35236:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/3F9D5081-DB65-4E50-8679-5722093C2EB0/HelloWorld.app/www/index.html
+2014-03-06 16:45:52.044 HelloWorld[36429:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 16:45:52.050 HelloWorld[36429:80b] Unlimited access to network resources
+2014-03-06 16:45:52.216 HelloWorld[36429:80b] Resetting plugins due to page load.
+2014-03-06 16:45:52.289 HelloWorld[36429:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/75657E54-0856-4936-AC8D-4BFBF8B52766/HelloWorld.app/www/index.html
+2014-03-06 16:47:35.762 HelloWorld[37614:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 16:47:35.769 HelloWorld[37614:80b] Unlimited access to network resources
+2014-03-06 16:47:35.934 HelloWorld[37614:80b] Resetting plugins due to page load.
+2014-03-06 16:47:36.010 HelloWorld[37614:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/0E6C64E9-FE29-40FE-A38E-9008A5B84F6D/HelloWorld.app/www/index.html
+2014-03-06 16:50:09.790 HelloWorld[38817:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 16:50:09.800 HelloWorld[38817:80b] Unlimited access to network resources
+2014-03-06 16:50:09.977 HelloWorld[38817:80b] Resetting plugins due to page load.
+2014-03-06 16:50:10.040 HelloWorld[38817:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/40829D3E-C93E-4652-A07A-2A6610FC5764/HelloWorld.app/www/index.html
+2014-03-06 16:57:51.551 HelloWorld[40105:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 16:57:51.558 HelloWorld[40105:80b] Unlimited access to network resources
+2014-03-06 16:57:51.734 HelloWorld[40105:80b] Resetting plugins due to page load.
+2014-03-06 16:57:51.784 HelloWorld[40105:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/DD2D8C5C-A35F-4EC5-8C3B-5496E98E5423/HelloWorld.app/www/index.html
+2014-03-06 16:58:53.101 HelloWorld[41276:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 16:58:53.108 HelloWorld[41276:80b] Unlimited access to network resources
+2014-03-06 16:58:53.296 HelloWorld[41276:80b] Resetting plugins due to page load.
+2014-03-06 16:58:53.355 HelloWorld[41276:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/AAC1332B-E9C8-415A-BEB7-047DCEF83FE1/HelloWorld.app/www/index.html
+2014-03-06 17:01:29.910 HelloWorld[42481:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 17:01:29.920 HelloWorld[42481:80b] Unlimited access to network resources
+2014-03-06 17:01:30.091 HelloWorld[42481:80b] Resetting plugins due to page load.
+2014-03-06 17:01:30.153 HelloWorld[42481:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/34BCE683-BDCE-4DA8-AD7E-449B3710CB85/HelloWorld.app/www/index.html
+2014-03-06 17:03:12.280 HelloWorld[43674:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 17:03:12.286 HelloWorld[43674:80b] Unlimited access to network resources
+2014-03-06 17:03:12.475 HelloWorld[43674:80b] Resetting plugins due to page load.
+2014-03-06 17:03:12.531 HelloWorld[43674:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/F61DA9A3-9821-43A5-A5A1-3EDA7672DC68/HelloWorld.app/www/index.html
+2014-03-06 17:06:03.076 HelloWorld[44888:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 17:06:03.083 HelloWorld[44888:80b] Unlimited access to network resources
+2014-03-06 17:06:03.273 HelloWorld[44888:80b] Resetting plugins due to page load.
+2014-03-06 17:06:03.332 HelloWorld[44888:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/F61DA9A3-9821-43A5-A5A1-3EDA7672DC68/HelloWorld.app/www/index.html
+2014-03-06 17:06:07.269 HelloWorld[44888:80b] File Transfer Finished with response code 200
+2014-03-06 17:08:13.963 HelloWorld[46096:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 17:08:13.970 HelloWorld[46096:80b] Unlimited access to network resources
+2014-03-06 17:08:14.062 HelloWorld[46096:80b] Resetting plugins due to page load.
+2014-03-06 17:08:14.114 HelloWorld[46096:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/E44F6E94-60A0-4CAF-9692-7C8CA59C5760/HelloWorld.app/www/index.html
+2014-03-06 17:11:28.910 HelloWorld[47309:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 17:11:28.919 HelloWorld[47309:80b] Unlimited access to network resources
+2014-03-06 17:11:29.105 HelloWorld[47309:80b] Resetting plugins due to page load.
+2014-03-06 17:11:29.163 HelloWorld[47309:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/C79B4A54-4239-49E9-B819-2C26177A2E82/HelloWorld.app/www/index.html
+2014-03-06 17:14:08.129 HelloWorld[48532:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 17:14:08.139 HelloWorld[48532:80b] Unlimited access to network resources
+2014-03-06 17:14:08.332 HelloWorld[48532:80b] Resetting plugins due to page load.
+2014-03-06 17:14:08.386 HelloWorld[48532:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/2E23B3EF-CEA2-42C4-8B1E-1E2644036FBE/HelloWorld.app/www/index.html
+2014-03-06 17:17:51.909 HelloWorld[49755:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 17:17:51.919 HelloWorld[49755:80b] Unlimited access to network resources
+2014-03-06 17:17:52.101 HelloWorld[49755:80b] Resetting plugins due to page load.
+2014-03-06 17:17:52.186 HelloWorld[49755:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/83CDD0D9-F17C-4001-879C-513EE9C58B68/HelloWorld.app/www/index.html
+2014-03-06 17:17:57.571 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:17:57.621 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:17:57.654 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:17:57.692 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:17:57.724 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:17:57.762 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:17:57.789 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:17:57.823 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:17:57.856 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:17:57.886 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:17:58.379 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:17:58.407 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:17:58.454 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:17:58.502 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:17:58.549 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:17:58.595 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:17:58.639 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:17:58.678 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:17:58.706 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:17:58.746 HelloWorld[49755:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:32.345 HelloWorld[51021:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 17:22:32.352 HelloWorld[51021:80b] Unlimited access to network resources
+2014-03-06 17:22:32.523 HelloWorld[51021:80b] Resetting plugins due to page load.
+2014-03-06 17:22:32.612 HelloWorld[51021:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/531EB8C2-F313-4C10-B6D1-DA0548A05D60/HelloWorld.app/www/index.html
+2014-03-06 17:22:37.997 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:38.046 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:38.078 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:38.112 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:38.153 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:38.185 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:38.226 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:38.260 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:38.295 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:38.323 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:38.357 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:38.387 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:38.420 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:38.462 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:38.497 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:38.533 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:38.566 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:38.600 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:38.628 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:22:38.660 HelloWorld[51021:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:24.898 HelloWorld[52234:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 17:25:24.913 HelloWorld[52234:80b] Unlimited access to network resources
+2014-03-06 17:25:25.090 HelloWorld[52234:80b] Resetting plugins due to page load.
+2014-03-06 17:25:25.169 HelloWorld[52234:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/6F503D18-1071-47A0-9163-6112FF80AB06/HelloWorld.app/www/index.html
+2014-03-06 17:25:31.639 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:31.683 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:31.716 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:31.751 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:31.792 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:31.824 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:31.856 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:31.899 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:31.936 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:31.970 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:32.002 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:32.030 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:32.065 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:32.100 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:32.138 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:32.176 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:32.210 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:32.243 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:32.275 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:25:32.309 HelloWorld[52234:80b] File Transfer Finished with response code 200
+2014-03-06 17:31:57.624 HelloWorld[55811:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 17:31:57.635 HelloWorld[55811:80b] Unlimited access to network resources
+2014-03-06 17:31:57.803 HelloWorld[55811:80b] Resetting plugins due to page load.
+2014-03-06 17:31:57.860 HelloWorld[55811:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/3CDB747A-20CC-4FF1-B120-582AB991E572/HelloWorld.app/www/index.html
+2014-03-06 17:32:07.194 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:32:07.231 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:32:07.260 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:32:07.295 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:32:07.327 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:32:07.359 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:32:07.406 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:32:07.440 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:32:07.476 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:32:07.505 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:32:07.543 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:32:07.569 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:32:07.600 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:32:07.631 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:32:07.663 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:32:07.697 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:32:07.726 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:32:07.756 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:32:07.793 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:32:07.827 HelloWorld[55811:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:15.600 HelloWorld[56990:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 17:33:15.608 HelloWorld[56990:80b] Unlimited access to network resources
+2014-03-06 17:33:15.774 HelloWorld[56990:80b] Resetting plugins due to page load.
+2014-03-06 17:33:15.825 HelloWorld[56990:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/FA735D44-5BA5-41A0-AC29-07559924620D/HelloWorld.app/www/index.html
+2014-03-06 17:33:21.872 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:21.910 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:21.940 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:22.851 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:22.961 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:23.067 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:23.150 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:23.233 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:23.308 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:23.350 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:23.420 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:23.445 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:23.514 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:23.586 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:23.647 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:23.680 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:23.695 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:23.730 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:23.733 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:33:29.622 HelloWorld[56990:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:42.336 HelloWorld[58171:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 17:34:42.346 HelloWorld[58171:80b] Unlimited access to network resources
+2014-03-06 17:34:42.514 HelloWorld[58171:80b] Resetting plugins due to page load.
+2014-03-06 17:34:42.595 HelloWorld[58171:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/4BB3EC52-9A30-457B-8342-3607536C70D7/HelloWorld.app/www/index.html
+2014-03-06 17:34:58.035 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:58.074 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:58.106 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:58.145 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:58.178 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:58.209 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:58.242 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:58.284 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:58.317 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:58.345 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:58.377 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:58.407 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:58.444 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:58.476 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:58.510 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:58.549 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:58.580 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:58.615 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:58.650 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:34:58.688 HelloWorld[58171:80b] File Transfer Finished with response code 200
+2014-03-06 17:36:56.578 HelloWorld[59367:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 17:36:56.587 HelloWorld[59367:80b] Unlimited access to network resources
+2014-03-06 17:36:56.780 HelloWorld[59367:80b] Resetting plugins due to page load.
+2014-03-06 17:36:56.838 HelloWorld[59367:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/71651367-5D86-43BF-888B-59228AC34C7D/HelloWorld.app/www/index.html
+2014-03-06 17:37:04.686 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:37:04.757 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:37:04.801 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:37:04.842 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:37:04.885 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:37:04.927 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:37:04.968 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:37:05.021 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:37:05.062 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:37:05.104 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:37:05.152 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:37:05.192 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:37:05.234 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:37:05.278 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:37:05.322 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:37:05.366 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:37:05.405 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:37:05.445 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:37:05.480 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:37:05.529 HelloWorld[59367:80b] File Transfer Finished with response code 200
+2014-03-06 17:42:30.072 HelloWorld[60628:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 17:42:30.089 HelloWorld[60628:80b] Unlimited access to network resources
+2014-03-06 17:42:30.287 HelloWorld[60628:80b] Resetting plugins due to page load.
+2014-03-06 17:42:30.354 HelloWorld[60628:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/22D21B01-2BE7-48E3-B16D-DE7003D5C338/HelloWorld.app/www/index.html
+2014-03-06 17:42:30.546 HelloWorld[60628:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:42.661 HelloWorld[61866:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 17:46:42.668 HelloWorld[61866:80b] Unlimited access to network resources
+2014-03-06 17:46:42.833 HelloWorld[61866:80b] Resetting plugins due to page load.
+2014-03-06 17:46:42.899 HelloWorld[61866:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/475E6313-22CC-4481-8FA3-A4F523E2894D/HelloWorld.app/www/index.html
+2014-03-06 17:46:43.029 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.123 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.159 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.194 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.231 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.266 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.303 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.343 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.387 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.431 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.462 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.495 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.522 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.558 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.601 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.635 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.670 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.700 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.729 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.759 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:46:50.793 HelloWorld[61866:80b] File Transfer Finished with response code 200
+2014-03-06 17:48:23.850 HelloWorld[63062:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 17:48:23.857 HelloWorld[63062:80b] Unlimited access to network resources
+2014-03-06 17:48:23.974 HelloWorld[63062:80b] Resetting plugins due to page load.
+2014-03-06 17:48:24.020 HelloWorld[63062:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/475E6313-22CC-4481-8FA3-A4F523E2894D/HelloWorld.app/www/index.html
+2014-03-06 17:55:19.093 HelloWorld[64325:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 17:55:19.101 HelloWorld[64325:80b] Unlimited access to network resources
+2014-03-06 17:55:19.269 HelloWorld[64325:80b] Resetting plugins due to page load.
+2014-03-06 17:55:19.378 HelloWorld[64325:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/475E6313-22CC-4481-8FA3-A4F523E2894D/HelloWorld.app/www/index.html
+2014-03-06 18:04:05.991 HelloWorld[65690:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 18:04:05.998 HelloWorld[65690:80b] Unlimited access to network resources
+2014-03-06 18:04:06.100 HelloWorld[65690:80b] Resetting plugins due to page load.
+2014-03-06 18:04:06.145 HelloWorld[65690:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/8483EA80-9E4A-420B-8EA4-5DB7B7228BD8/HelloWorld.app/www/index.html
+2014-03-06 18:04:08.963 HelloWorld[65690:80b] File Transfer Finished with response code 200
+2014-03-06 18:07:28.849 HelloWorld[66942:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 18:07:28.858 HelloWorld[66942:80b] Unlimited access to network resources
+2014-03-06 18:07:28.976 HelloWorld[66942:80b] Resetting plugins due to page load.
+2014-03-06 18:07:29.021 HelloWorld[66942:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/8483EA80-9E4A-420B-8EA4-5DB7B7228BD8/HelloWorld.app/www/index.html
+2014-03-06 18:07:47.421 HelloWorld[66942:3f03] void SendDelegateMessage(NSInvocation *): delegate (webView:runJavaScriptAlertPanelWithMessage:initiatedByFrame:) failed to return after waiting 10 seconds. main run loop mode: kCFRunLoopDefaultMode
+2014-03-06 18:08:06.936 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:06.974 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:07.002 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:07.034 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:07.069 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:07.099 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:07.125 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:07.155 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:07.191 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:07.221 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:07.250 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:07.278 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:07.308 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:07.343 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:07.379 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:07.420 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:07.459 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:07.486 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:07.515 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:07.545 HelloWorld[66942:80b] File Transfer Finished with response code 200
+2014-03-06 18:08:54.414 HelloWorld[68183:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 18:08:54.424 HelloWorld[68183:80b] Unlimited access to network resources
+2014-03-06 18:08:54.531 HelloWorld[68183:80b] Resetting plugins due to page load.
+2014-03-06 18:08:54.578 HelloWorld[68183:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/8483EA80-9E4A-420B-8EA4-5DB7B7228BD8/HelloWorld.app/www/index.html
+2014-03-06 18:21:49.532 HelloWorld[69590:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 18:21:49.544 HelloWorld[69590:80b] Unlimited access to network resources
+2014-03-06 18:21:49.719 HelloWorld[69590:80b] Resetting plugins due to page load.
+2014-03-06 18:21:49.834 HelloWorld[69590:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/D0971B9C-B6C5-4460-ACDE-9DE002C47974/HelloWorld.app/www/index.html
+2014-03-06 18:21:52.124 HelloWorld[69590:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:28.235 HelloWorld[70966:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 18:32:28.245 HelloWorld[70966:80b] Unlimited access to network resources
+2014-03-06 18:32:28.350 HelloWorld[70966:80b] Resetting plugins due to page load.
+2014-03-06 18:32:28.401 HelloWorld[70966:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/D0971B9C-B6C5-4460-ACDE-9DE002C47974/HelloWorld.app/www/index.html
+2014-03-06 18:32:34.262 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:34.315 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:34.357 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:34.403 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:34.450 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:34.496 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:34.538 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:34.578 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:34.646 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:34.684 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:34.731 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:34.762 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:34.801 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:34.841 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:34.877 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:34.922 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:34.962 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:35.002 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:35.034 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:32:35.075 HelloWorld[70966:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:42.824 HelloWorld[72351:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 18:39:42.831 HelloWorld[72351:80b] Unlimited access to network resources
+2014-03-06 18:39:42.936 HelloWorld[72351:80b] Resetting plugins due to page load.
+2014-03-06 18:39:42.980 HelloWorld[72351:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/821ED7A7-A433-417D-8CB1-0205CDB5AAE9/HelloWorld.app/www/index.html
+2014-03-06 18:39:43.137 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.152 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.206 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.239 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.277 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.316 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.357 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.391 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.426 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.464 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.499 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.543 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.575 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.616 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.655 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.703 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.749 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.785 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.825 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.868 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:39:50.905 HelloWorld[72351:80b] File Transfer Finished with response code 200
+2014-03-06 18:44:19.229 HelloWorld[73658:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 18:44:19.236 HelloWorld[73658:80b] Unlimited access to network resources
+2014-03-06 18:44:19.351 HelloWorld[73658:80b] Resetting plugins due to page load.
+2014-03-06 18:44:19.395 HelloWorld[73658:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/821ED7A7-A433-417D-8CB1-0205CDB5AAE9/HelloWorld.app/www/index.html
+2014-03-06 18:44:21.864 HelloWorld[73658:80b] THREAD WARNING: ['NetworkStatus'] took '2442.973877' ms. Plugin should use a background thread.
+2014-03-06 18:45:29.459 HelloWorld[74890:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 18:45:29.467 HelloWorld[74890:80b] Unlimited access to network resources
+2014-03-06 18:45:29.578 HelloWorld[74890:80b] Resetting plugins due to page load.
+2014-03-06 18:45:29.621 HelloWorld[74890:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/783DA8C1-5D9E-400C-8BE3-0D3510EEEF2F/HelloWorld.app/www/index.html
+2014-03-06 18:45:29.687 HelloWorld[74890:80b] FileTransferError {
+    body = "";
+    code = 3;
+    "http_status" = 0;
+    source = "http://m.ceip.org/img/appsupport/image-unavailable_605x328.png";
+    target = "cdvfile://localhost/persistent/image-unavailable_605x328.png";
+}
+2014-03-06 18:45:29.688 HelloWorld[74890:80b] File Transfer Error: The Internet connection appears to be offline.
+2014-03-06 21:44:39.662 HelloWorld[78312:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 21:44:39.680 HelloWorld[78312:80b] Unlimited access to network resources
+2014-03-06 21:44:39.782 HelloWorld[78312:80b] Resetting plugins due to page load.
+2014-03-06 21:44:39.843 HelloWorld[78312:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/FFA5CD75-D50E-49A8-B716-D469552F3409/HelloWorld.app/www/index.html
+2014-03-06 21:44:41.982 HelloWorld[78312:80b] THREAD WARNING: ['NetworkStatus'] took '2111.019043' ms. Plugin should use a background thread.
+2014-03-06 21:44:42.415 HelloWorld[78312:80b] File Transfer Finished with response code 200
+2014-03-06 21:46:38.535 HelloWorld[79558:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 21:46:38.542 HelloWorld[79558:80b] Unlimited access to network resources
+2014-03-06 21:46:38.696 HelloWorld[79558:80b] Resetting plugins due to page load.
+2014-03-06 21:46:38.749 HelloWorld[79558:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/FE677CF4-BE77-4D4C-90D7-BF820984A7F4/HelloWorld.app/www/index.html
+2014-03-06 21:54:49.819 HelloWorld[80873:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 21:54:49.827 HelloWorld[80873:80b] Unlimited access to network resources
+2014-03-06 21:54:49.931 HelloWorld[80873:80b] Resetting plugins due to page load.
+2014-03-06 21:54:49.976 HelloWorld[80873:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/E64C994E-742A-4812-9DEF-0B1FA0B7865F/HelloWorld.app/www/index.html
+2014-03-06 21:58:31.874 HelloWorld[82143:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 21:58:31.883 HelloWorld[82143:80b] Unlimited access to network resources
+2014-03-06 21:58:31.996 HelloWorld[82143:80b] Resetting plugins due to page load.
+2014-03-06 21:58:32.049 HelloWorld[82143:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/E64C994E-742A-4812-9DEF-0B1FA0B7865F/HelloWorld.app/www/index.html
+2014-03-06 21:58:32.411 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:36.882 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:37.008 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:37.076 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:37.141 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:37.205 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:37.281 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:37.345 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:37.411 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:37.477 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:37.555 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:37.619 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:37.682 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:37.747 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:37.808 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:37.872 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:37.932 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:37.990 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:38.048 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:38.103 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 21:58:38.166 HelloWorld[82143:80b] File Transfer Finished with response code 200
+2014-03-06 22:04:49.592 HelloWorld[83431:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 22:04:49.602 HelloWorld[83431:80b] Unlimited access to network resources
+2014-03-06 22:04:49.711 HelloWorld[83431:80b] Resetting plugins due to page load.
+2014-03-06 22:04:49.774 HelloWorld[83431:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/E64C994E-742A-4812-9DEF-0B1FA0B7865F/HelloWorld.app/www/index.html
+2014-03-06 22:04:58.403 HelloWorld[83431:80b] File Transfer Finished with response code 200
+2014-03-06 22:04:58.449 HelloWorld[83431:80b] File Transfer Finished with response code 200
+2014-03-06 22:04:58.475 HelloWorld[83431:80b] File Transfer Finished with response code 200
+2014-03-06 22:06:55.219 HelloWorld[84683:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 22:06:55.229 HelloWorld[84683:80b] Unlimited access to network resources
+2014-03-06 22:06:55.334 HelloWorld[84683:80b] Resetting plugins due to page load.
+2014-03-06 22:06:55.382 HelloWorld[84683:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/D0DE6D33-FD84-4C1E-A3B7-6A695F6920D7/HelloWorld.app/www/index.html
+2014-03-06 22:06:55.561 HelloWorld[84683:80b] File Transfer Finished with response code 200
+2014-03-06 22:09:55.711 HelloWorld[85963:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 22:09:55.720 HelloWorld[85963:80b] Unlimited access to network resources
+2014-03-06 22:09:55.830 HelloWorld[85963:80b] Resetting plugins due to page load.
+2014-03-06 22:09:55.888 HelloWorld[85963:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/0731AF03-A08D-438D-B609-58459AEC31AC/HelloWorld.app/www/index.html
+2014-03-06 22:09:56.098 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:10.765 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:10.812 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:10.842 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:10.877 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:10.908 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:10.948 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:10.980 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:11.017 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:11.049 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:11.080 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:11.113 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:11.149 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:11.175 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:11.210 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:11.239 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:11.273 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:11.327 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:11.358 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:11.393 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:10:11.430 HelloWorld[85963:80b] File Transfer Finished with response code 200
+2014-03-06 22:12:06.440 HelloWorld[87216:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 22:12:06.449 HelloWorld[87216:80b] Unlimited access to network resources
+2014-03-06 22:12:06.575 HelloWorld[87216:80b] Resetting plugins due to page load.
+2014-03-06 22:12:06.625 HelloWorld[87216:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/AF1DE390-2316-4957-8D42-36674DA7B52E/HelloWorld.app/www/index.html
+2014-03-06 22:12:06.686 HelloWorld[87216:80b] FileTransferError {
+    body = "";
+    code = 3;
+    "http_status" = 0;
+    source = "http://m.ceip.org/img/appsupport/image-unavailable_605x328.png";
+    target = "cdvfile://localhost/persistent/image-unavailable_605x328.png";
+}
+2014-03-06 22:12:06.686 HelloWorld[87216:80b] File Transfer Error: The Internet connection appears to be offline.
+2014-03-06 22:12:18.035 HelloWorld[87216:3e07] void SendDelegateMessage(NSInvocation *): delegate (webView:runJavaScriptAlertPanelWithMessage:initiatedByFrame:) failed to return after waiting 10 seconds. main run loop mode: kCFRunLoopDefaultMode
+2014-03-06 22:13:32.346 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:13:32.404 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:13:32.431 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:13:32.472 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:13:32.509 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:13:32.542 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:13:32.574 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:13:32.608 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:13:32.652 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:13:32.693 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:13:32.728 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:13:32.772 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:13:32.805 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:13:32.845 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:13:32.895 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:13:32.938 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:13:32.972 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:13:33.015 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:13:33.072 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:13:33.108 HelloWorld[87216:80b] File Transfer Finished with response code 200
+2014-03-06 22:20:51.993 HelloWorld[88586:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 22:20:52.000 HelloWorld[88586:80b] Unlimited access to network resources
+2014-03-06 22:20:52.104 HelloWorld[88586:80b] Resetting plugins due to page load.
+2014-03-06 22:20:52.164 HelloWorld[88586:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/D4D84868-C65B-4DA8-9657-8D1A65391AD8/HelloWorld.app/www/index.html
+2014-03-06 22:20:54.301 HelloWorld[88586:80b] THREAD WARNING: ['NetworkStatus'] took '2109.034180' ms. Plugin should use a background thread.
+2014-03-06 22:20:54.467 HelloWorld[88586:80b] File Transfer Finished with response code 200
+2014-03-06 22:25:25.450 HelloWorld[89860:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 22:25:25.459 HelloWorld[89860:80b] Unlimited access to network resources
+2014-03-06 22:25:25.568 HelloWorld[89860:80b] Resetting plugins due to page load.
+2014-03-06 22:25:25.626 HelloWorld[89860:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/E9BE3EEE-0C09-4C5C-8489-706DDC22257B/HelloWorld.app/www/index.html
+2014-03-06 22:25:30.568 HelloWorld[89860:80b] THREAD WARNING: ['NetworkStatus'] took '4893.235352' ms. Plugin should use a background thread.
+2014-03-06 22:25:30.630 HelloWorld[89860:80b] File Transfer Finished with response code 200
+2014-03-06 22:28:59.954 HelloWorld[91126:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 22:28:59.962 HelloWorld[91126:80b] Unlimited access to network resources
+2014-03-06 22:29:00.157 HelloWorld[91126:80b] Resetting plugins due to page load.
+2014-03-06 22:29:00.227 HelloWorld[91126:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/E9BE3EEE-0C09-4C5C-8489-706DDC22257B/HelloWorld.app/www/index.html
+2014-03-06 22:29:02.277 HelloWorld[91126:80b] THREAD WARNING: ['NetworkStatus'] took '2012.355713' ms. Plugin should use a background thread.
+2014-03-06 22:30:00.291 HelloWorld[92425:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 22:30:00.300 HelloWorld[92425:80b] Unlimited access to network resources
+2014-03-06 22:30:00.421 HelloWorld[92425:80b] Resetting plugins due to page load.
+2014-03-06 22:30:00.473 HelloWorld[92425:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/E9BE3EEE-0C09-4C5C-8489-706DDC22257B/HelloWorld.app/www/index.html
+2014-03-06 22:30:02.931 HelloWorld[92425:80b] THREAD WARNING: ['NetworkStatus'] took '2405.083008' ms. Plugin should use a background thread.
+2014-03-06 22:30:16.351 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:30:16.425 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:30:16.461 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:30:16.493 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:30:16.525 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:30:16.561 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:30:16.597 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:30:16.626 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:30:16.665 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:30:16.696 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:30:16.725 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:30:16.757 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:30:16.786 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:30:16.817 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:30:16.844 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:30:16.878 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:30:16.913 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:30:16.948 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:30:16.977 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:30:17.011 HelloWorld[92425:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:00.515 HelloWorld[93706:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 22:34:00.525 HelloWorld[93706:80b] Unlimited access to network resources
+2014-03-06 22:34:00.627 HelloWorld[93706:80b] Resetting plugins due to page load.
+2014-03-06 22:34:00.673 HelloWorld[93706:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/B61DB4C4-7A55-4B1F-AA3E-7B0DB902F318/HelloWorld.app/www/index.html
+2014-03-06 22:34:07.628 HelloWorld[93706:80b] THREAD WARNING: ['NetworkStatus'] took '6927.728027' ms. Plugin should use a background thread.
+2014-03-06 22:34:07.693 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:13.666 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:13.723 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:13.752 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:13.789 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:13.820 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:13.851 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:13.895 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:13.930 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:13.962 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:13.990 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:14.028 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:14.066 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:14.096 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:14.127 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:14.157 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:14.192 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:14.223 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:14.258 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:14.294 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:34:14.325 HelloWorld[93706:80b] File Transfer Finished with response code 200
+2014-03-06 22:40:56.506 HelloWorld[95028:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 22:40:56.515 HelloWorld[95028:80b] Unlimited access to network resources
+2014-03-06 22:40:56.627 HelloWorld[95028:80b] Resetting plugins due to page load.
+2014-03-06 22:40:56.683 HelloWorld[95028:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/5F746866-0D01-48B2-908F-748C7BE075D4/HelloWorld.app/www/index.html
+2014-03-06 22:40:58.977 HelloWorld[95028:80b] THREAD WARNING: ['NetworkStatus'] took '2264.876221' ms. Plugin should use a background thread.
+2014-03-06 22:40:59.042 HelloWorld[95028:80b] File Transfer Finished with response code 200
+2014-03-06 22:42:58.459 HelloWorld[96271:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 22:42:58.466 HelloWorld[96271:80b] Unlimited access to network resources
+2014-03-06 22:42:58.573 HelloWorld[96271:80b] Resetting plugins due to page load.
+2014-03-06 22:42:58.630 HelloWorld[96271:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/2021A82E-7D79-4396-AD1B-8DC581DFF98A/HelloWorld.app/www/index.html
+2014-03-06 22:43:00.134 HelloWorld[96271:80b] THREAD WARNING: ['NetworkStatus'] took '1466.118164' ms. Plugin should use a background thread.
+2014-03-06 22:43:00.201 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:07.924 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:07.967 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:07.995 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:08.033 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:08.064 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:08.094 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:08.125 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:08.159 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:08.190 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:08.223 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:08.256 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:08.298 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:08.330 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:08.364 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:08.391 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:08.424 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:08.459 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:08.492 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:08.525 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:43:08.563 HelloWorld[96271:80b] File Transfer Finished with response code 200
+2014-03-06 22:47:23.055 HelloWorld[97549:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 22:47:23.062 HelloWorld[97549:80b] Unlimited access to network resources
+2014-03-06 22:47:23.242 HelloWorld[97549:80b] Resetting plugins due to page load.
+2014-03-06 22:47:23.323 HelloWorld[97549:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/2021A82E-7D79-4396-AD1B-8DC581DFF98A/HelloWorld.app/www/index.html
+2014-03-06 22:47:32.774 HelloWorld[97549:80b] THREAD WARNING: ['NetworkStatus'] took '9412.139893' ms. Plugin should use a background thread.
+2014-03-06 23:43:39.551 HelloWorld[97549:3f03] void SendDelegateMessage(NSInvocation *): delegate (webView:runJavaScriptAlertPanelWithMessage:initiatedByFrame:) failed to return after waiting 10 seconds. main run loop mode: kCFRunLoopDefaultMode
+2014-03-06 23:44:00.594 HelloWorld[99484:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 23:44:00.602 HelloWorld[99484:80b] Unlimited access to network resources
+2014-03-06 23:44:00.713 HelloWorld[99484:80b] Resetting plugins due to page load.
+2014-03-06 23:44:00.765 HelloWorld[99484:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/5F43D96D-5C29-40BF-BBB5-7E3B0057DC81/HelloWorld.app/www/index.html
+2014-03-06 23:44:03.026 HelloWorld[99484:80b] THREAD WARNING: ['NetworkStatus'] took '2233.020264' ms. Plugin should use a background thread.
+2014-03-06 23:44:03.744 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:10.724 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:10.776 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:10.805 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:10.840 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:10.874 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:10.918 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:10.954 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:10.998 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:11.036 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:11.078 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:11.115 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:11.156 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:11.186 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:11.224 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:11.252 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:11.288 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:11.323 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:11.358 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:11.391 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:44:11.426 HelloWorld[99484:80b] File Transfer Finished with response code 200
+2014-03-06 23:47:48.129 HelloWorld[932:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 23:47:48.138 HelloWorld[932:80b] Unlimited access to network resources
+2014-03-06 23:47:48.247 HelloWorld[932:80b] Resetting plugins due to page load.
+2014-03-06 23:47:48.297 HelloWorld[932:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/5F43D96D-5C29-40BF-BBB5-7E3B0057DC81/HelloWorld.app/www/index.html
+2014-03-06 23:47:50.046 HelloWorld[932:80b] THREAD WARNING: ['NetworkStatus'] took '1699.921143' ms. Plugin should use a background thread.
+2014-03-06 23:50:40.858 HelloWorld[2181:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 23:50:40.865 HelloWorld[2181:80b] Unlimited access to network resources
+2014-03-06 23:50:41.077 HelloWorld[2181:80b] Resetting plugins due to page load.
+2014-03-06 23:50:41.127 HelloWorld[2181:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/FFEF24CB-D0BA-4D2D-AA5B-4B6A9812395D/HelloWorld.app/www/index.html
+2014-03-06 23:50:48.262 HelloWorld[2181:80b] THREAD WARNING: ['NetworkStatus'] took '7100.630127' ms. Plugin should use a background thread.
+2014-03-06 23:50:48.326 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:53.612 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:53.669 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:53.702 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:53.740 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:53.788 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:53.818 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:53.856 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:53.902 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:53.937 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:53.971 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:54.018 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:54.076 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:54.104 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:54.141 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:54.172 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:54.206 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:54.251 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:54.294 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:54.337 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:50:54.391 HelloWorld[2181:80b] File Transfer Finished with response code 200
+2014-03-06 23:54:55.563 HelloWorld[3456:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 23:54:55.569 HelloWorld[3456:80b] Unlimited access to network resources
+2014-03-06 23:54:55.670 HelloWorld[3456:80b] Resetting plugins due to page load.
+2014-03-06 23:54:55.721 HelloWorld[3456:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/FFD75E2C-3FD4-4C2A-A020-E21167D81722/HelloWorld.app/www/index.html
+2014-03-06 23:56:21.609 HelloWorld[4683:80b] Multi-tasking -> Device: YES, App: YES
+2014-03-06 23:56:21.616 HelloWorld[4683:80b] Unlimited access to network resources
+2014-03-06 23:56:21.735 HelloWorld[4683:80b] Resetting plugins due to page load.
+2014-03-06 23:56:21.790 HelloWorld[4683:80b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.0/Applications/CAF7A069-D1FE-456F-A265-8BEA17495E24/HelloWorld.app/www/index.html
+2014-03-06 23:56:21.895 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:27.284 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:27.331 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:27.365 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:27.414 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:27.450 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:27.500 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:27.544 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:27.591 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:27.626 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:27.656 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:27.696 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:27.756 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:27.795 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:27.836 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:27.864 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:27.904 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:27.953 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:27.994 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:28.037 HelloWorld[4683:80b] File Transfer Finished with response code 200
+2014-03-06 23:56:28.078 HelloWorld[4683:80b] File Transfer Finished with response code 200

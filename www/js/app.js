@@ -1,21 +1,123 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+var notify = require('../util/notify')
+		, createFileWithContents = require('../io/createFileWithContents')
+		, getFileContents = require('../io/getFileContents')
+		, doesFileExist = require('../io/doesFileExist')
+		, toJson = require('./xmlToJson')
+		, downloadExternalFile = require('../io/downloadExternalFile');
+
+function downloadFeedImages(feedObject) {
+	return new Promise(function (resolve, reject) {
+  	var i = 0
+  		, items = feedObject.story.filter(function (element) {return element.image !== undefined}).length
+  		, prevPromise = Promise.resolve();
+
+	  	feedObject.story.forEach(function(obj) { 
+		    if (obj.image) {
+		    	prevPromise = prevPromise.then(function() {
+			      return downloadExternalFile(obj.image);
+			    }).then(function(data) {
+			      i += 1;
+			      if (i === items - 1) {
+			      	resolve(data);
+			      }
+			    }).catch(reject);
+		    }
+		  });
+  })
+}
+
+function writeFileWithPromise(filename, contents) {
+	createFileWithContents(filename, contents)
+		.then(function() {
+				readFileWithPromise(filename);
+			}, function(err) {
+				notify.n('from writeFileWithPromise');
+			});
+}
+
+function readFileWithPromise(filename) {
+	getFileContents(filename)
+		.then(function(res) {
+				downloadFeedImages(JSON.parse(res.target.result)).then(function () {
+					console.log('done')
+				});
+				//notify.y('from readFileWithPromise');
+			}, function(err) {
+				notify.n('from readFileWithPromise');
+			});
+}
+
+function get(url) {
+	$.ajax({
+		url: url,
+		dataType: 'xml'
+	})
+	.then(function (res) {
+		var obj = toJson(res),
+			filename = url.split('/').pop().split('.').shift() + '.json';
+
+		doesFileExist(filename).then(function (fileentry) {
+			console.log('feed Exists')
+			downloadFeedImages(obj).then(function () {
+				console.log('done')
+			});
+		}, function () {
+			writeFileWithPromise(filename, JSON.stringify(obj));
+		})
+	}, function (err) {
+		//must be offline, or bad url, or...
+		console.log(err);
+	})
+}
+
+module.exports = {
+	get: get
+	, getImages: downloadFeedImages
+	, writeFile: writeFileWithPromise
+	, readFile: readFileWithPromise
+};
+},{"../io/createFileWithContents":6,"../io/doesFileExist":7,"../io/downloadExternalFile":8,"../io/getFileContents":11,"../util/notify":17,"./xmlToJson":3}],2:[function(require,module,exports){
 module.exports = [{
 	url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-english.xml',
 	name: 'English'
 }];
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
+module.exports = function (res) {
+	var feedObject = {}
+    , root = res.firstChild.firstChild
+    , numberOfFeeds = root.childNodes.length - 2
+    , nodesInFeed = root.childNodes[2].childNodes.length
+    , i
+    , j;
+
+  feedObject.title = root.childNodes[0].textContent;
+  feedObject.lastBuildDate = root.childNodes[1].textContent;
+  feedObject.story = [];
+
+  for (i = 0; i < numberOfFeeds; i += 1) {
+      feedObject.story[i] = {};
+      for (j = 0; j < root.childNodes[2 + i].childNodes.length; j += 1) {
+          feedObject.story[i][root.childNodes[2 + i].childNodes[j].nodeName] =
+              root.childNodes[2 + i].childNodes[j].textContent;
+      }
+  }
+
+  return feedObject;
+}
+},{}],4:[function(require,module,exports){
 module.exports = (function () {
-	var config = require('./config')
+	var config = require('./app/config')
 		, notify = require('./util/notify')
-		, doesFileExist = require('./io/doesFileExist')
-		, createFileWithContents = require('./io/createFileWithContents')
-		, getFileContents = require('./io/getFileContents')
 		, downloadExternalFile = require('./io/downloadExternalFile')
-		, toJson = require('./xmlToJson');
+		, access = require('./app/access');
+
+	// make sure the missing image file is available
+	downloadExternalFile('http://m.ceip.org/img/appsupport/image-unavailable_605x328.png');
 
 	$(function() {
 		$('body').append($('<div/>', {
-			'text': 'Does ' + config[0].url.split('/').pop().split('.').shift() + '.json' + ' exist?'
+			'text': 'Download feed'
 			, 'css': {
 				'height': '50px'
 				, 'width': '100%'
@@ -25,52 +127,12 @@ module.exports = (function () {
 				, 'font-family': 'sans-serif'
 			},
 			'click': function () {
-				var url = config[0].url
-				downloadExternalFile('http://carnegieendowment.org/images/article_images/Wendy_Sherman605.jpg', 'Wendy_Sherman605.jpg');
-				/*$.ajax({
-						url: url,
-						dataType: 'xml'
-					})
-					.then(function (res) {
-						var obj = toJson(res);
-						checkFileWithPromise(url.split('/').pop().split('.').shift() + '.json', JSON.stringify(obj))
-					}, function () {
-						//must be offline, or bad url, or...
-						doesFileExist('test.html');
-					})*/
+				access.get(config[0].url);
 			}
 		}))
 	});
-
-	function checkFileWithPromise(filename, res) {
-		$.when(doesFileExist(filename))
-			.then(function() {
-					readFileWithPromise(filename);
-				}, function(err) {
-					writeFileWithPromise(filename, res)
-				});
-	}
-
-	function writeFileWithPromise(filename, contents) {
-		$.when(createFileWithContents(filename, contents))
-			.then(function() {
-					readFileWithPromise(filename);
-				}, function(err) {
-					notify.n('from writeFileWithPromise');
-				});
-	}
-
-	function readFileWithPromise(filename) {
-		$.when(getFileContents(filename))
-			.then(function(res) {
-					console.log(JSON.parse(res));
-					notify.y('from readFileWithPromise');
-				}, function(err) {
-					notify.n('from readFileWithPromise');
-				});
-	}
 }())
-},{"./config":1,"./io/createFileWithContents":4,"./io/doesFileExist":5,"./io/downloadExternalFile":6,"./io/getFileContents":10,"./util/notify":15,"./xmlToJson":17}],3:[function(require,module,exports){
+},{"./app/access":1,"./app/config":2,"./io/downloadExternalFile":8,"./util/notify":17}],5:[function(require,module,exports){
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -90,168 +152,184 @@ module.exports = (function () {
  * under the License.
  */
 
+var connection = require('./util/connection');
+
 module.exports = (function () {
+		document.addEventListener('online', connection.online, false);
+		document.addEventListener('offline', connection.offline, false);
     document.addEventListener('deviceready', appReady, false);
 
     function appReady() {
-        var getFeeds = require('./feeds');
+      var getFeeds = require('./feeds');
     }
 }());
 
-},{"./feeds":2}],4:[function(require,module,exports){
-var promise = require('../util/promise').wrap
-	, getFileSystem = require('./getFileSystem')
+},{"./feeds":4,"./util/connection":16}],6:[function(require,module,exports){
+var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
 	, getFileEntry = require('./getFileEntry')
-	, writeFile = require('./writeFile')
-	, err = require('./error');
+	, writeFile = require('./writeFile');
 
 module.exports = function (filename, contents) {
-	return promise(function (p) {
+
+	return new Promise(function (resolve, reject) {
+
 		getFileSystem().then(function (filesystem) {
 			getFile(filesystem, filename, true).then(function (fileentry) {  
 				getFileEntry(fileentry).then(function (filewriter) {
-					writeFile(filewriter, contents).then(p.y, p.n);
-				}, err);
-			}, err);
-		}, err);
+					writeFile(filewriter, contents).then(resolve, reject);
+				}, reject);
+			}, reject);
+		}, reject);
+
 	})
 };
-},{"../util/promise":16,"./error":8,"./getFile":9,"./getFileEntry":11,"./getFileSystem":12,"./writeFile":14}],5:[function(require,module,exports){
-var promise = require('../util/promise').wrap
-	, getFileSystem = require('./getFileSystem')
-	, getFile = require('./getFile')
-	, err = require('./error');
+},{"./getFile":10,"./getFileEntry":12,"./getFileSystem":13,"./writeFile":15}],7:[function(require,module,exports){
+var getFileSystem = require('./getFileSystem')
+	, getFile = require('./getFile');
 
 module.exports = function (filename) {
-	return promise(function (p) {
+	return new Promise(function (resolve, reject) {
+
 		getFileSystem().then(function (filesystem) {
-			getFile(filesystem, filename).then(p.y, p.n);
-		}, err);
+			getFile(filesystem, filename).then(resolve, reject);
+		}, reject)
+
 	})
 }
-},{"../util/promise":16,"./error":8,"./getFile":9,"./getFileSystem":12}],6:[function(require,module,exports){
-var promise = require('../util/promise').wrap
-	, getFileSystem = require('./getFileSystem')
+},{"./getFile":10,"./getFileSystem":13}],8:[function(require,module,exports){
+var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
-	, downloadFile = require('./downloadFile')
-	, err = require('./error');
+	, downloadFile = require('./downloadFile');
 
 module.exports = function (url) {
+	
 	var filename = url.split('/').pop();
-	return promise(function (p) {
+
+	return new Promise(function (resolve, reject) {
+
 		getFileSystem().then(function (filesystem) {
-			getFile(filesystem, filename, true).then(function (fileentry) {  
-				downloadFile(fileentry, url, filename).then(p.y, p.n);
-			}, err);
-		}, err);
+			getFile(filesystem, filename, false).then(resolve,
+				function () {
+					getFile(filesystem, filename, true).then(function (fileentry) {  
+						downloadFile(fileentry, url).then(resolve, reject);
+				}, reject);
+			}) 
+		}, reject);
+
 	})
 }
-},{"../util/promise":16,"./downloadFile":7,"./error":8,"./getFile":9,"./getFileSystem":12}],7:[function(require,module,exports){
-var promise = require('../util/promise').promise;
+},{"./downloadFile":9,"./getFile":10,"./getFileSystem":13}],9:[function(require,module,exports){
+module.exports = function (fileentry, url) {
+  
+  var fileTransfer = new FileTransfer()
+  , uri = encodeURI(url)
+  , path = fileentry.toURL();
 
-module.exports = function (fileentry, url, filename) {
-    var p = promise()
-    , fileTransfer = new FileTransfer()
-    , uri = encodeURI(url)
-    , path = fileentry.toURL();
+  return new Promise(function (resolve, reject) {
 
-    console.log(path)
+    fileTransfer.download(uri, path, resolve, reject, false, {})
 
-    fileTransfer.download(
-      uri,
-      path,
-      function(entry) {
-        console.log("download complete: " + entry.fullPath);
-        p.y(entry);
-      },
-      function(error) {
-        console.log(error);
-        p.n(error);
-      }, 
-      false,
-      {}
-    );
-
-    return p.p;
+  });
 };
-},{"../util/promise":16}],8:[function(require,module,exports){
-module.exports = function (err) {
-  console.log(err);
-};
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 module.exports = function (filesystem, filename, create) {
-	var promise = require('../util/promise').roll;
-	return promise(filesystem.root.getFile, [filename, {create: !!create, exclusive: false}], filesystem.root);
+	
+	return new Promise(function (resolve, reject) {
+
+		filesystem.root.getFile(filename, {create: !!create, exclusive: false}, resolve, reject);
+
+	});
 }
-},{"../util/promise":16}],10:[function(require,module,exports){
-var promise = require('../util/promise').wrap
-  , getFileSystem = require('./getFileSystem')
+},{}],11:[function(require,module,exports){
+var getFileSystem = require('./getFileSystem')
   , getFile = require('./getFile')
-  , readFile = require('./readFile')
-  , err = require('./error');
+  , readFile = require('./readFile');
 
 module.exports = function (filename) {
-  return promise(function (p) {
+
+  return new Promise(function (resolve, reject) {
+
     getFileSystem().then(function (filesystem) {
       getFile(filesystem, filename).then(function (fileentry) {
-        readFile(fileentry).then(p.y, p.n);
-      }, err);
-    }, err);
+        readFile(fileentry).then(resolve, reject);
+      }, reject);
+    }, reject);
+
   })
 }
-},{"../util/promise":16,"./error":8,"./getFile":9,"./getFileSystem":12,"./readFile":13}],11:[function(require,module,exports){
+},{"./getFile":10,"./getFileSystem":13,"./readFile":14}],12:[function(require,module,exports){
+var promise = require('../util/promise').roll;
+
 module.exports = function (fileentry) {
-	var promise = require('../util/promise').roll;
-	return promise(fileentry.createWriter, [], fileentry);
+	return new Promise(function (resolve, reject) {
+		
+		fileentry.createWriter(resolve, reject);
+	
+	})
 };
-},{"../util/promise":16}],12:[function(require,module,exports){
+},{"../util/promise":18}],13:[function(require,module,exports){
+var promise = require('../util/promise').roll;
+
 module.exports = function () {
-	var promise = require('../util/promise').roll;
-	return promise(window.requestFileSystem, [LocalFileSystem.PERSISTENT, 0]);
-};
-},{"../util/promise":16}],13:[function(require,module,exports){
-var promise = require('../util/promise').promise;
+	return new Promise(function (resolve, reject) {
 
+		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, resolve, reject)
+
+	})
+};
+},{"../util/promise":18}],14:[function(require,module,exports){
 module.exports = function (fileentry) {
-    var p = promise()
-    , reader = new FileReader();
+    
+    var reader = new FileReader();
 
-    fileentry.file(function (f) {
-        reader.onloadend = function(e) {
-            p.y(e.target.result);
-        };
+    return new Promise(function (resolve, reject) {
 
-        reader.onerror = function (e) {
-            p.n(e);
-        };
+        fileentry.file(function (f) {
+            
+            reader.onloadend = resolve;
 
-        reader.readAsText(f);
-    })
+            reader.onerror = reject;
 
-    return p.p;
+            reader.readAsText(f);
+        })
+
+    });
 };
-},{"../util/promise":16}],14:[function(require,module,exports){
-var promise = require('../util/promise').promise;
-
+},{}],15:[function(require,module,exports){
 module.exports = function (filewriter, contents) {
-	var p = promise();
 
-  filewriter.onwriteend = function(e) {
-    p.y();
-  };
+  return new Promise(function (resolve, reject) {
 
-  filewriter.onerror = function (e) {
-  	p.n();
-  };
+    filewriter.onwriteend = resolve;
 
-  filewriter.write(contents);
+  	filewriter.onerror = reject;
 
-  return p.p;
+    filewriter.write(contents);
+
+  });
 }
 
 
-},{"../util/promise":16}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
+function get() {
+  return navigator.connection.type;
+}
+
+function online() {
+    //alert(get())
+}
+
+function offline() {
+    //alert(get());
+}
+
+module.exports = {
+    online: online
+    , offline: offline
+    , get: get
+}
+},{}],17:[function(require,module,exports){
 function alert(message, callback, title, buttonLabel) {
 	navigator.notification.alert(message, callback, title, buttonLabel);
 }
@@ -276,77 +354,60 @@ module.exports = {
 	y: y,
 	n: n
 };
-},{}],16:[function(require,module,exports){
-function promise() {
-	var deferred = new $.Deferred();
-	return {
-		y: function (res) {
-			deferred.resolve(res);
-		}
-		, n: function (err) {
-			deferred.reject(err);
-		}
-		, p: deferred.promise()
-	}
-}
+},{}],18:[function(require,module,exports){
+function roll(func, args, context) {
+	// insert promise success & fail as the last two arguments of function signature
+	return  new Promise(function (resolve, reject) {
+		var a;
 
-module.exports = {
-	promise: promise,
-	wrap: function (fn, args) {
-		var p = promise()
-			, po = {y:p.y, n:p.n}
-			, a;
+		function success(response) {
+			resolve(response)
+		};
+
+		function fail(reason) {
+			reject(reason)
+		};
 
 		if (Array.isArray(args)) {
-			a = [po]
+			args.push(success, fail);
+			a = args;
+		} else if (args === undefined) {
+			a = [success, fail];
+		} else {
+			a = [args, success, fail];
+		}
+		
+		func.apply(context || null, a);
+	});
+}
+
+function wrap(func, args, context) {
+	// insert an object with success & fail properties as the first argument of function signature
+	return  new Promise(function (resolve, reject) {
+		var a = {success:success, fail:fail};
+
+		function success(response) {
+			resolve(response)
+		};
+
+		function fail(reason) {
+			reject(reason)
+		};
+
+		if (Array.isArray(args)) {
 			$.each(args, function (index, element) {
 				a.push(element);
 			})
-		} else if (args === undefined) {
-			a = [po];
-		} else {
-			a = [po, args];
+		} else if (args !== undefined){
+			a.push(args);
 		}
-		fn.apply(null, a);
-		return p.p;
-	},
-	roll: function (fn, args, that) {
-		var p = promise()
-			, a;
 
-		if (Array.isArray(args)) {
-			args.push(p.y, p.n);
-			a = args;
-		} else if (args === undefined) {
-			a = [p.y, p.n];
-		} else {
-			a = [args, p.y, p.n];
-		}
-		fn.apply(that || null, a);
-		return p.p;
-	}
-};
-},{}],17:[function(require,module,exports){
-module.exports = function (res) {
-	var feedObject = {}
-    , root = res.firstChild.firstChild
-    , numberOfFeeds = root.childNodes.length - 2
-    , nodesInFeed = root.childNodes[2].childNodes.length
-    , i
-    , j;
-
-  feedObject.title = root.childNodes[0].textContent;
-  feedObject.lastBuildDate = root.childNodes[1].textContent;
-  feedObject.story = [];
-
-  for (i = 0; i < numberOfFeeds; i += 1) {
-      feedObject.story[i] = {};
-      for (j = 0; j < root.childNodes[2 + i].childNodes.length; j += 1) {
-          feedObject.story[i][root.childNodes[2 + i].childNodes[j].nodeName] =
-              root.childNodes[2 + i].childNodes[j].textContent;
-      }
-  }
-
-  return feedObject;
+		func.apply(context || null, a);
+	});
 }
-},{}]},{},[3])
+
+module.exports = {
+	wrap: wrap
+	, roll: roll
+}
+},{}]},{},[5])

@@ -17,10 +17,14 @@
  * under the License.
  */
 
+var connection = require('./util/connection');
+
 module.exports = (function () {
+		document.addEventListener('online', connection.online, false);
+		document.addEventListener('offline', connection.offline, false);
     document.addEventListener('deviceready', appReady, false);
 
     function appReady() {
-        var getFeeds = require('./feeds');
+      var getFeeds = require('./feeds');
     }
 }());
