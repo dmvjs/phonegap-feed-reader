@@ -4,9 +4,7 @@ var getFileSystem = require('./getFileSystem')
 	, writeFile = require('./writeFile');
 
 module.exports = function (filename, contents) {
-
 	return new Promise(function (resolve, reject) {
-
 		getFileSystem().then(function (filesystem) {
 			getFile(filesystem, filename, true).then(function (fileentry) {  
 				getFileEntry(fileentry).then(function (filewriter) {
@@ -14,6 +12,5 @@ module.exports = function (filename, contents) {
 				}, reject);
 			}, reject);
 		}, reject);
-
 	})
 };

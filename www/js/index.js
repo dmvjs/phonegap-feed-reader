@@ -25,6 +25,6 @@ module.exports = (function () {
     document.addEventListener('deviceready', appReady, false);
 
     function appReady() {
-      var getFeeds = require('./feeds');
+      var test = require('./test');
     }
 }());
