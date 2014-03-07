@@ -1,18 +1,13 @@
-var promise = require('../util/promise').promise;
-
 module.exports = function (filewriter, contents) {
-	var p = promise();
 
-  filewriter.onwriteend = function(e) {
-    p.y();
-  };
+  return new Promise(function (resolve, reject) {
 
-  filewriter.onerror = function (e) {
-  	p.n();
-  };
+    filewriter.onwriteend = resolve;
 
-  filewriter.write(contents);
+  	filewriter.onerror = reject;
 
-  return p.p;
+    filewriter.write(contents);
+
+  });
 }
 

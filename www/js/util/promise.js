@@ -1,49 +1,55 @@
-function promise() {
-	var deferred = new $.Deferred();
-	return {
-		y: function (res) {
-			deferred.resolve(res);
-		}
-		, n: function (err) {
-			deferred.reject(err);
-		}
-		, p: deferred.promise()
-	}
-}
+function roll(func, args, context) {
+	// insert promise success & fail as the last two arguments of function signature
+	return  new Promise(function (resolve, reject) {
+		var a;
 
-module.exports = {
-	promise: promise,
-	wrap: function (fn, args) {
-		var p = promise()
-			, po = {y:p.y, n:p.n}
-			, a;
+		function success(response) {
+			resolve(response)
+		};
+
+		function fail(reason) {
+			reject(reason)
+		};
 
 		if (Array.isArray(args)) {
-			a = [po]
+			args.push(success, fail);
+			a = args;
+		} else if (args === undefined) {
+			a = [success, fail];
+		} else {
+			a = [args, success, fail];
+		}
+		
+		func.apply(context || null, a);
+	});
+}
+
+function wrap(func, args, context) {
+	// insert an object with success & fail properties as the first argument of function signature
+	return  new Promise(function (resolve, reject) {
+		var a = {success:success, fail:fail};
+
+		function success(response) {
+			resolve(response)
+		};
+
+		function fail(reason) {
+			reject(reason)
+		};
+
+		if (Array.isArray(args)) {
 			$.each(args, function (index, element) {
 				a.push(element);
 			})
-		} else if (args === undefined) {
-			a = [po];
-		} else {
-			a = [po, args];
+		} else if (args !== undefined){
+			a.push(args);
 		}
-		fn.apply(null, a);
-		return p.p;
-	},
-	roll: function (fn, args, that) {
-		var p = promise()
-			, a;
 
-		if (Array.isArray(args)) {
-			args.push(p.y, p.n);
-			a = args;
-		} else if (args === undefined) {
-			a = [p.y, p.n];
-		} else {
-			a = [args, p.y, p.n];
-		}
-		fn.apply(that || null, a);
-		return p.p;
-	}
-};
+		func.apply(context || null, a);
+	});
+}
+
+module.exports = {
+	wrap: wrap
+	, roll: roll
+}

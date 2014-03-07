@@ -1,4 +1,9 @@
+var promise = require('../util/promise').roll;
+
 module.exports = function (fileentry) {
-	var promise = require('../util/promise').roll;
-	return promise(fileentry.createWriter, [], fileentry);
+	return new Promise(function (resolve, reject) {
+		
+		fileentry.createWriter(resolve, reject);
+	
+	})
 };
