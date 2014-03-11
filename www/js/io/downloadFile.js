@@ -1,9 +1,19 @@
+var config = require('../app/config');
+
 module.exports = function (fileentry, url) {
   var fileTransfer = new FileTransfer()
   , uri = encodeURI(url)
   , path = fileentry.toURL();
 
   return new Promise(function (resolve, reject) {
-    fileTransfer.download(uri, path, resolve, reject, false, {})
+	  function catchErrors(reason) {
+	  	if (reason.http_status === 404) {
+				resolve(config.missingFileRef)
+			} else {
+				reject(reason);
+			}
+	  }
+
+    fileTransfer.download(uri, path, resolve, catchErrors, false, {})
   });
 };
