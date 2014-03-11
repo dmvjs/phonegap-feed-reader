@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>54FFE86E-5CE3-4EF5-9297-6AFFB5AD4922</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Carnegie</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>04E37700-BD77-49A6-87B6-57F644A3D063</key>
+		<string>https://github.com/dmvjs/phonegap-feed-reader</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>platforms/ios/Carnegie.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>04E37700-BD77-49A6-87B6-57F644A3D063</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/dmvjs/phonegap-feed-reader</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>04E37700-BD77-49A6-87B6-57F644A3D063</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>04E37700-BD77-49A6-87B6-57F644A3D063</string>
+			<key>IDESourceControlWCCName</key>
+			<string>carnegie-feed-reader</string>
+		</dict>
+	</array>
+</dict>
+</plist>

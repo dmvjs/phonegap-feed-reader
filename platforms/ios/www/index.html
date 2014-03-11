@@ -22,10 +22,21 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
+        <link type="text/css" rel="stylesheet" href="css/index.css"/>
         <title>Carnegie</title>
     </head>
     <body>
+        <div class="spinner"></div>
+        <div class="splash"></div>
+        <header class='story-list'>
+            <button class='show-menu'>menu</button>
+        </header>
+        <div class="container">
+            <section class="story-list active"><ul></ul></section>
+            <section class="story"></section>
+            <section class="menu"></section>
+        </div>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/lib/jquery-min.js"></script>
         <script type="text/javascript" src="js/lib/promises-polyfill-min.js"></script>

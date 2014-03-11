@@ -2,11 +2,13 @@ function get() {
   return navigator.connection.type;
 }
 
-function online() {
+function online(e) {
+		console.log(e)
     //alert(get())
 }
 
-function offline() {
+function offline(e) {
+    console.log(e)
     //alert(get());
 }
 

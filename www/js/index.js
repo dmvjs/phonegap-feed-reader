@@ -22,9 +22,19 @@ var connection = require('./util/connection');
 module.exports = (function () {
 		document.addEventListener('online', connection.online, false);
 		document.addEventListener('offline', connection.offline, false);
+		
     document.addEventListener('deviceready', appReady, false);
 
     function appReady() {
-      var test = require('./test');
+    	//setTimeout(function () {
+				//require('./test');
+				$(function () {
+					require('./init');
+				})
+				setTimeout(function () {
+					navigator.splashscreen.hide();
+				}, 200)
+    	//}, 6000)
+      
     }
 }());
