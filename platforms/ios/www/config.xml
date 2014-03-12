@@ -14,7 +14,7 @@
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="prerendered-icon" value="true" />
+    <preference name="prerendered-icon" value="false" />
     <preference name="stay-in-webview" value="false" />
     <preference name="ios-statusbarstyle" value="black-translucent" />
     <preference name="detect-data-types" value="true" />
@@ -43,6 +43,9 @@
     <icon gap:platform="ios" height="72" src="res/icon/ios/icon-72.png" width="72" />
     <icon gap:platform="ios" height="114" src="res/icon/ios/icon-57-2x.png" width="114" />
     <icon gap:platform="ios" height="144" src="res/icon/ios/icon-72-2x.png" width="144" />
+    <icon gap:platform="ios" height="76" src="res/icon/ios/icon-76.png" width="76" />
+    <icon gap:platform="ios" height="152" src="res/icon/ios/icon-76-2x.png" width="152" />
+    <icon gap:platform="ios" height="120" src="res/icon/ios/icon-60-2x.png" width="120" />
     <icon gap:platform="webos" src="res/icon/webos/icon-64.png" />
     <icon gap:platform="winphone" src="res/icon/windows-phone/icon-48.png" />
     <icon gap:platform="winphone" gap:role="background" src="res/icon/windows-phone/icon-173.png" />

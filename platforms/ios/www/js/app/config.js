@@ -29,6 +29,7 @@ module.exports = {
 			}, {
 				url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-arabic.xml'
 				, name: 'عربي'
+				, dir: 'rtl'
 			}]
 		}, {
 			title: 'Global Centers'

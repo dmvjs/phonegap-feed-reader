@@ -1,5 +1,6 @@
 var config = require('../config')
 	, access = require('../access')
+	, header = require('./header')
 	, storyList = require('./storyList')
 	, doesFileExist = require('../../io/doesFileExist')
 	, getFileContents = require('../../io/getFileContents')
@@ -47,9 +48,12 @@ var config = require('../config')
 				, link = $('<a/>', {
 					addClass: 'menu-link feed'
 				})
+				, hairline = $('<div/>', {
+					addClass: 'hairline'
+				})
 				, item = $('<li/>', {
 					addClass: 'menu-item'
-				}).append(link.append(container).append(box))
+				}).append(hairline).append(link.append(container).append(box))
 				, filename = access.getFilenameFromFeed(el);
 
 				if (el.required && !primary) {
@@ -81,9 +85,12 @@ var config = require('../config')
 					, href: el.url
 					, target: '_system'
 				})
+				, hairline = $('<div/>', {
+					addClass: 'hairline'
+				})
 				, item = $('<li/>', {
 					addClass: 'menu-item'
-				}).append(link.append(container));
+				}).append(hairline).append(link.append(container));
 
 				list.append(item);
 			})
@@ -124,7 +131,7 @@ var config = require('../config')
 	$('a.menu-link.link').on('click', function (e) {
 		//select a feed (download if needed)
 		e.preventDefault();
-		window.open(encodeURI($(e.currentTarget).prop('href')), '_system');
+		window.open(encodeURI($(e.currentTarget).prop('href')), '_blank', 'location=no, toolbar=yes');
 		$('section.menu li.active').removeClass('active');
 		$(e.currentTarget).closest('li').addClass('active');
 	})
@@ -150,8 +157,8 @@ function get(id, loadOnly) {
 			update(filename, 'Updated: ' + obj.lastBuildDate);
 			storyList.show(obj);
 			setTimeout(function () {
-				$('section.menu').removeClass('active')
-			}, 100)
+				header.showStoryList();
+			}, 600)
 		}
 
 	}, function (error) {

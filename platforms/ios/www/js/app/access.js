@@ -104,8 +104,6 @@ function get(id) {
 	})
 }
 
-
-
 function removeOrphanedImages() {
 	return new Promise(function (resolve, reject) {
 		var images = ['image-unavailable_605x328.png'];

@@ -7164,3 +7164,53 @@ libc++abi.dylib: terminating with uncaught exception of type NSException
 2014-03-11 00:39:01.494 Carnegie[76203:80b] File Transfer Finished with response code 200
 2014-03-11 00:39:01.524 Carnegie[76203:80b] File Transfer Finished with response code 200
 2014-03-11 00:39:25.571 Carnegie[76203:80b] File Transfer Finished with response code 200
+2014-03-11 14:22:17.635 Carnegie[15217:70b] Multi-tasking -> Device: YES, App: YES
+2014-03-11 14:22:17.642 Carnegie[15217:70b] Unlimited access to network resources
+2014-03-11 14:22:17.752 Carnegie[15217:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-03-11 14:22:17.752 Carnegie[15217:70b] [CDVTimer][splashscreen] 25.173008ms
+2014-03-11 14:22:17.752 Carnegie[15217:70b] [CDVTimer][TotalPluginStartup] 25.366962ms
+2014-03-11 14:22:17.754 Carnegie[15217:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-03-11 14:22:17.756 Carnegie[15217:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-03-11 14:22:17.756 Carnegie[15217:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-03-11 14:22:17.834 Carnegie[15217:70b] Resetting plugins due to page load.
+2014-03-11 14:22:17.974 Carnegie[15217:70b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4D69B116-AB19-4175-B22E-4345827E2B25/Carnegie.app/www/index.html
+2014-03-11 14:23:06.350 Carnegie[16503:70b] Multi-tasking -> Device: YES, App: YES
+2014-03-11 14:23:06.357 Carnegie[16503:70b] Unlimited access to network resources
+2014-03-11 14:23:06.386 Carnegie[16503:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-03-11 14:23:06.386 Carnegie[16503:70b] [CDVTimer][splashscreen] 10.356963ms
+2014-03-11 14:23:06.387 Carnegie[16503:70b] [CDVTimer][TotalPluginStartup] 10.821998ms
+2014-03-11 14:23:06.388 Carnegie[16503:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-03-11 14:23:06.391 Carnegie[16503:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-03-11 14:23:06.392 Carnegie[16503:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-03-11 14:23:06.478 Carnegie[16503:70b] Resetting plugins due to page load.
+2014-03-11 14:23:06.554 Carnegie[16503:70b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4D69B116-AB19-4175-B22E-4345827E2B25/Carnegie.app/www/index.html
+2014-03-11 14:23:13.313 Carnegie[16503:70b] File Transfer Finished with response code 200
+2014-03-11 14:23:13.350 Carnegie[16503:70b] File Transfer Finished with response code 200
+2014-03-11 14:23:13.390 Carnegie[16503:70b] File Transfer Finished with response code 200
+2014-03-11 14:23:13.431 Carnegie[16503:70b] File Transfer Finished with response code 200
+2014-03-11 14:23:13.461 Carnegie[16503:70b] File Transfer Finished with response code 200
+2014-03-11 14:23:13.494 Carnegie[16503:70b] File Transfer Finished with response code 200
+2014-03-11 14:23:13.527 Carnegie[16503:70b] File Transfer Finished with response code 200
+2014-03-11 14:23:13.560 Carnegie[16503:70b] File Transfer Finished with response code 200
+2014-03-11 14:23:13.591 Carnegie[16503:70b] File Transfer Finished with response code 200
+2014-03-11 14:24:06.271 Carnegie[17806:70b] Multi-tasking -> Device: YES, App: YES
+2014-03-11 14:24:06.281 Carnegie[17806:70b] Unlimited access to network resources
+2014-03-11 14:24:06.306 Carnegie[17806:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-03-11 14:24:06.306 Carnegie[17806:70b] [CDVTimer][splashscreen] 9.046018ms
+2014-03-11 14:24:06.307 Carnegie[17806:70b] [CDVTimer][TotalPluginStartup] 9.388983ms
+2014-03-11 14:24:06.308 Carnegie[17806:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-03-11 14:24:06.310 Carnegie[17806:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-03-11 14:24:06.311 Carnegie[17806:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-03-11 14:24:06.384 Carnegie[17806:70b] Resetting plugins due to page load.
+2014-03-11 14:24:06.479 Carnegie[17806:70b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4D69B116-AB19-4175-B22E-4345827E2B25/Carnegie.app/www/index.html
+2014-03-11 14:28:24.707 Carnegie[17806:70b] Received memory warning.
+2014-03-11 14:29:01.118 Carnegie[19158:70b] Multi-tasking -> Device: YES, App: YES
+2014-03-11 14:29:01.126 Carnegie[19158:70b] Unlimited access to network resources
+2014-03-11 14:29:01.154 Carnegie[19158:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-03-11 14:29:01.154 Carnegie[19158:70b] [CDVTimer][splashscreen] 8.578002ms
+2014-03-11 14:29:01.155 Carnegie[19158:70b] [CDVTimer][TotalPluginStartup] 8.844972ms
+2014-03-11 14:29:01.156 Carnegie[19158:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-03-11 14:29:01.158 Carnegie[19158:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-03-11 14:29:01.160 Carnegie[19158:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-03-11 14:29:01.243 Carnegie[19158:70b] Resetting plugins due to page load.
+2014-03-11 14:29:01.334 Carnegie[19158:70b] Finished load of: file:///Users/kirkelliott/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4D69B116-AB19-4175-B22E-4345827E2B25/Carnegie.app/www/index.html
