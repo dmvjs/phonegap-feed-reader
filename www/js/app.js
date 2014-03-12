@@ -105,8 +105,6 @@ function get(id) {
 	})
 }
 
-
-
 function removeOrphanedImages() {
 	return new Promise(function (resolve, reject) {
 		var images = ['image-unavailable_605x328.png'];
@@ -152,7 +150,7 @@ module.exports = {
 	, getFilenameFromFeed: getFilenameFromFeed
 	, removeFeed: removeFeed
 };
-},{"../io/createFileWithContents":10,"../io/doesFileExist":11,"../io/downloadExternalFile":12,"../io/getFileContents":15,"../io/getFileList":17,"../io/removeFile":21,"../util/connection":23,"../util/notify":24,"./config":2,"./xmlToJson":7}],2:[function(require,module,exports){
+},{"../io/createFileWithContents":11,"../io/doesFileExist":12,"../io/downloadExternalFile":13,"../io/getFileContents":16,"../io/getFileList":18,"../io/removeFile":22,"../util/connection":24,"../util/notify":25,"./config":2,"./xmlToJson":8}],2:[function(require,module,exports){
 module.exports = {
 	fs: void 0
 	, menuMessage: 'Not yet downloaded'
@@ -184,6 +182,7 @@ module.exports = {
 			}, {
 				url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-arabic.xml'
 				, name: 'عربي'
+				, dir: 'rtl'
 			}]
 		}, {
 			title: 'Global Centers'
@@ -280,16 +279,68 @@ module.exports = (function () {
 		})
 	})
 }())
-},{"../io/doesFileExist":11,"../io/downloadExternalFile":12,"../util/notify":24,"./config":2}],4:[function(require,module,exports){
-module.exports = (function () {
-	$('.show-menu').on('touchstart', function () {
-		$('section.menu').toggleClass('active');
-		$('section.story-list').toggleClass('active');
-	})
-}())
-},{}],5:[function(require,module,exports){
+},{"../io/doesFileExist":12,"../io/downloadExternalFile":13,"../util/notify":25,"./config":2}],4:[function(require,module,exports){
+var story = require('./story');
+
+$('header .show-menu').on('touchstart', function () {
+	if ($('section.story-list').hasClass('active')) {
+		showMenu();
+	} else {
+		showStoryList();
+	}
+})
+
+$('header .story .back').on('touchstart', showStoryList);
+
+$('header .story .btn-group .previous').on('touchstart', function () {
+	story.previous();
+})
+
+$('header .story .btn-group .next').on('touchstart', function () {
+	story.next();
+})
+
+function showStoryList() {
+	setTimeout(function () {
+			$('header .story-list').addClass('active');
+			$('header .menu').removeClass('active');
+			$('header .story').removeClass('active');
+		}, 400)
+	$('section.story-list').addClass('active');
+	$('section.menu').removeClass('active');
+	$('section.story').removeClass('active');
+	$('footer.story-footer').removeClass('active');
+}
+
+function showMenu() {
+	setTimeout(function () {
+			$('header .story-list').removeClass('active');
+			$('header .menu').addClass('active');
+			$('section.story-list').removeClass('active');
+		}, 400)
+	$('section.menu').addClass('active');
+}
+
+function showStory() {
+	setTimeout(function () {
+			$('header .story-list').removeClass('active');
+			$('header .story').addClass('active');
+			$('section.story-list').removeClass('active');
+		}, 400)
+	$('section.menu').removeClass('active');
+	$('section.story').addClass('active');
+	$('footer.story-footer').addClass('active');
+}
+
+module.exports = {
+	showStoryList: showStoryList
+	, showMenu: showMenu
+	, showStory: showStory
+}
+},{"./story":6}],5:[function(require,module,exports){
 var config = require('../config')
 	, access = require('../access')
+	, header = require('./header')
 	, storyList = require('./storyList')
 	, doesFileExist = require('../../io/doesFileExist')
 	, getFileContents = require('../../io/getFileContents')
@@ -337,9 +388,12 @@ var config = require('../config')
 				, link = $('<a/>', {
 					addClass: 'menu-link feed'
 				})
+				, hairline = $('<div/>', {
+					addClass: 'hairline'
+				})
 				, item = $('<li/>', {
 					addClass: 'menu-item'
-				}).append(link.append(container).append(box))
+				}).append(hairline).append(link.append(container).append(box))
 				, filename = access.getFilenameFromFeed(el);
 
 				if (el.required && !primary) {
@@ -371,9 +425,12 @@ var config = require('../config')
 					, href: el.url
 					, target: '_system'
 				})
+				, hairline = $('<div/>', {
+					addClass: 'hairline'
+				})
 				, item = $('<li/>', {
 					addClass: 'menu-item'
-				}).append(link.append(container));
+				}).append(hairline).append(link.append(container));
 
 				list.append(item);
 			})
@@ -414,7 +471,7 @@ var config = require('../config')
 	$('a.menu-link.link').on('click', function (e) {
 		//select a feed (download if needed)
 		e.preventDefault();
-		window.open(encodeURI($(e.currentTarget).prop('href')), '_system');
+		window.open(encodeURI($(e.currentTarget).prop('href')), '_blank', 'location=no, toolbar=yes');
 		$('section.menu li.active').removeClass('active');
 		$(e.currentTarget).closest('li').addClass('active');
 	})
@@ -440,8 +497,8 @@ function get(id, loadOnly) {
 			update(filename, 'Updated: ' + obj.lastBuildDate);
 			storyList.show(obj);
 			setTimeout(function () {
-				$('section.menu').removeClass('active')
-			}, 100)
+				header.showStoryList();
+			}, 600)
 		}
 
 	}, function (error) {
@@ -471,17 +528,97 @@ function remove(id) {
 module.exports = {
 	update: update
 }
-},{"../../io/doesFileExist":11,"../../io/getFileContents":15,"../access":1,"../config":2,"./storyList":6}],6:[function(require,module,exports){
+},{"../../io/doesFileExist":12,"../../io/getFileContents":16,"../access":1,"../config":2,"./header":4,"./storyList":7}],6:[function(require,module,exports){
 var config = require('../config')
+	, access = require('../access')
+	, feedObj
+	, index;
+
+function show(i, feed) {
+	var obj = feedObj = feed || feedObj
+		, storyObj = obj.story[i]
+		, image = storyObj.image ? config.fs + storyObj.image.split('/').pop() : config.missingImageRef.toURL()
+		, rtl = obj.title ? obj.title.toLowerCase().indexOf('arabic') > -1 : false;
+
+	index = i;
+
+  html = 
+	  '<div class="page">\
+		  <div class="top-bar">' + storyObj.docType + '</div>\
+		  <div class="story-title">' + storyObj.title + '</div>\
+		  <img src="' + image + '" class="story-image"/>\
+	  	<div class="story-meta">\
+				<div class="story-author">' + storyObj.author + '</div>\
+				<div class="story-date">' + storyObj.pubDate + '</div>\
+			</div>\
+			<div class="story-text">' + storyObj.description + '</div>\
+		</div>';
+
+	$('section.story').toggleClass('rtl', !!rtl).prop('dir', rtl ? 'rtl' : 'ltr').addClass('active').scrollTop(0).html(html);
+
+	$('footer.story-footer .share').on('click', function () {
+		setTimeout(function () {
+			window.plugins.socialsharing.share('I\'m currently reading:',
+      storyObj.title,
+      storyObj.image || null,
+      storyObj.link)
+		}, 0)
+	})
+
+	$('section.story a').on('click', function (e) {
+		//select a feed (download if needed)
+		e.preventDefault();
+		window.open(encodeURI($(e.currentTarget).prop('href')), '_blank', 'location=no, toolbar=yes');
+	})
+
+	$('.story-image').on('error', function (e) {
+    $(this).prop('src', config.missingImageRef.toURL());
+  })
+}
+
+function next() {
+	if (index < feedObj.story.length - 1) {
+		index += 1;
+		showAndUpdate(index);
+	}
+}
+
+function previous() {
+	if (index > 0) {
+		index -= 1;
+		showAndUpdate(index);
+	}
+}
+
+function showAndUpdate(index) {
+	show(index);
+	$('section.story-list ul li .story-item.active').removeClass('active'); 
+	$('section.story-list ul li .story-item').eq(index).addClass('active'); 
+	//storyList.update(index);
+}
+
+module.exports = {
+	show: show
+	, next: next
+	, previous: previous
+}
+},{"../access":1,"../config":2}],7:[function(require,module,exports){
+var config = require('../config')
+  , header = require('./header')
+  , story = require('./story');
+
 function show(feedObj) {
 	var obj = feedObj.story
-		, html = '';
+		, html = '<div class="top-bar">Updated: ' + feedObj.lastBuildDate + '</div>'
+    , rtl = feedObj.title ? feedObj.title.toLowerCase().indexOf('arabic') > -1 : false
+    , sent = false;
 
   obj.forEach(function (element) {
     var image = element.image ? config.fs + element.image.split('/').pop() : config.missingImageRef.toURL();
     html += 
     '<li>\
     	<div class="story-item">\
+        <div class="hairline"></div>\
     		<img src="' + image + '" class="story-image"/>\
   			<div class="story-text">\
   				<div class="story-title">' + element.title + '</div>\
@@ -492,13 +629,19 @@ function show(feedObj) {
   	</li>';
   });
 
-  $('.story-list ul').html(html);
+  $('section.story-list').toggleClass('rtl', rtl).prop('dir', rtl ? 'rtl' : 'ltr').scrollTop(0);
+
+  $('section.story-list ul').html(html);
 
   $('.story-item').on('click', function (e) {
-    var li = $(this).closest('li'),
-      index = $('.story-list ul li').index(li);
-			$('.story-item.selected').removeClass('selected'); 
-			$(this).addClass('selected');   
+    var li = $(this).closest('li')
+      , index = $('section.story-list ul li').index(li)
+      , feed = sent ? void 0 : feedObj;
+			$('.story-item.active').removeClass('active'); 
+			$(this).addClass('active'); 
+      story.show(index, feed);
+      sent = true;
+      header.showStory() 
   });
 
   $('.story-image').on('error', function (e) {
@@ -509,7 +652,7 @@ function show(feedObj) {
 module.exports = {
 	show: show
 }
-},{"../config":2}],7:[function(require,module,exports){
+},{"../config":2,"./header":4,"./story":6}],8:[function(require,module,exports){
 module.exports = function (res) {
 	var feedObject = {}
     , root = res.firstChild.firstChild
@@ -532,7 +675,7 @@ module.exports = function (res) {
 
   return feedObject;
 }
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -574,7 +717,7 @@ module.exports = (function () {
     }
 }());
 
-},{"./init":9,"./util/connection":23}],9:[function(require,module,exports){
+},{"./init":10,"./util/connection":24}],10:[function(require,module,exports){
 module.exports = (function () {
 	var access = require('./app/access')
 	, storyList = require('./app/ui/storyList')
@@ -600,7 +743,7 @@ module.exports = (function () {
 	});
 
 }())
-},{"./app/access":1,"./app/downloadMissingImage":3,"./app/ui/header":4,"./app/ui/menu":5,"./app/ui/storyList":6,"./io/doesFileExist":11,"./io/getFileContents":15}],10:[function(require,module,exports){
+},{"./app/access":1,"./app/downloadMissingImage":3,"./app/ui/header":4,"./app/ui/menu":5,"./app/ui/storyList":7,"./io/doesFileExist":12,"./io/getFileContents":16}],11:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
 	, getFileEntry = require('./getFileEntry')
@@ -617,7 +760,7 @@ module.exports = function (filename, contents) {
 		}, reject);
 	})
 };
-},{"./getFile":14,"./getFileEntry":16,"./getFileSystem":18,"./writeFile":22}],11:[function(require,module,exports){
+},{"./getFile":15,"./getFileEntry":17,"./getFileSystem":19,"./writeFile":23}],12:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile');
 
@@ -628,7 +771,7 @@ module.exports = function (filename) {
 		}, reject)
 	})
 }
-},{"./getFile":14,"./getFileSystem":18}],12:[function(require,module,exports){
+},{"./getFile":15,"./getFileSystem":19}],13:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
 	, downloadFile = require('./downloadFile');
@@ -646,7 +789,7 @@ module.exports = function (url) {
 		}, reject);
 	})
 }
-},{"./downloadFile":13,"./getFile":14,"./getFileSystem":18}],13:[function(require,module,exports){
+},{"./downloadFile":14,"./getFile":15,"./getFileSystem":19}],14:[function(require,module,exports){
 var config = require('../app/config');
 
 module.exports = function (fileentry, url) {
@@ -666,13 +809,13 @@ module.exports = function (fileentry, url) {
     fileTransfer.download(uri, path, resolve, catchErrors, false, {})
   });
 };
-},{"../app/config":2}],14:[function(require,module,exports){
+},{"../app/config":2}],15:[function(require,module,exports){
 module.exports = function (filesystem, filename, create) {
 	return new Promise(function (resolve, reject) {
 		filesystem.root.getFile(filename, {create: !!create, exclusive: false}, resolve, reject);
 	});
 }
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
   , getFile = require('./getFile')
   , readFile = require('./readFile');
@@ -686,13 +829,13 @@ module.exports = function (filename) {
     }, reject);
   })
 }
-},{"./getFile":14,"./getFileSystem":18,"./readFile":20}],16:[function(require,module,exports){
+},{"./getFile":15,"./getFileSystem":19,"./readFile":21}],17:[function(require,module,exports){
 module.exports = function (fileentry) {
 	return new Promise(function (resolve, reject) {
 		fileentry.createWriter(resolve, reject);
 	})
 };
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
   , readDirectory = require('./readDirectory');
 
@@ -703,20 +846,20 @@ module.exports = function (filename) {
     }, reject);
   })
 }
-},{"./getFileSystem":18,"./readDirectory":19}],18:[function(require,module,exports){
+},{"./getFileSystem":19,"./readDirectory":20}],19:[function(require,module,exports){
 module.exports = function () {
 	return new Promise(function (resolve, reject) {
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, resolve, reject)
 	})
 };
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 module.exports = function (filesystem) {
 	var reader = filesystem.root.createReader();
 	return new Promise(function (resolve, reject) {
 		reader.readEntries(resolve, reject);
 	});
 }
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 module.exports = function (fileentry) {
     var reader = new FileReader();
     return new Promise(function (resolve, reject) {
@@ -727,13 +870,13 @@ module.exports = function (fileentry) {
         })
     });
 };
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 module.exports = function (fileentry) {
     return new Promise(function (resolve, reject) {
         fileentry.remove(resolve, reject)
     });
 };
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 module.exports = function (filewriter, contents) {
   return new Promise(function (resolve, reject) {
     filewriter.onwriteend = resolve;
@@ -743,7 +886,7 @@ module.exports = function (filewriter, contents) {
 }
 
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 function get() {
   return navigator.connection.type;
 }
@@ -763,7 +906,7 @@ module.exports = {
     , offline: offline
     , get: get
 }
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 function alert(message, callback, title, buttonLabel) {
 	navigator.notification.alert(message, callback, title, buttonLabel);
 }
@@ -788,4 +931,4 @@ module.exports = {
 	y: y,
 	n: n
 };
-},{}]},{},[8])
+},{}]},{},[9])

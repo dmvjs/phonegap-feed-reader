@@ -29,13 +29,30 @@
     <body>
         <div class="spinner"></div>
         <div class="splash"></div>
-        <header class='story-list'>
-            <button class='show-menu'>menu</button>
+        <header>
+            <div class="story">
+                <button class="back"></button>
+                <div class="btn-group">
+                    <button class="next"></button>
+                    <button class="previous"></button>
+                </div>
+            </div>
+            <div class="story-list active">
+                <button class="show-menu"></button>
+            </div>
+            <div class="menu">
+                <button class="show-menu"></button>
+            </div>
         </header>
         <div class="container">
             <section class="story-list active"><ul></ul></section>
             <section class="story"></section>
             <section class="menu"></section>
+            <footer class="story-footer">
+                <div class="hairline"></div>
+                <button class="share"></button>
+                <button class="text">Text</button>
+            </footer>
         </div>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/lib/jquery-min.js"></script>
