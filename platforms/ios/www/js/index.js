@@ -34,7 +34,7 @@ module.exports = (function () {
 				setTimeout(function () {
 					navigator.splashscreen.hide();
 				}, 200)
-    	//}, 6000)
+    	//}, 15000)
       
     }
 }());

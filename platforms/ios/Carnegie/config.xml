@@ -68,7 +68,9 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
+    <preference name="phonegap-version" value="3.4.0" />
     <icon src="icon.png" />
+    <gap:plugin name="nl.x-services.plugins.socialsharing" />
     <plugin name="Notification" value="CDVNotification" />
     <plugin name="File" value="CDVFile" />
     <plugin name="FileTransfer" value="CDVFileTransfer" />

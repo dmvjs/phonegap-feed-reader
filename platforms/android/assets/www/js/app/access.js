@@ -109,7 +109,10 @@ function removeOrphanedImages() {
 		var images = ['image-unavailable_605x328.png'];
 		getFileList().then(function (response) {
 			var json = response.filter(function (element) {return element.name.split('.').pop() === 'json'})
-				, imageFiles = response.filter(function (element) {return element.name.split('.').pop() !== 'json'})
+				, imageFiles = response.filter(function (element) {
+						var ext = element.name.split('.').pop()
+						return ext === 'jpg' || ext === 'png' || ext === 'jpeg'
+					})
 				, filenames = json.map(function (element) {return element.name});
 
 			Promise.all(
@@ -118,6 +121,7 @@ function removeOrphanedImages() {
 	  		var imagesToRemove = [];
 	  		res.forEach(function (el) {
 	  			var obj = JSON.parse(el.target.result)
+	  			console.log(obj)
 	  			obj.story.forEach(function (ele) {
 	  				if (ele.image && images.indexOf(ele.image.split('/').pop()) === -1) {
 	  					images.push(ele.image.split('/').pop())
@@ -127,6 +131,7 @@ function removeOrphanedImages() {
 	  		imagesToRemove = imageFiles.filter(function(val) {
 				  return images.indexOf(val.name) === -1;
 				});
+				console.log(imagesToRemove)
 	  		Promise.all(imagesToRemove.map(removeFile)).then(resolve, reject)
 	  	});
 		}, reject)

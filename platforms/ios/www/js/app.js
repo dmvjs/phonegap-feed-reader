@@ -110,7 +110,10 @@ function removeOrphanedImages() {
 		var images = ['image-unavailable_605x328.png'];
 		getFileList().then(function (response) {
 			var json = response.filter(function (element) {return element.name.split('.').pop() === 'json'})
-				, imageFiles = response.filter(function (element) {return element.name.split('.').pop() !== 'json'})
+				, imageFiles = response.filter(function (element) {
+						var ext = element.name.split('.').pop()
+						return ext === 'jpg' || ext === 'png' || ext === 'jpeg'
+					})
 				, filenames = json.map(function (element) {return element.name});
 
 			Promise.all(
@@ -119,6 +122,7 @@ function removeOrphanedImages() {
 	  		var imagesToRemove = [];
 	  		res.forEach(function (el) {
 	  			var obj = JSON.parse(el.target.result)
+	  			console.log(obj)
 	  			obj.story.forEach(function (ele) {
 	  				if (ele.image && images.indexOf(ele.image.split('/').pop()) === -1) {
 	  					images.push(ele.image.split('/').pop())
@@ -128,6 +132,7 @@ function removeOrphanedImages() {
 	  		imagesToRemove = imageFiles.filter(function(val) {
 				  return images.indexOf(val.name) === -1;
 				});
+				console.log(imagesToRemove)
 	  		Promise.all(imagesToRemove.map(removeFile)).then(resolve, reject)
 	  	});
 		}, reject)
@@ -530,11 +535,16 @@ var config = require('../config')
 	, index;
 
 $(document).on('click', 'footer.story-footer .share', function () {
-	window.plugins.socialsharing.share(
-		'I\'m currently reading ' + feedObj.story[index].title,
-    feedObj.story[index].title,
-    feedObj.story[index].image || null,
-    encodeURI(feedObj.story[index].link))
+	if (index && feedObj) {
+			window.plugins.socialsharing.share(
+				'I\'m currently reading ' + feedObj.story[index].title,
+		    feedObj.story[index].title,
+		    feedObj.story[index].image || null,
+		    encodeURI(feedObj.story[index].link)
+	    )
+	} else {
+		notify.alert('Sorry, a problem occured trying to share this post')
+	}
 })
 
 $(document).on('click', 'section.story a', function (e) {
@@ -857,7 +867,7 @@ module.exports = (function () {
 				setTimeout(function () {
 					navigator.splashscreen.hide();
 				}, 200)
-    	//}, 6000)
+    	//}, 15000)
       
     }
 }());
@@ -866,6 +876,7 @@ module.exports = (function () {
 module.exports = (function () {
 	var access = require('./app/access')
 	, storyList = require('./app/ui/storyList')
+	, notify = require('./util/notify')
 	, header = require('./app/ui/header')
 	, menu = require('./app/ui/menu')
 	, doesFileExist = require('./io/doesFileExist')
@@ -890,7 +901,7 @@ module.exports = (function () {
 	});
 
 }())
-},{"./app/access":1,"./app/downloadMissingImage":3,"./app/ui/header":4,"./app/ui/menu":5,"./app/ui/storyList":7,"./io/doesFileExist":12,"./io/getFileContents":16}],11:[function(require,module,exports){
+},{"./app/access":1,"./app/downloadMissingImage":3,"./app/ui/header":4,"./app/ui/menu":5,"./app/ui/storyList":7,"./io/doesFileExist":12,"./io/getFileContents":16,"./util/notify":25}],11:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
 	, getFileEntry = require('./getFileEntry')

@@ -78,11 +78,15 @@
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/lib/promises-polyfill-min.js \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/util/connection.js \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/util/notify.js \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/nl.x-services.plugins.socialsharing \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.dialogs \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.file \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.file-transfer \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.network-information \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.splashscreen \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/nl.x-services.plugins.socialsharing/www \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/nl.x-services.plugins.socialsharing/www/SocialSharing.js \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.dialogs/www \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.dialogs/www/android \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.dialogs/www/notification.js \
@@ -110,6 +114,8 @@
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.file-transfer/www \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.file-transfer/www/FileTransfer.js \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.file-transfer/www/FileTransferError.js \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser/www \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser/www/InAppBrowser.js \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.network-information/www \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.network-information/www/Connection.js \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.network-information/www/network.js \
