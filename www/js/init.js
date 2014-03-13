@@ -1,6 +1,7 @@
 module.exports = (function () {
 	var access = require('./app/access')
 	, storyList = require('./app/ui/storyList')
+	, notify = require('./util/notify')
 	, header = require('./app/ui/header')
 	, menu = require('./app/ui/menu')
 	, doesFileExist = require('./io/doesFileExist')
