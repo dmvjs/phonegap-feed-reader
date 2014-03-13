@@ -12,7 +12,9 @@ module.exports = (function () {
 			, filename = access.getFilenameFromId(0);
 
 		menu.update(filename, 'Updated: ' + obj.lastBuildDate);
-		storyList.show(obj);
+		storyList.show(obj).then(function () {
+			header.showStoryList();
+		})
 
 		$('.spinner').fadeOut();
 		setTimeout(function () {

@@ -127,9 +127,7 @@ var config = require('../config')
 		$(e.currentTarget).closest('li').addClass('active');
 	})
 
-//$('.menu ul').index($(this).closest('ul'))
 	$('a.menu-link.link').on('click', function (e) {
-		//select a feed (download if needed)
 		e.preventDefault();
 		window.open(encodeURI($(e.currentTarget).prop('href')), '_blank', 'location=no, toolbar=yes');
 		$('section.menu li.active').removeClass('active');
@@ -151,14 +149,11 @@ function get(id, loadOnly) {
 	access.get(id).then(function (contents) {
 		var obj = (JSON.parse(contents.target._result));
 
-		if (!!loadOnly) {
-			update(filename, 'Updated: ' + obj.lastBuildDate);
-		} else {
-			update(filename, 'Updated: ' + obj.lastBuildDate);
-			storyList.show(obj);
-			setTimeout(function () {
-				header.showStoryList();
-			}, 600)
+		update(filename, 'Updated: ' + obj.lastBuildDate);
+		if (!loadOnly) {
+			storyList.show(obj).then(function () {
+        header.showStoryList();
+			});
 		}
 
 	}, function (error) {
@@ -175,11 +170,11 @@ function remove(id) {
 		item.find('.check').removeClass('checked');
 		item.find('.sub').text(config.menuMessage);
 		if (item.hasClass('active')) {
+			item.removeClass('active');
+			primary.addClass('active');
 			getFileContents(access.getFilenameFromId(0)).then(function (contents) {
 				var obj = (JSON.parse(contents.target._result));
 				storyList.show(obj);
-				item.removeClass('active');
-				primary.addClass('active');
 			})
 		}
 	})

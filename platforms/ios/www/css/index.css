@@ -365,14 +365,14 @@ section.menu {
     top: 100%;
     display: block;
     z-index: 2;
-    -webkit-transition: top 200ms ease-in;
-    transition: top 200ms ease-in;
+    -webkit-transition: top 500ms;
+    transition: top 500ms;
 }
 
 section.menu.active {
     top: 0;
-    -webkit-transition: top 200ms ease-out 200ms;
-    transition: top 200ms ease-out 200ms;
+    -webkit-transition: top 500ms;
+    transition: top 500ms;
 }
 
 section.menu .section-header {
@@ -469,11 +469,12 @@ section.menu .check.loading {
 section.story {
     left: 100%;
     bottom: 44px;
-    display: block;
     z-index: 30;
-    -webkit-transition: left 200ms ease-in;
-    transition: left 200ms ease-in;
-    word-break: break-all;
+    display: block;
+    -webkit-transition: left 350ms;
+    transition: left 350ms;
+    word-break: break-word;
+    overflow: hidden;
 }
 
 section.story.rtl {
@@ -482,16 +483,48 @@ section.story.rtl {
 
 section.story.active {
     left: 0;
-    -webkit-transition: left 200ms ease-out 200ms;
-    transition: left 200ms ease-out 200ms;
+    -webkit-transition: left 350ms;
+    transition: left 350ms;
 }
 
-section.story .main {
+
+section.story .previous {
+    display: none;
+}
+
+section.story.active {
+    display: block;
+}
+
+section.story.active .current,
+section.story.active .next,
+section.story.active .previous {
+    display: block;
+}
+
+section.story .current,
+section.story .next,
+section.story .previous {
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 44px;
+    bottom: 0;
     left: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transition: left 350ms, right 350ms;
+    transition: left 350ms, right 350ms;
+}
+
+section.story .next {
+    left: 100%;
+    right: -100%;
+}
+
+section.story .previous {
+    right: 100%;
+    left: -100%;
 }
 
 section.story .page {
@@ -525,6 +558,7 @@ section.story .story-text {
     margin:0 8px;
     line-height: 1.4em;
     padding-bottom: 16px;
+    font-size: 1.2em;
 }
 
 section.story .story-text p {
@@ -587,8 +621,8 @@ footer.story-footer {
     position: absolute;
     bottom: 0;
     left: 100%;
-    -webkit-transition: left 200ms ease-in;
-    transition: left 200ms ease-in;
+    -webkit-transition: left 350ms;
+    transition: left 350ms;
 }
 
 footer.story-footer .hairline {
@@ -599,8 +633,8 @@ footer.story-footer .hairline {
 
 footer.story-footer.active {
     left: 0;
-    -webkit-transition: left 200ms ease-out 200ms;
-    transition: left 200ms ease-out 200ms;
+    -webkit-transition: left 350ms;
+    transition: left 350ms;
 }
 
 footer.story-footer button.share {
