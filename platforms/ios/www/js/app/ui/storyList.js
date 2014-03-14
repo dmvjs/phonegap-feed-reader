@@ -18,7 +18,7 @@ function show(feedObj) {
       , sent = false;
 
     obj.forEach(function (element) {
-      var image = element.image ? config.fs + element.image.split('/').pop() : config.missingImageRef.toURL()
+      var image = element.image ? config.fs.toURL() + element.image.split('/').pop() : config.missingImageRef.toURL()
         , storyTitle = $('<div/>', {
           addClass: 'story-title'
           , text: element.title

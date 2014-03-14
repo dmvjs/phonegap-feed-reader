@@ -26,7 +26,7 @@ module.exports = (function () {
     document.addEventListener('deviceready', appReady, false);
 
     function appReady() {
-    	//setTimeout(function () {
+    	setTimeout(function () {
 				//require('./test');
 				$(function () {
 					require('./init');
@@ -34,7 +34,7 @@ module.exports = (function () {
 				setTimeout(function () {
 					navigator.splashscreen.hide();
 				}, 200)
-    	//}, 15000)
+    	}, 6000)
       
     }
 }());

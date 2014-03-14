@@ -1,4 +1,4 @@
-module.exports = (function () {
+module.exports = function () {
 	var config = require('./config')
 		, notify = require('../util/notify')
 		, doesFileExist = require('../io/doesFileExist')
@@ -8,7 +8,7 @@ module.exports = (function () {
 		function init(response) {
 			var ref = response.toURL();
 
-			config.fs = ref.substr(0, ref.lastIndexOf('/') + 1);
+			//config.fs = ref.substr(0, ref.lastIndexOf('/') + 1);
 			config.missingImageRef = response;
 
 			resolve(response);
@@ -22,4 +22,4 @@ module.exports = (function () {
 			}
 		})
 	})
-}())
+}

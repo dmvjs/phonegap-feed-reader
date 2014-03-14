@@ -122,7 +122,6 @@ function removeOrphanedImages() {
 	  		var imagesToRemove = [];
 	  		res.forEach(function (el) {
 	  			var obj = JSON.parse(el.target.result)
-	  			console.log(obj)
 	  			obj.story.forEach(function (ele) {
 	  				if (ele.image && images.indexOf(ele.image.split('/').pop()) === -1) {
 	  					images.push(ele.image.split('/').pop())
@@ -132,7 +131,6 @@ function removeOrphanedImages() {
 	  		imagesToRemove = imageFiles.filter(function(val) {
 				  return images.indexOf(val.name) === -1;
 				});
-				console.log(imagesToRemove)
 	  		Promise.all(imagesToRemove.map(removeFile)).then(resolve, reject)
 	  	});
 		}, reject)
@@ -155,9 +153,11 @@ module.exports = {
 	, getFilenameFromFeed: getFilenameFromFeed
 	, removeFeed: removeFeed
 };
-},{"../io/createFileWithContents":11,"../io/doesFileExist":12,"../io/downloadExternalFile":13,"../io/getFileContents":16,"../io/getFileList":18,"../io/removeFile":22,"../util/connection":24,"../util/notify":25,"./config":2,"./xmlToJson":8}],2:[function(require,module,exports){
+},{"../io/createFileWithContents":12,"../io/doesFileExist":13,"../io/downloadExternalFile":14,"../io/getFileContents":17,"../io/getFileList":19,"../io/removeFile":24,"../util/connection":26,"../util/notify":27,"./config":2,"./xmlToJson":8}],2:[function(require,module,exports){
 module.exports = {
 	fs: void 0
+	, folder: 'com.ceip.org'
+	, storyFontSize: 1.1
 	, menuMessage: 'Not yet downloaded'
 	, missingImage: 'http://m.ceip.org/img/appsupport/image-unavailable_605x328.png'
 	, missingImageRef: void 0
@@ -259,7 +259,7 @@ module.exports = {
 	]
 };
 },{}],3:[function(require,module,exports){
-module.exports = (function () {
+module.exports = function () {
 	var config = require('./config')
 		, notify = require('../util/notify')
 		, doesFileExist = require('../io/doesFileExist')
@@ -269,7 +269,7 @@ module.exports = (function () {
 		function init(response) {
 			var ref = response.toURL();
 
-			config.fs = ref.substr(0, ref.lastIndexOf('/') + 1);
+			//config.fs = ref.substr(0, ref.lastIndexOf('/') + 1);
 			config.missingImageRef = response;
 
 			resolve(response);
@@ -283,8 +283,8 @@ module.exports = (function () {
 			}
 		})
 	})
-}())
-},{"../io/doesFileExist":12,"../io/downloadExternalFile":13,"../util/notify":25,"./config":2}],4:[function(require,module,exports){
+}
+},{"../io/doesFileExist":13,"../io/downloadExternalFile":14,"../util/notify":27,"./config":2}],4:[function(require,module,exports){
 var story = require('./story');
 
 $('header .show-menu').on('touchstart', function () {
@@ -528,24 +528,28 @@ function remove(id) {
 module.exports = {
 	update: update
 }
-},{"../../io/doesFileExist":12,"../../io/getFileContents":16,"../access":1,"../config":2,"./header":4,"./storyList":7}],6:[function(require,module,exports){
+},{"../../io/doesFileExist":13,"../../io/getFileContents":17,"../access":1,"../config":2,"./header":4,"./storyList":7}],6:[function(require,module,exports){
 var config = require('../config')
 	, access = require('../access')
 	, feedObj
 	, index;
 
-$(document).on('click', 'footer.story-footer .share', function () {
-	if (index && feedObj) {
-			window.plugins.socialsharing.share(
-				'I\'m currently reading ' + feedObj.story[index].title,
-		    feedObj.story[index].title,
-		    feedObj.story[index].image || null,
-		    encodeURI(feedObj.story[index].link)
-	    )
-	} else {
-		notify.alert('Sorry, a problem occured trying to share this post')
-	}
-})
+if (plugins && plugins.socialsharing) {
+	$(document).on('click', 'footer.story-footer .share', function () {
+		if (index && feedObj) {
+				setTimeout(function () {
+					window.plugins.socialsharing.share(
+						'I\'m currently reading ' + feedObj.story[index].title,
+				    feedObj.story[index].title,
+				    feedObj.story[index].image || config.missingImage,
+				    encodeURI(feedObj.story[index].link)
+			    )
+				}, 0)
+		} else {
+			notify.alert('Sorry, a problem occured trying to share this post')
+		}
+	})
+}
 
 $(document).on('click', 'section.story a', function (e) {
 	e.preventDefault();
@@ -626,7 +630,7 @@ function createPrevAndNext() {
 
 function createPage(storyObj) {
 	return new Promise(function (resolve, reject) {
-		var image = storyObj.image ? config.fs + storyObj.image.split('/').pop() : config.missingImageRef.toURL()
+		var image = storyObj.image ? config.fs.toURL() + storyObj.image.split('/').pop() : config.missingImageRef.toURL()
 			, topBar = $('<div/>', {
 				addClass: 'top-bar'
 				, text: storyObj.docType
@@ -749,7 +753,7 @@ function show(feedObj) {
       , sent = false;
 
     obj.forEach(function (element) {
-      var image = element.image ? config.fs + element.image.split('/').pop() : config.missingImageRef.toURL()
+      var image = element.image ? config.fs.toURL() + element.image.split('/').pop() : config.missingImageRef.toURL()
         , storyTitle = $('<div/>', {
           addClass: 'story-title'
           , text: element.title
@@ -859,7 +863,7 @@ module.exports = (function () {
     document.addEventListener('deviceready', appReady, false);
 
     function appReady() {
-    	//setTimeout(function () {
+    	setTimeout(function () {
 				//require('./test');
 				$(function () {
 					require('./init');
@@ -867,14 +871,15 @@ module.exports = (function () {
 				setTimeout(function () {
 					navigator.splashscreen.hide();
 				}, 200)
-    	//}, 15000)
+    	}, 6000)
       
     }
 }());
 
-},{"./init":10,"./util/connection":24}],10:[function(require,module,exports){
+},{"./init":10,"./util/connection":26}],10:[function(require,module,exports){
 module.exports = (function () {
 	var access = require('./app/access')
+	, createDir = require('./io/createDir')
 	, storyList = require('./app/ui/storyList')
 	, notify = require('./util/notify')
 	, header = require('./app/ui/header')
@@ -882,26 +887,51 @@ module.exports = (function () {
 	, doesFileExist = require('./io/doesFileExist')
 	, getFileContents = require('./io/getFileContents')
 	, downloadMissingImage = require('./app/downloadMissingImage');
+	
+	createDir().then(function () {
+		downloadMissingImage().then(function () {
+			access.get(0).then(function (contents) {
+				var obj = (JSON.parse(contents.target._result))
+					, filename = access.getFilenameFromId(0);
 
-	access.get(0).then(function (contents) {
-		var obj = (JSON.parse(contents.target._result))
-			, filename = access.getFilenameFromId(0);
+				menu.update(filename, 'Updated: ' + obj.lastBuildDate);
+				storyList.show(obj).then(function () {
+					header.showStoryList();
+				})
 
-		menu.update(filename, 'Updated: ' + obj.lastBuildDate);
-		storyList.show(obj).then(function () {
-			header.showStoryList();
+				$('.spinner').fadeOut();
+				setTimeout(function () {
+					$('.splash').fadeOut();
+				}, 300)
+			}, function (reason) {
+				console.log(reason)
+			});
+		}, function (reason) {
+			console.log(reason)
 		})
-
-		$('.spinner').fadeOut();
-		setTimeout(function () {
-			$('.splash').fadeOut();
-		}, 300)
 	}, function (reason) {
 		console.log(reason)
-	});
-
+	})
 }())
-},{"./app/access":1,"./app/downloadMissingImage":3,"./app/ui/header":4,"./app/ui/menu":5,"./app/ui/storyList":7,"./io/doesFileExist":12,"./io/getFileContents":16,"./util/notify":25}],11:[function(require,module,exports){
+},{"./app/access":1,"./app/downloadMissingImage":3,"./app/ui/header":4,"./app/ui/menu":5,"./app/ui/storyList":7,"./io/createDir":11,"./io/doesFileExist":13,"./io/getFileContents":17,"./util/notify":27}],11:[function(require,module,exports){
+var getFileSystem = require('./getFileSystem')
+	, getFile = require('./getFile')
+	, makeDir = require('./makeDir')
+	, notify = require('../util/notify')
+	, config = require('../app/config');
+
+module.exports = function () {
+	var dirname = config.folder;
+	return new Promise(function (resolve, reject) {
+		getFileSystem().then(function (filesystem) {
+			makeDir(filesystem, dirname).then(function (response) {
+				config.fs = response;
+				resolve(response)
+			}, reject);
+		}, reject);
+	})
+};
+},{"../app/config":2,"../util/notify":27,"./getFile":16,"./getFileSystem":20,"./makeDir":21}],12:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
 	, getFileEntry = require('./getFileEntry')
@@ -918,7 +948,7 @@ module.exports = function (filename, contents) {
 		}, reject);
 	})
 };
-},{"./getFile":15,"./getFileEntry":17,"./getFileSystem":19,"./writeFile":23}],12:[function(require,module,exports){
+},{"./getFile":16,"./getFileEntry":18,"./getFileSystem":20,"./writeFile":25}],13:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile');
 
@@ -929,25 +959,24 @@ module.exports = function (filename) {
 		}, reject)
 	})
 }
-},{"./getFile":15,"./getFileSystem":19}],13:[function(require,module,exports){
-var getFileSystem = require('./getFileSystem')
+},{"./getFile":16,"./getFileSystem":20}],14:[function(require,module,exports){
+var config = require('../app/config')
+	, getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
 	, downloadFile = require('./downloadFile');
 
 module.exports = function (url) {
 	var filename = url.split('/').pop();
 	return new Promise(function (resolve, reject) {
-		getFileSystem().then(function (filesystem) {
-			getFile(filesystem, filename, false).then(resolve,
-				function () {
-					getFile(filesystem, filename, true).then(function (fileentry) {  
-						downloadFile(fileentry, url).then(resolve, reject);
-				}, reject);
-			}) 
-		}, reject);
+		getFile(config.fs, filename, false).then(resolve,
+			function () {
+				getFile(config.fs, filename, true).then(function (fileentry) {  
+					downloadFile(fileentry, url).then(resolve, reject);
+			}, reject);
+		}) 
 	})
 }
-},{"./downloadFile":14,"./getFile":15,"./getFileSystem":19}],14:[function(require,module,exports){
+},{"../app/config":2,"./downloadFile":15,"./getFile":16,"./getFileSystem":20}],15:[function(require,module,exports){
 var config = require('../app/config');
 
 module.exports = function (fileentry, url) {
@@ -964,16 +993,20 @@ module.exports = function (fileentry, url) {
 			}
 	  }
 
+	  console.log('PATH', path)
+
     fileTransfer.download(uri, path, resolve, catchErrors, false, {})
   });
 };
-},{"../app/config":2}],15:[function(require,module,exports){
+},{"../app/config":2}],16:[function(require,module,exports){
+var config = require('../app/config');
+
 module.exports = function (filesystem, filename, create) {
 	return new Promise(function (resolve, reject) {
-		filesystem.root.getFile(filename, {create: !!create, exclusive: false}, resolve, reject);
+		config.fs.getFile(filename, {create: !!create, exclusive: false}, resolve, reject);
 	});
 }
-},{}],16:[function(require,module,exports){
+},{"../app/config":2}],17:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
   , getFile = require('./getFile')
   , readFile = require('./readFile');
@@ -987,13 +1020,13 @@ module.exports = function (filename) {
     }, reject);
   })
 }
-},{"./getFile":15,"./getFileSystem":19,"./readFile":21}],17:[function(require,module,exports){
+},{"./getFile":16,"./getFileSystem":20,"./readFile":23}],18:[function(require,module,exports){
 module.exports = function (fileentry) {
 	return new Promise(function (resolve, reject) {
 		fileentry.createWriter(resolve, reject);
 	})
 };
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
   , readDirectory = require('./readDirectory');
 
@@ -1004,20 +1037,29 @@ module.exports = function (filename) {
     }, reject);
   })
 }
-},{"./getFileSystem":19,"./readDirectory":20}],19:[function(require,module,exports){
+},{"./getFileSystem":20,"./readDirectory":22}],20:[function(require,module,exports){
 module.exports = function () {
 	return new Promise(function (resolve, reject) {
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, resolve, reject)
 	})
 };
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
+var config = require('../app/config');
+
+module.exports = function (filesystem, dirname) {
+	return new Promise(function (resolve, reject) {
+		var fileentry = filesystem.root;
+		fileentry.getDirectory(dirname, {create: true, exclusive: false}, resolve, reject);
+	});
+}
+},{"../app/config":2}],22:[function(require,module,exports){
 module.exports = function (filesystem) {
 	var reader = filesystem.root.createReader();
 	return new Promise(function (resolve, reject) {
 		reader.readEntries(resolve, reject);
 	});
 }
-},{}],21:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 module.exports = function (fileentry) {
     var reader = new FileReader();
     return new Promise(function (resolve, reject) {
@@ -1028,13 +1070,13 @@ module.exports = function (fileentry) {
         })
     });
 };
-},{}],22:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 module.exports = function (fileentry) {
     return new Promise(function (resolve, reject) {
         fileentry.remove(resolve, reject)
     });
 };
-},{}],23:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 module.exports = function (filewriter, contents) {
   return new Promise(function (resolve, reject) {
     filewriter.onwriteend = resolve;
@@ -1044,7 +1086,7 @@ module.exports = function (filewriter, contents) {
 }
 
 
-},{}],24:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 function get() {
   return navigator.connection.type;
 }
@@ -1064,7 +1106,7 @@ module.exports = {
     , offline: offline
     , get: get
 }
-},{}],25:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 function alert(message, callback, title, buttonLabel) {
 	navigator.notification.alert(message, callback, title, buttonLabel);
 }

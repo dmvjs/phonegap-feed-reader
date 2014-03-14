@@ -7,7 +7,7 @@ module.exports = (function () {
 	, doesFileExist = require('./io/doesFileExist')
 	, getFileContents = require('./io/getFileContents')
 	, downloadMissingImage = require('./app/downloadMissingImage');
-
+	
 	access.get(0).then(function (contents) {
 		var obj = (JSON.parse(contents.target._result))
 			, filename = access.getFilenameFromId(0);

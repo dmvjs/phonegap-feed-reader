@@ -98,7 +98,8 @@ html, body {
     left: 50%;
     margin-left: -16px;
     margin-top: 90px;
-    background-image:url('../img/spinner.gif');
+    background-image:url('../img/loading.gif');
+    background-size: 32px 32px;
     width: 32px;
     height: 32px;
     z-index: 101;
@@ -304,7 +305,7 @@ section.story-list li:first-of-type .story-item .story-text {
 }
 
 section.story-list .story-item .story-title {
-    font-size: 1em;
+    font-size: 1.1em;
     font-weight: bold;
     line-height: 1.1;
     height: 2.3em;
@@ -315,15 +316,15 @@ section.story-list li:first-of-type .story-item .story-title {
     clear: both;
     color: white;
     margin: 0 4px;
-    font-size: 1.375em;
+    font-size: 1.5em;
     height: auto;
     overflow: visible;
-    padding: 2px 0 6px;
+    padding: 6px 0 8px;
 }
 
 section.story-list .story-image {
-    height: 3.6em;
-    width: 6.64024391em;
+    height: 3.875em;
+    width: auto;
     margin: 1px;
     float: right;
 }
@@ -462,7 +463,7 @@ section.menu .check.required {
 }
 
 section.menu .check.loading {
-    background-image: url('../img/spinner.gif');
+    background-image: url('../img/loading.gif');
     background-size: 50%;
 }
 
