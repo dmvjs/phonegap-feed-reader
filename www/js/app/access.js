@@ -121,7 +121,6 @@ function removeOrphanedImages() {
 	  		var imagesToRemove = [];
 	  		res.forEach(function (el) {
 	  			var obj = JSON.parse(el.target.result)
-	  			console.log(obj)
 	  			obj.story.forEach(function (ele) {
 	  				if (ele.image && images.indexOf(ele.image.split('/').pop()) === -1) {
 	  					images.push(ele.image.split('/').pop())
@@ -131,7 +130,6 @@ function removeOrphanedImages() {
 	  		imagesToRemove = imageFiles.filter(function(val) {
 				  return images.indexOf(val.name) === -1;
 				});
-				console.log(imagesToRemove)
 	  		Promise.all(imagesToRemove.map(removeFile)).then(resolve, reject)
 	  	});
 		}, reject)

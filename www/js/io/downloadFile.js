@@ -14,6 +14,8 @@ module.exports = function (fileentry, url) {
 			}
 	  }
 
+	  console.log('PATH', path)
+
     fileTransfer.download(uri, path, resolve, catchErrors, false, {})
   });
 };

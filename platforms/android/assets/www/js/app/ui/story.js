@@ -3,18 +3,22 @@ var config = require('../config')
 	, feedObj
 	, index;
 
-$(document).on('click', 'footer.story-footer .share', function () {
-	if (index && feedObj) {
-			window.plugins.socialsharing.share(
-				'I\'m currently reading ' + feedObj.story[index].title,
-		    feedObj.story[index].title,
-		    feedObj.story[index].image || null,
-		    encodeURI(feedObj.story[index].link)
-	    )
-	} else {
-		notify.alert('Sorry, a problem occured trying to share this post')
-	}
-})
+if (plugins && plugins.socialsharing) {
+	$(document).on('click', 'footer.story-footer .share', function () {
+		if (index && feedObj) {
+				setTimeout(function () {
+					window.plugins.socialsharing.share(
+						'I\'m currently reading ' + feedObj.story[index].title,
+				    feedObj.story[index].title,
+				    feedObj.story[index].image || config.missingImage,
+				    encodeURI(feedObj.story[index].link)
+			    )
+				}, 0)
+		} else {
+			notify.alert('Sorry, a problem occured trying to share this post')
+		}
+	})
+}
 
 $(document).on('click', 'section.story a', function (e) {
 	e.preventDefault();

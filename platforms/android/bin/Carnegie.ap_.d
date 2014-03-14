@@ -40,9 +40,11 @@
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/header-btn-story-menu.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/header-main.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/header-story.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/loading.gif \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/logo.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/spinner.gif \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/splash.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/sprites.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/unchecked.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/app \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/app.js \
