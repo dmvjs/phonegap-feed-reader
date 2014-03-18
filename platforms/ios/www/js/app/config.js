@@ -1,6 +1,6 @@
 module.exports = {
 	fs: void 0
-	, folder: 'com.ceip.org'
+	, folder: 'com.ceip.carnegie'
 	, storyFontSize: 1.1
 	, menuMessage: 'Not yet downloaded'
 	, missingImage: 'http://m.ceip.org/img/appsupport/image-unavailable_605x328.png'

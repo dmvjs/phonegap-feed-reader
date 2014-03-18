@@ -1,4 +1,4 @@
-cordova.define("org.apache.cordova.inappbrowser.inappbrowser", function(require, exports, module) {/*
+cordova.define("org.apache.cordova.inappbrowser.InAppBrowser", function(require, exports, module) { /*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -31,6 +31,7 @@ function InAppBrowser() {
         'loaderror' : channel.create('loaderror'),
         'exit' : channel.create('exit')
    };
+   this._alive = true;
 }
 
 InAppBrowser.prototype = {
@@ -40,7 +41,10 @@ InAppBrowser.prototype = {
         }
     },
     close: function (eventname) {
-        exec(null, null, "InAppBrowser", "close", []);
+        if (this._alive) {
+            this._alive = false;
+            exec(null, null, "InAppBrowser", "close", []);
+        }
     },
     show: function (eventname) {
       exec(null, null, "InAppBrowser", "show", []);
@@ -93,5 +97,6 @@ module.exports = function(strUrl, strWindowName, strWindowFeatures) {
     exec(cb, cb, "InAppBrowser", "open", [strUrl, strWindowName, strWindowFeatures]);
     return iab;
 };
+
 
 });

@@ -334,16 +334,13 @@ section.story-list.rtl .story-image {
 }
 
 section.story-list li:first-of-type .story-image {
-    width:100%;
-    max-width: 100%;
+    width: 100%;
     height: 100%;
-    max-height: 100%;
     margin: 0;
 }
 
 section.story-list .story-image img {
     width: 100%;
-    max-width: 100%;
 }
 
 section.story-list .story-item .story-author, 

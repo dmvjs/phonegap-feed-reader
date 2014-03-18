@@ -1,4 +1,4 @@
-cordova.define("nl.x-services.plugins.socialsharing.SocialSharing", function(require, exports, module) {function SocialSharing() {
+cordova.define("nl.x-services.plugins.socialsharing.SocialSharing", function(require, exports, module) { function SocialSharing() {
 }
 
 SocialSharing.prototype.available = function (callback) {
@@ -44,4 +44,5 @@ SocialSharing.install = function () {
   return window.plugins.socialsharing;
 };
 
-cordova.addConstructor(SocialSharing.install);});
+cordova.addConstructor(SocialSharing.install);
+});
