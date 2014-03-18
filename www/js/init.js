@@ -7,7 +7,8 @@ module.exports = (function () {
 	, menu = require('./app/ui/menu')
 	, doesFileExist = require('./io/doesFileExist')
 	, getFileContents = require('./io/getFileContents')
-	, downloadMissingImage = require('./app/downloadMissingImage');
+	, downloadMissingImage = require('./app/downloadMissingImage')
+	, err = require('./util/err');
 	
 	createDir().then(function () {
 		downloadMissingImage().then(function () {
@@ -24,13 +25,7 @@ module.exports = (function () {
 				setTimeout(function () {
 					$('.splash').fadeOut();
 				}, 300)
-			}, function (reason) {
-				console.log(reason)
-			});
-		}, function (reason) {
-			console.log(reason)
-		})
-	}, function (reason) {
-		console.log(reason)
-	})
+			}, err);
+		}, err)
+	}, err)
 }())

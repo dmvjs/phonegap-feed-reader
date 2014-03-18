@@ -6,6 +6,8 @@ function show(feedObj) {
 	return new Promise(function(resolve, reject) {
     var obj = feedObj.story
       , rtl = feedObj.title ? feedObj.title.toLowerCase().indexOf('arabic') > -1 : false
+      , fs = config.fs.toURL()
+      , path = fs + (fs.substr(-1) === '/' ? '' : '/')
       , topBar = $('<div/>', {
         addClass: 'top-bar'
         , text: 'Updated: ' + feedObj.lastBuildDate
@@ -18,7 +20,7 @@ function show(feedObj) {
       , sent = false;
 
     obj.forEach(function (element) {
-      var image = element.image ? config.fs + element.image.split('/').pop() : config.missingImageRef.toURL()
+      var image = element.image ? path + element.image.split('/').pop() : config.missingImageRef.toURL()
         , storyTitle = $('<div/>', {
           addClass: 'story-title'
           , text: element.title

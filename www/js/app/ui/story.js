@@ -1,11 +1,12 @@
 var config = require('../config')
 	, access = require('../access')
+	, notify = require('../../util/notify')
 	, feedObj
 	, index;
 
 if (plugins && plugins.socialsharing) {
 	$(document).on('click', 'footer.story-footer .share', function () {
-		if (index && feedObj) {
+		if (typeof index !== 'undefined' && feedObj) {
 				setTimeout(function () {
 					window.plugins.socialsharing.share(
 						'I\'m currently reading ' + feedObj.story[index].title,
@@ -21,8 +22,17 @@ if (plugins && plugins.socialsharing) {
 }
 
 $(document).on('click', 'section.story a', function (e) {
-	e.preventDefault();
-	window.open(encodeURI($(e.currentTarget).prop('href')), '_blank', 'location=no, toolbar=yes');
+	var href = $(e.currentTarget).attr('href')
+		, selector = '';
+	if (href.substr(0, 1) === '#') {
+		return
+	} else if (href.substr(0, 6) === 'mailto') {
+		e.preventDefault();
+		window.open(encodeURI(href), '_system', '');
+	} else {
+		e.preventDefault();
+		window.open(encodeURI(href), '_blank', 'location=no, toolbar=yes');
+	}
 })
 
 function show(i, feed) {
@@ -41,7 +51,7 @@ function show(i, feed) {
 			current.append(page);
 			$('section.story .current').replaceWith(current);
 
-			createPrevAndNext();
+			createPreviousAndNext();
 		  setTimeout(function () {
 		  	
 		  	resolve(200)
@@ -64,7 +74,6 @@ function createPrevious() {
 			} else {
 				$('section.story').append(previous);
 			}
-			$previous.replaceWith(previous);
 		})
 	} else {
 		$previous.empty()
@@ -85,21 +94,22 @@ function createNext() {
 			} else {
 				$('section.story').append(next);
 			}
-			
 		})
 	} else {
 		$next.empty()
 	}
 }
 
-function createPrevAndNext() {
+function createPreviousAndNext() {
 	createPrevious();
 	createNext();
 }
 
 function createPage(storyObj) {
 	return new Promise(function (resolve, reject) {
-		var image = storyObj.image ? config.fs.toURL() + storyObj.image.split('/').pop() : config.missingImageRef.toURL()
+		var fs = config.fs.toURL()
+			, path = fs + (fs.substr(-1) === '/' ? '' : '/')
+			, image = storyObj.image ? path + storyObj.image.split('/').pop() : config.missingImageRef.toURL()
 			, topBar = $('<div/>', {
 				addClass: 'top-bar'
 				, text: storyObj.docType
