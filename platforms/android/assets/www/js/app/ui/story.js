@@ -1,11 +1,14 @@
 var config = require('../config')
 	, access = require('../access')
 	, notify = require('../../util/notify')
+	, share = ['ios', 'android', 'win32nt'].indexOf(device.platform.toLowerCase()) > -1
+	, browser = ['ios', 'android', 'blackberry 10', 'win32nt'].indexOf(device.platform.toLowerCase()) > -1
 	, feedObj
 	, index;
 
-if (plugins && plugins.socialsharing) {
+if (share && plugins && plugins.socialsharing) {
 	$(document).on('click', 'footer.story-footer .share', function () {
+		hideTextResize();
 		if (typeof index !== 'undefined' && feedObj) {
 				setTimeout(function () {
 					window.plugins.socialsharing.share(
@@ -19,21 +22,66 @@ if (plugins && plugins.socialsharing) {
 			notify.alert('Sorry, a problem occured trying to share this post')
 		}
 	})
+} else {
+	//remove footer & make story window taller, sharing not supported
+	$('section.story .share').addClass('disabled');
 }
 
-$(document).on('click', 'section.story a', function (e) {
-	var href = $(e.currentTarget).attr('href')
-		, selector = '';
-	if (href.substr(0, 1) === '#') {
-		return
-	} else if (href.substr(0, 6) === 'mailto') {
-		e.preventDefault();
-		window.open(encodeURI(href), '_system', '');
-	} else {
-		e.preventDefault();
-		window.open(encodeURI(href), '_blank', 'location=no, toolbar=yes');
-	}
-})
+if (browser) {
+	$(document).on('click', 'section.story a', function (e) {
+		var href = $(e.currentTarget).attr('href')
+			, selector = '';
+		if (href.substr(0, 1) === '#') {
+			return
+		} else if (href.substr(0, 6) === 'mailto') {
+			e.preventDefault();
+			window.open(encodeURI(href), '_system', '');
+		} else {
+			e.preventDefault();
+			window.open(encodeURI(href), '_blank', 'location=no, toolbar=yes');
+		}
+	})
+} else {
+	// handle systems with no inapp browser, or don't...
+}
+/*
+$(document).on('change', '#text-resize-input', function (e) {
+	var val = parseFloat(e.currentTarget.value, 10);
+	config.storyFontSize = val;
+	setTimeout(function () {
+		$('section.story').css('font-size', val + 'em');
+	}, 0)
+})*/
+
+$(document).on('click', 'footer.story-footer .text', function () {
+	$('.text-resize').toggleClass('active');
+});
+
+function hideTextResize() {
+	$('.text-resize').removeClass('active');
+}
+
+var slider = document.getElementById('text-resize-input');
+slider.onchange = function () {
+	var val = parseFloat(slider.value, 10)
+		, value = (slider.value - slider.min)/(slider.max - slider.min)
+
+	config.storyFontSize = val;
+
+	slider.style.backgroundImage = [
+		'-webkit-gradient(',
+		'linear, ',
+		'left top, ',
+		'right top, ',
+		'color-stop(' + value + ', #007aff), ',
+		'color-stop(' + value + ', #b8b7b8)',
+		')'
+	].join('');
+
+	setTimeout(function () {
+		$('section.story').css('font-size', val + 'em');
+	}, 0)
+};
 
 function show(i, feed) {
 	return new Promise(function (resolve, reject) {
@@ -52,8 +100,8 @@ function show(i, feed) {
 			$('section.story .current').replaceWith(current);
 
 			createPreviousAndNext();
+
 		  setTimeout(function () {
-		  	
 		  	resolve(200)
 		  }, 0)
 		})
@@ -189,6 +237,7 @@ function previous() {
 }
 
 function update() {
+	hideTextResize();
 	$('section.story-list ul li .story-item.active').removeClass('active'); 
 	$('section.story-list ul li .story-item').eq(index).addClass('active');
 
@@ -210,4 +259,5 @@ module.exports = {
 	show: show
 	, next: next
 	, previous: previous
+	, hide: hideTextResize
 }

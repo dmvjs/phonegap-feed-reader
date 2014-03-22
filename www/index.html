@@ -26,7 +26,7 @@
         <link type="text/css" rel="stylesheet" href="css/index.css"/>
         <title>Carnegie</title>
     </head>
-    <body>
+    <body ontouchstart="" onmouseover="">
         <div class="spinner"></div>
         <div class="splash"></div>
         <header>
@@ -42,6 +42,7 @@
             </div>
             <div class="menu">
                 <button class="show-menu"></button>
+                <div class="offline"></div>
             </div>
         </header>
         <div class="container">
@@ -55,7 +56,14 @@
             <footer class="story-footer">
                 <div class="hairline"></div>
                 <button class="share"></button>
-                <button class="text">Text</button>
+                <div class="spacer"></div>
+                <button class="text"></button>
+                <div class="text-resize">
+                    <div class="hairline"></div>
+                    <div class="text-left"></div>
+                    <input type="range" id="text-resize-input" class="text-resize-slider" min="1.0" max="1.6" step="0.1" value="1.1">
+                    <div class="text-right"></div>
+                </div>
             </footer>
         </div>
         <script type="text/javascript" src="phonegap.js"></script>

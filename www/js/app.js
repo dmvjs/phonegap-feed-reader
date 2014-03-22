@@ -17,9 +17,7 @@ function getFeed(id) {
 			getFileContents(filename).then(function (contents) {
 				var obj = (JSON.parse(contents.target._result));
 				getImages(obj).then(function () {
-					console.log('stage 2a')
 					removeOrphanedImages().then(function () {
-						console.log('stage 2b')
 						resolve(contents);
 					}, reject);
 				}, reject);
@@ -102,7 +100,7 @@ function get(id) {
 				});
 			}, reject);
 		} else {
-			doesFileExist(filename).then(resolve, reject)
+			doesFileExist(filename).then(resolve, reject);
 		}
 	})
 }
@@ -118,11 +116,9 @@ function removeOrphanedImages() {
 					})
 				, filenames = json.map(function (element) {return element.name});
 
-			console.log(filenames)
 			Promise.all(
 	    	filenames.map(getFileContents)
 	  	).then(function (res) {
-	  		console.log(res)
 	  		var imagesToRemove = [];
 	  		res.forEach(function (el) {
 	  			var obj = JSON.parse(el.target.result)
@@ -135,7 +131,6 @@ function removeOrphanedImages() {
 	  		imagesToRemove = imageFiles.filter(function(val) {
 				  return images.indexOf(val.name) === -1;
 				});
-				console.log(imagesToRemove)
 	  		Promise.all(imagesToRemove.map(removeFile)).then(resolve, reject)
 	  	});
 		}, reject)
@@ -147,7 +142,9 @@ function removeFeed(id) {
 		var filename = getFilenameFromId(id);
 			
 		doesFileExist(filename).then(function (fileentry) {
-			removeFile(fileentry).then(resolve, reject)
+			removeFile(fileentry).then(function () {
+				removeOrphanedImages().then(resolve, reject);
+			}, reject)
 		}, reject);
 	})
 }
@@ -158,11 +155,13 @@ module.exports = {
 	, getFilenameFromFeed: getFilenameFromFeed
 	, removeFeed: removeFeed
 };
-},{"../io/createFileWithContents":12,"../io/doesFileExist":13,"../io/downloadExternalFile":14,"../io/getFileContents":17,"../io/getFileList":19,"../io/removeFile":24,"../util/connection":26,"../util/notify":28,"./config":2,"./xmlToJson":8}],2:[function(require,module,exports){
+},{"../io/createFileWithContents":13,"../io/doesFileExist":14,"../io/downloadExternalFile":15,"../io/getFileContents":18,"../io/getFileList":20,"../io/removeFile":25,"../util/connection":27,"../util/notify":29,"./config":2,"./xmlToJson":9}],2:[function(require,module,exports){
 module.exports = {
 	fs: void 0
+	, appName: 'Carnegie'
 	, folder: 'com.ceip.carnegie'
 	, storyFontSize: 1.1
+	, connectionMessage: 'No network connection detected'
 	, menuMessage: 'Not yet downloaded'
 	, missingImage: 'http://m.ceip.org/img/appsupport/image-unavailable_605x328.png'
 	, missingImageRef: void 0
@@ -271,75 +270,85 @@ module.exports = function () {
 		, downloadExternalFile = require('../io/downloadExternalFile');
 
 	return new Promise(function (resolve, reject) {
+
 		function init(response) {
 			var ref = response.toURL();
 
-			//config.fs = ref.substr(0, ref.lastIndexOf('/') + 1);
 			config.missingImageRef = response;
-
 			resolve(response);
 		}
 
-		doesFileExist(config.missingImage.split('/').pop()).then(init, function (reason) {
+		function getImage(reason) {
 			if (navigator.connection.type !== 'none') {
 				downloadExternalFile(config.missingImage).then(init, reject);
 			} else {
-				reject(reason)
+				notify.alert(config.connectionMessage, getImage, null, 'Try again');
 			}
-		})
+		}
+
+		doesFileExist(config.missingImage.split('/').pop()).then(init, getImage);
 	})
 }
-},{"../io/doesFileExist":13,"../io/downloadExternalFile":14,"../util/notify":28,"./config":2}],4:[function(require,module,exports){
+},{"../io/doesFileExist":14,"../io/downloadExternalFile":15,"../util/notify":29,"./config":2}],4:[function(require,module,exports){
 var story = require('./story');
 
-$('header .show-menu').on('touchstart', function () {
-	if ($('section.story-list').hasClass('active')) {
-		showMenu();
-	} else {
-		showStoryList();
-	}
-})
+$(document)
+	.on('click', 'header .show-menu', function () {
+		$('header').addClass('stay');
+		if ($('section.menu').hasClass('active')) {
+			showStoryList();
+		} else {
+			showMenu();
+		}
+	})
+	.on('click', 'header .story .back', showStoryList)
+	.on('click', 'header .story .btn-group .previous', function () {
+		story.previous();
+	})
+	.on('click', 'header .story .btn-group .next', function () {
+		story.next();
+	});
 
-$('header .story .back').on('touchstart', showStoryList);
+function show(sel) {
+	var sels = ['.menu', '.story', '.story-list']
+		, $h = $('header')
+		, $sel = $h.find(sel).stop(true);
 
-$('header .story .btn-group .previous').on('touchstart', function () {
-	story.previous();
-})
+	sels.splice(sels.indexOf(sel), 1);
 
-$('header .story .btn-group .next').on('touchstart', function () {
-	story.next();
-})
+	sels.forEach(function (el, index) {
+		var $el = $h.find(el);
+
+		$el.stop(true).fadeOut('fast', function () {
+			$el.removeClass('active')
+		});
+	});
+
+	setTimeout(function () {
+		$sel.addClass('active').fadeIn('fast')
+	}, 300)
+}
 
 function showStoryList() {
-	setTimeout(function () {
-		$('header .story-list').addClass('active');
-		$('header .menu').removeClass('active');
-		$('header .story').removeClass('active');
-	}, 400);
 	$('section.story').removeClass('active');
 	$('section.story-list').addClass('active');
 	$('section.menu').removeClass('active');
 	$('footer.story-footer').removeClass('active');
+	show('.story-list');
+	story.hide();
 }
 
 function showMenu() {
-	setTimeout(function () {
-		$('header .story-list').removeClass('active');
-		$('header .menu').addClass('active');
-		$('section.story-list').removeClass('active');
-	}, 550)
 	$('section.menu').addClass('active');
+	show('.menu');
 }
 
 function showStory() {
-	setTimeout(function () {
-		$('header .story-list').removeClass('active');
-		$('header .story').addClass('active');
-		$('section.story-list').removeClass('active');
-	}, 400)
+	$('header').removeClass('stay');
 	$('section.menu').removeClass('active');
 	$('footer.story-footer').addClass('active');
 	$('section.story').addClass('active');
+	show('.story');
 }
 
 module.exports = {
@@ -347,8 +356,9 @@ module.exports = {
 	, showMenu: showMenu
 	, showStory: showStory
 }
-},{"./story":6}],5:[function(require,module,exports){
+},{"./story":7}],5:[function(require,module,exports){
 var config = require('../config')
+	, notify = require('../../util/notify')
 	, access = require('../access')
 	, header = require('./header')
 	, storyList = require('./storyList')
@@ -462,26 +472,33 @@ var config = require('../config')
 		} else {
 			if (navigator.connection.type !== 'none') {
 				get(index, true);
+			} else {
+				notify.alert(config.connectionMessage);
 			}
 		}
 	})
 
 	$('a.menu-link.feed').on('click', function (e) {
+		var $check = $(e.currentTarget).find('.check');
 		e.preventDefault();
-
-		if (navigator.connection.type !== 'none') {
+		if (navigator.connection.type !== 'none' || $check.hasClass('checked') || $check.hasClass('required')) {
 			get($('section.menu li').index($(this).closest('li')));
+			$('section.menu li.active').removeClass('active');
+			$(e.currentTarget).closest('li').addClass('active');
+		} else {
+			notify.alert(config.connectionMessage);
 		}
-
-		$('section.menu li.active').removeClass('active');
-		$(e.currentTarget).closest('li').addClass('active');
 	})
 
 	$('a.menu-link.link').on('click', function (e) {
 		e.preventDefault();
-		window.open(encodeURI($(e.currentTarget).prop('href')), '_blank', 'location=no, toolbar=yes');
-		$('section.menu li.active').removeClass('active');
-		$(e.currentTarget).closest('li').addClass('active');
+		if (navigator.connection.type !== 'none') {
+			window.open(encodeURI($(e.currentTarget).prop('href')), '_blank', 'location=no, toolbar=yes');
+			$('section.menu li.active').removeClass('active');
+			$(e.currentTarget).closest('li').addClass('active');
+		} else {
+			notify.alert(config.connectionMessage);
+		}
 	})
 
 }());
@@ -533,15 +550,38 @@ function remove(id) {
 module.exports = {
 	update: update
 }
-},{"../../io/doesFileExist":13,"../../io/getFileContents":17,"../access":1,"../config":2,"./header":4,"./storyList":7}],6:[function(require,module,exports){
+},{"../../io/doesFileExist":14,"../../io/getFileContents":18,"../../util/notify":29,"../access":1,"../config":2,"./header":4,"./storyList":8}],6:[function(require,module,exports){
+module.exports = (function () {
+
+	var images = [
+		'footer-story-share-active.png'
+		, 'footer-story-text-active.png'
+		, 'header-btn-menu-menu-active.png'
+		, 'header-btn-story-arrow-active.png'
+		, 'header-btn-story-back-active.png'
+		, 'header-btn-story-menu-active.png'
+		, 'header-story.png'
+		, 'checked.png'
+		, 'unchecked.png'
+		, 'header-offline.png'
+	].forEach(function (element) {
+		var img = new Image();
+		img.src = './img/' + element;
+	})
+	
+}());
+},{}],7:[function(require,module,exports){
 var config = require('../config')
 	, access = require('../access')
 	, notify = require('../../util/notify')
+	, share = ['ios', 'android', 'win32nt'].indexOf(device.platform.toLowerCase()) > -1
+	, browser = ['ios', 'android', 'blackberry 10', 'win32nt'].indexOf(device.platform.toLowerCase()) > -1
 	, feedObj
 	, index;
 
-if (plugins && plugins.socialsharing) {
+if (share && plugins && plugins.socialsharing) {
 	$(document).on('click', 'footer.story-footer .share', function () {
+		hideTextResize();
 		if (typeof index !== 'undefined' && feedObj) {
 				setTimeout(function () {
 					window.plugins.socialsharing.share(
@@ -555,21 +595,62 @@ if (plugins && plugins.socialsharing) {
 			notify.alert('Sorry, a problem occured trying to share this post')
 		}
 	})
+} else {
+	//remove footer & make story window taller, sharing not supported
+	$('section.story .share').addClass('disabled');
 }
 
-$(document).on('click', 'section.story a', function (e) {
-	var href = $(e.currentTarget).attr('href')
-		, selector = '';
-	if (href.substr(0, 1) === '#') {
-		return
-	} else if (href.substr(0, 6) === 'mailto') {
-		e.preventDefault();
-		window.open(encodeURI(href), '_system', '');
-	} else {
-		e.preventDefault();
-		window.open(encodeURI(href), '_blank', 'location=no, toolbar=yes');
-	}
-})
+if (browser) {
+	$(document).on('click', 'section.story a', function (e) {
+		var href = $(e.currentTarget).attr('href')
+			, selector = '';
+		if (href.substr(0, 1) === '#') {
+			return
+		} else if (navigator.connection.type !== 'none') {
+			if (href.substr(0, 6) === 'mailto') {
+				e.preventDefault();
+				window.open(encodeURI(href), '_system', '');
+			} else {
+				e.preventDefault();
+				window.open(encodeURI(href), '_blank', 'location=no, toolbar=yes');
+			}
+		} else {
+			notify.alert(config.connectionMessage);
+		}
+	})
+} else {
+	// handle systems with no inapp browser, or don't...
+}
+
+$(document).on('click', 'footer.story-footer .text', function () {
+	$('.text-resize').toggleClass('active');
+});
+
+function hideTextResize() {
+	$('.text-resize').removeClass('active');
+}
+
+var slider = document.getElementById('text-resize-input');
+slider.onchange = function () {
+	var val = parseFloat(slider.value, 10)
+		, value = (slider.value - slider.min)/(slider.max - slider.min)
+
+	config.storyFontSize = val;
+
+	slider.style.backgroundImage = [
+		'-webkit-gradient(',
+		'linear, ',
+		'left top, ',
+		'right top, ',
+		'color-stop(' + value + ', #007aff), ',
+		'color-stop(' + value + ', #b8b7b8)',
+		')'
+	].join('');
+
+	setTimeout(function () {
+		$('section.story').css('font-size', val + 'em');
+	}, 0)
+};
 
 function show(i, feed) {
 	return new Promise(function (resolve, reject) {
@@ -588,8 +669,8 @@ function show(i, feed) {
 			$('section.story .current').replaceWith(current);
 
 			createPreviousAndNext();
+
 		  setTimeout(function () {
-		  	
 		  	resolve(200)
 		  }, 0)
 		})
@@ -706,7 +787,6 @@ function next() {
 		n.removeClass('next').addClass('current');
 		createNext();
 		update();
-		//showAndUpdate(index);
 	}
 }
 
@@ -725,11 +805,11 @@ function previous() {
 }
 
 function update() {
+	hideTextResize();
 	$('section.story-list ul li .story-item.active').removeClass('active'); 
 	$('section.story-list ul li .story-item').eq(index).addClass('active');
 
 	setTimeout(function () {
-		//$('section.story-list').scrollTop($('section.story-list .story-item.active').position().top);
 		$('section.story .next').scrollTop(0);
 		$('section.story .previous').scrollTop(0);
 	}, 350)
@@ -739,15 +819,15 @@ function showAndUpdate(index) {
 	show(index, null, true).then(function() {
 		update();
 	});
-	//storyList.update(index);
 }
 
 module.exports = {
 	show: show
 	, next: next
 	, previous: previous
+	, hide: hideTextResize
 }
-},{"../../util/notify":28,"../access":1,"../config":2}],7:[function(require,module,exports){
+},{"../../util/notify":29,"../access":1,"../config":2}],8:[function(require,module,exports){
 var config = require('../config')
   , header = require('./header')
   , story = require('./story');
@@ -828,7 +908,7 @@ function show(feedObj) {
 module.exports = {
 	show: show
 }
-},{"../config":2,"./header":4,"./story":6}],8:[function(require,module,exports){
+},{"../config":2,"./header":4,"./story":7}],9:[function(require,module,exports){
 module.exports = function (res) {
 	var feedObject = {}
     , root = res.firstChild.firstChild
@@ -851,7 +931,7 @@ module.exports = function (res) {
 
   return feedObject;
 }
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -893,7 +973,7 @@ module.exports = (function () {
     }
 }());
 
-},{"./init":10,"./util/connection":26}],10:[function(require,module,exports){
+},{"./init":11,"./util/connection":27}],11:[function(require,module,exports){
 module.exports = (function () {
 	var access = require('./app/access')
 	, createDir = require('./io/createDir')
@@ -904,6 +984,7 @@ module.exports = (function () {
 	, doesFileExist = require('./io/doesFileExist')
 	, getFileContents = require('./io/getFileContents')
 	, downloadMissingImage = require('./app/downloadMissingImage')
+	, preloadImages = require('./app/ui/preloadImages')
 	, err = require('./util/err');
 	
 	createDir().then(function () {
@@ -915,17 +996,18 @@ module.exports = (function () {
 				menu.update(filename, 'Updated: ' + obj.lastBuildDate);
 				storyList.show(obj).then(function () {
 					header.showStoryList();
-				})
 
-				$('.spinner').fadeOut();
-				setTimeout(function () {
-					$('.splash').fadeOut();
-				}, 300)
+					setTimeout(function () {
+						$('.spinner').fadeOut(function () {
+							$('.splash').fadeOut();
+						});
+					}, 100)
+				})
 			}, err);
 		}, err)
 	}, err)
 }())
-},{"./app/access":1,"./app/downloadMissingImage":3,"./app/ui/header":4,"./app/ui/menu":5,"./app/ui/storyList":7,"./io/createDir":11,"./io/doesFileExist":13,"./io/getFileContents":17,"./util/err":27,"./util/notify":28}],11:[function(require,module,exports){
+},{"./app/access":1,"./app/downloadMissingImage":3,"./app/ui/header":4,"./app/ui/menu":5,"./app/ui/preloadImages":6,"./app/ui/storyList":8,"./io/createDir":12,"./io/doesFileExist":14,"./io/getFileContents":18,"./util/err":28,"./util/notify":29}],12:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
 	, makeDir = require('./makeDir')
@@ -943,7 +1025,7 @@ module.exports = function () {
 		}, reject);
 	})
 };
-},{"../app/config":2,"../util/notify":28,"./getFile":16,"./getFileSystem":20,"./makeDir":21}],12:[function(require,module,exports){
+},{"../app/config":2,"../util/notify":29,"./getFile":17,"./getFileSystem":21,"./makeDir":22}],13:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
 	, getFileEntry = require('./getFileEntry')
@@ -960,7 +1042,7 @@ module.exports = function (filename, contents) {
 		}, reject);
 	})
 };
-},{"./getFile":16,"./getFileEntry":18,"./getFileSystem":20,"./writeFile":25}],13:[function(require,module,exports){
+},{"./getFile":17,"./getFileEntry":19,"./getFileSystem":21,"./writeFile":26}],14:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile');
 
@@ -971,7 +1053,7 @@ module.exports = function (filename) {
 		}, reject)
 	})
 }
-},{"./getFile":16,"./getFileSystem":20}],14:[function(require,module,exports){
+},{"./getFile":17,"./getFileSystem":21}],15:[function(require,module,exports){
 var config = require('../app/config')
 	, getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
@@ -988,7 +1070,7 @@ module.exports = function (url) {
 		}) 
 	})
 }
-},{"../app/config":2,"./downloadFile":15,"./getFile":16,"./getFileSystem":20}],15:[function(require,module,exports){
+},{"../app/config":2,"./downloadFile":16,"./getFile":17,"./getFileSystem":21}],16:[function(require,module,exports){
 var config = require('../app/config');
 
 module.exports = function (fileentry, url) {
@@ -1005,12 +1087,10 @@ module.exports = function (fileentry, url) {
 			}
 	  }
 
-	  console.log('PATH', path)
-
     fileTransfer.download(uri, path, resolve, catchErrors, false, {})
   });
 };
-},{"../app/config":2}],16:[function(require,module,exports){
+},{"../app/config":2}],17:[function(require,module,exports){
 var config = require('../app/config');
 
 module.exports = function (filesystem, filename, create) {
@@ -1019,30 +1099,27 @@ module.exports = function (filesystem, filename, create) {
 		fs.getFile(filename, {create: !!create, exclusive: false}, resolve, reject);
 	});
 }
-},{"../app/config":2}],17:[function(require,module,exports){
+},{"../app/config":2}],18:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
   , getFile = require('./getFile')
   , readFile = require('./readFile');
 
 module.exports = function (filename) {
   return new Promise(function (resolve, reject) {
-    console.log('gfc part 2')
     getFileSystem().then(function (filesystem) {
-      console.log('gfc filesystem', filesystem)
       getFile(filesystem, filename).then(function (fileentry) {
-        console.log('gfc fileentry', fileentry)
         readFile(fileentry).then(resolve, reject);
       }, reject);
     }, reject);
   })
 }
-},{"./getFile":16,"./getFileSystem":20,"./readFile":23}],18:[function(require,module,exports){
+},{"./getFile":17,"./getFileSystem":21,"./readFile":24}],19:[function(require,module,exports){
 module.exports = function (fileentry) {
 	return new Promise(function (resolve, reject) {
 		fileentry.createWriter(resolve, reject);
 	})
 };
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
   , readDirectory = require('./readDirectory');
 
@@ -1053,13 +1130,13 @@ module.exports = function (filename) {
     }, reject);
   })
 }
-},{"./getFileSystem":20,"./readDirectory":22}],20:[function(require,module,exports){
+},{"./getFileSystem":21,"./readDirectory":23}],21:[function(require,module,exports){
 module.exports = function () {
 	return new Promise(function (resolve, reject) {
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, resolve, reject)
 	})
 };
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 var config = require('../app/config');
 
 module.exports = function (filesystem, dirname) {
@@ -1068,18 +1145,18 @@ module.exports = function (filesystem, dirname) {
 		fileentry.getDirectory(dirname, {create: true, exclusive: false}, resolve, reject);
 	});
 }
-},{"../app/config":2}],22:[function(require,module,exports){
+},{"../app/config":2}],23:[function(require,module,exports){
 var config = require('../app/config');
 
 module.exports = function (filesystem) {
 	var fs = config.fs || filesystem.root
 		, reader = fs.createReader();
+		
 	return new Promise(function (resolve, reject) {
-		console.log('reader', fs)
 		reader.readEntries(resolve, reject);
 	});
 }
-},{"../app/config":2}],23:[function(require,module,exports){
+},{"../app/config":2}],24:[function(require,module,exports){
 module.exports = function (fileentry) {
     var reader = new FileReader();
     return new Promise(function (resolve, reject) {
@@ -1090,14 +1167,13 @@ module.exports = function (fileentry) {
         })
     });
 };
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 module.exports = function (fileentry) {
-    console.log('removing...')
     return new Promise(function (resolve, reject) {
         fileentry.remove(resolve, reject)
     });
 };
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 module.exports = function (filewriter, contents) {
   return new Promise(function (resolve, reject) {
     filewriter.onwriteend = resolve;
@@ -1107,39 +1183,50 @@ module.exports = function (filewriter, contents) {
 }
 
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
+var notify = require('./notify')
+	, config = require('../app/config');
+
 function get() {
   return navigator.connection.type;
 }
 
 function online(e) {
-		console.log(e)
+		//console.log(e)
+		$('header .menu .offline').fadeOut();
     //alert(get())
 }
 
 function offline(e) {
-    console.log(e)
+    //console.log(e)
+    $('header .menu .offline').fadeIn();
     //alert(get());
 }
+
+$(document).on('click', 'header.menu .offline', function () {
+	notify.alert(config.connectionMessage);
+})
 
 module.exports = {
     online: online
     , offline: offline
     , get: get
 }
-},{}],27:[function(require,module,exports){
+},{"../app/config":2,"./notify":29}],28:[function(require,module,exports){
 module.exports = function (reason) {
 	console.log(reason);
 }
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
+var config = require('../app/config');
+
 function alert(message, callback, title, buttonLabel) {
-	navigator.notification.alert(message, callback, title, buttonLabel);
+	navigator.notification.alert(message, callback, title || config.appName, buttonLabel);
 }
 
 function confirm(message, callback, title, buttonLabels) {
 	//title: defaults to 'Confirm'
 	//buttonLabels: defaults to [OK, Cancel]
-	navigator.notification.confirm(message, confirmCallback, title, buttonLabels);
+	navigator.notification.confirm(message, confirmCallback, title || config.appName, buttonLabels);
 }
 
 function y(message) {
@@ -1156,4 +1243,4 @@ module.exports = {
 	y: y,
 	n: n
 };
-},{}]},{},[9])
+},{"../app/config":2}]},{},[10])

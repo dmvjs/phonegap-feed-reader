@@ -3,6 +3,10 @@
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/res/drawable-hdpi/icon.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/res/drawable-ldpi/icon.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/res/drawable-mdpi/icon.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/res/drawable-port-hdpi/screen.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/res/drawable-port-ldpi/screen.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/res/drawable-port-mdpi/screen.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/res/drawable-port-xhdpi/screen.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/res/drawable-xhdpi/icon.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/res/values/strings.xml \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/res/xml/config.xml \
@@ -10,6 +14,10 @@
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/ant-build/res/drawable-hdpi/icon.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/ant-build/res/drawable-ldpi/icon.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/ant-build/res/drawable-mdpi/icon.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/ant-build/res/drawable-port-hdpi/screen.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/ant-build/res/drawable-port-ldpi/screen.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/ant-build/res/drawable-port-mdpi/screen.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/ant-build/res/drawable-port-xhdpi/screen.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/ant-build/res/drawable-xhdpi/icon.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/_where-is-www.txt \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www \
@@ -31,6 +39,10 @@
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/checked.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/footer-story-share-active.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/footer-story-share.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/footer-story-text-active.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/footer-story-text.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/footer-text-resize-left.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/footer-text-resize-right.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/header-btn-menu-menu-active.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/header-btn-menu-menu.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/header-btn-story-arrow-active.png \
@@ -45,7 +57,6 @@
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/logo.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/spinner.gif \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/splash.png \
-/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/sprites.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/unchecked.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/app \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/app.js \
@@ -62,6 +73,7 @@
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/app/xmlToJson.js \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/app/ui/header.js \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/app/ui/menu.js \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/app/ui/preloadImages.js \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/app/ui/story.js \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/app/ui/storyList.js \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/io/createDir.js \
@@ -85,6 +97,7 @@
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/util/err.js \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/util/notify.js \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/nl.x-services.plugins.socialsharing \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.device \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.dialogs \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.file \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.file-transfer \
@@ -93,6 +106,8 @@
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.splashscreen \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/nl.x-services.plugins.socialsharing/www \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/nl.x-services.plugins.socialsharing/www/SocialSharing.js \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.device/www \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.device/www/device.js \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.dialogs/www \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.dialogs/www/android \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/plugins/org.apache.cordova.dialogs/www/notification.js \
@@ -146,6 +161,8 @@
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/icon/bada-wac/icon-50-type3.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/icon/bada-wac/icon-80-type4.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/icon/blackberry/icon-80.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/icon/ios/icon-40-2x.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/icon/ios/icon-40.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/icon/ios/icon-50-2x.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/icon/ios/icon-50.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/icon/ios/icon-512-2x.png \
@@ -162,6 +179,7 @@
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/icon/tizen/icon-128.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/icon/webos/icon-64.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/icon/windows-phone/icon-173-tile.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/icon/windows-phone/icon-173.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/icon/windows-phone/icon-48.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/icon/windows-phone/icon-62-tile.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/screen/android \
@@ -172,13 +190,9 @@
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/screen/tizen \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/screen/webos \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/screen/windows-phone \
-/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/screen/android/screen-hdpi-landscape.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/screen/android/screen-hdpi-portrait.png \
-/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/screen/android/screen-ldpi-landscape.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/screen/android/screen-ldpi-portrait.png \
-/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/screen/android/screen-mdpi-landscape.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/screen/android/screen-mdpi-portrait.png \
-/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/screen/android/screen-xhdpi-landscape.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/screen/android/screen-xhdpi-portrait.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/screen/bada/screen-portrait.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res/screen/bada-wac/screen-type3.png \
