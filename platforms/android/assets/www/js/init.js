@@ -8,6 +8,7 @@ module.exports = (function () {
 	, doesFileExist = require('./io/doesFileExist')
 	, getFileContents = require('./io/getFileContents')
 	, downloadMissingImage = require('./app/downloadMissingImage')
+	, preloadImages = require('./app/ui/preloadImages')
 	, err = require('./util/err');
 	
 	createDir().then(function () {
@@ -19,12 +20,13 @@ module.exports = (function () {
 				menu.update(filename, 'Updated: ' + obj.lastBuildDate);
 				storyList.show(obj).then(function () {
 					header.showStoryList();
-				})
 
-				$('.spinner').fadeOut();
-				setTimeout(function () {
-					$('.splash').fadeOut();
-				}, 300)
+					setTimeout(function () {
+						$('.spinner').fadeOut(function () {
+							$('.splash').fadeOut();
+						});
+					}, 100)
+				})
 			}, err);
 		}, err)
 	}, err)

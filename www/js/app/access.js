@@ -99,7 +99,7 @@ function get(id) {
 				});
 			}, reject);
 		} else {
-			doesFileExist(filename).then(resolve, reject)
+			doesFileExist(filename).then(resolve, reject);
 		}
 	})
 }
@@ -141,7 +141,9 @@ function removeFeed(id) {
 		var filename = getFilenameFromId(id);
 			
 		doesFileExist(filename).then(function (fileentry) {
-			removeFile(fileentry).then(resolve, reject)
+			removeFile(fileentry).then(function () {
+				removeOrphanedImages().then(resolve, reject);
+			}, reject)
 		}, reject);
 	})
 }

@@ -1,53 +1,62 @@
 var story = require('./story');
 
-$('header .show-menu').on('touchstart', function () {
-	if ($('section.story-list').hasClass('active')) {
-		showMenu();
-	} else {
-		showStoryList();
-	}
-})
+$(document)
+	.on('click', 'header .show-menu', function () {
+		$('header').addClass('stay');
+		if ($('section.menu').hasClass('active')) {
+			showStoryList();
+		} else {
+			showMenu();
+		}
+	})
+	.on('click', 'header .story .back', showStoryList)
+	.on('click', 'header .story .btn-group .previous', function () {
+		story.previous();
+	})
+	.on('click', 'header .story .btn-group .next', function () {
+		story.next();
+	});
 
-$('header .story .back').on('touchstart', showStoryList);
+function show(sel) {
+	var sels = ['.menu', '.story', '.story-list']
+		, $h = $('header')
+		, $sel = $h.find(sel).stop(true);
 
-$('header .story .btn-group .previous').on('touchstart', function () {
-	story.previous();
-})
+	sels.splice(sels.indexOf(sel), 1);
 
-$('header .story .btn-group .next').on('touchstart', function () {
-	story.next();
-})
+	sels.forEach(function (el, index) {
+		var $el = $h.find(el);
+
+		$el.stop(true).fadeOut('fast', function () {
+			$el.removeClass('active')
+		});
+	});
+
+	setTimeout(function () {
+		$sel.addClass('active').fadeIn('fast')
+	}, 300)
+}
 
 function showStoryList() {
-	setTimeout(function () {
-		$('header .story-list').addClass('active');
-		$('header .menu').removeClass('active');
-		$('header .story').removeClass('active');
-	}, 400);
 	$('section.story').removeClass('active');
 	$('section.story-list').addClass('active');
 	$('section.menu').removeClass('active');
 	$('footer.story-footer').removeClass('active');
+	show('.story-list');
+	story.hide();
 }
 
 function showMenu() {
-	setTimeout(function () {
-		$('header .story-list').removeClass('active');
-		$('header .menu').addClass('active');
-		$('section.story-list').removeClass('active');
-	}, 550)
 	$('section.menu').addClass('active');
+	show('.menu');
 }
 
 function showStory() {
-	setTimeout(function () {
-		$('header .story-list').removeClass('active');
-		$('header .story').addClass('active');
-		$('section.story-list').removeClass('active');
-	}, 400)
+	$('header').removeClass('stay');
 	$('section.menu').removeClass('active');
 	$('footer.story-footer').addClass('active');
 	$('section.story').addClass('active');
+	show('.story');
 }
 
 module.exports = {

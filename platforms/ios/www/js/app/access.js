@@ -16,9 +16,7 @@ function getFeed(id) {
 			getFileContents(filename).then(function (contents) {
 				var obj = (JSON.parse(contents.target._result));
 				getImages(obj).then(function () {
-					console.log('stage 2a')
 					removeOrphanedImages().then(function () {
-						console.log('stage 2b')
 						resolve(contents);
 					}, reject);
 				}, reject);
@@ -101,7 +99,7 @@ function get(id) {
 				});
 			}, reject);
 		} else {
-			doesFileExist(filename).then(resolve, reject)
+			doesFileExist(filename).then(resolve, reject);
 		}
 	})
 }
@@ -117,11 +115,9 @@ function removeOrphanedImages() {
 					})
 				, filenames = json.map(function (element) {return element.name});
 
-			console.log(filenames)
 			Promise.all(
 	    	filenames.map(getFileContents)
 	  	).then(function (res) {
-	  		console.log(res)
 	  		var imagesToRemove = [];
 	  		res.forEach(function (el) {
 	  			var obj = JSON.parse(el.target.result)
@@ -134,7 +130,6 @@ function removeOrphanedImages() {
 	  		imagesToRemove = imageFiles.filter(function(val) {
 				  return images.indexOf(val.name) === -1;
 				});
-				console.log(imagesToRemove)
 	  		Promise.all(imagesToRemove.map(removeFile)).then(resolve, reject)
 	  	});
 		}, reject)
@@ -146,7 +141,9 @@ function removeFeed(id) {
 		var filename = getFilenameFromId(id);
 			
 		doesFileExist(filename).then(function (fileentry) {
-			removeFile(fileentry).then(resolve, reject)
+			removeFile(fileentry).then(function () {
+				removeOrphanedImages().then(resolve, reject);
+			}, reject)
 		}, reject);
 	})
 }

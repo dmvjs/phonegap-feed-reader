@@ -1,7 +1,9 @@
 module.exports = {
 	fs: void 0
+	, appName: 'Carnegie'
 	, folder: 'com.ceip.carnegie'
 	, storyFontSize: 1.1
+	, connectionMessage: 'No network connection detected'
 	, menuMessage: 'Not yet downloaded'
 	, missingImage: 'http://m.ceip.org/img/appsupport/image-unavailable_605x328.png'
 	, missingImageRef: void 0

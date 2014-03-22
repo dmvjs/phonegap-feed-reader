@@ -22,6 +22,9 @@
     <feature name="SocialSharing">
         <param name="ios-package" value="SocialSharing" />
     </feature>
+    <feature name="Device">
+        <param name="ios-package" value="CDVDevice" />
+    </feature>
     <feature name="Notification">
         <param name="ios-package" value="CDVNotification" />
     </feature>
@@ -43,7 +46,7 @@
     </feature>
     <name>Carnegie</name>
     <description>
-        Get the latest analysis and policy recommendations from the Global Think Tank. With the Carnegie app, you can view Carnegie content in English, Arabic, Chinese, and Russian, and interact seamlessly with the mobile website for even more information about experts, events, and publications.
+        Carnegie Feed Reader
     </description>
     <author email="kirk@dmvjs.com" href="http://dmvjs.com">
         Kirk Elliott
@@ -76,6 +79,8 @@
     <plugin name="NetworkStatus" value="CDVConnection" />
     <plugin name="SplashScreen" value="CDVSplashScreen" />
     <plugin name="InAppBrowser" value="CDVInAppBrowser" />
+    <preference name="SplashScreen" value="splash" />
+    <preference name="SplashScreenDelay" value="10000" />
     <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />
     <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/icon-48-mdpi.png" />
     <icon gap:density="hdpi" gap:platform="android" src="res/icon/android/icon-72-hdpi.png" />

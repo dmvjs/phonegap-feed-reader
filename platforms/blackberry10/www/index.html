@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+        <link type="text/css" rel="stylesheet" href="css/index.css"/>
+        <title>Carnegie</title>
+    </head>
+    <body>
+        <div class="spinner"></div>
+        <div class="splash"></div>
+        <header>
+            <div class="story">
+                <button class="back"></button>
+                <div class="btn-group">
+                    <button class="next"></button>
+                    <button class="previous"></button>
+                </div>
+            </div>
+            <div class="story-list active">
+                <button class="show-menu"></button>
+            </div>
+            <div class="menu">
+                <button class="show-menu"></button>
+            </div>
+        </header>
+        <div class="container">
+            <section class="story-list active"></section>
+            <section class="story">
+                <div class="next"></div>
+                <div class="current"></div>
+                <div class="previous"></div>
+            </section>
+            <section class="menu"></section>
+            <footer class="story-footer">
+                <div class="hairline"></div>
+                <button class="share"></button>
+                <button class="text">Text</button>
+            </footer>
+        </div>
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/lib/jquery-min.js"></script>
+        <script type="text/javascript" src="js/lib/promises-polyfill-min.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+    </body>
+</html>

@@ -8,6 +8,7 @@
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/ant-build/classes/com/ceip/carnegie/R.class \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/ant-build/classes/nl/xservices/plugins/SocialSharing$1.class \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/ant-build/classes/nl/xservices/plugins/SocialSharing.class \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/ant-build/classes/org/apache/cordova/device/Device.class \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/ant-build/classes/org/apache/cordova/dialogs/Notification$1$1.class \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/ant-build/classes/org/apache/cordova/dialogs/Notification$1$2.class \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/ant-build/classes/org/apache/cordova/dialogs/Notification$1.class \
