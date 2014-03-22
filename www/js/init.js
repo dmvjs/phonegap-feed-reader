@@ -22,9 +22,10 @@ module.exports = (function () {
 					header.showStoryList();
 
 					setTimeout(function () {
-						$('.spinner').fadeOut(function () {
+						/*$('.spinner').fadeOut(function () {
 							$('.splash').fadeOut();
-						});
+						});*/
+						navigator.splashscreen.hide();
 					}, 100)
 				})
 			}, err);

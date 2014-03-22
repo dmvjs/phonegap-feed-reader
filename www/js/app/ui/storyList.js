@@ -72,6 +72,10 @@ function show(feedObj) {
     setTimeout(function () {
       resolve(200);
     }, 0)
+
+    if (config.debug && analytics) {
+      analytics.trackEvent('Feed', 'Load', feedObj.title);
+    }
   })
 };
 
