@@ -199,6 +199,13 @@ module.exports = [
         "clobbers": [
             "device"
         ]
+    },
+    {
+        "file": "plugins/com.danielcwilson.plugins.googleanalytics/www/analytics.js",
+        "id": "com.danielcwilson.plugins.googleanalytics.UniversalAnalytics",
+        "clobbers": [
+            "analytics"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -211,7 +218,8 @@ module.exports.metadata =
     "org.apache.cordova.inappbrowser": "0.3.0",
     "org.apache.cordova.network-information": "0.2.7",
     "org.apache.cordova.splashscreen": "0.2.7",
-    "org.apache.cordova.device": "0.2.8"
+    "org.apache.cordova.device": "0.2.8",
+    "com.danielcwilson.plugins.googleanalytics": "0.2.0"
 }
 // BOTTOM OF METADATA
 });

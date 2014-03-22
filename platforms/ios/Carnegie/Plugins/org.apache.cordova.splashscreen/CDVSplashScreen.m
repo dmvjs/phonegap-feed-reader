@@ -72,15 +72,15 @@
     if ([topActivityIndicator isEqualToString:@"whiteLarge"]) {
         topActivityIndicatorStyle = UIActivityIndicatorViewStyleWhiteLarge;
     } else if ([topActivityIndicator isEqualToString:@"white"]) {
-        topActivityIndicatorStyle = UIActivityIndicatorViewStyleWhite;
+        topActivityIndicatorStyle = UIActivityIndicatorViewStyleWhiteLarge;
     } else if ([topActivityIndicator isEqualToString:@"gray"]) {
-        topActivityIndicatorStyle = UIActivityIndicatorViewStyleGray;
+        topActivityIndicatorStyle = UIActivityIndicatorViewStyleWhiteLarge;
     }
 
     UIView* parentView = self.viewController.view;
     parentView.userInteractionEnabled = NO;  // disable user interaction while splashscreen is shown
     _activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:topActivityIndicatorStyle];
-    _activityView.center = CGPointMake(parentView.bounds.size.width / 2, parentView.bounds.size.height / 2);
+    _activityView.center = CGPointMake(parentView.bounds.size.width / 2, (parentView.bounds.size.height / 100) * 70);
     _activityView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin
         | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
     [_activityView startAnimating];

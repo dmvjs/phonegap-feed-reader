@@ -159,6 +159,7 @@ module.exports = {
 module.exports = {
 	fs: void 0
 	, appName: 'Carnegie'
+	, debug: true
 	, folder: 'com.ceip.carnegie'
 	, storyFontSize: 1.1
 	, connectionMessage: 'No network connection detected'
@@ -469,9 +470,15 @@ var config = require('../config')
 
 		if ($(this).hasClass('checked') && $(this).hasClass('required') === false) {
 			remove(index);
+			if (config.debug && analytics) {
+				analytics.trackEvent('Menu', 'Feed', 'Delete Feed');
+			}
 		} else {
 			if (navigator.connection.type !== 'none') {
 				get(index, true);
+				if (config.debug && analytics) {
+					analytics.trackEvent('Menu', 'Feed', 'Download Feed');
+				}
 			} else {
 				notify.alert(config.connectionMessage);
 			}
@@ -493,9 +500,13 @@ var config = require('../config')
 	$('a.menu-link.link').on('click', function (e) {
 		e.preventDefault();
 		if (navigator.connection.type !== 'none') {
-			window.open(encodeURI($(e.currentTarget).prop('href')), '_blank', 'location=no, toolbar=yes');
+			var url = $(e.currentTarget).prop('href');
+			window.open(encodeURI(url), '_blank', 'location=no, toolbar=yes');
 			$('section.menu li.active').removeClass('active');
 			$(e.currentTarget).closest('li').addClass('active');
+			if (config.debug && analytics) {
+				analytics.trackEvent('Menu', 'Link Click ', url);
+			}
 		} else {
 			notify.alert(config.connectionMessage);
 		}
@@ -590,6 +601,9 @@ if (share && plugins && plugins.socialsharing) {
 				    feedObj.story[index].image || config.missingImage,
 				    encodeURI(feedObj.story[index].link)
 			    )
+			    if (config.debug && analytics) {
+						analytics.trackEvent('Story', 'Share', 'Share Clicked');
+					}
 				}, 0)
 		} else {
 			notify.alert('Sorry, a problem occured trying to share this post')
@@ -605,14 +619,23 @@ if (browser) {
 		var href = $(e.currentTarget).attr('href')
 			, selector = '';
 		if (href.substr(0, 1) === '#') {
+			if (config.debug && analytics) {
+				analytics.trackEvent('Story', 'Link', 'Page Anchor Clicked');
+			}
 			return
 		} else if (navigator.connection.type !== 'none') {
 			if (href.substr(0, 6) === 'mailto') {
 				e.preventDefault();
 				window.open(encodeURI(href), '_system', '');
+				if (config.debug && analytics) {
+					analytics.trackEvent('Story', 'Link', 'Email Link Clicked');
+				}
 			} else {
 				e.preventDefault();
 				window.open(encodeURI(href), '_blank', 'location=no, toolbar=yes');
+				if (config.debug && analytics) {
+					analytics.trackEvent('Story', 'Link', 'External Link Clicked');
+				}
 			}
 		} else {
 			notify.alert(config.connectionMessage);
@@ -624,6 +647,9 @@ if (browser) {
 
 $(document).on('click', 'footer.story-footer .text', function () {
 	$('.text-resize').toggleClass('active');
+	if (config.debug && analytics) {
+		analytics.trackEvent('Story', 'UI', 'Text Resize Opened');
+	}
 });
 
 function hideTextResize() {
@@ -636,6 +662,10 @@ slider.onchange = function () {
 		, value = (slider.value - slider.min)/(slider.max - slider.min)
 
 	config.storyFontSize = val;
+
+	if (config.debug && analytics) {
+		analytics.trackEvent('Story', 'Share', 'Text Resize Event');
+	}
 
 	slider.style.backgroundImage = [
 		'-webkit-gradient(',
@@ -663,6 +693,10 @@ function show(i, feed) {
 
 		index = i;
 		$('section.story').toggleClass('rtl', !!rtl).prop('dir', rtl ? 'rtl' : 'ltr');
+
+		if (config.debug && analytics) {
+			track(obj.story[i].title);
+		}
 
 		createPage(storyObj).then(function (page) {
 			current.append(page);
@@ -783,10 +817,18 @@ function next() {
 			, n = $('section.story .next')
 			, p = $('section.story .previous').remove();
 
+		track(feedObj.story[index].title);
+
 		c.removeClass('current').addClass('previous');
 		n.removeClass('next').addClass('current');
 		createNext();
 		update();
+	}
+}
+
+function track(title) {
+	if (config.debug && analytics) {
+		analytics.trackEvent('Story', 'Load', title);
 	}
 }
 
@@ -796,6 +838,8 @@ function previous() {
 		var c = $('section.story .current')
 			, p = $('section.story .previous')
 			, n = $('section.story .next').remove();
+
+		track(feedObj.story[index].title);
 
 		c.removeClass('current').addClass('next');
 		p.removeClass('previous').addClass('current');
@@ -902,6 +946,10 @@ function show(feedObj) {
     setTimeout(function () {
       resolve(200);
     }, 0)
+
+    if (config.debug && analytics) {
+      analytics.trackEvent('Feed', 'Load', feedObj.title);
+    }
   })
 };
 
@@ -951,7 +999,8 @@ module.exports = function (res) {
  * under the License.
  */
 
-var connection = require('./util/connection');
+var connection = require('./util/connection')
+	, config = require('./app/config');
 
 module.exports = (function () {
 		document.addEventListener('online', connection.online, false);
@@ -963,17 +1012,21 @@ module.exports = (function () {
     	//setTimeout(function () {
 				//require('./test');
 				$(function () {
+					if (config.debug && analytics) {
+						analytics.startTrackerWithId('UA-31877-29');
+						analytics.trackEvent('Init', 'Load', 'App Started');
+					}
 					require('./init');
 				})
-				setTimeout(function () {
+				/*setTimeout(function () {
 					navigator.splashscreen.hide();
-				}, 200)
+				}, 200)*/
     	//}, 6000)
       
     }
 }());
 
-},{"./init":11,"./util/connection":27}],11:[function(require,module,exports){
+},{"./app/config":2,"./init":11,"./util/connection":27}],11:[function(require,module,exports){
 module.exports = (function () {
 	var access = require('./app/access')
 	, createDir = require('./io/createDir')
@@ -998,9 +1051,10 @@ module.exports = (function () {
 					header.showStoryList();
 
 					setTimeout(function () {
-						$('.spinner').fadeOut(function () {
+						/*$('.spinner').fadeOut(function () {
 							$('.splash').fadeOut();
-						});
+						});*/
+						navigator.splashscreen.hide();
 					}, 100)
 				})
 			}, err);

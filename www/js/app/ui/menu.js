@@ -110,9 +110,15 @@ var config = require('../config')
 
 		if ($(this).hasClass('checked') && $(this).hasClass('required') === false) {
 			remove(index);
+			if (config.debug && analytics) {
+				analytics.trackEvent('Menu', 'Feed', 'Delete Feed');
+			}
 		} else {
 			if (navigator.connection.type !== 'none') {
 				get(index, true);
+				if (config.debug && analytics) {
+					analytics.trackEvent('Menu', 'Feed', 'Download Feed');
+				}
 			} else {
 				notify.alert(config.connectionMessage);
 			}
@@ -134,9 +140,13 @@ var config = require('../config')
 	$('a.menu-link.link').on('click', function (e) {
 		e.preventDefault();
 		if (navigator.connection.type !== 'none') {
-			window.open(encodeURI($(e.currentTarget).prop('href')), '_blank', 'location=no, toolbar=yes');
+			var url = $(e.currentTarget).prop('href');
+			window.open(encodeURI(url), '_blank', 'location=no, toolbar=yes');
 			$('section.menu li.active').removeClass('active');
 			$(e.currentTarget).closest('li').addClass('active');
+			if (config.debug && analytics) {
+				analytics.trackEvent('Menu', 'Link Click ', url);
+			}
 		} else {
 			notify.alert(config.connectionMessage);
 		}
