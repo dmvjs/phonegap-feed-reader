@@ -23,25 +23,17 @@
 #import "CDVViewController.h"
 #import "CDVCommandDelegateImpl.h"
 
-// Parse JS on the main thread if it's shorter than this.
-static const NSInteger JSON_SIZE_FOR_MAIN_THREAD = 4 * 1024; // Chosen arbitrarily.
-// Execute multiple commands in one go until this many seconds have passed.
-static const double MAX_EXECUTION_TIME = .008; // Half of a 60fps frame.
-
 @interface CDVCommandQueue () {
     NSInteger _lastCommandQueueFlushRequestId;
     __weak CDVViewController* _viewController;
     NSMutableArray* _queue;
-    NSTimeInterval _startExecutionTime;
+    BOOL _currentlyExecuting;
 }
 @end
 
 @implementation CDVCommandQueue
 
-- (BOOL)currentlyExecuting
-{
-    return _startExecutionTime > 0;
-}
+@synthesize currentlyExecuting = _currentlyExecuting;
 
 - (id)initWithViewController:(CDVViewController*)viewController
 {
@@ -64,26 +56,15 @@ static const double MAX_EXECUTION_TIME = .008; // Half of a 60fps frame.
     _lastCommandQueueFlushRequestId = 0;
 }
 
-- (void)enqueueCommandBatch:(NSString*)batchJSON
+- (void)enqueCommandBatch:(NSString*)batchJSON
 {
     if ([batchJSON length] > 0) {
-        NSMutableArray* commandBatchHolder = [[NSMutableArray alloc] init];
-        [_queue addObject:commandBatchHolder];
-        if ([batchJSON length] < JSON_SIZE_FOR_MAIN_THREAD) {
-            [commandBatchHolder addObject:[batchJSON JSONObject]];
-        } else {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^() {
-                    NSMutableArray* result = [batchJSON JSONObject];
-                    @synchronized(commandBatchHolder) {
-                        [commandBatchHolder addObject:result];
-                    }
-                    [self performSelectorOnMainThread:@selector(executePending) withObject:nil waitUntilDone:NO];
-                });
-        }
+        [_queue addObject:batchJSON];
+        [self executePending];
     }
 }
 
-- (void)processXhrExecBridgePoke:(NSNumber*)requestId
+- (void)maybeFetchCommandsFromJs:(NSNumber*)requestId
 {
     NSInteger rid = [requestId integerValue];
 
@@ -103,7 +84,6 @@ static const double MAX_EXECUTION_TIME = .008; // Half of a 60fps frame.
     if (rid > _lastCommandQueueFlushRequestId) {
         _lastCommandQueueFlushRequestId = [requestId integerValue];
         [self fetchCommandsFromJs];
-        [self executePending];
     }
 }
 
@@ -114,36 +94,25 @@ static const double MAX_EXECUTION_TIME = .008; // Half of a 60fps frame.
         @"cordova.require('cordova/exec').nativeFetchMessages()"];
 
     CDV_EXEC_LOG(@"Exec: Flushed JS->native queue (hadCommands=%d).", [queuedCommandsJSON length] > 0);
-    [self enqueueCommandBatch:queuedCommandsJSON];
+    [self enqueCommandBatch:queuedCommandsJSON];
 }
 
 - (void)executePending
 {
     // Make us re-entrant-safe.
-    if (_startExecutionTime > 0) {
+    if (_currentlyExecuting) {
         return;
     }
     @try {
-        _startExecutionTime = [NSDate timeIntervalSinceReferenceDate];
+        _currentlyExecuting = YES;
 
-        while ([_queue count] > 0) {
-            NSMutableArray* commandBatchHolder = _queue[0];
-            NSMutableArray* commandBatch = nil;
-            @synchronized(commandBatchHolder) {
-                // If the next-up command is still being decoded, wait for it.
-                if ([commandBatchHolder count] == 0) {
-                    break;
-                }
-                commandBatch = commandBatchHolder[0];
-            }
+        for (NSUInteger i = 0; i < [_queue count]; ++i) {
+            // Parse the returned JSON array.
+            NSArray* commandBatch = [[_queue objectAtIndex:i] JSONObject];
 
-            while ([commandBatch count] > 0) {
+            // Iterate over and execute all of the commands.
+            for (NSArray* jsonEntry in commandBatch) {
                 @autoreleasepool {
-                    // Execute the commands one-at-a-time.
-                    NSArray* jsonEntry = [commandBatch dequeue];
-                    if ([commandBatch count] == 0) {
-                        [_queue removeObjectAtIndex:0];
-                    }
                     CDVInvokedUrlCommand* command = [CDVInvokedUrlCommand commandFromJson:jsonEntry];
                     CDV_EXEC_LOG(@"Exec(%@): Calling %@.%@", command.callbackId, command.className, command.methodName);
 
@@ -159,17 +128,13 @@ static const double MAX_EXECUTION_TIME = .008; // Half of a 60fps frame.
 #endif
                     }
                 }
-
-                // Yield if we're taking too long.
-                if (([_queue count] > 0) && ([NSDate timeIntervalSinceReferenceDate] - _startExecutionTime > MAX_EXECUTION_TIME)) {
-                    [self performSelector:@selector(executePending) withObject:nil afterDelay:0];
-                    return;
-                }
             }
         }
+
+        [_queue removeAllObjects];
     } @finally
     {
-        _startExecutionTime = 0;
+        _currentlyExecuting = NO;
     }
 }
 

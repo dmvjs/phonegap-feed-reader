@@ -30,9 +30,9 @@
 - (void)dispose;
 
 - (void)resetRequestId;
-- (void)enqueueCommandBatch:(NSString*)batchJSON;
+- (void)enqueCommandBatch:(NSString*)batchJSON;
 
-- (void)processXhrExecBridgePoke:(NSNumber*)requestId;
+- (void)maybeFetchCommandsFromJs:(NSNumber*)requestId;
 - (void)fetchCommandsFromJs;
 - (void)executePending;
 - (BOOL)execute:(CDVInvokedUrlCommand*)command;

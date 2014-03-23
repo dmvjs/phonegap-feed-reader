@@ -10,8 +10,10 @@ module.exports = (function () {
 		, 'header-story.png'
 		, 'checked.png'
 		, 'unchecked.png'
+		, 'header-offline.png'
 	].forEach(function (element) {
 		var img = new Image();
 		img.src = './img/' + element;
 	})
+	
 }());

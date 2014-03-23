@@ -64,7 +64,7 @@
 {
     NSError* error = nil;
     id object = [NSJSONSerialization JSONObjectWithData:[self dataUsingEncoding:NSUTF8StringEncoding]
-                                                options:NSJSONReadingMutableContainers
+                                                options:kNilOptions
                                                   error:&error];
 
     if (error != nil) {

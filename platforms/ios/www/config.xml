@@ -28,6 +28,9 @@
     <preference name="android-installLocation" value="auto" />
     <preference name="phonegap-version" value="3.4.0" />
     <icon src="icon.png" />
+    <feature name="UniversalAnalytics">
+      <plugin name="android-package" value="com.danielcwilson.plugins.analytics.UniversalAnalyticsPlugin" />
+    </feature>
     <gap:plugin name="nl.x-services.plugins.socialsharing" />
     <plugin name="Notification" value="CDVNotification" />
     <plugin name="File" value="CDVFile" />

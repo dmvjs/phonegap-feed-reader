@@ -100,7 +100,7 @@ function get(id) {
 				});
 			}, reject);
 		} else {
-			doesFileExist(filename).then(resolve, reject)
+			doesFileExist(filename).then(resolve, reject);
 		}
 	})
 }
@@ -158,8 +158,11 @@ module.exports = {
 },{"../io/createFileWithContents":13,"../io/doesFileExist":14,"../io/downloadExternalFile":15,"../io/getFileContents":18,"../io/getFileList":20,"../io/removeFile":25,"../util/connection":27,"../util/notify":29,"./config":2,"./xmlToJson":9}],2:[function(require,module,exports){
 module.exports = {
 	fs: void 0
+	, appName: 'Carnegie'
+	, debug: true
 	, folder: 'com.ceip.carnegie'
 	, storyFontSize: 1.1
+	, connectionMessage: 'No network connection detected'
 	, menuMessage: 'Not yet downloaded'
 	, missingImage: 'http://m.ceip.org/img/appsupport/image-unavailable_605x328.png'
 	, missingImageRef: void 0
@@ -268,22 +271,23 @@ module.exports = function () {
 		, downloadExternalFile = require('../io/downloadExternalFile');
 
 	return new Promise(function (resolve, reject) {
+
 		function init(response) {
 			var ref = response.toURL();
 
-			//config.fs = ref.substr(0, ref.lastIndexOf('/') + 1);
 			config.missingImageRef = response;
-
 			resolve(response);
 		}
 
-		doesFileExist(config.missingImage.split('/').pop()).then(init, function (reason) {
+		function getImage(reason) {
 			if (navigator.connection.type !== 'none') {
 				downloadExternalFile(config.missingImage).then(init, reject);
 			} else {
-				reject(reason)
+				notify.alert(config.connectionMessage, getImage, null, 'Try again');
 			}
-		})
+		}
+
+		doesFileExist(config.missingImage.split('/').pop()).then(init, getImage);
 	})
 }
 },{"../io/doesFileExist":14,"../io/downloadExternalFile":15,"../util/notify":29,"./config":2}],4:[function(require,module,exports){
@@ -355,6 +359,7 @@ module.exports = {
 }
 },{"./story":7}],5:[function(require,module,exports){
 var config = require('../config')
+	, notify = require('../../util/notify')
 	, access = require('../access')
 	, header = require('./header')
 	, storyList = require('./storyList')
@@ -465,29 +470,46 @@ var config = require('../config')
 
 		if ($(this).hasClass('checked') && $(this).hasClass('required') === false) {
 			remove(index);
+			if (config.debug && analytics) {
+				analytics.trackEvent('Menu', 'Feed', 'Delete Feed');
+			}
 		} else {
 			if (navigator.connection.type !== 'none') {
 				get(index, true);
+				if (config.debug && analytics) {
+					analytics.trackEvent('Menu', 'Feed', 'Download Feed');
+				}
+			} else {
+				notify.alert(config.connectionMessage);
 			}
 		}
 	})
 
 	$('a.menu-link.feed').on('click', function (e) {
+		var $check = $(e.currentTarget).find('.check');
 		e.preventDefault();
-
-		if (navigator.connection.type !== 'none') {
+		if (navigator.connection.type !== 'none' || $check.hasClass('checked') || $check.hasClass('required')) {
 			get($('section.menu li').index($(this).closest('li')));
+			$('section.menu li.active').removeClass('active');
+			$(e.currentTarget).closest('li').addClass('active');
+		} else {
+			notify.alert(config.connectionMessage);
 		}
-
-		$('section.menu li.active').removeClass('active');
-		$(e.currentTarget).closest('li').addClass('active');
 	})
 
 	$('a.menu-link.link').on('click', function (e) {
 		e.preventDefault();
-		window.open(encodeURI($(e.currentTarget).prop('href')), '_blank', 'location=no, toolbar=yes');
-		$('section.menu li.active').removeClass('active');
-		$(e.currentTarget).closest('li').addClass('active');
+		if (navigator.connection.type !== 'none') {
+			var url = $(e.currentTarget).prop('href');
+			window.open(encodeURI(url), '_blank', 'location=no, toolbar=yes');
+			$('section.menu li.active').removeClass('active');
+			$(e.currentTarget).closest('li').addClass('active');
+			if (config.debug && analytics) {
+				analytics.trackEvent('Menu', 'Link Click ', url);
+			}
+		} else {
+			notify.alert(config.connectionMessage);
+		}
 	})
 
 }());
@@ -539,7 +561,7 @@ function remove(id) {
 module.exports = {
 	update: update
 }
-},{"../../io/doesFileExist":14,"../../io/getFileContents":18,"../access":1,"../config":2,"./header":4,"./storyList":8}],6:[function(require,module,exports){
+},{"../../io/doesFileExist":14,"../../io/getFileContents":18,"../../util/notify":29,"../access":1,"../config":2,"./header":4,"./storyList":8}],6:[function(require,module,exports){
 module.exports = (function () {
 
 	var images = [
@@ -552,10 +574,12 @@ module.exports = (function () {
 		, 'header-story.png'
 		, 'checked.png'
 		, 'unchecked.png'
+		, 'header-offline.png'
 	].forEach(function (element) {
 		var img = new Image();
 		img.src = './img/' + element;
 	})
+	
 }());
 },{}],7:[function(require,module,exports){
 var config = require('../config')
@@ -577,6 +601,9 @@ if (share && plugins && plugins.socialsharing) {
 				    feedObj.story[index].image || config.missingImage,
 				    encodeURI(feedObj.story[index].link)
 			    )
+			    if (config.debug && analytics) {
+						analytics.trackEvent('Story', 'Share', 'Share Clicked');
+					}
 				}, 0)
 		} else {
 			notify.alert('Sorry, a problem occured trying to share this post')
@@ -592,29 +619,37 @@ if (browser) {
 		var href = $(e.currentTarget).attr('href')
 			, selector = '';
 		if (href.substr(0, 1) === '#') {
+			if (config.debug && analytics) {
+				analytics.trackEvent('Story', 'Link', 'Page Anchor Clicked');
+			}
 			return
-		} else if (href.substr(0, 6) === 'mailto') {
-			e.preventDefault();
-			window.open(encodeURI(href), '_system', '');
+		} else if (navigator.connection.type !== 'none') {
+			if (href.substr(0, 6) === 'mailto') {
+				e.preventDefault();
+				window.open(encodeURI(href), '_system', '');
+				if (config.debug && analytics) {
+					analytics.trackEvent('Story', 'Link', 'Email Link Clicked');
+				}
+			} else {
+				e.preventDefault();
+				window.open(encodeURI(href), '_blank', 'location=no, toolbar=yes');
+				if (config.debug && analytics) {
+					analytics.trackEvent('Story', 'Link', 'External Link Clicked');
+				}
+			}
 		} else {
-			e.preventDefault();
-			window.open(encodeURI(href), '_blank', 'location=no, toolbar=yes');
+			notify.alert(config.connectionMessage);
 		}
 	})
 } else {
 	// handle systems with no inapp browser, or don't...
 }
-/*
-$(document).on('change', '#text-resize-input', function (e) {
-	var val = parseFloat(e.currentTarget.value, 10);
-	config.storyFontSize = val;
-	setTimeout(function () {
-		$('section.story').css('font-size', val + 'em');
-	}, 0)
-})*/
 
 $(document).on('click', 'footer.story-footer .text', function () {
 	$('.text-resize').toggleClass('active');
+	if (config.debug && analytics) {
+		analytics.trackEvent('Story', 'UI', 'Text Resize Opened');
+	}
 });
 
 function hideTextResize() {
@@ -627,6 +662,10 @@ slider.onchange = function () {
 		, value = (slider.value - slider.min)/(slider.max - slider.min)
 
 	config.storyFontSize = val;
+
+	if (config.debug && analytics) {
+		analytics.trackEvent('Story', 'Share', 'Text Resize Event');
+	}
 
 	slider.style.backgroundImage = [
 		'-webkit-gradient(',
@@ -654,6 +693,10 @@ function show(i, feed) {
 
 		index = i;
 		$('section.story').toggleClass('rtl', !!rtl).prop('dir', rtl ? 'rtl' : 'ltr');
+
+		if (config.debug && analytics) {
+			track(obj.story[i].title);
+		}
 
 		createPage(storyObj).then(function (page) {
 			current.append(page);
@@ -774,11 +817,18 @@ function next() {
 			, n = $('section.story .next')
 			, p = $('section.story .previous').remove();
 
+		track(feedObj.story[index].title);
+
 		c.removeClass('current').addClass('previous');
 		n.removeClass('next').addClass('current');
 		createNext();
 		update();
-		//showAndUpdate(index);
+	}
+}
+
+function track(title) {
+	if (config.debug && analytics) {
+		analytics.trackEvent('Story', 'Load', title);
 	}
 }
 
@@ -788,6 +838,8 @@ function previous() {
 		var c = $('section.story .current')
 			, p = $('section.story .previous')
 			, n = $('section.story .next').remove();
+
+		track(feedObj.story[index].title);
 
 		c.removeClass('current').addClass('next');
 		p.removeClass('previous').addClass('current');
@@ -802,7 +854,6 @@ function update() {
 	$('section.story-list ul li .story-item').eq(index).addClass('active');
 
 	setTimeout(function () {
-		//$('section.story-list').scrollTop($('section.story-list .story-item.active').position().top);
 		$('section.story .next').scrollTop(0);
 		$('section.story .previous').scrollTop(0);
 	}, 350)
@@ -812,7 +863,6 @@ function showAndUpdate(index) {
 	show(index, null, true).then(function() {
 		update();
 	});
-	//storyList.update(index);
 }
 
 module.exports = {
@@ -832,6 +882,9 @@ function show(feedObj) {
       , rtl = feedObj.title ? feedObj.title.toLowerCase().indexOf('arabic') > -1 : false
       , fs = config.fs.toURL()
       , path = fs + (fs.substr(-1) === '/' ? '' : '/')
+      , pull = $('<div/>', {
+        id: 'RubberBandjs'
+      })
       , topBar = $('<div/>', {
         addClass: 'top-bar'
         , text: 'Updated: ' + feedObj.lastBuildDate
@@ -896,6 +949,10 @@ function show(feedObj) {
     setTimeout(function () {
       resolve(200);
     }, 0)
+
+    if (config.debug && analytics) {
+      analytics.trackEvent('Feed', 'Load', feedObj.title);
+    }
   })
 };
 
@@ -945,7 +1002,8 @@ module.exports = function (res) {
  * under the License.
  */
 
-var connection = require('./util/connection');
+var connection = require('./util/connection')
+	, config = require('./app/config');
 
 module.exports = (function () {
 		document.addEventListener('online', connection.online, false);
@@ -957,17 +1015,21 @@ module.exports = (function () {
     	//setTimeout(function () {
 				//require('./test');
 				$(function () {
+					if (config.debug && analytics) {
+						analytics.startTrackerWithId('UA-31877-29');
+						analytics.trackEvent('Init', 'Load', 'App Started');
+					}
 					require('./init');
 				})
-				setTimeout(function () {
+				/*setTimeout(function () {
 					navigator.splashscreen.hide();
-				}, 200)
+				}, 200)*/
     	//}, 6000)
       
     }
 }());
 
-},{"./init":11,"./util/connection":27}],11:[function(require,module,exports){
+},{"./app/config":2,"./init":11,"./util/connection":27}],11:[function(require,module,exports){
 module.exports = (function () {
 	var access = require('./app/access')
 	, createDir = require('./io/createDir')
@@ -992,9 +1054,10 @@ module.exports = (function () {
 					header.showStoryList();
 
 					setTimeout(function () {
-						$('.spinner').fadeOut(function () {
+						/*$('.spinner').fadeOut(function () {
 							$('.splash').fadeOut();
-						});
+						});*/
+						navigator.splashscreen.hide();
 					}, 100)
 				})
 			}, err);
@@ -1178,38 +1241,49 @@ module.exports = function (filewriter, contents) {
 
 
 },{}],27:[function(require,module,exports){
+var notify = require('./notify')
+	, config = require('../app/config');
+
 function get() {
   return navigator.connection.type;
 }
 
 function online(e) {
-		console.log(e)
+		//console.log(e)
+		$('header .menu .offline').fadeOut();
     //alert(get())
 }
 
 function offline(e) {
-    console.log(e)
+    //console.log(e)
+    $('header .menu .offline').fadeIn();
     //alert(get());
 }
+
+$(document).on('click', 'header.menu .offline', function () {
+	notify.alert(config.connectionMessage);
+})
 
 module.exports = {
     online: online
     , offline: offline
     , get: get
 }
-},{}],28:[function(require,module,exports){
+},{"../app/config":2,"./notify":29}],28:[function(require,module,exports){
 module.exports = function (reason) {
 	console.log(reason);
 }
 },{}],29:[function(require,module,exports){
+var config = require('../app/config');
+
 function alert(message, callback, title, buttonLabel) {
-	navigator.notification.alert(message, callback, title, buttonLabel);
+	navigator.notification.alert(message, callback, title || config.appName, buttonLabel);
 }
 
 function confirm(message, callback, title, buttonLabels) {
 	//title: defaults to 'Confirm'
 	//buttonLabels: defaults to [OK, Cancel]
-	navigator.notification.confirm(message, confirmCallback, title, buttonLabels);
+	navigator.notification.confirm(message, confirmCallback, title || config.appName, buttonLabels);
 }
 
 function y(message) {
@@ -1226,4 +1300,4 @@ module.exports = {
 	y: y,
 	n: n
 };
-},{}]},{},[10])
+},{"../app/config":2}]},{},[10])
