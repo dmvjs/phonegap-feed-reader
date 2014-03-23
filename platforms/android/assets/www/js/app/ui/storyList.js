@@ -8,6 +8,9 @@ function show(feedObj) {
       , rtl = feedObj.title ? feedObj.title.toLowerCase().indexOf('arabic') > -1 : false
       , fs = config.fs.toURL()
       , path = fs + (fs.substr(-1) === '/' ? '' : '/')
+      , pull = $('<div/>', {
+        id: 'RubberBandjs'
+      })
       , topBar = $('<div/>', {
         addClass: 'top-bar'
         , text: 'Updated: ' + feedObj.lastBuildDate
@@ -72,6 +75,10 @@ function show(feedObj) {
     setTimeout(function () {
       resolve(200);
     }, 0)
+
+    if (config.debug && analytics) {
+      analytics.trackEvent('Feed', 'Load', feedObj.title);
+    }
   })
 };
 

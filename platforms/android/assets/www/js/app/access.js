@@ -99,7 +99,7 @@ function get(id) {
 				});
 			}, reject);
 		} else {
-			doesFileExist(filename).then(resolve, reject)
+			doesFileExist(filename).then(resolve, reject);
 		}
 	})
 }

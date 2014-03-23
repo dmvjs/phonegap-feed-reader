@@ -1,4 +1,5 @@
 var config = require('../config')
+	, notify = require('../../util/notify')
 	, access = require('../access')
 	, header = require('./header')
 	, storyList = require('./storyList')
@@ -109,29 +110,46 @@ var config = require('../config')
 
 		if ($(this).hasClass('checked') && $(this).hasClass('required') === false) {
 			remove(index);
+			if (config.debug && analytics) {
+				analytics.trackEvent('Menu', 'Feed', 'Delete Feed');
+			}
 		} else {
 			if (navigator.connection.type !== 'none') {
 				get(index, true);
+				if (config.debug && analytics) {
+					analytics.trackEvent('Menu', 'Feed', 'Download Feed');
+				}
+			} else {
+				notify.alert(config.connectionMessage);
 			}
 		}
 	})
 
 	$('a.menu-link.feed').on('click', function (e) {
+		var $check = $(e.currentTarget).find('.check');
 		e.preventDefault();
-
-		if (navigator.connection.type !== 'none') {
+		if (navigator.connection.type !== 'none' || $check.hasClass('checked') || $check.hasClass('required')) {
 			get($('section.menu li').index($(this).closest('li')));
+			$('section.menu li.active').removeClass('active');
+			$(e.currentTarget).closest('li').addClass('active');
+		} else {
+			notify.alert(config.connectionMessage);
 		}
-
-		$('section.menu li.active').removeClass('active');
-		$(e.currentTarget).closest('li').addClass('active');
 	})
 
 	$('a.menu-link.link').on('click', function (e) {
 		e.preventDefault();
-		window.open(encodeURI($(e.currentTarget).prop('href')), '_blank', 'location=no, toolbar=yes');
-		$('section.menu li.active').removeClass('active');
-		$(e.currentTarget).closest('li').addClass('active');
+		if (navigator.connection.type !== 'none') {
+			var url = $(e.currentTarget).prop('href');
+			window.open(encodeURI(url), '_blank', 'location=no, toolbar=yes');
+			$('section.menu li.active').removeClass('active');
+			$(e.currentTarget).closest('li').addClass('active');
+			if (config.debug && analytics) {
+				analytics.trackEvent('Menu', 'Link Click ', url);
+			}
+		} else {
+			notify.alert(config.connectionMessage);
+		}
 	})
 
 }());

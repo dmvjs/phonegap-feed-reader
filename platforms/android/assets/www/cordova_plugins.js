@@ -1,10 +1,10 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
-        "file": "plugins/nl.x-services.plugins.socialsharing/www/SocialSharing.js",
-        "id": "nl.x-services.plugins.socialsharing.SocialSharing",
+        "file": "plugins/org.apache.cordova.device/www/device.js",
+        "id": "org.apache.cordova.device.device",
         "clobbers": [
-            "window.plugins.socialsharing"
+            "device"
         ]
     },
     {
@@ -151,27 +151,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/org.apache.cordova.file-transfer/www/FileTransferError.js",
-        "id": "org.apache.cordova.file-transfer.FileTransferError",
-        "clobbers": [
-            "window.FileTransferError"
-        ]
-    },
-    {
-        "file": "plugins/org.apache.cordova.file-transfer/www/FileTransfer.js",
-        "id": "org.apache.cordova.file-transfer.FileTransfer",
-        "clobbers": [
-            "window.FileTransfer"
-        ]
-    },
-    {
-        "file": "plugins/org.apache.cordova.inappbrowser/www/InAppBrowser.js",
-        "id": "org.apache.cordova.inappbrowser.InAppBrowser",
-        "clobbers": [
-            "window.open"
-        ]
-    },
-    {
         "file": "plugins/org.apache.cordova.network-information/www/network.js",
         "id": "org.apache.cordova.network-information.network",
         "clobbers": [
@@ -194,24 +173,53 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/org.apache.cordova.device/www/device.js",
-        "id": "org.apache.cordova.device.device",
+        "file": "plugins/org.apache.cordova.file-transfer/www/FileTransferError.js",
+        "id": "org.apache.cordova.file-transfer.FileTransferError",
         "clobbers": [
-            "device"
+            "window.FileTransferError"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.file-transfer/www/FileTransfer.js",
+        "id": "org.apache.cordova.file-transfer.FileTransfer",
+        "clobbers": [
+            "window.FileTransfer"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.inappbrowser/www/InAppBrowser.js",
+        "id": "org.apache.cordova.inappbrowser.InAppBrowser",
+        "clobbers": [
+            "window.open"
+        ]
+    },
+    {
+        "file": "plugins/nl.x-services.plugins.socialsharing/www/SocialSharing.js",
+        "id": "nl.x-services.plugins.socialsharing.SocialSharing",
+        "clobbers": [
+            "window.plugins.socialsharing"
+        ]
+    },
+    {
+        "file": "plugins/com.danielcwilson.plugins.googleanalytics/www/analytics.js",
+        "id": "com.danielcwilson.plugins.googleanalytics.UniversalAnalytics",
+        "clobbers": [
+            "analytics"
         ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "nl.x-services.plugins.socialsharing": "4.0.3",
+    "org.apache.cordova.device": "0.2.8",
     "org.apache.cordova.dialogs": "0.2.6",
     "org.apache.cordova.file": "1.0.0",
-    "org.apache.cordova.file-transfer": "0.4.1",
-    "org.apache.cordova.inappbrowser": "0.3.0",
     "org.apache.cordova.network-information": "0.2.7",
     "org.apache.cordova.splashscreen": "0.2.7",
-    "org.apache.cordova.device": "0.2.8"
+    "org.apache.cordova.file-transfer": "0.4.1",
+    "org.apache.cordova.inappbrowser": "0.3.0",
+    "nl.x-services.plugins.socialsharing": "4.0.3",
+    "com.danielcwilson.plugins.googleanalytics": "0.2.0"
 }
 // BOTTOM OF METADATA
 });

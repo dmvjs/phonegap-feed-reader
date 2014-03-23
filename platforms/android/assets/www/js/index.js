@@ -17,7 +17,8 @@
  * under the License.
  */
 
-var connection = require('./util/connection');
+var connection = require('./util/connection')
+	, config = require('./app/config');
 
 module.exports = (function () {
 		document.addEventListener('online', connection.online, false);
@@ -29,11 +30,15 @@ module.exports = (function () {
     	//setTimeout(function () {
 				//require('./test');
 				$(function () {
+					if (config.debug && analytics) {
+						analytics.startTrackerWithId('UA-31877-29');
+						analytics.trackEvent('Init', 'Load', 'App Started');
+					}
 					require('./init');
 				})
-				setTimeout(function () {
+				/*setTimeout(function () {
 					navigator.splashscreen.hide();
-				}, 200)
+				}, 200)*/
     	//}, 6000)
       
     }
