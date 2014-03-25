@@ -1,25 +1,42 @@
 var config = require('../config')
   , header = require('./header')
-  , story = require('./story');
+  , story = require('./story')
+  , refresh = require('./refresh');
 
-function show(feedObj) {
+function show(feedObj, forceActive) {
 	return new Promise(function(resolve, reject) {
     var obj = feedObj.story
       , rtl = feedObj.title ? feedObj.title.toLowerCase().indexOf('arabic') > -1 : false
       , fs = config.fs.toURL()
       , path = fs + (fs.substr(-1) === '/' ? '' : '/')
-      , pull = $('<div/>', {
-        id: 'RubberBandjs'
+      , pullTop = $('<div/>', {
+        id: 'pullrefresh-icon'
       })
+      , message = $('<div/>', {
+        addClass: 'message'
+        , text: ''
+      }).append(pullTop)
+      , pull = $('<div/>', {
+        id: 'pullrefresh'
+      }).append(message)
       , topBar = $('<div/>', {
         addClass: 'top-bar'
         , text: 'Updated: ' + feedObj.lastBuildDate
       })
       , ul = $('<ul/>', {})
+      , container = $('<div/>', {
+        id: 'story-list-container'
+        , css: {
+          '-webkit-user-select': 'none'
+          , '-webkit-user-drag': 'none'
+          , '-webkit-tap-highlight-color': 'rgba(0, 0, 0, 0)'
+          , '-webkit-transform': 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1)'
+        }
+      }).append(topBar).append(pull).append(ul)
       , section = $('<section/>', {
-        addClass: 'story-list'
+        addClass: 'story-list' + (!!forceActive ? ' active' : '')
         , dir: rtl ? 'rtl' : 'ltr'
-      }).append(topBar).append(ul).toggleClass('rtl', rtl)
+      }).append(container).toggleClass('rtl', rtl)
       , sent = false;
 
     obj.forEach(function (element) {
@@ -73,14 +90,20 @@ function show(feedObj) {
       $(this).prop('src', config.missingImageRef.toURL());
     })
     setTimeout(function () {
+      refresh.init();
       resolve(200);
     }, 0)
 
     if (config.debug && analytics) {
       analytics.trackEvent('Feed', 'Load', feedObj.title);
     }
+
   })
 };
+
+$(document).on('access.refresh', function (e, obj) {
+  show(obj, true);
+})
 
 module.exports = {
 	show: show

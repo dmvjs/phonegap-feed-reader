@@ -7,10 +7,12 @@ var notify = require('../util/notify')
 	, toJson = require('./xmlToJson')
 	, downloadExternalFile = require('../io/downloadExternalFile')
 	, getFileList = require('../io/getFileList')
-	, removeFile = require('../io/removeFile');
+	, removeFile = require('../io/removeFile')
+	, currentFeedId = void 0;
 
 function getFeed(id) {
 	return new Promise(function (resolve, reject) {
+		currentFeedId = id;
 		get(id).then(function (fileentry) {
 			var filename = fileentry.name || fileentry.target.localURL.split('/').pop();
 			getFileContents(filename).then(function (contents) {
@@ -22,6 +24,19 @@ function getFeed(id) {
 				}, reject);
 			}, reject)
 		}, reject)
+	})
+}
+
+function refresh() {
+	return new Promise(function (resolve, reject) {
+	  var id = currentFeedId || 0
+	  	, filename = getFilenameFromId(id);
+
+	  getFeed(id).then(function (contents) {
+	    var obj = (JSON.parse(contents.target._result));
+	    $(document).trigger('access.refresh', [obj, filename]);
+	    resolve(obj);
+	  }, reject);
 	})
 }
 
@@ -67,31 +82,32 @@ function getFilenameFromId(id) {
 	return getFilenameFromFeed(feed)
 }
 
-function get(id) {
+function get(id, notUpdatedCallback) {
 	// resolves when feed is downloaded
 	return new Promise(function (resolve, reject) {
 		var feed = getFeedFromConfig(id)
 			, url = feed.url
 			, filename = feed.filename || url.split('/').pop().split('.').shift() + '.json';
 
+		console.log(feed, url)
 		if (navigator.connection.type !== 'none') {
 			$.ajax({
 				url: url
 				, dataType: 'xml'
 			}).then(function (res) {
 				var obj = toJson(res);
-
 				doesFileExist(filename).then(function () {
 					//file exists
 					getFileContents(filename).then(function (contents) {
-						var json = JSON.stringify(contents.target._result);
-						if (json.lastBuildDate === obj.lastBuildDate) {
+						var o = JSON.parse(contents.target._result);
+
+						if (o.lastBuildDate === obj.lastBuildDate) {
 							//no updates since last build
-							resolve(contents)
-						} else {
-							//file is not current
-							createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
+							if (typeof notUpdatedCallback === 'function') {
+								notUpdatedCallback();
+							}
 						}
+						createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
 					}, reject) // file was created but doesn't exist? unlikely
 				}, function () {
 					//file does not exist
@@ -153,4 +169,5 @@ module.exports = {
 	, getFilenameFromId: getFilenameFromId
 	, getFilenameFromFeed: getFilenameFromFeed
 	, removeFeed: removeFeed
+	, refresh: refresh
 };
