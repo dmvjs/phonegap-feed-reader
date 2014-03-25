@@ -8,10 +8,12 @@ var notify = require('../util/notify')
 	, toJson = require('./xmlToJson')
 	, downloadExternalFile = require('../io/downloadExternalFile')
 	, getFileList = require('../io/getFileList')
-	, removeFile = require('../io/removeFile');
+	, removeFile = require('../io/removeFile')
+	, currentFeedId = void 0;
 
 function getFeed(id) {
 	return new Promise(function (resolve, reject) {
+		currentFeedId = id;
 		get(id).then(function (fileentry) {
 			var filename = fileentry.name || fileentry.target.localURL.split('/').pop();
 			getFileContents(filename).then(function (contents) {
@@ -23,6 +25,19 @@ function getFeed(id) {
 				}, reject);
 			}, reject)
 		}, reject)
+	})
+}
+
+function refresh() {
+	return new Promise(function (resolve, reject) {
+	  var id = currentFeedId || 0
+	  	, filename = getFilenameFromId(id);
+
+	  getFeed(id).then(function (contents) {
+	    var obj = (JSON.parse(contents.target._result));
+	    $(document).trigger('access.refresh', [obj, filename]);
+	    resolve(obj);
+	  }, reject);
 	})
 }
 
@@ -68,31 +83,32 @@ function getFilenameFromId(id) {
 	return getFilenameFromFeed(feed)
 }
 
-function get(id) {
+function get(id, notUpdatedCallback) {
 	// resolves when feed is downloaded
 	return new Promise(function (resolve, reject) {
 		var feed = getFeedFromConfig(id)
 			, url = feed.url
 			, filename = feed.filename || url.split('/').pop().split('.').shift() + '.json';
 
+		console.log(feed, url)
 		if (navigator.connection.type !== 'none') {
 			$.ajax({
 				url: url
 				, dataType: 'xml'
 			}).then(function (res) {
 				var obj = toJson(res);
-
 				doesFileExist(filename).then(function () {
 					//file exists
 					getFileContents(filename).then(function (contents) {
-						var json = JSON.stringify(contents.target._result);
-						if (json.lastBuildDate === obj.lastBuildDate) {
+						var o = JSON.parse(contents.target._result);
+
+						if (o.lastBuildDate === obj.lastBuildDate) {
 							//no updates since last build
-							resolve(contents)
-						} else {
-							//file is not current
-							createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
+							if (typeof notUpdatedCallback === 'function') {
+								notUpdatedCallback();
+							}
 						}
+						createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
 					}, reject) // file was created but doesn't exist? unlikely
 				}, function () {
 					//file does not exist
@@ -154,8 +170,9 @@ module.exports = {
 	, getFilenameFromId: getFilenameFromId
 	, getFilenameFromFeed: getFilenameFromFeed
 	, removeFeed: removeFeed
+	, refresh: refresh
 };
-},{"../io/createFileWithContents":13,"../io/doesFileExist":14,"../io/downloadExternalFile":15,"../io/getFileContents":18,"../io/getFileList":20,"../io/removeFile":25,"../util/connection":27,"../util/notify":29,"./config":2,"./xmlToJson":9}],2:[function(require,module,exports){
+},{"../io/createFileWithContents":14,"../io/doesFileExist":15,"../io/downloadExternalFile":16,"../io/getFileContents":19,"../io/getFileList":21,"../io/removeFile":26,"../util/connection":28,"../util/notify":30,"./config":2,"./xmlToJson":10}],2:[function(require,module,exports){
 module.exports = {
 	fs: void 0
 	, appName: 'Carnegie'
@@ -290,7 +307,7 @@ module.exports = function () {
 		doesFileExist(config.missingImage.split('/').pop()).then(init, getImage);
 	})
 }
-},{"../io/doesFileExist":14,"../io/downloadExternalFile":15,"../util/notify":29,"./config":2}],4:[function(require,module,exports){
+},{"../io/doesFileExist":15,"../io/downloadExternalFile":16,"../util/notify":30,"./config":2}],4:[function(require,module,exports){
 var story = require('./story');
 
 $(document)
@@ -357,7 +374,7 @@ module.exports = {
 	, showMenu: showMenu
 	, showStory: showStory
 }
-},{"./story":7}],5:[function(require,module,exports){
+},{"./story":8}],5:[function(require,module,exports){
 var config = require('../config')
 	, notify = require('../../util/notify')
 	, access = require('../access')
@@ -533,7 +550,6 @@ function get(id, loadOnly) {
         header.showStoryList();
 			});
 		}
-
 	}, function (error) {
 		console.log(error)
 		notify.alert('an error occured')
@@ -558,10 +574,15 @@ function remove(id) {
 	})
 }
 
+$(document).on('access.refresh', function (e, obj, filename) {
+  update(filename, 'Updated: ' + obj.lastBuildDate);
+})
+
 module.exports = {
 	update: update
+	//, refresh: refresh
 }
-},{"../../io/doesFileExist":14,"../../io/getFileContents":18,"../../util/notify":29,"../access":1,"../config":2,"./header":4,"./storyList":8}],6:[function(require,module,exports){
+},{"../../io/doesFileExist":15,"../../io/getFileContents":19,"../../util/notify":30,"../access":1,"../config":2,"./header":4,"./storyList":9}],6:[function(require,module,exports){
 module.exports = (function () {
 
 	var images = [
@@ -582,6 +603,240 @@ module.exports = (function () {
 	
 }());
 },{}],7:[function(require,module,exports){
+var access = require('../access');
+
+/**
+ * requestAnimationFrame and cancel polyfill
+ */
+(function () {
+    var lastTime = 0;
+    var vendors = ['ms', 'moz', 'webkit', 'o'];
+    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+        window.cancelAnimationFrame =
+                window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+    }
+
+    if (!window.requestAnimationFrame)
+        window.requestAnimationFrame = function(callback, element) {
+            var currTime = new Date().getTime();
+            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+            var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+                    timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+        };
+
+    if (!window.cancelAnimationFrame)
+      window.cancelAnimationFrame = function(id) {
+          clearTimeout(id);
+      };
+}())
+
+
+/**
+ * pull to refresh
+ * @type {*}
+ */
+var container_el, pullrefresh_el, pullrefresh_icon_el 
+	, PullToRefresh = (function() {
+    function Main(container, slidebox, slidebox_icon, handler) {
+        var self = this;
+
+        this.breakpoint = 80;
+
+        this.container = container;
+        this.slidebox = slidebox;
+        this.slidebox_icon = slidebox_icon;
+        this.handler = handler;
+
+        this._slidedown_height = 0;
+        this._anim = null;
+        this._dragged_down = false;
+
+        this.hammertime = Hammer(this.container)
+            .on("touch dragdown release", function(ev) {
+                if ($('.top-bar').eq(0).position().top > -22) {
+            			self.handleHammer(ev);
+                }
+            });
+    }
+
+
+    /**
+     * Handle HammerJS callback
+     * @param ev
+     */
+    Main.prototype.handleHammer = function(ev) {
+        var self = this;
+
+        switch(ev.type) {
+            // reset element on start
+            case 'touch':
+                this.hide();
+                break;
+
+            // on release we check how far we dragged
+            case 'release':
+                if(!this._dragged_down) {
+                    return;
+                }
+
+                // cancel animation
+                cancelAnimationFrame(this._anim);
+
+                // over the breakpoint, trigger the callback
+                if(ev.gesture.deltaY >= this.breakpoint) {
+                    container_el.className = 'pullrefresh-loading';
+                    pullrefresh_icon_el.className = 'icon loading';
+
+                    this.setHeight(30);
+                    this.handler.call(this);
+                }
+                // just hide it
+                else {
+                    pullrefresh_el.className = 'slideup';
+                    container_el.className = 'pullrefresh-slideup';
+
+                    this.hide();
+                }
+                break;
+
+            // when we dragdown
+            case 'dragdown':
+                // if we are not at the top move down
+                var scrollY = window.scrollY;
+                if(scrollY > 5) {
+                    return;
+                } else if(scrollY !== 0) {
+                    window.scrollTo(0,0);
+                }
+
+                this._dragged_down = true;
+
+                // no requestAnimationFrame instance is running, start one
+                if(!this._anim) {
+                    this.updateHeight();
+                }
+
+                // stop browser scrolling
+                ev.gesture.preventDefault();
+
+                // update slidedown height
+                // it will be updated when requestAnimationFrame is called
+                this._slidedown_height = ev.gesture.deltaY * 0.4;
+                break;
+        }
+    };
+
+
+    /**
+     * when we set the height, we just change the container y
+     * @param   {Number}    height
+     */
+    Main.prototype.setHeight = function(height) {
+        if(Modernizr.csstransforms3d) {
+            this.container.style.transform = 'translate3d(0,'+height+'px,0) ';
+            this.container.style.oTransform = 'translate3d(0,'+height+'px,0)';
+            this.container.style.msTransform = 'translate3d(0,'+height+'px,0)';
+            this.container.style.mozTransform = 'translate3d(0,'+height+'px,0)';
+            this.container.style.webkitTransform = 'translate3d(0,'+height+'px,0) scale3d(1,1,1)';
+        }
+        else if(Modernizr.csstransforms) {
+            this.container.style.transform = 'translate(0,'+height+'px) ';
+            this.container.style.oTransform = 'translate(0,'+height+'px)';
+            this.container.style.msTransform = 'translate(0,'+height+'px)';
+            this.container.style.mozTransform = 'translate(0,'+height+'px)';
+            this.container.style.webkitTransform = 'translate(0,'+height+'px)';
+        }
+        else {
+            this.container.style.top = height+"px";
+        }
+    };
+
+
+    /**
+     * hide the pullrefresh message and reset the vars
+     */
+    Main.prototype.hide = function() {
+        container_el.className = '';
+        this._slidedown_height = 0;
+        this.setHeight(0);
+        cancelAnimationFrame(this._anim);
+        this._anim = null;
+        this._dragged_down = false;
+    };
+
+
+    /**
+     * hide the pullrefresh message and reset the vars
+     */
+    Main.prototype.slideUp = function() {
+        var self = this;
+        cancelAnimationFrame(this._anim);
+
+        pullrefresh_el.className = 'slideup';
+        container_el.className = 'pullrefresh-slideup';
+
+        this.setHeight(0);
+
+        setTimeout(function() {
+            self.hide();
+        }, 500);
+    };
+
+
+    /**
+     * update the height of the slidedown message
+     */
+    Main.prototype.updateHeight = function() {
+        var self = this;
+
+        this.setHeight(this._slidedown_height);
+
+        if(this._slidedown_height >= this.breakpoint){
+            this.slidebox.className = 'breakpoint';
+            this.slidebox_icon.className = 'icon arrow arrow-up';
+        }
+        else {
+            this.slidebox.className = '';
+            this.slidebox_icon.className = 'icon arrow';
+        }
+
+        this._anim = requestAnimationFrame(function() {
+            self.updateHeight();
+        });
+    };
+
+    return Main;
+})();
+
+	function getEl(id) {
+    return document.getElementById(id);
+	}
+
+function init() {
+
+	container_el = getEl('story-list-container');
+	pullrefresh_el = getEl('pullrefresh');
+	pullrefresh_icon_el = getEl('pullrefresh-icon');
+
+	var refresh = new PullToRefresh(container_el, pullrefresh_el, pullrefresh_icon_el);
+
+	refresh.handler = function() {
+	    var self = this;
+      access.refresh().then(function () {
+      	self.slideUp();
+      });
+	};
+}
+
+module.exports = {
+	init: init
+}
+
+
+},{"../access":1}],8:[function(require,module,exports){
 var config = require('../config')
 	, access = require('../access')
 	, notify = require('../../util/notify')
@@ -871,29 +1126,46 @@ module.exports = {
 	, previous: previous
 	, hide: hideTextResize
 }
-},{"../../util/notify":29,"../access":1,"../config":2}],8:[function(require,module,exports){
+},{"../../util/notify":30,"../access":1,"../config":2}],9:[function(require,module,exports){
 var config = require('../config')
   , header = require('./header')
-  , story = require('./story');
+  , story = require('./story')
+  , refresh = require('./refresh');
 
-function show(feedObj) {
+function show(feedObj, forceActive) {
 	return new Promise(function(resolve, reject) {
     var obj = feedObj.story
       , rtl = feedObj.title ? feedObj.title.toLowerCase().indexOf('arabic') > -1 : false
       , fs = config.fs.toURL()
       , path = fs + (fs.substr(-1) === '/' ? '' : '/')
-      , pull = $('<div/>', {
-        id: 'RubberBandjs'
+      , pullTop = $('<div/>', {
+        id: 'pullrefresh-icon'
       })
+      , message = $('<div/>', {
+        addClass: 'message'
+        , text: ''
+      }).append(pullTop)
+      , pull = $('<div/>', {
+        id: 'pullrefresh'
+      }).append(message)
       , topBar = $('<div/>', {
         addClass: 'top-bar'
         , text: 'Updated: ' + feedObj.lastBuildDate
       })
       , ul = $('<ul/>', {})
+      , container = $('<div/>', {
+        id: 'story-list-container'
+        , css: {
+          '-webkit-user-select': 'none'
+          , '-webkit-user-drag': 'none'
+          , '-webkit-tap-highlight-color': 'rgba(0, 0, 0, 0)'
+          , '-webkit-transform': 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1)'
+        }
+      }).append(topBar).append(pull).append(ul)
       , section = $('<section/>', {
-        addClass: 'story-list'
+        addClass: 'story-list' + (!!forceActive ? ' active' : '')
         , dir: rtl ? 'rtl' : 'ltr'
-      }).append(topBar).append(ul).toggleClass('rtl', rtl)
+      }).append(container).toggleClass('rtl', rtl)
       , sent = false;
 
     obj.forEach(function (element) {
@@ -947,19 +1219,25 @@ function show(feedObj) {
       $(this).prop('src', config.missingImageRef.toURL());
     })
     setTimeout(function () {
+      refresh.init();
       resolve(200);
     }, 0)
 
     if (config.debug && analytics) {
       analytics.trackEvent('Feed', 'Load', feedObj.title);
     }
+
   })
 };
+
+$(document).on('access.refresh', function (e, obj) {
+  show(obj, true);
+})
 
 module.exports = {
 	show: show
 }
-},{"../config":2,"./header":4,"./story":7}],9:[function(require,module,exports){
+},{"../config":2,"./header":4,"./refresh":7,"./story":8}],10:[function(require,module,exports){
 module.exports = function (res) {
 	var feedObject = {}
     , root = res.firstChild.firstChild
@@ -982,7 +1260,7 @@ module.exports = function (res) {
 
   return feedObject;
 }
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -1012,7 +1290,7 @@ module.exports = (function () {
     document.addEventListener('deviceready', appReady, false);
 
     function appReady() {
-    	//setTimeout(function () {
+    	setTimeout(function () {
 				//require('./test');
 				$(function () {
 					if (config.debug && analytics) {
@@ -1024,12 +1302,12 @@ module.exports = (function () {
 				/*setTimeout(function () {
 					navigator.splashscreen.hide();
 				}, 200)*/
-    	//}, 6000)
+    	}, 6000)
       
     }
 }());
 
-},{"./app/config":2,"./init":11,"./util/connection":27}],11:[function(require,module,exports){
+},{"./app/config":2,"./init":12,"./util/connection":28}],12:[function(require,module,exports){
 module.exports = (function () {
 	var access = require('./app/access')
 	, createDir = require('./io/createDir')
@@ -1046,6 +1324,7 @@ module.exports = (function () {
 	createDir().then(function () {
 		downloadMissingImage().then(function () {
 			access.get(0).then(function (contents) {
+				console.log(contents)
 				var obj = (JSON.parse(contents.target._result))
 					, filename = access.getFilenameFromId(0);
 
@@ -1054,9 +1333,6 @@ module.exports = (function () {
 					header.showStoryList();
 
 					setTimeout(function () {
-						/*$('.spinner').fadeOut(function () {
-							$('.splash').fadeOut();
-						});*/
 						navigator.splashscreen.hide();
 					}, 100)
 				})
@@ -1064,7 +1340,7 @@ module.exports = (function () {
 		}, err)
 	}, err)
 }())
-},{"./app/access":1,"./app/downloadMissingImage":3,"./app/ui/header":4,"./app/ui/menu":5,"./app/ui/preloadImages":6,"./app/ui/storyList":8,"./io/createDir":12,"./io/doesFileExist":14,"./io/getFileContents":18,"./util/err":28,"./util/notify":29}],12:[function(require,module,exports){
+},{"./app/access":1,"./app/downloadMissingImage":3,"./app/ui/header":4,"./app/ui/menu":5,"./app/ui/preloadImages":6,"./app/ui/storyList":9,"./io/createDir":13,"./io/doesFileExist":15,"./io/getFileContents":19,"./util/err":29,"./util/notify":30}],13:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
 	, makeDir = require('./makeDir')
@@ -1082,7 +1358,7 @@ module.exports = function () {
 		}, reject);
 	})
 };
-},{"../app/config":2,"../util/notify":29,"./getFile":17,"./getFileSystem":21,"./makeDir":22}],13:[function(require,module,exports){
+},{"../app/config":2,"../util/notify":30,"./getFile":18,"./getFileSystem":22,"./makeDir":23}],14:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
 	, getFileEntry = require('./getFileEntry')
@@ -1099,7 +1375,7 @@ module.exports = function (filename, contents) {
 		}, reject);
 	})
 };
-},{"./getFile":17,"./getFileEntry":19,"./getFileSystem":21,"./writeFile":26}],14:[function(require,module,exports){
+},{"./getFile":18,"./getFileEntry":20,"./getFileSystem":22,"./writeFile":27}],15:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile');
 
@@ -1110,7 +1386,7 @@ module.exports = function (filename) {
 		}, reject)
 	})
 }
-},{"./getFile":17,"./getFileSystem":21}],15:[function(require,module,exports){
+},{"./getFile":18,"./getFileSystem":22}],16:[function(require,module,exports){
 var config = require('../app/config')
 	, getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
@@ -1127,7 +1403,7 @@ module.exports = function (url) {
 		}) 
 	})
 }
-},{"../app/config":2,"./downloadFile":16,"./getFile":17,"./getFileSystem":21}],16:[function(require,module,exports){
+},{"../app/config":2,"./downloadFile":17,"./getFile":18,"./getFileSystem":22}],17:[function(require,module,exports){
 var config = require('../app/config');
 
 module.exports = function (fileentry, url) {
@@ -1147,7 +1423,7 @@ module.exports = function (fileentry, url) {
     fileTransfer.download(uri, path, resolve, catchErrors, false, {})
   });
 };
-},{"../app/config":2}],17:[function(require,module,exports){
+},{"../app/config":2}],18:[function(require,module,exports){
 var config = require('../app/config');
 
 module.exports = function (filesystem, filename, create) {
@@ -1156,7 +1432,7 @@ module.exports = function (filesystem, filename, create) {
 		fs.getFile(filename, {create: !!create, exclusive: false}, resolve, reject);
 	});
 }
-},{"../app/config":2}],18:[function(require,module,exports){
+},{"../app/config":2}],19:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
   , getFile = require('./getFile')
   , readFile = require('./readFile');
@@ -1170,13 +1446,13 @@ module.exports = function (filename) {
     }, reject);
   })
 }
-},{"./getFile":17,"./getFileSystem":21,"./readFile":24}],19:[function(require,module,exports){
+},{"./getFile":18,"./getFileSystem":22,"./readFile":25}],20:[function(require,module,exports){
 module.exports = function (fileentry) {
 	return new Promise(function (resolve, reject) {
 		fileentry.createWriter(resolve, reject);
 	})
 };
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
   , readDirectory = require('./readDirectory');
 
@@ -1187,13 +1463,13 @@ module.exports = function (filename) {
     }, reject);
   })
 }
-},{"./getFileSystem":21,"./readDirectory":23}],21:[function(require,module,exports){
+},{"./getFileSystem":22,"./readDirectory":24}],22:[function(require,module,exports){
 module.exports = function () {
 	return new Promise(function (resolve, reject) {
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, resolve, reject)
 	})
 };
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 var config = require('../app/config');
 
 module.exports = function (filesystem, dirname) {
@@ -1202,7 +1478,7 @@ module.exports = function (filesystem, dirname) {
 		fileentry.getDirectory(dirname, {create: true, exclusive: false}, resolve, reject);
 	});
 }
-},{"../app/config":2}],23:[function(require,module,exports){
+},{"../app/config":2}],24:[function(require,module,exports){
 var config = require('../app/config');
 
 module.exports = function (filesystem) {
@@ -1213,7 +1489,7 @@ module.exports = function (filesystem) {
 		reader.readEntries(resolve, reject);
 	});
 }
-},{"../app/config":2}],24:[function(require,module,exports){
+},{"../app/config":2}],25:[function(require,module,exports){
 module.exports = function (fileentry) {
     var reader = new FileReader();
     return new Promise(function (resolve, reject) {
@@ -1224,13 +1500,13 @@ module.exports = function (fileentry) {
         })
     });
 };
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 module.exports = function (fileentry) {
     return new Promise(function (resolve, reject) {
         fileentry.remove(resolve, reject)
     });
 };
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 module.exports = function (filewriter, contents) {
   return new Promise(function (resolve, reject) {
     filewriter.onwriteend = resolve;
@@ -1240,7 +1516,7 @@ module.exports = function (filewriter, contents) {
 }
 
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 var notify = require('./notify')
 	, config = require('../app/config');
 
@@ -1269,11 +1545,11 @@ module.exports = {
     , offline: offline
     , get: get
 }
-},{"../app/config":2,"./notify":29}],28:[function(require,module,exports){
+},{"../app/config":2,"./notify":30}],29:[function(require,module,exports){
 module.exports = function (reason) {
 	console.log(reason);
 }
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 var config = require('../app/config');
 
 function alert(message, callback, title, buttonLabel) {
@@ -1300,4 +1576,4 @@ module.exports = {
 	y: y,
 	n: n
 };
-},{"../app/config":2}]},{},[10])
+},{"../app/config":2}]},{},[11])

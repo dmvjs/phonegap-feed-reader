@@ -14,6 +14,7 @@ module.exports = (function () {
 	createDir().then(function () {
 		downloadMissingImage().then(function () {
 			access.get(0).then(function (contents) {
+				console.log(contents)
 				var obj = (JSON.parse(contents.target._result))
 					, filename = access.getFilenameFromId(0);
 
@@ -22,9 +23,6 @@ module.exports = (function () {
 					header.showStoryList();
 
 					setTimeout(function () {
-						/*$('.spinner').fadeOut(function () {
-							$('.splash').fadeOut();
-						});*/
 						navigator.splashscreen.hide();
 					}, 100)
 				})

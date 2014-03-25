@@ -173,7 +173,6 @@ function get(id, loadOnly) {
         header.showStoryList();
 			});
 		}
-
 	}, function (error) {
 		console.log(error)
 		notify.alert('an error occured')
@@ -198,6 +197,11 @@ function remove(id) {
 	})
 }
 
+$(document).on('access.refresh', function (e, obj, filename) {
+  update(filename, 'Updated: ' + obj.lastBuildDate);
+})
+
 module.exports = {
 	update: update
+	//, refresh: refresh
 }

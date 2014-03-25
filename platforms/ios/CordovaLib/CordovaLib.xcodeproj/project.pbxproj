@@ -375,6 +375,7 @@
 				"ARCHS[sdk=iphoneos7.*]" = "$(ARCHS_STANDARD)";
 				"ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tim Martin (G3826TZT4X)";
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = "/tmp/$(PROJECT_NAME).dst";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -388,6 +389,7 @@
 				INSTALL_PATH = /usr/local/lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = Cordova;
+				PROVISIONING_PROFILE = "07F98306-7ADA-460F-9816-F05886CA048A";
 				PUBLIC_HEADERS_FOLDER_PATH = include/Cordova;
 				SKIP_INSTALL = YES;
 				VALID_ARCHS = "i386 armv7 armv7s arm64";
@@ -403,6 +405,7 @@
 				"ARCHS[sdk=iphoneos7.*]" = "$(ARCHS_STANDARD)";
 				"ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tim Martin (G3826TZT4X)";
 				DSTROOT = "/tmp/$(PROJECT_NAME).dst";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -414,6 +417,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=iphoneos6.*]" = 5.1.1;
 				PRODUCT_NAME = Cordova;
+				PROVISIONING_PROFILE = "07F98306-7ADA-460F-9816-F05886CA048A";
 				PUBLIC_HEADERS_FOLDER_PATH = include/Cordova;
 				SKIP_INSTALL = YES;
 				VALID_ARCHS = "i386 armv7 armv7s arm64";
