@@ -7,20 +7,22 @@ var config = require('../config')
 	, index;
 
 if (share && plugins && plugins.socialsharing) {
-	$(document).on('click', 'footer.story-footer .share', function () {
+	$(document).on('touchstart', 'footer.story-footer .share', function () {
 		hideTextResize();
 		if (typeof index !== 'undefined' && feedObj) {
-				setTimeout(function () {
-					window.plugins.socialsharing.share(
-						'I\'m currently reading ' + feedObj.story[index].title,
-				    feedObj.story[index].title,
-				    feedObj.story[index].image || config.missingImage,
-				    encodeURI(feedObj.story[index].link)
-			    )
-			    if (config.track && analytics) {
-						analytics.trackEvent('Story', 'Share', 'Share Clicked');
-					}
-				}, 0)
+			
+			setTimeout(function () {
+				window.plugins.socialsharing.share(
+					'I\'m currently reading ' + feedObj.story[index].title,
+			    feedObj.story[index].title,
+			    feedObj.story[index].image || config.missingImage,
+			    encodeURI(feedObj.story[index].link)
+		    )
+		    if (config.track && analytics) {
+					analytics.trackEvent('Story', 'Share', 'Share Clicked');
+				}
+			}, 0)
+
 		} else {
 			notify.alert('Sorry, a problem occured trying to share this post')
 		}
@@ -40,20 +42,20 @@ if (browser) {
 			}
 			return
 		} else if (navigator.connection.type !== 'none') {
+			e.preventDefault();
 			if (href.substr(0, 6) === 'mailto') {
-				e.preventDefault();
 				window.open(encodeURI(href), '_system', '');
 				if (config.track && analytics) {
 					analytics.trackEvent('Story', 'Link', 'Email Link Clicked');
 				}
 			} else {
-				e.preventDefault();
 				window.open(encodeURI(href), '_blank', 'location=no, toolbar=yes');
 				if (config.track && analytics) {
 					analytics.trackEvent('Story', 'Link', 'External Link Clicked');
 				}
 			}
 		} else {
+			e.preventDefault();
 			notify.alert(config.connectionMessage);
 		}
 	})

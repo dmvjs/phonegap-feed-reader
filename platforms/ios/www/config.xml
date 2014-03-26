@@ -29,6 +29,9 @@
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
     <preference name="phonegap-version" value="3.4.0" />
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+    </feature>
     <icon src="icon.png" />
     <feature name="UniversalAnalytics">
       <plugin name="android-package" value="com.danielcwilson.plugins.analytics.UniversalAnalyticsPlugin" />

@@ -1,20 +1,30 @@
 var story = require('./story');
 
 $(document)
-	.on('click', 'header .show-menu', function () {
-		$('header').addClass('stay');
-		if ($('section.menu').hasClass('active')) {
+	.on('touchstart', 'header .show-menu', function () {
+		setTimeout(function () {
+			$('header').addClass('stay');
+			if ($('section.menu').hasClass('active')) {
+				showStoryList();
+			} else {
+				showMenu();
+			}
+		}, 0);
+	})
+	.on('touchstart', 'header .story .back', function () {
+		setTimeout(function () {
 			showStoryList();
-		} else {
-			showMenu();
-		}
+		}, 0);
 	})
-	.on('click', 'header .story .back', showStoryList)
-	.on('click', 'header .story .btn-group .previous', function () {
-		story.previous();
+	.on('touchstart', 'header .story .btn-group .previous', function () {
+		setTimeout(function () {
+			story.previous();
+		}, 0);
 	})
-	.on('click', 'header .story .btn-group .next', function () {
-		story.next();
+	.on('touchstart', 'header .story .btn-group .next', function () {
+		setTimeout(function () {
+			story.next();
+		}, 0);
 	});
 
 function show(sel) {

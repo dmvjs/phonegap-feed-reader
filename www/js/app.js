@@ -321,20 +321,30 @@ module.exports = function () {
 var story = require('./story');
 
 $(document)
-	.on('click', 'header .show-menu', function () {
-		$('header').addClass('stay');
-		if ($('section.menu').hasClass('active')) {
+	.on('touchstart', 'header .show-menu', function () {
+		setTimeout(function () {
+			$('header').addClass('stay');
+			if ($('section.menu').hasClass('active')) {
+				showStoryList();
+			} else {
+				showMenu();
+			}
+		}, 0);
+	})
+	.on('touchstart', 'header .story .back', function () {
+		setTimeout(function () {
 			showStoryList();
-		} else {
-			showMenu();
-		}
+		}, 0);
 	})
-	.on('click', 'header .story .back', showStoryList)
-	.on('click', 'header .story .btn-group .previous', function () {
-		story.previous();
+	.on('touchstart', 'header .story .btn-group .previous', function () {
+		setTimeout(function () {
+			story.previous();
+		}, 0);
 	})
-	.on('click', 'header .story .btn-group .next', function () {
-		story.next();
+	.on('touchstart', 'header .story .btn-group .next', function () {
+		setTimeout(function () {
+			story.next();
+		}, 0);
 	});
 
 function show(sel) {
@@ -700,7 +710,7 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
                     container_el.className = 'pullrefresh-loading';
                     pullrefresh_icon_el.className = 'icon loading';
 
-                    this.setHeight(30);
+                    this.setHeight(44);
                     this.handler.call(this);
                 }
                 // just hide it
@@ -856,20 +866,22 @@ var config = require('../config')
 	, index;
 
 if (share && plugins && plugins.socialsharing) {
-	$(document).on('click', 'footer.story-footer .share', function () {
+	$(document).on('touchstart', 'footer.story-footer .share', function () {
 		hideTextResize();
 		if (typeof index !== 'undefined' && feedObj) {
-				setTimeout(function () {
-					window.plugins.socialsharing.share(
-						'I\'m currently reading ' + feedObj.story[index].title,
-				    feedObj.story[index].title,
-				    feedObj.story[index].image || config.missingImage,
-				    encodeURI(feedObj.story[index].link)
-			    )
-			    if (config.track && analytics) {
-						analytics.trackEvent('Story', 'Share', 'Share Clicked');
-					}
-				}, 0)
+			
+			setTimeout(function () {
+				window.plugins.socialsharing.share(
+					'I\'m currently reading ' + feedObj.story[index].title,
+			    feedObj.story[index].title,
+			    feedObj.story[index].image || config.missingImage,
+			    encodeURI(feedObj.story[index].link)
+		    )
+		    if (config.track && analytics) {
+					analytics.trackEvent('Story', 'Share', 'Share Clicked');
+				}
+			}, 0)
+
 		} else {
 			notify.alert('Sorry, a problem occured trying to share this post')
 		}
@@ -903,7 +915,7 @@ if (browser) {
 			}
 		} else {
 			e.preventDefault();
-			notify.alert('iHATEU');
+			notify.alert(config.connectionMessage);
 		}
 	})
 } else {
