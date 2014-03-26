@@ -395,14 +395,14 @@ section.menu {
     display: block;
     z-index: 2;
     background-color: #001c3d;
-    -webkit-transition: top 500ms;
-    transition: top 500ms;
+    -webkit-transition: top 500ms ease-in-out;
+    transition: top 500ms ease-in-out;
 }
 
 section.menu.active {
     top: 0;
-    -webkit-transition: top 500ms;
-    transition: top 500ms;
+    -webkit-transition: top 500ms ease-in-out;
+    transition: top 500ms ease-in-out;
 }
 
 section.menu .section-header {

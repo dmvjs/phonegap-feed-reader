@@ -35,6 +35,7 @@
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/res \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/spec \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/spec.html \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/task \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/css/index.css \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/arrow.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/img/check-required.png \
@@ -74,6 +75,7 @@
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/app/access.js \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/app/config.js \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/app/downloadMissingImage.js \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/app/prefs.js \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/app/ui \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/app/xmlToJson.js \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/assets/www/js/app/ui/header.js \

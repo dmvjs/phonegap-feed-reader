@@ -17,7 +17,7 @@ if (share && plugins && plugins.socialsharing) {
 				    feedObj.story[index].image || config.missingImage,
 				    encodeURI(feedObj.story[index].link)
 			    )
-			    if (config.debug && analytics) {
+			    if (config.track && analytics) {
 						analytics.trackEvent('Story', 'Share', 'Share Clicked');
 					}
 				}, 0)
@@ -35,25 +35,25 @@ if (browser) {
 		var href = $(e.currentTarget).attr('href')
 			, selector = '';
 		if (href.substr(0, 1) === '#') {
-			if (config.debug && analytics) {
+			if (config.track && analytics) {
 				analytics.trackEvent('Story', 'Link', 'Page Anchor Clicked');
 			}
 			return
 		} else if (navigator.connection.type !== 'none') {
+			e.preventDefault();
 			if (href.substr(0, 6) === 'mailto') {
-				e.preventDefault();
 				window.open(encodeURI(href), '_system', '');
-				if (config.debug && analytics) {
+				if (config.track && analytics) {
 					analytics.trackEvent('Story', 'Link', 'Email Link Clicked');
 				}
 			} else {
-				e.preventDefault();
 				window.open(encodeURI(href), '_blank', 'location=no, toolbar=yes');
-				if (config.debug && analytics) {
+				if (config.track && analytics) {
 					analytics.trackEvent('Story', 'Link', 'External Link Clicked');
 				}
 			}
 		} else {
+			e.preventDefault();
 			notify.alert(config.connectionMessage);
 		}
 	})
@@ -63,7 +63,7 @@ if (browser) {
 
 $(document).on('click', 'footer.story-footer .text', function () {
 	$('.text-resize').toggleClass('active');
-	if (config.debug && analytics) {
+	if (config.track && analytics) {
 		analytics.trackEvent('Story', 'UI', 'Text Resize Opened');
 	}
 });
@@ -79,7 +79,7 @@ slider.onchange = function () {
 
 	config.storyFontSize = val;
 
-	if (config.debug && analytics) {
+	if (config.track && analytics) {
 		analytics.trackEvent('Story', 'Share', 'Text Resize Event');
 	}
 
@@ -110,7 +110,7 @@ function show(i, feed) {
 		index = i;
 		$('section.story').toggleClass('rtl', !!rtl).prop('dir', rtl ? 'rtl' : 'ltr');
 
-		if (config.debug && analytics) {
+		if (config.track && analytics) {
 			track(obj.story[i].title);
 		}
 
@@ -243,7 +243,7 @@ function next() {
 }
 
 function track(title) {
-	if (config.debug && analytics) {
+	if (config.track && analytics) {
 		analytics.trackEvent('Story', 'Load', title);
 	}
 }

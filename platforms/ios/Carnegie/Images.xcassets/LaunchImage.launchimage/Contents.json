@@ -73,7 +73,7 @@
       "orientation" : "portrait",
       "idiom" : "ipad",
       "extent" : "to-status-bar",
-      "filename" : "screen-ipad-portrait-1.png",
+      "filename" : "screen-ipad-portrait-56.png",
       "scale" : "1x"
     },
     {
@@ -86,7 +86,7 @@
       "orientation" : "portrait",
       "idiom" : "ipad",
       "extent" : "to-status-bar",
-      "filename" : "screen-ipad-portrait-2x-1.png",
+      "filename" : "screen-ipad-portrait-2x-56.png",
       "scale" : "2x"
     },
     {

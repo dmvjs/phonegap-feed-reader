@@ -1,7 +1,7 @@
 module.exports = {
 	fs: void 0
 	, appName: 'Carnegie'
-	, debug: true
+	, track: true
 	, folder: 'com.ceip.carnegie'
 	, storyFontSize: 1.1
 	, connectionMessage: 'No network connection detected'

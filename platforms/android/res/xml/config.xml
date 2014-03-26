@@ -30,9 +30,6 @@
     <feature name="NetworkStatus">
         <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
     </feature>
-    <feature name="SplashScreen">
-        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
-    </feature>
     <name>Carnegie</name>
     <description>
         Carnegie Feed Reader
@@ -55,11 +52,16 @@
     <preference name="show-splash-screen-spinner" value="true" />
     <preference name="ShowSplashScreenSpinner" value="true" />
     <preference name="auto-hide-splash-screen" value="false" />
+    <preference name="fade-splash-screen" value="true" />
     <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="FadeSplashScreen" value="true" />
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
     <preference name="phonegap-version" value="3.4.0" />
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+    </feature>
     <icon src="icon.png" />
     <feature name="UniversalAnalytics">
         <param name="android-package" value="com.danielcwilson.plugins.analytics.UniversalAnalyticsPlugin" />

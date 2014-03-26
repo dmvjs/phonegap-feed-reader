@@ -94,7 +94,7 @@ function show(feedObj, forceActive) {
       resolve(200);
     }, 0)
 
-    if (config.debug && analytics) {
+    if (config.track && analytics) {
       analytics.trackEvent('Feed', 'Load', feedObj.title);
     }
 

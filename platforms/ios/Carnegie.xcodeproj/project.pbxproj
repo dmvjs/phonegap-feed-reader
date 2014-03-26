@@ -39,6 +39,8 @@
 		AF51936B581842DCAB6025C3 /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 24206E22D5F94335B74ECE9F /* CDVLocalFilesystem.m */; };
 		B12DDFEC4D53484F9279A109 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B2D8E1682542C1A14F9408 /* CoreData.framework */; };
 		BE78619A18DE9F80002CE163 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE78619918DE9F80002CE163 /* Images.xcassets */; };
+		BE78638018E1201D002CE163 /* screen-ipad-portrait-2x-56.png in Resources */ = {isa = PBXBuildFile; fileRef = BE78637E18E1201D002CE163 /* screen-ipad-portrait-2x-56.png */; };
+		BE78638118E1201D002CE163 /* screen-ipad-portrait-56.png in Resources */ = {isa = PBXBuildFile; fileRef = BE78637F18E1201D002CE163 /* screen-ipad-portrait-56.png */; };
 		BEAB6BFB18DE9BD50062A462 /* libAdIdAccess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEAB6BF918DE9BD50062A462 /* libAdIdAccess.a */; };
 		BEAB6BFC18DE9BD50062A462 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEAB6BFA18DE9BD50062A462 /* libGoogleAnalyticsServices.a */; };
 		BEAB6C0A18DE9E840062A462 /* icon-40-2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEAB6C0018DE9E840062A462 /* icon-40-2x.png */; };
@@ -129,6 +131,8 @@
 		BE78619B18DEA134002CE163 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		BE78619D18DEA169002CE163 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE78619F18DEA1A0002CE163 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		BE78637E18E1201D002CE163 /* screen-ipad-portrait-2x-56.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "screen-ipad-portrait-2x-56.png"; sourceTree = "<group>"; };
+		BE78637F18E1201D002CE163 /* screen-ipad-portrait-56.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "screen-ipad-portrait-56.png"; sourceTree = "<group>"; };
 		BEAB6BF318DE9BD50062A462 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = ../../../../../../Downloads/GoogleAnalyticsServicesiOS_3.03c/GoogleAnalytics/Library/GAI.h; sourceTree = "<group>"; };
 		BEAB6BF418DE9BD50062A462 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = ../../../../../../Downloads/GoogleAnalyticsServicesiOS_3.03c/GoogleAnalytics/Library/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
 		BEAB6BF518DE9BD50062A462 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = ../../../../../../Downloads/GoogleAnalyticsServicesiOS_3.03c/GoogleAnalytics/Library/GAIFields.h; sourceTree = "<group>"; };
@@ -351,6 +355,8 @@
 		308D05311370CCF300D202BF /* splash */ = {
 			isa = PBXGroup;
 			children = (
+				BE78637E18E1201D002CE163 /* screen-ipad-portrait-2x-56.png */,
+				BE78637F18E1201D002CE163 /* screen-ipad-portrait-56.png */,
 				BEAB6C1418DE9EEB0062A462 /* screen-ipad-portrait-2x.png */,
 				BEAB6C1518DE9EEB0062A462 /* screen-ipad-portrait.png */,
 				BEAB6C1618DE9EEB0062A462 /* screen-iphone-portrait-2x.png */,
@@ -448,11 +454,13 @@
 				BEAB6C0D18DE9E840062A462 /* icon-57.png in Resources */,
 				1F766FE113BBADB100FB74C0 /* Localizable.strings in Resources */,
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
+				BE78638018E1201D002CE163 /* screen-ipad-portrait-2x-56.png in Resources */,
 				7E7966E01810823500FA85AD /* icon-50.png in Resources */,
 				7E7966E61810823500FA85AD /* icon-small.png in Resources */,
 				BEAB6C1918DE9EEB0062A462 /* screen-ipad-portrait-2x.png in Resources */,
 				BEAB6C1C18DE9EEB0062A462 /* screen-iphone-portrait-568h-2x.png in Resources */,
 				BEAB6C1218DE9E840062A462 /* icon-512.png in Resources */,
+				BE78638118E1201D002CE163 /* screen-ipad-portrait-56.png in Resources */,
 				7E7966DE1810823500FA85AD /* icon-40.png in Resources */,
 				BEAB6C1118DE9E840062A462 /* icon-512-2x.png in Resources */,
 				BEAB6C1D18DE9EEB0062A462 /* screen-iphone-portrait.png in Resources */,

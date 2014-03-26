@@ -27,10 +27,10 @@ module.exports = (function () {
     document.addEventListener('deviceready', appReady, false);
 
     function appReady() {
-    	setTimeout(function () {
+    	//setTimeout(function () {
 				//require('./test');
 				$(function () {
-					if (config.debug && analytics) {
+					if (config.track && analytics) {
 						analytics.startTrackerWithId('UA-31877-29');
 						analytics.trackEvent('Init', 'Load', 'App Started');
 					}
@@ -39,7 +39,7 @@ module.exports = (function () {
 				/*setTimeout(function () {
 					navigator.splashscreen.hide();
 				}, 200)*/
-    	}, 6000)
+    	//}, 6000)
       
     }
 }());

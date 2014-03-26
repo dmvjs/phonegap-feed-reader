@@ -52,7 +52,7 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
         this.hammertime = Hammer(this.container)
             .on("touch dragdown release", function(ev) {
                 if ($('.top-bar').eq(0).position().top > -22) {
-            			self.handleHammer(ev);
+            		self.handleHammer(ev);
                 }
             });
     }
@@ -206,9 +206,9 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
     return Main;
 })();
 
-	function getEl(id) {
+function getEl(id) {
     return document.getElementById(id);
-	}
+}
 
 function init() {
 
@@ -219,10 +219,10 @@ function init() {
 	var refresh = new PullToRefresh(container_el, pullrefresh_el, pullrefresh_icon_el);
 
 	refresh.handler = function() {
-	    var self = this;
-      access.refresh().then(function () {
-      	self.slideUp();
-      });
+        var self = this;
+        access.refresh().then(function () {
+        	self.slideUp();
+        });
 	};
 }
 

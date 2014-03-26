@@ -15,7 +15,15 @@ function getFeed(id) {
 	return new Promise(function (resolve, reject) {
 		currentFeedId = id;
 		get(id).then(function (fileentry) {
-			var filename = fileentry.name || fileentry.target.localURL.split('/').pop();
+			console.log(fileentry, name);
+			var filename;
+			if (fileentry.name) {
+				filename = fileentry.name;
+			} else if (fileentry.target && fileentry.target.localURL) {
+				filename = fileentry.target.localURL.split('/').pop();
+			} else if (fileentry.target && fileentry.target._localURL) {
+				filename = fileentry.target._localURL.split('/').pop();
+			}
 			getFileContents(filename).then(function (contents) {
 				var obj = (JSON.parse(contents.target._result));
 				getImages(obj).then(function () {
@@ -38,6 +46,10 @@ function refresh() {
 	    $(document).trigger('access.refresh', [obj, filename]);
 	    resolve(obj);
 	  }, reject);
+	  
+	  if (config.track && analytics) {
+      analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh');
+    }
 	})
 }
 
@@ -83,14 +95,13 @@ function getFilenameFromId(id) {
 	return getFilenameFromFeed(feed)
 }
 
-function get(id, notUpdatedCallback) {
+function get(id) {
 	// resolves when feed is downloaded
 	return new Promise(function (resolve, reject) {
 		var feed = getFeedFromConfig(id)
 			, url = feed.url
 			, filename = feed.filename || url.split('/').pop().split('.').shift() + '.json';
 
-		console.log(feed, url)
 		if (navigator.connection.type !== 'none') {
 			$.ajax({
 				url: url
@@ -104,11 +115,10 @@ function get(id, notUpdatedCallback) {
 
 						if (o.lastBuildDate === obj.lastBuildDate) {
 							//no updates since last build
-							if (typeof notUpdatedCallback === 'function') {
-								notUpdatedCallback();
-							}
+							resolve(contents);
+						} else {
+							createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
 						}
-						createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
 					}, reject) // file was created but doesn't exist? unlikely
 				}, function () {
 					//file does not exist
@@ -176,7 +186,7 @@ module.exports = {
 module.exports = {
 	fs: void 0
 	, appName: 'Carnegie'
-	, debug: true
+	, track: true
 	, folder: 'com.ceip.carnegie'
 	, storyFontSize: 1.1
 	, connectionMessage: 'No network connection detected'
@@ -487,13 +497,13 @@ var config = require('../config')
 
 		if ($(this).hasClass('checked') && $(this).hasClass('required') === false) {
 			remove(index);
-			if (config.debug && analytics) {
+			if (config.track && analytics) {
 				analytics.trackEvent('Menu', 'Feed', 'Delete Feed');
 			}
 		} else {
 			if (navigator.connection.type !== 'none') {
 				get(index, true);
-				if (config.debug && analytics) {
+				if (config.track && analytics) {
 					analytics.trackEvent('Menu', 'Feed', 'Download Feed');
 				}
 			} else {
@@ -521,7 +531,7 @@ var config = require('../config')
 			window.open(encodeURI(url), '_blank', 'location=no, toolbar=yes');
 			$('section.menu li.active').removeClass('active');
 			$(e.currentTarget).closest('li').addClass('active');
-			if (config.debug && analytics) {
+			if (config.track && analytics) {
 				analytics.trackEvent('Menu', 'Link Click ', url);
 			}
 		} else {
@@ -657,7 +667,7 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
         this.hammertime = Hammer(this.container)
             .on("touch dragdown release", function(ev) {
                 if ($('.top-bar').eq(0).position().top > -22) {
-            			self.handleHammer(ev);
+            		self.handleHammer(ev);
                 }
             });
     }
@@ -811,9 +821,9 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
     return Main;
 })();
 
-	function getEl(id) {
+function getEl(id) {
     return document.getElementById(id);
-	}
+}
 
 function init() {
 
@@ -824,10 +834,10 @@ function init() {
 	var refresh = new PullToRefresh(container_el, pullrefresh_el, pullrefresh_icon_el);
 
 	refresh.handler = function() {
-	    var self = this;
-      access.refresh().then(function () {
-      	self.slideUp();
-      });
+        var self = this;
+        access.refresh().then(function () {
+        	self.slideUp();
+        });
 	};
 }
 
@@ -856,7 +866,7 @@ if (share && plugins && plugins.socialsharing) {
 				    feedObj.story[index].image || config.missingImage,
 				    encodeURI(feedObj.story[index].link)
 			    )
-			    if (config.debug && analytics) {
+			    if (config.track && analytics) {
 						analytics.trackEvent('Story', 'Share', 'Share Clicked');
 					}
 				}, 0)
@@ -874,7 +884,7 @@ if (browser) {
 		var href = $(e.currentTarget).attr('href')
 			, selector = '';
 		if (href.substr(0, 1) === '#') {
-			if (config.debug && analytics) {
+			if (config.track && analytics) {
 				analytics.trackEvent('Story', 'Link', 'Page Anchor Clicked');
 			}
 			return
@@ -882,13 +892,13 @@ if (browser) {
 			if (href.substr(0, 6) === 'mailto') {
 				e.preventDefault();
 				window.open(encodeURI(href), '_system', '');
-				if (config.debug && analytics) {
+				if (config.track && analytics) {
 					analytics.trackEvent('Story', 'Link', 'Email Link Clicked');
 				}
 			} else {
 				e.preventDefault();
 				window.open(encodeURI(href), '_blank', 'location=no, toolbar=yes');
-				if (config.debug && analytics) {
+				if (config.track && analytics) {
 					analytics.trackEvent('Story', 'Link', 'External Link Clicked');
 				}
 			}
@@ -902,7 +912,7 @@ if (browser) {
 
 $(document).on('click', 'footer.story-footer .text', function () {
 	$('.text-resize').toggleClass('active');
-	if (config.debug && analytics) {
+	if (config.track && analytics) {
 		analytics.trackEvent('Story', 'UI', 'Text Resize Opened');
 	}
 });
@@ -918,7 +928,7 @@ slider.onchange = function () {
 
 	config.storyFontSize = val;
 
-	if (config.debug && analytics) {
+	if (config.track && analytics) {
 		analytics.trackEvent('Story', 'Share', 'Text Resize Event');
 	}
 
@@ -949,7 +959,7 @@ function show(i, feed) {
 		index = i;
 		$('section.story').toggleClass('rtl', !!rtl).prop('dir', rtl ? 'rtl' : 'ltr');
 
-		if (config.debug && analytics) {
+		if (config.track && analytics) {
 			track(obj.story[i].title);
 		}
 
@@ -1082,7 +1092,7 @@ function next() {
 }
 
 function track(title) {
-	if (config.debug && analytics) {
+	if (config.track && analytics) {
 		analytics.trackEvent('Story', 'Load', title);
 	}
 }
@@ -1223,7 +1233,7 @@ function show(feedObj, forceActive) {
       resolve(200);
     }, 0)
 
-    if (config.debug && analytics) {
+    if (config.track && analytics) {
       analytics.trackEvent('Feed', 'Load', feedObj.title);
     }
 
@@ -1290,10 +1300,10 @@ module.exports = (function () {
     document.addEventListener('deviceready', appReady, false);
 
     function appReady() {
-    	setTimeout(function () {
+    	//setTimeout(function () {
 				//require('./test');
 				$(function () {
-					if (config.debug && analytics) {
+					if (config.track && analytics) {
 						analytics.startTrackerWithId('UA-31877-29');
 						analytics.trackEvent('Init', 'Load', 'App Started');
 					}
@@ -1302,7 +1312,7 @@ module.exports = (function () {
 				/*setTimeout(function () {
 					navigator.splashscreen.hide();
 				}, 200)*/
-    	}, 6000)
+    	//}, 6000)
       
     }
 }());

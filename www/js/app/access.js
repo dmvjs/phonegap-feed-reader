@@ -14,7 +14,15 @@ function getFeed(id) {
 	return new Promise(function (resolve, reject) {
 		currentFeedId = id;
 		get(id).then(function (fileentry) {
-			var filename = fileentry.name || fileentry.target.localURL.split('/').pop();
+			console.log(fileentry, name);
+			var filename;
+			if (fileentry.name) {
+				filename = fileentry.name;
+			} else if (fileentry.target && fileentry.target.localURL) {
+				filename = fileentry.target.localURL.split('/').pop();
+			} else if (fileentry.target && fileentry.target._localURL) {
+				filename = fileentry.target._localURL.split('/').pop();
+			}
 			getFileContents(filename).then(function (contents) {
 				var obj = (JSON.parse(contents.target._result));
 				getImages(obj).then(function () {
@@ -37,6 +45,10 @@ function refresh() {
 	    $(document).trigger('access.refresh', [obj, filename]);
 	    resolve(obj);
 	  }, reject);
+	  
+	  if (config.track && analytics) {
+      analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh');
+    }
 	})
 }
 
@@ -82,14 +94,13 @@ function getFilenameFromId(id) {
 	return getFilenameFromFeed(feed)
 }
 
-function get(id, notUpdatedCallback) {
+function get(id) {
 	// resolves when feed is downloaded
 	return new Promise(function (resolve, reject) {
 		var feed = getFeedFromConfig(id)
 			, url = feed.url
 			, filename = feed.filename || url.split('/').pop().split('.').shift() + '.json';
 
-		console.log(feed, url)
 		if (navigator.connection.type !== 'none') {
 			$.ajax({
 				url: url
@@ -103,11 +114,10 @@ function get(id, notUpdatedCallback) {
 
 						if (o.lastBuildDate === obj.lastBuildDate) {
 							//no updates since last build
-							if (typeof notUpdatedCallback === 'function') {
-								notUpdatedCallback();
-							}
+							resolve(contents);
+						} else {
+							createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
 						}
-						createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
 					}, reject) // file was created but doesn't exist? unlikely
 				}, function () {
 					//file does not exist
