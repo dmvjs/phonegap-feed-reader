@@ -85,7 +85,7 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
                     container_el.className = 'pullrefresh-loading';
                     pullrefresh_icon_el.className = 'icon loading';
 
-                    this.setHeight(30);
+                    this.setHeight(44);
                     this.handler.call(this);
                 }
                 // just hide it

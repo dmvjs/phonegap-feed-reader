@@ -624,8 +624,8 @@ section.story .story-text ul {
 
 section.story .story-text li {
     list-style-type:disc;
-    margin-left:8px;
-    margin-right:8px;
+    margin-left:1em;
+    margin-right:1em;
 }
 
 section.story .story-text li a {
@@ -824,7 +824,7 @@ footer.story-footer .spacer {
 #pullrefresh .icon {
     position: absolute;
     left: 50%;
-    margin-left: -9px;
+    margin-left: -11px;
 }
 
 /* spinner icon */
@@ -837,8 +837,8 @@ footer.story-footer .spacer {
 
 #pullrefresh .icon.loading {
     background: url('../img/spinner.png') no-repeat;
-    width: 19px;
-    height: 19px;
+    width: 22px;
+    height: 22px;
     background-size: 100%;
     bottom: 0;
 

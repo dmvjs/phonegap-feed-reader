@@ -7,20 +7,22 @@ var config = require('../config')
 	, index;
 
 if (share && plugins && plugins.socialsharing) {
-	$(document).on('click', 'footer.story-footer .share', function () {
+	$(document).on('touchstart', 'footer.story-footer .share', function () {
 		hideTextResize();
 		if (typeof index !== 'undefined' && feedObj) {
-				setTimeout(function () {
-					window.plugins.socialsharing.share(
-						'I\'m currently reading ' + feedObj.story[index].title,
-				    feedObj.story[index].title,
-				    feedObj.story[index].image || config.missingImage,
-				    encodeURI(feedObj.story[index].link)
-			    )
-			    if (config.track && analytics) {
-						analytics.trackEvent('Story', 'Share', 'Share Clicked');
-					}
-				}, 0)
+			
+			setTimeout(function () {
+				window.plugins.socialsharing.share(
+					'I\'m currently reading ' + feedObj.story[index].title,
+			    feedObj.story[index].title,
+			    feedObj.story[index].image || config.missingImage,
+			    encodeURI(feedObj.story[index].link)
+		    )
+		    if (config.track && analytics) {
+					analytics.trackEvent('Story', 'Share', 'Share Clicked');
+				}
+			}, 0)
+
 		} else {
 			notify.alert('Sorry, a problem occured trying to share this post')
 		}
