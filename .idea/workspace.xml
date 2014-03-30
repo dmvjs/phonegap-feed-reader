@@ -2,14 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f32db74-e819-40a1-a8f2-fe9dad9cbebb" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/io/createFIleWithContents.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/io/createFIleWithContents.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/BuildConfig.class" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/BuildConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/com/ceip/carnegie/BuildConfig.class" afterPath="$PROJECT_DIR$/platforms/android/bin/classes/com/ceip/carnegie/BuildConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/bin/Carnegie-debug-unaligned.apk" afterPath="$PROJECT_DIR$/platforms/android/bin/Carnegie-debug-unaligned.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/bin/Carnegie-debug.apk" afterPath="$PROJECT_DIR$/platforms/android/bin/Carnegie-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/bin/Carnegie.ap_" afterPath="$PROJECT_DIR$/platforms/android/bin/Carnegie.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/bin/dexedLibs/classes-d3748030d14db908c0f8f0ac31a0694e.jar" afterPath="$PROJECT_DIR$/platforms/android/bin/dexedLibs/classes-d3748030d14db908c0f8f0ac31a0694e.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/bin/classes.dex" afterPath="$PROJECT_DIR$/platforms/android/bin/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes.jar" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/bin/dexedLibs/libGoogleAnalyticsServices-b39d0092dae179c9765012dcd4ef723d.jar" afterPath="$PROJECT_DIR$/platforms/android/bin/dexedLibs/libGoogleAnalyticsServices-b39d0092dae179c9765012dcd4ef723d.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/img/loading.gif" afterPath="$PROJECT_DIR$/platforms/android/assets/www/img/loading.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/AndroidManifest.xml" afterPath="$PROJECT_DIR$/platforms/android/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/bin/AndroidManifest.xml" afterPath="$PROJECT_DIR$/platforms/android/bin/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/gen/org/apache/cordova/BuildConfig.java" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/gen/org/apache/cordova/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/gen/com/ceip/carnegie/BuildConfig.java" afterPath="$PROJECT_DIR$/platforms/android/gen/com/ceip/carnegie/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/bin/Carnegie.ap_.d" afterPath="$PROJECT_DIR$/platforms/android/bin/Carnegie.ap_.d" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/gen/R.java.d" afterPath="$PROJECT_DIR$/platforms/android/gen/R.java.d" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/build.prop" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/build.prop" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/bin/build.prop" afterPath="$PROJECT_DIR$/platforms/android/bin/build.prop" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/res/xml/config.xml" afterPath="$PROJECT_DIR$/platforms/android/res/xml/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="carnegie-feed-reader.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,75 +48,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/index.js">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/platforms/android/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="78" selection-start="1370" selection-end="1374" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/app/ui/header.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="37" selection-start="765" selection-end="767" vertical-scroll-proportion="-11.653846" vertical-offset="177" max-vertical-offset="1215">
+            <state line="12" column="32" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.29752067" vertical-offset="0" max-vertical-offset="605">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/app/ui/menu.js">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/platforms/android/bin/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="28" selection-start="2862" selection-end="2867" vertical-scroll-proportion="-11.653846" vertical-offset="1377" max-vertical-offset="3180">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="preloadImages.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/app/ui/preloadImages.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="0" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="refresh.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/app/ui/refresh.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="132" column="27" selection-start="3999" selection-end="4002" vertical-scroll-proportion="-11.653846" vertical-offset="1677" max-vertical-offset="3600">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="story.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/app/ui/story.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="261" column="13" selection-start="6635" selection-end="6640" vertical-scroll-proportion="-13.653846" vertical-offset="3560" max-vertical-offset="4470">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="storyList.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/app/ui/storyList.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="18" selection-start="3293" selection-end="3293" vertical-scroll-proportion="-30.384615" vertical-offset="815" max-vertical-offset="1725">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ant.properties" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/platforms/android/ant.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="593">
+            <state line="3" column="42" selection-start="497" selection-end="497" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
               <folding />
             </state>
           </provider>
@@ -128,6 +85,9 @@
         <option value="$PROJECT_DIR$/www/js/app/ui/preloadImages.js" />
         <option value="$PROJECT_DIR$/www/js/app/ui/story.js" />
         <option value="$PROJECT_DIR$/www/js/app/ui/storyList.js" />
+        <option value="$PROJECT_DIR$/platforms/androidj/bin/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/platforms/android/bin/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/platforms/android/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -306,28 +266,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carnegie-feed-reader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carnegie-feed-reader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="platforms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -421,9 +359,10 @@
     <frame x="0" y="22" width="1920" height="1054" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32987553" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953367" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32987553" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2390732" sideWeight="0.5" order="-1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -457,53 +396,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/index.js">
+    <entry file="file://$PROJECT_DIR$/www/js/app/ui/menu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="78" selection-start="1370" selection-end="1374" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="102" column="0" selection-start="2543" selection-end="2543" vertical-scroll-proportion="0.25844595" vertical-offset="1377" max-vertical-offset="3180">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/app/ui/header.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="37" selection-start="765" selection-end="767" vertical-scroll-proportion="-11.653846" vertical-offset="177" max-vertical-offset="1215">
+        <state line="32" column="37" selection-start="765" selection-end="767" vertical-scroll-proportion="0.5118243" vertical-offset="177" max-vertical-offset="1215">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/app/ui/menu.js">
+    <entry file="file://$PROJECT_DIR$/www/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="28" selection-start="2862" selection-end="2867" vertical-scroll-proportion="-11.653846" vertical-offset="1377" max-vertical-offset="3180">
-          <folding />
+        <state line="34" column="78" selection-start="1370" selection-end="1374" vertical-scroll-proportion="0.8252427" vertical-offset="0" max-vertical-offset="765">
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/app/ui/preloadImages.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+        <state line="16" column="0" selection-start="449" selection-end="449" vertical-scroll-proportion="0.3883495" vertical-offset="0" max-vertical-offset="618">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/app/ui/refresh.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="27" selection-start="3999" selection-end="4002" vertical-scroll-proportion="-11.653846" vertical-offset="1677" max-vertical-offset="3600">
+        <state line="132" column="27" selection-start="3999" selection-end="4002" vertical-scroll-proportion="0.5118243" vertical-offset="1677" max-vertical-offset="3600">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/app/ui/story.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="261" column="13" selection-start="6635" selection-end="6640" vertical-scroll-proportion="-13.653846" vertical-offset="3560" max-vertical-offset="4470">
+        <state line="261" column="13" selection-start="6635" selection-end="6640" vertical-scroll-proportion="0.5996622" vertical-offset="3560" max-vertical-offset="4470">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/app/ui/storyList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="18" selection-start="3293" selection-end="3293" vertical-scroll-proportion="-30.384615" vertical-offset="815" max-vertical-offset="1725">
+        <state line="107" column="18" selection-start="3293" selection-end="3293" vertical-scroll-proportion="1.3344594" vertical-offset="815" max-vertical-offset="1725">
           <folding />
         </state>
       </provider>
@@ -511,6 +450,20 @@
     <entry file="file://$PROJECT_DIR$/platforms/android/ant.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="936">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platforms/android/bin/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="42" selection-start="497" selection-end="497" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platforms/android/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="32" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.29752067" vertical-offset="0" max-vertical-offset="605">
           <folding />
         </state>
       </provider>

@@ -11,4 +11,14 @@
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/res/drawable-xhdpi/splash.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/res/values/strings.xml \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/res/xml/config.xml \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/bin/res/drawable/icon.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/bin/res/drawable/splash.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/bin/res/drawable-hdpi/icon.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/bin/res/drawable-hdpi/splash.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/bin/res/drawable-ldpi/icon.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/bin/res/drawable-ldpi/splash.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/bin/res/drawable-mdpi/icon.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/bin/res/drawable-mdpi/splash.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/bin/res/drawable-xhdpi/icon.png \
+/Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/bin/res/drawable-xhdpi/splash.png \
 /Users/kirkelliott/Apps/carnegie-feed-reader/platforms/android/bin/AndroidManifest.xml \
