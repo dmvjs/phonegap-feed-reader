@@ -47,12 +47,12 @@ if (browser) {
 			if (href.substr(0, 6) === 'mailto') {
 				window.open(encodeURI(href), '_system', '');
 				if (config.track && analytics) {
-					analytics.trackEvent('Story', 'Link', 'Email Link Clicked');
+					analytics.trackEvent('Story', 'Link', 'Email Link Clicked', 10);
 				}
 			} else {
 				window.open(encodeURI(href), '_blank', 'location=no, toolbar=yes');
 				if (config.track && analytics) {
-					analytics.trackEvent('Story', 'Link', 'External Link Clicked');
+					analytics.trackEvent('Story', 'Link', 'External Link Clicked', 10);
 				}
 			}
 		} else {
@@ -68,7 +68,7 @@ $(document).on('touchstart', 'footer.story-footer .text', function () {
 	setTimeout(function () {
 		$('.text-resize').toggleClass('active');
 		if (config.track && analytics) {
-			analytics.trackEvent('Story', 'UI', 'Text Resize Opened');
+			analytics.trackEvent('Story', 'UI', 'Text Resize Opened', 10);
 		}
 	}, 0)
 });
@@ -86,7 +86,7 @@ slider.onchange = function () {
 		config.storyFontSize = val;
 
 		if (config.track && analytics) {
-			analytics.trackEvent('Story', 'Share', 'Text Resize Event');
+			analytics.trackEvent('Story', 'Share', 'Text Resize Event', 10);
 		}
 
 		slider.style.backgroundImage = [
@@ -248,7 +248,7 @@ function next() {
 
 function track(title) {
 	if (config.track && analytics) {
-		analytics.trackEvent('Story', 'Load', title);
+		analytics.trackEvent('Story', 'Load', title, 10);
 	}
 }
 

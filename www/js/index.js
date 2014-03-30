@@ -32,7 +32,7 @@ module.exports = (function () {
 				$(function () {
 					if (config.track && analytics) {
 						analytics.startTrackerWithId('UA-31877-29');
-						analytics.trackEvent('Init', 'Load', 'App Started');
+						analytics.trackEvent('Init', 'Load', 'App Started', 10);
 					}
 					require('./init');
 				})
