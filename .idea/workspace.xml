@@ -2,27 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f32db74-e819-40a1-a8f2-fe9dad9cbebb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/bin/Carnegie-debug-unaligned.apk" afterPath="$PROJECT_DIR$/platforms/android/bin/Carnegie-debug-unaligned.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/bin/Carnegie-debug.apk" afterPath="$PROJECT_DIR$/platforms/android/bin/Carnegie-debug.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/BuildConfig.class" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/BuildConfig.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/bin/Carnegie.ap_" afterPath="$PROJECT_DIR$/platforms/android/bin/Carnegie.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/bin/dexedLibs/classes-d3748030d14db908c0f8f0ac31a0694e.jar" afterPath="$PROJECT_DIR$/platforms/android/bin/dexedLibs/classes-d3748030d14db908c0f8f0ac31a0694e.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes.jar" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/bin/dexedLibs/libGoogleAnalyticsServices-b39d0092dae179c9765012dcd4ef723d.jar" afterPath="$PROJECT_DIR$/platforms/android/bin/dexedLibs/libGoogleAnalyticsServices-b39d0092dae179c9765012dcd4ef723d.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/app.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/gen/org/apache/cordova/BuildConfig.java" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/gen/org/apache/cordova/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/gen/R.java.d" afterPath="$PROJECT_DIR$/platforms/android/gen/R.java.d" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/build.prop" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/build.prop" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/bin/build.prop" afterPath="$PROJECT_DIR$/platforms/android/bin/build.prop" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/index.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/index.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/index.js" afterPath="$PROJECT_DIR$/www/js/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/app/ui/menu.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/app/ui/menu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app/ui/menu.js" afterPath="$PROJECT_DIR$/www/js/app/ui/menu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/app/ui/preloadImages.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/app/ui/preloadImages.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app/ui/preloadImages.js" afterPath="$PROJECT_DIR$/www/js/app/ui/preloadImages.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/app/ui/story.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/app/ui/story.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app/ui/story.js" afterPath="$PROJECT_DIR$/www/js/app/ui/story.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/app/ui/storyList.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/app/ui/storyList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app/ui/storyList.js" afterPath="$PROJECT_DIR$/www/js/app/ui/storyList.js" />
     </list>
     <ignored path="carnegie-feed-reader.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -104,10 +91,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="storyList.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="storyList.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/app/ui/storyList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="18" selection-start="3293" selection-end="3293" vertical-scroll-proportion="0.8681319" vertical-offset="815" max-vertical-offset="1725">
+            <state line="107" column="18" selection-start="3293" selection-end="3293" vertical-scroll-proportion="-30.384615" vertical-offset="815" max-vertical-offset="1725">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ant.properties" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/platforms/android/ant.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="593">
               <folding />
             </state>
           </provider>
@@ -278,6 +274,60 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carnegie-feed-reader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carnegie-feed-reader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platforms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carnegie-feed-reader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carnegie-feed-reader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platforms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carnegie-feed-reader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carnegie-feed-reader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platforms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -369,9 +419,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1054" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32987553" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -453,7 +503,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/app/ui/storyList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="18" selection-start="3293" selection-end="3293" vertical-scroll-proportion="0.8681319" vertical-offset="815" max-vertical-offset="1725">
+        <state line="107" column="18" selection-start="3293" selection-end="3293" vertical-scroll-proportion="-30.384615" vertical-offset="815" max-vertical-offset="1725">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platforms/android/ant.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="936">
           <folding />
         </state>
       </provider>
