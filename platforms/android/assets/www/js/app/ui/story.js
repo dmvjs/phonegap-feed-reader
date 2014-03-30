@@ -7,27 +7,30 @@ var config = require('../config')
 	, index;
 
 if (share && plugins && plugins.socialsharing) {
-	$(document).on('click', 'footer.story-footer .share', function () {
-		hideTextResize();
-		if (typeof index !== 'undefined' && feedObj) {
+	$(document).on('touchstart', 'footer.story-footer .share', function (e) {
+			if ($(e.currentTarget).hasClass('disabled') === false) {
 				setTimeout(function () {
-					window.plugins.socialsharing.share(
-						'I\'m currently reading ' + feedObj.story[index].title,
-				    feedObj.story[index].title,
-				    feedObj.story[index].image || config.missingImage,
-				    encodeURI(feedObj.story[index].link)
-			    )
-			    if (config.track && analytics) {
-						analytics.trackEvent('Story', 'Share', 'Share Clicked');
-					}
+					hideTextResize();
+						if (typeof index !== 'undefined' && feedObj) {
+							window.plugins.socialsharing.share(
+								'I\'m currently reading ' + feedObj.story[index].title,
+						    feedObj.story[index].title,
+						    feedObj.story[index].image || config.missingImage,
+						    encodeURI(feedObj.story[index].link)
+					    )
+					    if (config.track && analytics) {
+								analytics.trackEvent('Story', 'Share', 'Share Clicked');
+							}
+						} else {
+							notify.alert('Sorry, a problem occured trying to share this post')
+						}
 				}, 0)
-		} else {
-			notify.alert('Sorry, a problem occured trying to share this post')
-		}
+			}
+
 	})
 } else {
 	//remove footer & make story window taller, sharing not supported
-	$('section.story .share').addClass('disabled');
+	$('footer.story-footer button.share').addClass('disabled');
 }
 
 if (browser) {
@@ -54,18 +57,20 @@ if (browser) {
 			}
 		} else {
 			e.preventDefault();
-			notify.alert('iHATEU');
+			notify.alert(config.connectionMessage);
 		}
 	})
 } else {
 	// handle systems with no inapp browser, or don't...
 }
 
-$(document).on('click', 'footer.story-footer .text', function () {
-	$('.text-resize').toggleClass('active');
-	if (config.track && analytics) {
-		analytics.trackEvent('Story', 'UI', 'Text Resize Opened');
-	}
+$(document).on('touchstart', 'footer.story-footer .text', function () {
+	setTimeout(function () {
+		$('.text-resize').toggleClass('active');
+		if (config.track && analytics) {
+			analytics.trackEvent('Story', 'UI', 'Text Resize Opened');
+		}
+	}, 0)
 });
 
 function hideTextResize() {
@@ -74,26 +79,25 @@ function hideTextResize() {
 
 var slider = document.getElementById('text-resize-input');
 slider.onchange = function () {
-	var val = parseFloat(slider.value, 10)
-		, value = (slider.value - slider.min)/(slider.max - slider.min)
-
-	config.storyFontSize = val;
-
-	if (config.track && analytics) {
-		analytics.trackEvent('Story', 'Share', 'Text Resize Event');
-	}
-
-	slider.style.backgroundImage = [
-		'-webkit-gradient(',
-		'linear, ',
-		'left top, ',
-		'right top, ',
-		'color-stop(' + value + ', #007aff), ',
-		'color-stop(' + value + ', #b8b7b8)',
-		')'
-	].join('');
-
 	setTimeout(function () {
+		var val = parseFloat(slider.value, 10)
+			, value = (slider.value - slider.min)/(slider.max - slider.min)
+
+		config.storyFontSize = val;
+
+		if (config.track && analytics) {
+			analytics.trackEvent('Story', 'Share', 'Text Resize Event');
+		}
+
+		slider.style.backgroundImage = [
+			'-webkit-gradient(',
+			'linear, ',
+			'left top, ',
+			'right top, ',
+			'color-stop(' + value + ', #007aff), ',
+			'color-stop(' + value + ', #b8b7b8)',
+			')'
+		].join('');
 		$('section.story').css('font-size', val + 'em');
 	}, 0)
 };

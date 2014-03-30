@@ -9,11 +9,15 @@ var notify = require('../util/notify')
 	, downloadExternalFile = require('../io/downloadExternalFile')
 	, getFileList = require('../io/getFileList')
 	, removeFile = require('../io/removeFile')
-	, currentFeedId = void 0;
+	, currentFeedId = void 0
+	, feedRefresh = []
+	, increment = 60000;
 
-function getFeed(id) {
+function getFeed(id, loadOnly) {
 	return new Promise(function (resolve, reject) {
-		currentFeedId = id;
+		if (!loadOnly) {
+			currentFeedId = id;
+		}
 		get(id).then(function (fileentry) {
 			console.log(fileentry, name);
 			var filename;
@@ -39,16 +43,31 @@ function getFeed(id) {
 function refresh() {
 	return new Promise(function (resolve, reject) {
 	  var id = currentFeedId || 0
-	  	, filename = getFilenameFromId(id);
+	  	, filename = getFilenameFromId(id)
+	  	, since = 0
+	    , last = feedRefresh[id]
+	    , now = new Date().valueOf();
 
-	  getFeed(id).then(function (contents) {
-	    var obj = (JSON.parse(contents.target._result));
-	    $(document).trigger('access.refresh', [obj, filename]);
-	    resolve(obj);
-	  }, reject);
-	  
-	  if (config.track && analytics) {
-      analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh');
+    if (last !== undefined) {
+      since = (now - last) > increment;
+    }
+    if (last === undefined || since) {
+      feedRefresh[id] = now;
+      getFeed(id).then(function (contents) {
+		    var obj = (JSON.parse(contents.target._result));
+		    $(document).trigger('access.refresh', [obj, filename]);
+		    resolve(obj);
+		  }, reject);
+		  if (config.track && analytics) {
+	      analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh');
+	    }
+    } else {
+  		setTimeout(function () {
+  			reject('Delaying refresh')
+        if (config.track && analytics) {
+		      analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh Fake');
+		    }
+  		}, 2000);
     }
 	})
 }
@@ -90,9 +109,18 @@ function getFilenameFromFeed(feed) {
 	return feed.filename || feed.url.split('/').pop().split('.').shift() + '.json';
 }
 
+function getFeedNameFromId(id) {
+	var feed = getFeedFromConfig(id);
+	return feed.name;
+}
+
 function getFilenameFromId(id) {
 	var feed = getFeedFromConfig(id);
 	return getFilenameFromFeed(feed)
+}
+
+function getCurrentId() {
+	return currentFeedId || 0;
 }
 
 function get(id) {
@@ -177,6 +205,8 @@ function removeFeed(id) {
 
 module.exports = {
 	get: getFeed
+	, getCurrentId: getCurrentId
+	, getFeedNameFromId: getFeedNameFromId
 	, getFilenameFromId: getFilenameFromId
 	, getFilenameFromFeed: getFilenameFromFeed
 	, removeFeed: removeFeed
@@ -561,7 +591,7 @@ function get(id, loadOnly) {
 	var filename = access.getFilenameFromId(id);
 	$('section.menu .menu-item-box .sub[data-url="' + filename + '"]').closest('li').find('.check').addClass('loading');
 
-	access.get(id).then(function (contents) {
+	access.get(id, loadOnly).then(function (contents) {
 		var obj = (JSON.parse(contents.target._result));
 
 		update(filename, 'Updated: ' + obj.lastBuildDate);
@@ -572,7 +602,7 @@ function get(id, loadOnly) {
 		}
 	}, function (error) {
 		console.log(error)
-		notify.alert('an error occured')
+		notify.alert('There was an error processing the ' + access.getFeedNameFromId(id) + ' feed');
 	});
 }
 
@@ -619,6 +649,7 @@ module.exports = (function () {
 	].forEach(function (element) {
 		var img = new Image();
 		img.src = './img/' + element;
+		console.log(element)
 	})
 	
 }());
@@ -676,7 +707,7 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
 
         this.hammertime = Hammer(this.container)
             .on("touch dragdown release", function(ev) {
-                if ($('.top-bar').eq(0).position().top > -22) {
+                if ($('.top-bar').eq(0).position().top > -25) {
             		self.handleHammer(ev);
                 }
             });
@@ -846,7 +877,9 @@ function init() {
 	refresh.handler = function() {
         var self = this;
         access.refresh().then(function () {
-        	self.slideUp();
+            self.slideUp();
+        }, function () {
+            self.slideUp();
         });
 	};
 }
@@ -1342,12 +1375,13 @@ module.exports = (function () {
 	, getFileContents = require('./io/getFileContents')
 	, downloadMissingImage = require('./app/downloadMissingImage')
 	, preloadImages = require('./app/ui/preloadImages')
-	, err = require('./util/err');
+	, err = require('./util/err')
+	, timeout = ['android'].indexOf(device.platform.toLowerCase()) > -1 ? 500 : 100;
 	
 	createDir().then(function () {
 		downloadMissingImage().then(function () {
 			access.get(0).then(function (contents) {
-				console.log(contents)
+				//console.log(contents)
 				var obj = (JSON.parse(contents.target._result))
 					, filename = access.getFilenameFromId(0);
 
@@ -1357,7 +1391,7 @@ module.exports = (function () {
 
 					setTimeout(function () {
 						navigator.splashscreen.hide();
-					}, 100)
+					}, timeout)
 				})
 			}, err);
 		}, err)

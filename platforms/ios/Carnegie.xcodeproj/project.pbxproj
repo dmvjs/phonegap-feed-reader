@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		11BB9588017D4660B0E7A077 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F122DB0DC114F14B4A34A3B /* CDVNotification.bundle */; };
 		159730403911430DB44F0645 /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0FE14C3ACB45448CA21BEF /* CDVNotification.m */; };
@@ -133,6 +134,9 @@
 		BE78619F18DEA1A0002CE163 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		BE78637E18E1201D002CE163 /* screen-ipad-portrait-2x-56.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "screen-ipad-portrait-2x-56.png"; sourceTree = "<group>"; };
 		BE78637F18E1201D002CE163 /* screen-ipad-portrait-56.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "screen-ipad-portrait-56.png"; sourceTree = "<group>"; };
+		BE78641718E2B19F002CE163 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		BE78641818E2B1A7002CE163 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BE78641918E2B1AD002CE163 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEAB6BF318DE9BD50062A462 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = ../../../../../../Downloads/GoogleAnalyticsServicesiOS_3.03c/GoogleAnalytics/Library/GAI.h; sourceTree = "<group>"; };
 		BEAB6BF418DE9BD50062A462 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = ../../../../../../Downloads/GoogleAnalyticsServicesiOS_3.03c/GoogleAnalytics/Library/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
 		BEAB6BF518DE9BD50062A462 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = ../../../../../../Downloads/GoogleAnalyticsServicesiOS_3.03c/GoogleAnalytics/Library/GAIFields.h; sourceTree = "<group>"; };
@@ -414,6 +418,9 @@
 				es,
 				de,
 				se,
+				"zh-Hans",
+				ar,
+				ru,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -532,6 +539,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				1F766FDD13BBADB100FB74C0 /* en */,
+				BE78641718E2B19F002CE163 /* zh-Hans */,
+				BE78641818E2B1A7002CE163 /* ar */,
+				BE78641918E2B1AD002CE163 /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -556,7 +566,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Carnegie/Carnegie-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -598,7 +608,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Carnegie/Carnegie-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

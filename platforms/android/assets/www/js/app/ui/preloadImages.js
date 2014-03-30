@@ -14,6 +14,7 @@ module.exports = (function () {
 	].forEach(function (element) {
 		var img = new Image();
 		img.src = './img/' + element;
+		console.log(element)
 	})
 	
 }());

@@ -164,7 +164,7 @@ function get(id, loadOnly) {
 	var filename = access.getFilenameFromId(id);
 	$('section.menu .menu-item-box .sub[data-url="' + filename + '"]').closest('li').find('.check').addClass('loading');
 
-	access.get(id).then(function (contents) {
+	access.get(id, loadOnly).then(function (contents) {
 		var obj = (JSON.parse(contents.target._result));
 
 		update(filename, 'Updated: ' + obj.lastBuildDate);
@@ -175,7 +175,7 @@ function get(id, loadOnly) {
 		}
 	}, function (error) {
 		console.log(error)
-		notify.alert('an error occured')
+		notify.alert('There was an error processing the ' + access.getFeedNameFromId(id) + ' feed');
 	});
 }
 

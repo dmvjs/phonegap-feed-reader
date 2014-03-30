@@ -2,6 +2,7 @@ module.exports = {
 	fs: void 0
 	, appName: 'Carnegie'
 	, track: true
+	, trackId: 'UA-31877-29'
 	, folder: 'com.ceip.carnegie'
 	, storyFontSize: 1.1
 	, connectionMessage: 'No network connection detected'
