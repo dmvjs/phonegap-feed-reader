@@ -51,7 +51,7 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
 
         this.hammertime = Hammer(this.container)
             .on("touch dragdown release", function(ev) {
-                if ($('.top-bar').eq(0).position().top > -22) {
+                if ($('.top-bar').eq(0).position().top > -25) {
             		self.handleHammer(ev);
                 }
             });
@@ -221,7 +221,9 @@ function init() {
 	refresh.handler = function() {
         var self = this;
         access.refresh().then(function () {
-        	self.slideUp();
+            self.slideUp();
+        }, function () {
+            self.slideUp();
         });
 	};
 }

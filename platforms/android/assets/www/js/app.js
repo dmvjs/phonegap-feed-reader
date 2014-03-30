@@ -9,11 +9,15 @@ var notify = require('../util/notify')
 	, downloadExternalFile = require('../io/downloadExternalFile')
 	, getFileList = require('../io/getFileList')
 	, removeFile = require('../io/removeFile')
-	, currentFeedId = void 0;
+	, currentFeedId = void 0
+	, feedRefresh = []
+	, increment = 60000;
 
-function getFeed(id) {
+function getFeed(id, loadOnly) {
 	return new Promise(function (resolve, reject) {
-		currentFeedId = id;
+		if (!loadOnly) {
+			currentFeedId = id;
+		}
 		get(id).then(function (fileentry) {
 			console.log(fileentry, name);
 			var filename;
@@ -39,16 +43,31 @@ function getFeed(id) {
 function refresh() {
 	return new Promise(function (resolve, reject) {
 	  var id = currentFeedId || 0
-	  	, filename = getFilenameFromId(id);
+	  	, filename = getFilenameFromId(id)
+	  	, since = 0
+	    , last = feedRefresh[id]
+	    , now = new Date().valueOf();
 
-	  getFeed(id).then(function (contents) {
-	    var obj = (JSON.parse(contents.target._result));
-	    $(document).trigger('access.refresh', [obj, filename]);
-	    resolve(obj);
-	  }, reject);
-	  
-	  if (config.track && analytics) {
-      analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh');
+    if (last !== undefined) {
+      since = (now - last) > increment;
+    }
+    if (last === undefined || since) {
+      feedRefresh[id] = now;
+      getFeed(id).then(function (contents) {
+		    var obj = (JSON.parse(contents.target._result));
+		    $(document).trigger('access.refresh', [obj, filename]);
+		    resolve(obj);
+		  }, reject);
+		  if (config.track && analytics) {
+	      analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh');
+	    }
+    } else {
+  		setTimeout(function () {
+  			reject('Delaying refresh')
+        if (config.track && analytics) {
+		      analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh Fake');
+		    }
+  		}, 2000);
     }
 	})
 }
@@ -90,9 +109,18 @@ function getFilenameFromFeed(feed) {
 	return feed.filename || feed.url.split('/').pop().split('.').shift() + '.json';
 }
 
+function getFeedNameFromId(id) {
+	var feed = getFeedFromConfig(id);
+	return feed.name;
+}
+
 function getFilenameFromId(id) {
 	var feed = getFeedFromConfig(id);
 	return getFilenameFromFeed(feed)
+}
+
+function getCurrentId() {
+	return currentFeedId || 0;
 }
 
 function get(id) {
@@ -177,6 +205,8 @@ function removeFeed(id) {
 
 module.exports = {
 	get: getFeed
+	, getCurrentId: getCurrentId
+	, getFeedNameFromId: getFeedNameFromId
 	, getFilenameFromId: getFilenameFromId
 	, getFilenameFromFeed: getFilenameFromFeed
 	, removeFeed: removeFeed
@@ -187,6 +217,7 @@ module.exports = {
 	fs: void 0
 	, appName: 'Carnegie'
 	, track: true
+	, trackId: 'UA-31877-29'
 	, folder: 'com.ceip.carnegie'
 	, storyFontSize: 1.1
 	, connectionMessage: 'No network connection detected'
@@ -321,20 +352,30 @@ module.exports = function () {
 var story = require('./story');
 
 $(document)
-	.on('click', 'header .show-menu', function () {
-		$('header').addClass('stay');
-		if ($('section.menu').hasClass('active')) {
+	.on('touchstart', 'header .show-menu', function () {
+		setTimeout(function () {
+			$('header').addClass('stay');
+			if ($('section.menu').hasClass('active')) {
+				showStoryList();
+			} else {
+				showMenu();
+			}
+		}, 0);
+	})
+	.on('touchstart', 'header .story .back', function () {
+		setTimeout(function () {
 			showStoryList();
-		} else {
-			showMenu();
-		}
+		}, 0);
 	})
-	.on('click', 'header .story .back', showStoryList)
-	.on('click', 'header .story .btn-group .previous', function () {
-		story.previous();
+	.on('touchstart', 'header .story .btn-group .previous', function () {
+		setTimeout(function () {
+			story.previous();
+		}, 0);
 	})
-	.on('click', 'header .story .btn-group .next', function () {
-		story.next();
+	.on('touchstart', 'header .story .btn-group .next', function () {
+		setTimeout(function () {
+			story.next();
+		}, 0);
 	});
 
 function show(sel) {
@@ -551,7 +592,7 @@ function get(id, loadOnly) {
 	var filename = access.getFilenameFromId(id);
 	$('section.menu .menu-item-box .sub[data-url="' + filename + '"]').closest('li').find('.check').addClass('loading');
 
-	access.get(id).then(function (contents) {
+	access.get(id, loadOnly).then(function (contents) {
 		var obj = (JSON.parse(contents.target._result));
 
 		update(filename, 'Updated: ' + obj.lastBuildDate);
@@ -562,7 +603,7 @@ function get(id, loadOnly) {
 		}
 	}, function (error) {
 		console.log(error)
-		notify.alert('an error occured')
+		notify.alert('There was an error processing the ' + access.getFeedNameFromId(id) + ' feed');
 	});
 }
 
@@ -609,6 +650,7 @@ module.exports = (function () {
 	].forEach(function (element) {
 		var img = new Image();
 		img.src = './img/' + element;
+		console.log(element)
 	})
 	
 }());
@@ -666,7 +708,7 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
 
         this.hammertime = Hammer(this.container)
             .on("touch dragdown release", function(ev) {
-                if ($('.top-bar').eq(0).position().top > -22) {
+                if ($('.top-bar').eq(0).position().top > -25) {
             		self.handleHammer(ev);
                 }
             });
@@ -700,7 +742,7 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
                     container_el.className = 'pullrefresh-loading';
                     pullrefresh_icon_el.className = 'icon loading';
 
-                    this.setHeight(30);
+                    this.setHeight(44);
                     this.handler.call(this);
                 }
                 // just hide it
@@ -836,7 +878,9 @@ function init() {
 	refresh.handler = function() {
         var self = this;
         access.refresh().then(function () {
-        	self.slideUp();
+            self.slideUp();
+        }, function () {
+            self.slideUp();
         });
 	};
 }
@@ -856,27 +900,30 @@ var config = require('../config')
 	, index;
 
 if (share && plugins && plugins.socialsharing) {
-	$(document).on('click', 'footer.story-footer .share', function () {
-		hideTextResize();
-		if (typeof index !== 'undefined' && feedObj) {
+	$(document).on('touchstart', 'footer.story-footer .share', function (e) {
+			if ($(e.currentTarget).hasClass('disabled') === false) {
 				setTimeout(function () {
-					window.plugins.socialsharing.share(
-						'I\'m currently reading ' + feedObj.story[index].title,
-				    feedObj.story[index].title,
-				    feedObj.story[index].image || config.missingImage,
-				    encodeURI(feedObj.story[index].link)
-			    )
-			    if (config.track && analytics) {
-						analytics.trackEvent('Story', 'Share', 'Share Clicked');
-					}
+					hideTextResize();
+						if (typeof index !== 'undefined' && feedObj) {
+							window.plugins.socialsharing.share(
+								'I\'m currently reading ' + feedObj.story[index].title,
+						    feedObj.story[index].title,
+						    feedObj.story[index].image || config.missingImage,
+						    encodeURI(feedObj.story[index].link)
+					    )
+					    if (config.track && analytics) {
+								analytics.trackEvent('Story', 'Share', 'Share Clicked');
+							}
+						} else {
+							notify.alert('Sorry, a problem occured trying to share this post')
+						}
 				}, 0)
-		} else {
-			notify.alert('Sorry, a problem occured trying to share this post')
-		}
+			}
+
 	})
 } else {
 	//remove footer & make story window taller, sharing not supported
-	$('section.story .share').addClass('disabled');
+	$('footer.story-footer button.share').addClass('disabled');
 }
 
 if (browser) {
@@ -903,18 +950,20 @@ if (browser) {
 			}
 		} else {
 			e.preventDefault();
-			notify.alert('iHATEU');
+			notify.alert(config.connectionMessage);
 		}
 	})
 } else {
 	// handle systems with no inapp browser, or don't...
 }
 
-$(document).on('click', 'footer.story-footer .text', function () {
-	$('.text-resize').toggleClass('active');
-	if (config.track && analytics) {
-		analytics.trackEvent('Story', 'UI', 'Text Resize Opened');
-	}
+$(document).on('touchstart', 'footer.story-footer .text', function () {
+	setTimeout(function () {
+		$('.text-resize').toggleClass('active');
+		if (config.track && analytics) {
+			analytics.trackEvent('Story', 'UI', 'Text Resize Opened');
+		}
+	}, 0)
 });
 
 function hideTextResize() {
@@ -923,26 +972,25 @@ function hideTextResize() {
 
 var slider = document.getElementById('text-resize-input');
 slider.onchange = function () {
-	var val = parseFloat(slider.value, 10)
-		, value = (slider.value - slider.min)/(slider.max - slider.min)
-
-	config.storyFontSize = val;
-
-	if (config.track && analytics) {
-		analytics.trackEvent('Story', 'Share', 'Text Resize Event');
-	}
-
-	slider.style.backgroundImage = [
-		'-webkit-gradient(',
-		'linear, ',
-		'left top, ',
-		'right top, ',
-		'color-stop(' + value + ', #007aff), ',
-		'color-stop(' + value + ', #b8b7b8)',
-		')'
-	].join('');
-
 	setTimeout(function () {
+		var val = parseFloat(slider.value, 10)
+			, value = (slider.value - slider.min)/(slider.max - slider.min)
+
+		config.storyFontSize = val;
+
+		if (config.track && analytics) {
+			analytics.trackEvent('Story', 'Share', 'Text Resize Event');
+		}
+
+		slider.style.backgroundImage = [
+			'-webkit-gradient(',
+			'linear, ',
+			'left top, ',
+			'right top, ',
+			'color-stop(' + value + ', #007aff), ',
+			'color-stop(' + value + ', #b8b7b8)',
+			')'
+		].join('');
 		$('section.story').css('font-size', val + 'em');
 	}, 0)
 };
@@ -1320,21 +1368,22 @@ module.exports = (function () {
 },{"./app/config":2,"./init":12,"./util/connection":28}],12:[function(require,module,exports){
 module.exports = (function () {
 	var access = require('./app/access')
-	, createDir = require('./io/createDir')
-	, storyList = require('./app/ui/storyList')
-	, notify = require('./util/notify')
-	, header = require('./app/ui/header')
-	, menu = require('./app/ui/menu')
-	, doesFileExist = require('./io/doesFileExist')
-	, getFileContents = require('./io/getFileContents')
-	, downloadMissingImage = require('./app/downloadMissingImage')
-	, preloadImages = require('./app/ui/preloadImages')
-	, err = require('./util/err');
-	
+		, createDir = require('./io/createDir')
+		, storyList = require('./app/ui/storyList')
+		, notify = require('./util/notify')
+		, header = require('./app/ui/header')
+		, menu = require('./app/ui/menu')
+		, doesFileExist = require('./io/doesFileExist')
+		, getFileContents = require('./io/getFileContents')
+		, downloadMissingImage = require('./app/downloadMissingImage')
+		, preloadImages = require('./app/ui/preloadImages')
+		, err = require('./util/err')
+		, timeout = ['android'].indexOf(device.platform.toLowerCase()) > -1 ? 500 : 100;
+
 	createDir().then(function () {
 		downloadMissingImage().then(function () {
 			access.get(0).then(function (contents) {
-				console.log(contents)
+				//console.log(contents)
 				var obj = (JSON.parse(contents.target._result))
 					, filename = access.getFilenameFromId(0);
 
@@ -1344,7 +1393,7 @@ module.exports = (function () {
 
 					setTimeout(function () {
 						navigator.splashscreen.hide();
-					}, 100)
+					}, timeout)
 				})
 			}, err);
 		}, err)
