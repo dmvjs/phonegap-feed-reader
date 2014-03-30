@@ -95,7 +95,7 @@ function show(feedObj, forceActive) {
     }, 0)
 
     if (config.track && analytics) {
-      analytics.trackEvent('Feed', 'Load', feedObj.title);
+      analytics.trackEvent('Feed', 'Load', feedObj.title, 10);
     }
 
   })

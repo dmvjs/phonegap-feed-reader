@@ -539,13 +539,13 @@ var config = require('../config')
 		if ($(this).hasClass('checked') && $(this).hasClass('required') === false) {
 			remove(index);
 			if (config.track && analytics) {
-				analytics.trackEvent('Menu', 'Feed', 'Delete Feed');
+				analytics.trackEvent('Menu', 'Feed', 'Delete Feed', 10);
 			}
 		} else {
 			if (navigator.connection.type !== 'none') {
 				get(index, true);
 				if (config.track && analytics) {
-					analytics.trackEvent('Menu', 'Feed', 'Download Feed');
+					analytics.trackEvent('Menu', 'Feed', 'Download Feed', 10);
 				}
 			} else {
 				notify.alert(config.connectionMessage);
@@ -573,7 +573,7 @@ var config = require('../config')
 			$('section.menu li.active').removeClass('active');
 			$(e.currentTarget).closest('li').addClass('active');
 			if (config.track && analytics) {
-				analytics.trackEvent('Menu', 'Link Click ', url);
+				analytics.trackEvent('Menu', 'Link Click ', url, 10);
 			}
 		} else {
 			notify.alert(config.connectionMessage);
@@ -650,7 +650,6 @@ module.exports = (function () {
 	].forEach(function (element) {
 		var img = new Image();
 		img.src = './img/' + element;
-		console.log(element)
 	})
 	
 }());
@@ -940,12 +939,12 @@ if (browser) {
 			if (href.substr(0, 6) === 'mailto') {
 				window.open(encodeURI(href), '_system', '');
 				if (config.track && analytics) {
-					analytics.trackEvent('Story', 'Link', 'Email Link Clicked');
+					analytics.trackEvent('Story', 'Link', 'Email Link Clicked', 10);
 				}
 			} else {
 				window.open(encodeURI(href), '_blank', 'location=no, toolbar=yes');
 				if (config.track && analytics) {
-					analytics.trackEvent('Story', 'Link', 'External Link Clicked');
+					analytics.trackEvent('Story', 'Link', 'External Link Clicked', 10);
 				}
 			}
 		} else {
@@ -961,7 +960,7 @@ $(document).on('touchstart', 'footer.story-footer .text', function () {
 	setTimeout(function () {
 		$('.text-resize').toggleClass('active');
 		if (config.track && analytics) {
-			analytics.trackEvent('Story', 'UI', 'Text Resize Opened');
+			analytics.trackEvent('Story', 'UI', 'Text Resize Opened', 10);
 		}
 	}, 0)
 });
@@ -979,7 +978,7 @@ slider.onchange = function () {
 		config.storyFontSize = val;
 
 		if (config.track && analytics) {
-			analytics.trackEvent('Story', 'Share', 'Text Resize Event');
+			analytics.trackEvent('Story', 'Share', 'Text Resize Event', 10);
 		}
 
 		slider.style.backgroundImage = [
@@ -1141,7 +1140,7 @@ function next() {
 
 function track(title) {
 	if (config.track && analytics) {
-		analytics.trackEvent('Story', 'Load', title);
+		analytics.trackEvent('Story', 'Load', title, 10);
 	}
 }
 
@@ -1282,7 +1281,7 @@ function show(feedObj, forceActive) {
     }, 0)
 
     if (config.track && analytics) {
-      analytics.trackEvent('Feed', 'Load', feedObj.title);
+      analytics.trackEvent('Feed', 'Load', feedObj.title, 10);
     }
 
   })
@@ -1353,7 +1352,7 @@ module.exports = (function () {
 				$(function () {
 					if (config.track && analytics) {
 						analytics.startTrackerWithId('UA-31877-29');
-						analytics.trackEvent('Init', 'Load', 'App Started');
+						analytics.trackEvent('Init', 'Load', 'App Started', 10);
 					}
 					require('./init');
 				})

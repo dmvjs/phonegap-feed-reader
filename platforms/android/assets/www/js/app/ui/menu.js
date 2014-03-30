@@ -111,13 +111,13 @@ var config = require('../config')
 		if ($(this).hasClass('checked') && $(this).hasClass('required') === false) {
 			remove(index);
 			if (config.track && analytics) {
-				analytics.trackEvent('Menu', 'Feed', 'Delete Feed');
+				analytics.trackEvent('Menu', 'Feed', 'Delete Feed', 10);
 			}
 		} else {
 			if (navigator.connection.type !== 'none') {
 				get(index, true);
 				if (config.track && analytics) {
-					analytics.trackEvent('Menu', 'Feed', 'Download Feed');
+					analytics.trackEvent('Menu', 'Feed', 'Download Feed', 10);
 				}
 			} else {
 				notify.alert(config.connectionMessage);
@@ -145,7 +145,7 @@ var config = require('../config')
 			$('section.menu li.active').removeClass('active');
 			$(e.currentTarget).closest('li').addClass('active');
 			if (config.track && analytics) {
-				analytics.trackEvent('Menu', 'Link Click ', url);
+				analytics.trackEvent('Menu', 'Link Click ', url, 10);
 			}
 		} else {
 			notify.alert(config.connectionMessage);
