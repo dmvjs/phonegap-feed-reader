@@ -1,7 +1,421 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f32db74-e819-40a1-a8f2-fe9dad9cbebb" name="Default" comment="" />
+    <list default="true" id="2f32db74-e819-40a1-a8f2-fe9dad9cbebb" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/.staging/www/cordova_plugins.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/.staging/www/plugins/com.danielcwilson.plugins.googleanalytics/www/analytics.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/.staging/www/plugins/nl.x-services.plugins.socialsharing/www/SocialSharing.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/.staging/www/plugins/org.apache.cordova.file-transfer/www/FileTransferError.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/.staging/www/plugins/org.apache.cordova.file/www/DirectoryEntry.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/.staging/www/plugins/org.apache.cordova.file/www/File.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/.staging/www/plugins/org.apache.cordova.file/www/FileUploadResult.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/.staging/www/plugins/org.apache.cordova.file/www/Metadata.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/AndroidManifest.xml.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/ConnectionPool.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/HttpResponseCache$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/HttpResponseCache$CacheRequestImpl$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/OkHttpClient.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/Route.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/TunnelRequest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/DiskLruCache$Editor$FaultHidingOutputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/DiskLruCache.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/Platform$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/Platform$Android41.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/Platform$Java5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/Platform$JdkWithJettyNpnPlatform.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/Platform$JettyNpnProvider.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/StrictLineReader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/http/AbstractHttpOutputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/http/HeaderParser.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/http/HttpEngine.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/http/HttpResponseCache$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/http/HttpResponseCache$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/http/HttpResponseCache$Entry.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/http/HttpTransport.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/http/HttpURLConnectionImpl$Retry.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/http/HttpsURLConnectionImpl$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/http/HttpsURLConnectionImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/http/OkResponseCacheAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/http/RawHeaders$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/http/RequestHeaders.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/http/RouteSelector.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/http/UnknownLengthHttpInputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/spdy/SpdyConnection$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/spdy/SpdyReader$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/spdy/SpdyReader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/spdy/SpdyStream$SpdyDataOutputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/spdy/SpdyStream.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/com/squareup/okhttp/internal/spdy/SpdyWriter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/App.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/BuildConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/CallbackContext.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/CordovaActivity$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/CordovaActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/CordovaChromeClient$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/CordovaChromeClient$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/CordovaChromeClient$7.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/CordovaChromeClient.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/CordovaWebViewClient$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/CordovaWebViewClient.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/DirectoryManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/IceCreamCordovaWebViewClient.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/JSONUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/LinearLayoutSoftKeyboardDetect.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/NativeToJsMessageQueue$LoadUrlBridgeMode$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/NativeToJsMessageQueue$LoadUrlBridgeMode.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/NativeToJsMessageQueue$OnlineEventsBridgeMode.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/PluginManager$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/PluginResult$Status.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/classes/org/apache/cordova/ScrollEvent.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/proguard.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/gen/R.java.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/gen/org/apache/cordova/BuildConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/local.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/project.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/src/com/squareup/okhttp/TunnelRequest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/src/com/squareup/okhttp/internal/http/AbstractHttpInputStream.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/IceCreamCordovaWebViewClient.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/src/org/apache/cordova/JSONUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/img/header-btn-story-menu.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/app/prefs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/app/ui/preloadImages.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/io/getFile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/org.apache.cordova.file/www/FileSystem.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/plugins/org.apache.cordova.file/www/resolveLocalFileSystemURI.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/res/icon/ios/icon-40-2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/res/icon/ios/icon-40.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/res/icon/ios/icon-512-2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/res/icon/ios/icon-512.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/res/icon/windows-phone/icon-173.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/spec.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/AndroidManifest.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/Carnegie-debug-unaligned.apk.d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/R.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/com/ceip/carnegie/BuildConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/com/ceip/carnegie/Carnegie.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/com/ceip/carnegie/R$attr.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/com/ceip/carnegie/R$drawable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/com/ceip/carnegie/R$xml.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/com/ceip/carnegie/R.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/dialogs/Notification$1$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/dialogs/Notification$2$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/dialogs/Notification$2$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/dialogs/Notification$3$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/dialogs/Notification$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/file/ContentFilesystem.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/file/FileUtils$11.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/file/FileUtils$13.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/file/FileUtils$18.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/file/FileUtils$19.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/file/FileUtils$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/file/FileUtils$21.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/file/FileUtils$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/file/FileUtils$7.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/file/FileUtils$8.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/file/FileUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/file/InvalidModificationException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/file/NoModificationAllowedException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/inappbrowser/InAppBrowser$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/bin/classes/org/apache/cordova/inappbrowser/InAppChromeClient.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/cordova/lib/check_reqs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/cordova/lib/emulator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/cordova/lib/exec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/cordova/lib/install-emulator.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/cordova/lib/list-emulator-images" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/cordova/lib/list-started-emulators.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/cordova/node_modules/shelljs/src/grep.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/cordova/node_modules/shelljs/src/popd.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/cordova/node_modules/shelljs/src/toEnd.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/cordova/version.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/res/drawable-ldpi/splash.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/res/drawable-mdpi/splash.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/src/com/danielcwilson/plugins/analytics/UniversalAnalyticsPlugin.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/src/nl/xservices/plugins/SocialSharing.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/src/org/apache/cordova/filetransfer/FileProgressResult.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/src/org/apache/cordova/filetransfer/FileTransfer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/android/src/org/apache/cordova/inappbrowser/InAppChromeClient.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/.staging/www/plugins/com.danielcwilson.plugins.googleanalytics/www/analytics.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/.staging/www/plugins/org.apache.cordova.file-transfer/www/FileTransfer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/.staging/www/plugins/org.apache.cordova.file-transfer/www/blackberry10/XHRImplementation.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/.staging/www/plugins/org.apache.cordova.file/www/DirectoryReader.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/.staging/www/plugins/org.apache.cordova.file/www/blackberry10/DirectoryReader.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/.staging/www/plugins/org.apache.cordova.file/www/blackberry10/FileReader.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/.staging/www/plugins/org.apache.cordova.file/www/requestFileSystem.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/.staging/www/plugins/org.apache.cordova.inappbrowser/www/InAppBrowser.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/lib/run-utils.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/lib/start-emulator.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/lib/xml-helpers.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/commander/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/commander/Makefile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/elementtree/node_modules/sax/examples/big-not-pretty.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/elementtree/node_modules/sax/examples/hello-world.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/elementtree/node_modules/sax/examples/test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/elementtree/node_modules/sax/test/self-closing-child-strict.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/elementtree/node_modules/sax/test/xmlns-issue-41.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/elementtree/node_modules/sax/test/xmlns-xml-default-prefix.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/exit/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/exit/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/exit/test/fixtures/10-stdout-stderr.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/exit/test/fixtures/100-stdout-stderr.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/exit/test/fixtures/log.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jWorkflow/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jWorkflow/jworkflow-min-0.8.0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jake/Jakefile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jake/Makefile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jake/lib/package_task.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jake/lib/utils/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jake/node_modules/minimatch/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jake/node_modules/minimatch/node_modules/lru-cache/CONTRIBUTORS" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jake/node_modules/minimatch/test/caching.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jake/node_modules/utilities/Jakefile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jake/node_modules/utilities/lib/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jake/node_modules/utilities/test/date.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jake/node_modules/utilities/test/file.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jake/node_modules/utilities/test/logging.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jake/node_modules/utilities/test/sorted_collection.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jake/test/task_base.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/coffee-script/lib/coffee-script/optparse.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/coffee-script/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/coffee-script/register.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/gaze/Gruntfile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/gaze/node_modules/fileset/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/gaze/node_modules/fileset/lib/fileset.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/gaze/node_modules/fileset/node_modules/glob/node_modules/inherits/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/gaze/node_modules/fileset/node_modules/glob/test/bash-comparison.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/gaze/node_modules/fileset/node_modules/glob/test/cwd-test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/gaze/node_modules/minimatch/node_modules/lru-cache/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/gaze/node_modules/minimatch/node_modules/lru-cache/test/foreach.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/gaze/node_modules/minimatch/node_modules/sigmund/sigmund.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/gaze/node_modules/minimatch/test/caching.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/gaze/test/fixtures/nested/sub/two.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/gaze/test/fixtures/sub/one.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/gaze/test/relative_test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/gaze/test/rename_test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/jasmine-reporters/ext/jasmine.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/jasmine-reporters/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/mkdirp/test/return_sync.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/walkdir/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/walkdir/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/walkdir/test/async.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/walkdir/test/comparison/lsr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/walkdir/test/comparison/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/walkdir/test/dir/foo/a/b/c/w" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/walkdir/test/dir/foo/a/y" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/node_modules/walkdir/test/symlink.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/spec-requirejs-coffee/requirecs.sut.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/spec/CoffeeSpec.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/spec/TimerSpec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/spec/litcoffee/Litcoffee.spec.litcoffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/jasmine-node/spec/nested/NestedSpec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/localize/test/localize.test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/.jshintrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/pkginfo/docs/pkginfo.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/pkginfo/examples/all-properties.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/read/LICENCE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/read/example/example.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/revalidator/example/webservice.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/utile/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/utile/lib/base64.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/utile/node_modules/mkdirp/test/root.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/utile/node_modules/ncp/test/fixtures/src/f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/utile/node_modules/ncp/test/ncp-test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/winston/docs/transports.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/winston/lib/winston/transports/console.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/winston/node_modules/eyes/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/winston/node_modules/pkginfo/examples/object-argument.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/winston/node_modules/pkginfo/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/winston/node_modules/request/aws.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/winston/node_modules/request/oauth.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/winston/node_modules/request/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/winston/node_modules/request/tests/ssl/ca/ca.crl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/winston/node_modules/request/tests/ssl/ca/server.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/winston/node_modules/request/tests/ssl/npm-ca.crt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/winston/node_modules/request/tests/test-body.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/winston/node_modules/request/tests/test-pipes.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/winston/node_modules/request/tests/test-pool.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/winston/node_modules/request/vendor/cookie/jar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/winston/test/fixtures/keys/agent2-cert.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/prompt/node_modules/winston/test/fixtures/logs/.gitkeep" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/bin/shjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/node_modules/cli/node_modules/glob/examples/usr-local.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/node_modules/esprima/.eslintrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/node_modules/esprima/CONTRIBUTING.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/node_modules/esprima/LICENSE.BSD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/node_modules/esprima/examples/detectnestedternary.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/node_modules/esprima/test/coverage.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/node_modules/esprima/test/runner.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/node_modules/minimatch/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/node_modules/minimatch/node_modules/lru-cache/CONTRIBUTORS" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/node_modules/minimatch/test/basic.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/node_modules/minimatch/test/extglob-ending-with-state-char.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/node_modules/underscore/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/node_modules/underscore/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/tests/cli.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/tests/next/fixtures/reason/native.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/tests/next/lib/helpers.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/tests/stable/unit/fixtures/functionScopedOptions.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/tests/stable/unit/fixtures/immed.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/tests/stable/unit/fixtures/jslintInverted.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/tests/stable/unit/fixtures/loopfunc.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/tests/stable/unit/fixtures/strict_violations.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/node_modules/jshint/tests/stable/unit/fixtures/white.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/test/exec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/test/make.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/test/resources/cp/b" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/test/resources/file1.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/test/resources/find/dir1/dir11/a_dir11" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/test/resources/ls/.hidden_file" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/test/resources/ls/a_dir/nada" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/test/resources/ls/filename(with)[chars$]^that.must+be-escaped" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/test/rm.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/shelljs/test/sed.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/validator/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/validator/lib/filter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/wrench/lib/x.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/wrench/tests/readdir/foo/bar/ipsum.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/wrench/tests/readdir/foo/dolor.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/wrench/tests/shown/.hidden.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/xml2js/Cakefile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/xml2js/lib/xml2js.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/xml2js/node_modules/sax/AUTHORS" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/xml2js/node_modules/sax/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/xml2js/node_modules/sax/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/xml2js/node_modules/sax/examples/strict.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/xml2js/node_modules/sax/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/xml2js/node_modules/sax/test/attribute-name.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/xml2js/node_modules/sax/test/buffer-overrun.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/xml2js/node_modules/sax/test/cdata-end-split.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/xml2js/node_modules/sax/test/issue-30.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/xml2js/node_modules/sax/test/trailing-attribute-no-value.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/xml2js/node_modules/sax/test/xmlns-xml-default-ns.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/xml2js/node_modules/sax/test/xmlns-xml-default-prefix-attribute.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/zip/node_modules/q-io/CHANGES" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/zip/node_modules/q-io/q-io.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/zip/node_modules/q/CHANGES.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/zip/node_modules/q/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/zip/node_modules/q/examples/delay.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/zip/node_modules/q/examples/step2.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/zip/node_modules/q/examples/then3.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/zip/node_modules/q/test/all.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/zip/node_modules/q/test/issue/22.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/node_modules/zip/node_modules/q/test/multiple-listeners.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/cordova/target.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/native/device/chrome/lib/plugins/default.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/native/device/chrome/plugin/org.apache.cordova.file/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/native/simulator/chrome/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/native/simulator/chrome/lib/plugins/default.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/native/simulator/chrome/lib/policy/webkitOriginAccess.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/native/simulator/chrome/plugin/Device/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/img/checked.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/img/footer-story-share-active.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/img/header-btn-story-arrow.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/img/header-btn-story-menu-active.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/js/app/config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/js/io/createFIleWithContents.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/js/io/downloadExternalFile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/js/io/getFileEntry.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/js/io/makeDir.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/js/io/readDirectory.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/js/util/connection.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/plugins/org.apache.cordova.file-transfer/www/FileTransfer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/plugins/org.apache.cordova.file/www/Entry.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/plugins/org.apache.cordova.file/www/File.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/plugins/org.apache.cordova.file/www/FileError.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/plugins/org.apache.cordova.file/www/blackberry10/FileEntry.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/plugins/org.apache.cordova.file/www/blackberry10/requestFileSystem.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/res/icon/android/icon-36-ldpi.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/res/icon/android/icon-72-hdpi.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/res/screen/android/screen-mdpi-landscape.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/res/screen/android/screen-xhdpi-landscape.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/res/screen/blackberry/screen-225.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/spec/helper.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/blackberry10/www/spec/lib/jasmine-1.2.0/jasmine-html.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/.staging/www/plugins/com.danielcwilson.plugins.googleanalytics/www/analytics.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/.staging/www/plugins/nl.x-services.plugins.socialsharing/www/SocialSharing.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/.staging/www/plugins/org.apache.cordova.file/www/FileSystem.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/.staging/www/plugins/org.apache.cordova.file/www/FileWriter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/.staging/www/plugins/org.apache.cordova.file/www/ios/Entry.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/.staging/www/plugins/org.apache.cordova.file/www/requestFileSystem.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Carnegie.xcodeproj/project.xcworkspace/xcshareddata/Carnegie.xccheckout" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Carnegie/Images.xcassets/AppIcon.appiconset/icon-76.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Carnegie/Plugins/com.danielcwilson.plugins.googleanalytics/UniversalAnalyticsPlugin.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Carnegie/Plugins/com.danielcwilson.plugins.googleanalytics/UniversalAnalyticsPlugin.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Carnegie/Plugins/nl.x-services.plugins.socialsharing/SocialSharing.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Carnegie/Plugins/nl.x-services.plugins.socialsharing/SocialSharing.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Carnegie/Plugins/org.apache.cordova.dialogs/CDVNotification.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Carnegie/Resources/CDVNotification.bundle/beep.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/Carnegie/Resources/en.lproj/Localizable.strings" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/CordovaLib/Classes/CDVCommandQueue.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/CordovaLib/Classes/CDVTimer.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/CordovaLib/Classes/NSMutableArray+QueueAdditions.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/CordovaLib/CordovaLib.xcodeproj/project.pbxproj" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/CordovaLib/CordovaLib.xcodeproj/xcuserdata/kirkelliott.xcuserdatad/xcschemes/CordovaLib.xcscheme" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/cordova/build.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/cordova/lib/copy-www-build-step.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/img/footer-story-text-active.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/img/footer-text-resize-left.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/img/header-btn-menu-menu.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/img/header-btn-story-menu-active.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/img/loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/img/spinner.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/js/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/js/app/ui/header.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/js/app/ui/preloadImages.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/js/app/ui/story.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/js/app/ui/storyList.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/js/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/plugins/org.apache.cordova.file/www/Entry.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/plugins/org.apache.cordova.file/www/File.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/plugins/org.apache.cordova.file/www/FileError.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/res/icon/android/icon-72-hdpi.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/res/icon/ios/icon-72-2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/res/icon/tizen/icon-128.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/res/icon/windows-phone/icon-173.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/res/screen/bada-wac/screen-type3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/res/screen/bada-wac/screen-type4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/ios/www/spec/lib/jasmine-1.2.0/jasmine.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/com.danielcwilson.plugins.googleanalytics/.fetch.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/com.danielcwilson.plugins.googleanalytics/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/com.danielcwilson.plugins.googleanalytics/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/com.danielcwilson.plugins.googleanalytics/android/UniversalAnalyticsPlugin.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/com.danielcwilson.plugins.googleanalytics/android/libGoogleAnalyticsServices.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/com.danielcwilson.plugins.googleanalytics/ios/GAI.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/com.danielcwilson.plugins.googleanalytics/ios/GAIDictionaryBuilder.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/com.danielcwilson.plugins.googleanalytics/ios/GAIFields.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/com.danielcwilson.plugins.googleanalytics/ios/GAILogger.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/com.danielcwilson.plugins.googleanalytics/ios/GAITrackedViewController.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/com.danielcwilson.plugins.googleanalytics/ios/GAITracker.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/com.danielcwilson.plugins.googleanalytics/ios/UniversalAnalyticsPlugin.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/com.danielcwilson.plugins.googleanalytics/ios/UniversalAnalyticsPlugin.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/com.danielcwilson.plugins.googleanalytics/ios/libGoogleAnalyticsServices.a" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/com.danielcwilson.plugins.googleanalytics/lavaca/AnalyticsService.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/com.danielcwilson.plugins.googleanalytics/plugin.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/com.danielcwilson.plugins.googleanalytics/www/analytics.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/nl.x-services.plugins.socialsharing/.fetch.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/nl.x-services.plugins.socialsharing/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/nl.x-services.plugins.socialsharing/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/nl.x-services.plugins.socialsharing/plugin.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/nl.x-services.plugins.socialsharing/screenshot-android-share.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/nl.x-services.plugins.socialsharing/screenshot-ios6-share.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/nl.x-services.plugins.socialsharing/screenshot-ios7-share.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/nl.x-services.plugins.socialsharing/screenshot-wp8-share.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/nl.x-services.plugins.socialsharing/src/android/nl/xservices/plugins/SocialSharing.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/nl.x-services.plugins.socialsharing/src/ios/SocialSharing.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/nl.x-services.plugins.socialsharing/src/ios/SocialSharing.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/nl.x-services.plugins.socialsharing/src/wp8/SocialSharing.cs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/nl.x-services.plugins.socialsharing/www/SocialSharing.js" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/bin/proguard.txt" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="carnegie-feed-reader.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,7 +439,17 @@
     <favorites_list name="carnegie-feed-reader" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="7" selection-start="27" selection-end="27" vertical-scroll-proportion="0.042857144" vertical-offset="0" max-vertical-offset="700">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -47,13 +471,14 @@
         <option value="$PROJECT_DIR$/platforms/androidj/bin/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/platforms/android/bin/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/platforms/android/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="1920" />
-    <option name="height" value="1054" />
+    <option name="height" value="1174" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -81,6 +506,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -99,9 +525,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carnegie-feed-reader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carnegie-feed-reader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carnegie-feed-reader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carnegie-feed-reader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -122,16 +575,9 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1065" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -142,15 +588,23 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -189,20 +643,20 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="1054" extended-state="7" />
-    <editor active="false" />
+    <frame x="0" y="22" width="1920" height="1174" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953367" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32987553" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2390732" sideWeight="0.5" order="-1" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987553" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32841328" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2390732" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987553" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32987553" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -224,79 +678,62 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/plugins/android.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="81" selection-start="1522" selection-end="1783" vertical-scroll-proportion="0.530303" vertical-offset="0" max-vertical-offset="915">
-          <folding />
-        </state>
+        <state line="21" column="81" selection-start="1522" selection-end="1783" vertical-scroll-proportion="0.530303" vertical-offset="0" max-vertical-offset="915" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/app/ui/menu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="0" selection-start="2543" selection-end="2543" vertical-scroll-proportion="0.25844595" vertical-offset="1377" max-vertical-offset="3180">
-          <folding />
-        </state>
+        <state line="102" column="0" selection-start="2543" selection-end="2543" vertical-scroll-proportion="0.25844595" vertical-offset="1377" max-vertical-offset="3180" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/app/ui/header.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="37" selection-start="765" selection-end="767" vertical-scroll-proportion="0.5118243" vertical-offset="177" max-vertical-offset="1215">
-          <folding />
-        </state>
+        <state line="32" column="37" selection-start="765" selection-end="767" vertical-scroll-proportion="0.5118243" vertical-offset="177" max-vertical-offset="1215" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="78" selection-start="1370" selection-end="1374" vertical-scroll-proportion="0.8252427" vertical-offset="0" max-vertical-offset="765">
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
+        <state line="34" column="78" selection-start="1370" selection-end="1374" vertical-scroll-proportion="0.8252427" vertical-offset="0" max-vertical-offset="765" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/app/ui/preloadImages.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="449" selection-end="449" vertical-scroll-proportion="0.3883495" vertical-offset="0" max-vertical-offset="618">
-          <folding />
-        </state>
+        <state line="16" column="0" selection-start="449" selection-end="449" vertical-scroll-proportion="0.3883495" vertical-offset="0" max-vertical-offset="618" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/app/ui/refresh.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="27" selection-start="3999" selection-end="4002" vertical-scroll-proportion="0.5118243" vertical-offset="1677" max-vertical-offset="3600">
-          <folding />
-        </state>
+        <state line="132" column="27" selection-start="3999" selection-end="4002" vertical-scroll-proportion="0.5118243" vertical-offset="1677" max-vertical-offset="3600" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/app/ui/story.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="261" column="13" selection-start="6635" selection-end="6640" vertical-scroll-proportion="0.5996622" vertical-offset="3560" max-vertical-offset="4470">
-          <folding />
-        </state>
+        <state line="261" column="13" selection-start="6635" selection-end="6640" vertical-scroll-proportion="0.5996622" vertical-offset="3560" max-vertical-offset="4470" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/app/ui/storyList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="18" selection-start="3293" selection-end="3293" vertical-scroll-proportion="1.3344594" vertical-offset="815" max-vertical-offset="1725">
-          <folding />
-        </state>
+        <state line="107" column="18" selection-start="3293" selection-end="3293" vertical-scroll-proportion="1.3344594" vertical-offset="815" max-vertical-offset="1725" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/platforms/android/ant.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="936">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="936" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/platforms/android/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="32" selection-start="1098" selection-end="1098" vertical-scroll-proportion="0.27272728" vertical-offset="0" max-vertical-offset="605">
-          <folding />
-        </state>
+        <state line="11" column="32" selection-start="1098" selection-end="1098" vertical-scroll-proportion="0.27272728" vertical-offset="0" max-vertical-offset="605" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/platforms/android/bin/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="42" selection-start="497" selection-end="497" vertical-scroll-proportion="0.07438017" vertical-offset="0" max-vertical-offset="605">
+        <state line="3" column="42" selection-start="497" selection-end="497" vertical-scroll-proportion="0.07438017" vertical-offset="0" max-vertical-offset="605" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="7" selection-start="27" selection-end="27" vertical-scroll-proportion="0.042857144" vertical-offset="0" max-vertical-offset="700">
           <folding />
         </state>
       </provider>
