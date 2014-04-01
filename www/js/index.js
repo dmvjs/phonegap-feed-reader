@@ -28,7 +28,6 @@ module.exports = (function () {
 
     function appReady() {
     	//setTimeout(function () {
-				//require('./test');
 				$(function () {
 					if (config.track && analytics) {
 						analytics.startTrackerWithId('UA-31877-29');
@@ -36,10 +35,6 @@ module.exports = (function () {
 					}
 					require('./init');
 				})
-				/*setTimeout(function () {
-					navigator.splashscreen.hide();
-				}, 200)*/
     	//}, 6000)
-      
     }
 }());

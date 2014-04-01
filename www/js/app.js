@@ -489,14 +489,15 @@ var config = require('../config')
 					primary = item;
 					item.addClass('active')
 				}
-
+        console.log(filename)
 				doesFileExist(filename).then(function () {
 					getFileContents(filename).then(function (contents) {
-						var obj = (JSON.parse(contents.target._result));
+						console.log(filename, contents)
+            var obj = (JSON.parse(contents.target._result));
 						update(filename, 'Updated: ' + obj.lastBuildDate);
 						box.addClass('checked');
-					})
-				})
+					}, function (e){console.log(e)})
+				}, function (e){console.log(e)})
 
 				list.append(item);
 			})
@@ -631,7 +632,6 @@ $(document).on('access.refresh', function (e, obj, filename) {
 
 module.exports = {
 	update: update
-	//, refresh: refresh
 }
 },{"../../io/doesFileExist":15,"../../io/getFileContents":19,"../../util/notify":30,"../access":1,"../config":2,"./header":4,"./storyList":9}],6:[function(require,module,exports){
 module.exports = (function () {
@@ -900,25 +900,24 @@ var config = require('../config')
 
 if (share && plugins && plugins.socialsharing) {
 	$(document).on('touchstart', 'footer.story-footer .share', function (e) {
-			if ($(e.currentTarget).hasClass('disabled') === false) {
-				setTimeout(function () {
-					hideTextResize();
-						if (typeof index !== 'undefined' && feedObj) {
-							window.plugins.socialsharing.share(
-								'I\'m currently reading ' + feedObj.story[index].title,
-						    feedObj.story[index].title,
-						    feedObj.story[index].image || config.missingImage,
-						    encodeURI(feedObj.story[index].link)
-					    )
-					    if (config.track && analytics) {
-								analytics.trackEvent('Story', 'Share', 'Share Clicked');
-							}
-						} else {
-							notify.alert('Sorry, a problem occured trying to share this post')
-						}
-				}, 0)
-			}
-
+    if ($(e.currentTarget).hasClass('disabled') === false) {
+      setTimeout(function () {
+        hideTextResize();
+          if (typeof index !== 'undefined' && feedObj && navigator.connection.type !== 'none') {
+            window.plugins.socialsharing.share(
+              'I\'m currently reading ' + feedObj.story[index].title,
+              feedObj.story[index].title,
+              feedObj.story[index].image || config.missingImage,
+              encodeURI(feedObj.story[index].link)
+            )
+            if (config.track && analytics) {
+              analytics.trackEvent('Story', 'Share', 'Share Clicked');
+            }
+          } else {
+            notify.alert('Sorry, a problem occured trying to share this post')
+          }
+      }, 0)
+    }
 	})
 } else {
 	//remove footer & make story window taller, sharing not supported
@@ -1348,7 +1347,6 @@ module.exports = (function () {
 
     function appReady() {
     	//setTimeout(function () {
-				//require('./test');
 				$(function () {
 					if (config.track && analytics) {
 						analytics.startTrackerWithId('UA-31877-29');
@@ -1356,11 +1354,7 @@ module.exports = (function () {
 					}
 					require('./init');
 				})
-				/*setTimeout(function () {
-					navigator.splashscreen.hide();
-				}, 200)*/
     	//}, 6000)
-      
     }
 }());
 
@@ -1371,17 +1365,18 @@ module.exports = (function () {
 		, storyList = require('./app/ui/storyList')
 		, notify = require('./util/notify')
 		, header = require('./app/ui/header')
-		, menu = require('./app/ui/menu')
 		, doesFileExist = require('./io/doesFileExist')
 		, getFileContents = require('./io/getFileContents')
 		, downloadMissingImage = require('./app/downloadMissingImage')
 		, preloadImages = require('./app/ui/preloadImages')
 		, err = require('./util/err')
-		, timeout = ['android'].indexOf(device.platform.toLowerCase()) > -1 ? 500 : 100;
+		, timeout = ['android'].indexOf(device.platform.toLowerCase()) > -1 ? 500 : 100
+    , menu;
 
 	createDir().then(function () {
 		downloadMissingImage().then(function () {
-			access.get(0).then(function (contents) {
+      menu = require('./app/ui/menu');
+      access.get(0).then(function (contents) {
 				//console.log(contents)
 				var obj = (JSON.parse(contents.target._result))
 					, filename = access.getFilenameFromId(0);
@@ -1487,7 +1482,8 @@ var config = require('../app/config');
 module.exports = function (filesystem, filename, create) {
 	var fs = config.fs || filesystem;
 	return new Promise(function (resolve, reject) {
-		fs.getFile(filename, {create: !!create, exclusive: false}, resolve, reject);
+		console.log(fs, filename, create)
+    fs.getFile(filename, {create: !!create, exclusive: false}, resolve, reject);
 	});
 }
 },{"../app/config":2}],19:[function(require,module,exports){
