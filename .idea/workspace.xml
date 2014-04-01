@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f32db74-e819-40a1-a8f2-fe9dad9cbebb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/index.js" afterPath="$PROJECT_DIR$/www/js/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/init.js" afterPath="$PROJECT_DIR$/www/js/init.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app/ui/menu.js" afterPath="$PROJECT_DIR$/www/js/app/ui/menu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app/ui/story.js" afterPath="$PROJECT_DIR$/www/js/app/ui/story.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="carnegie-feed-reader.iws" />
@@ -32,7 +27,17 @@
     <favorites_list name="carnegie-feed-reader" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="5" selection-start="33" selection-end="33" vertical-scroll-proportion="0.090361446" vertical-offset="0" max-vertical-offset="498">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -51,13 +56,13 @@
         <option value="$PROJECT_DIR$/platforms/androidj/bin/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/platforms/android/bin/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/platforms/android/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/plugins/ios.json" />
         <option value="$PROJECT_DIR$/www/js/index.js" />
         <option value="$PROJECT_DIR$/www/js/io/getFile.js" />
         <option value="$PROJECT_DIR$/www/js/app/ui/story.js" />
         <option value="$PROJECT_DIR$/www/js/app/ui/menu.js" />
         <option value="$PROJECT_DIR$/www/js/init.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -341,7 +346,15 @@
       <created>1396314475524</created>
       <updated>1396314475524</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fixed a bug where downloaded feeds were not getting checked in menu">
+      <created>1396320661517</created>
+      <updated>1396320661517</updated>
+    </task>
+    <task id="LOCAL-00003" summary="removing .idea files">
+      <created>1396320697434</created>
+      <updated>1396320697434</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -395,7 +408,9 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="removing compiled files" />
-    <option name="LAST_COMMIT_MESSAGE" value="removing compiled files" />
+    <MESSAGE value="fixed a bug where downloaded feeds were not getting checked in menu" />
+    <MESSAGE value="removing .idea files" />
+    <option name="LAST_COMMIT_MESSAGE" value="removing .idea files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -474,7 +489,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="8" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="497">
+        <state line="3" column="5" selection-start="33" selection-end="33" vertical-scroll-proportion="0.090361446" vertical-offset="0" max-vertical-offset="498">
           <folding />
         </state>
       </provider>
