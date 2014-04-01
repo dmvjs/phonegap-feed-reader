@@ -8,25 +8,24 @@ var config = require('../config')
 
 if (share && plugins && plugins.socialsharing) {
 	$(document).on('touchstart', 'footer.story-footer .share', function (e) {
-			if ($(e.currentTarget).hasClass('disabled') === false) {
-				setTimeout(function () {
-					hideTextResize();
-						if (typeof index !== 'undefined' && feedObj) {
-							window.plugins.socialsharing.share(
-								'I\'m currently reading ' + feedObj.story[index].title,
-						    feedObj.story[index].title,
-						    feedObj.story[index].image || config.missingImage,
-						    encodeURI(feedObj.story[index].link)
-					    )
-					    if (config.track && analytics) {
-								analytics.trackEvent('Story', 'Share', 'Share Clicked');
-							}
-						} else {
-							notify.alert('Sorry, a problem occured trying to share this post')
-						}
-				}, 0)
-			}
-
+    if ($(e.currentTarget).hasClass('disabled') === false) {
+      setTimeout(function () {
+        hideTextResize();
+          if (typeof index !== 'undefined' && feedObj && navigator.connection.type !== 'none') {
+            window.plugins.socialsharing.share(
+              'I\'m currently reading ' + feedObj.story[index].title,
+              feedObj.story[index].title,
+              feedObj.story[index].image || config.missingImage,
+              encodeURI(feedObj.story[index].link)
+            )
+            if (config.track && analytics) {
+              analytics.trackEvent('Story', 'Share', 'Share Clicked');
+            }
+          } else {
+            notify.alert('Sorry, a problem occured trying to share this post')
+          }
+      }, 0)
+    }
 	})
 } else {
 	//remove footer & make story window taller, sharing not supported

@@ -61,14 +61,13 @@ var config = require('../config')
 					primary = item;
 					item.addClass('active')
 				}
-
 				doesFileExist(filename).then(function () {
 					getFileContents(filename).then(function (contents) {
-						var obj = (JSON.parse(contents.target._result));
+            var obj = (JSON.parse(contents.target._result));
 						update(filename, 'Updated: ' + obj.lastBuildDate);
 						box.addClass('checked');
-					})
-				})
+					}, function (e){console.log(e)})
+				}, function (e){console.log(e)})
 
 				list.append(item);
 			})
@@ -203,5 +202,4 @@ $(document).on('access.refresh', function (e, obj, filename) {
 
 module.exports = {
 	update: update
-	//, refresh: refresh
 }
