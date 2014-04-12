@@ -352,7 +352,7 @@ module.exports = function () {
 var story = require('./story');
 
 $(document)
-	.on('touchstart', 'header .show-menu', function () {
+	.on('click', 'header .show-menu', function () {
 		setTimeout(function () {
 			$('header').addClass('stay');
 			if ($('section.menu').hasClass('active')) {
@@ -362,7 +362,7 @@ $(document)
 			}
 		}, 0);
 	})
-	.on('touchstart', 'header .story .back', function () {
+	.on('click', 'header .story .back', function () {
 		setTimeout(function () {
 			showStoryList();
 		}, 0);
@@ -385,17 +385,13 @@ function show(sel) {
 
 	sels.splice(sels.indexOf(sel), 1);
 
-	sels.forEach(function (el, index) {
+	sels.forEach(function (el) {
 		var $el = $h.find(el);
 
-		$el.stop(true).fadeOut('fast', function () {
-			$el.removeClass('active')
-		});
+		$el.removeClass('active');
 	});
 
-	setTimeout(function () {
-		$sel.addClass('active').fadeIn('fast')
-	}, 300)
+  $sel.addClass('active');
 }
 
 function showStoryList() {
@@ -424,7 +420,7 @@ module.exports = {
 	showStoryList: showStoryList
 	, showMenu: showMenu
 	, showStory: showStory
-}
+};
 },{"./story":8}],5:[function(require,module,exports){
 var config = require('../config')
 	, notify = require('../../util/notify')
@@ -489,10 +485,8 @@ var config = require('../config')
 					primary = item;
 					item.addClass('active')
 				}
-        console.log(filename)
 				doesFileExist(filename).then(function () {
 					getFileContents(filename).then(function (contents) {
-						console.log(filename, contents)
             var obj = (JSON.parse(contents.target._result));
 						update(filename, 'Updated: ' + obj.lastBuildDate);
 						box.addClass('checked');
@@ -634,26 +628,6 @@ module.exports = {
 	update: update
 }
 },{"../../io/doesFileExist":15,"../../io/getFileContents":19,"../../util/notify":30,"../access":1,"../config":2,"./header":4,"./storyList":9}],6:[function(require,module,exports){
-module.exports = (function () {
-
-	var images = [
-		'footer-story-share-active.png'
-		, 'footer-story-text-active.png'
-		, 'header-btn-menu-menu-active.png'
-		, 'header-btn-story-arrow-active.png'
-		, 'header-btn-story-back-active.png'
-		, 'header-btn-story-menu-active.png'
-		, 'header-story.png'
-		, 'checked.png'
-		, 'unchecked.png'
-		, 'header-offline.png'
-	].forEach(function (element) {
-		var img = new Image();
-		img.src = './img/' + element;
-	})
-	
-}());
-},{}],7:[function(require,module,exports){
 var access = require('../access');
 
 /**
@@ -889,7 +863,17 @@ module.exports = {
 }
 
 
-},{"../access":1}],8:[function(require,module,exports){
+},{"../access":1}],7:[function(require,module,exports){
+module.exports = (function () {
+  var win = $(window)
+    , w = win.width()
+    , h = win.height()
+
+  if (parseInt(Math.min(w, h), 10) >= 600) {
+    $('body').addClass('tablet');
+  }
+}());
+},{}],8:[function(require,module,exports){
 var config = require('../config')
 	, access = require('../access')
 	, notify = require('../../util/notify')
@@ -909,12 +893,17 @@ if (share && plugins && plugins.socialsharing) {
               feedObj.story[index].title,
               feedObj.story[index].image || config.missingImage,
               encodeURI(feedObj.story[index].link)
-            )
+            );
             if (config.track && analytics) {
               analytics.trackEvent('Story', 'Share', 'Share Clicked');
             }
           } else {
-            notify.alert('Sorry, a problem occured trying to share this post')
+            if (navigator.connection.type === 'none') {
+              notify.alert(config.connectionMessage);
+            } else {
+              notify.alert('Sorry, a problem occurred while trying to share this post')
+            }
+
           }
       }, 0)
     }
@@ -1293,7 +1282,7 @@ $(document).on('access.refresh', function (e, obj) {
 module.exports = {
 	show: show
 }
-},{"../config":2,"./header":4,"./refresh":7,"./story":8}],10:[function(require,module,exports){
+},{"../config":2,"./header":4,"./refresh":6,"./story":8}],10:[function(require,module,exports){
 module.exports = function (res) {
 	var feedObject = {}
     , root = res.firstChild.firstChild
@@ -1366,10 +1355,9 @@ module.exports = (function () {
 		, notify = require('./util/notify')
 		, header = require('./app/ui/header')
 		, doesFileExist = require('./io/doesFileExist')
-		, getFileContents = require('./io/getFileContents')
 		, downloadMissingImage = require('./app/downloadMissingImage')
-		, preloadImages = require('./app/ui/preloadImages')
 		, err = require('./util/err')
+    , responsive = require('./app/ui/responsive')
 		, timeout = ['android'].indexOf(device.platform.toLowerCase()) > -1 ? 500 : 100
     , menu;
 
@@ -1393,7 +1381,7 @@ module.exports = (function () {
 		}, err)
 	}, err)
 }())
-},{"./app/access":1,"./app/downloadMissingImage":3,"./app/ui/header":4,"./app/ui/menu":5,"./app/ui/preloadImages":6,"./app/ui/storyList":9,"./io/createDir":13,"./io/doesFileExist":15,"./io/getFileContents":19,"./util/err":29,"./util/notify":30}],13:[function(require,module,exports){
+},{"./app/access":1,"./app/downloadMissingImage":3,"./app/ui/header":4,"./app/ui/menu":5,"./app/ui/responsive":7,"./app/ui/storyList":9,"./io/createDir":13,"./io/doesFileExist":15,"./util/err":29,"./util/notify":30}],13:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
 	, makeDir = require('./makeDir')
@@ -1482,8 +1470,7 @@ var config = require('../app/config');
 module.exports = function (filesystem, filename, create) {
 	var fs = config.fs || filesystem;
 	return new Promise(function (resolve, reject) {
-		console.log(fs, filename, create)
-    fs.getFile(filename, {create: !!create, exclusive: false}, resolve, reject);
+		fs.getFile(filename, {create: !!create, exclusive: false}, resolve, reject);
 	});
 }
 },{"../app/config":2}],19:[function(require,module,exports){
