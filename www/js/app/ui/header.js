@@ -1,7 +1,8 @@
+/*global $, require, module */
 var story = require('./story');
 
 $(document)
-	.on('touchstart', 'header .show-menu', function () {
+	.on('click', 'header .show-menu', function () {
 		setTimeout(function () {
 			$('header').addClass('stay');
 			if ($('section.menu').hasClass('active')) {
@@ -11,7 +12,7 @@ $(document)
 			}
 		}, 0);
 	})
-	.on('touchstart', 'header .story .back', function () {
+	.on('click', 'header .story .back', function () {
 		setTimeout(function () {
 			showStoryList();
 		}, 0);
@@ -34,17 +35,13 @@ function show(sel) {
 
 	sels.splice(sels.indexOf(sel), 1);
 
-	sels.forEach(function (el, index) {
+	sels.forEach(function (el) {
 		var $el = $h.find(el);
 
-		$el.stop(true).fadeOut('fast', function () {
-			$el.removeClass('active')
-		});
+		$el.removeClass('active');
 	});
 
-	setTimeout(function () {
-		$sel.addClass('active').fadeIn('fast')
-	}, 300)
+  $sel.addClass('active');
 }
 
 function showStoryList() {
@@ -73,4 +70,4 @@ module.exports = {
 	showStoryList: showStoryList
 	, showMenu: showMenu
 	, showStory: showStory
-}
+};
