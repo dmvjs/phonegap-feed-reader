@@ -17,12 +17,17 @@ if (share && plugins && plugins.socialsharing) {
               feedObj.story[index].title,
               feedObj.story[index].image || config.missingImage,
               encodeURI(feedObj.story[index].link)
-            )
+            );
             if (config.track && analytics) {
               analytics.trackEvent('Story', 'Share', 'Share Clicked');
             }
           } else {
-            notify.alert('Sorry, a problem occured trying to share this post')
+            if (navigator.connection.type === 'none') {
+              notify.alert(config.connectionMessage);
+            } else {
+              notify.alert('Sorry, a problem occurred while trying to share this post')
+            }
+
           }
       }, 0)
     }
