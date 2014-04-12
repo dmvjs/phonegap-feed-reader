@@ -639,15 +639,70 @@ section.story .story-text h4 {
     color: black;
 }
 
-section.story .story-text h3{
+section.story .story-text h3 {
     font: normal 1em "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: 8px 0 4px;
     color: #444444;
     text-transform: uppercase;
 }
 
+section.story .story-text .comments h4 {
+    font: normal 1.375em "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 8px 0 4px;
+    color: #91907b;
+    text-transform: uppercase;
+}
+
+section.story .story-text .comments .comment {
+    padding-bottom: 1em;
+    border-bottom: 1px solid black;
+}
+
+section.story .story-text .comments .post {
+    font-style: italic;
+    font-size: 1.25em;
+    line-height: 1.3;
+}
+
+section.story .story-text .comments .author {
+    font: bold 1.375em "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 1em 0 0;
+    color: black;
+}
+
+section.story .story-text .comments .reply {
+    margin-left: 1.5em;
+}
+
+section.story .story-text .comments .date-time {
+     font: normal 1em "Helvetica Neue", Helvetica, Arial, sans-serif;
+     margin: 0 0 4px;
+     color: #91907b;
+     text-transform: uppercase;
+}
+
+section.story .story-text .comments .button {
+    text-align: center;
+}
+
+section.story .story-text .comments .button a {
+    font: normal 1.5em "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white !important;
+    background-color: #001c3d;
+    padding: .625em 0;
+    margin: 2em auto 1em;
+    width: 11em;
+    text-transform: uppercase;
+    display: block;
+}
+
+section.story .story-text .comments .button .msg {
+    font: normal 1.25em "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: black;
+}
+
 section.story .story-text .relatedList li{
-    margin:4 px 8px !important;
+    margin:4px 8px !important;
 }
 
 footer.story-footer {
