@@ -6,8 +6,8 @@ module.exports = (function () {
 		, header = require('./app/ui/header')
 		, doesFileExist = require('./io/doesFileExist')
 		, downloadMissingImage = require('./app/downloadMissingImage')
-		, preloadImages = require('./app/ui/preloadImages')
 		, err = require('./util/err')
+    , responsive = require('./app/ui/responsive')
 		, timeout = ['android'].indexOf(device.platform.toLowerCase()) > -1 ? 500 : 100
     , menu;
 
