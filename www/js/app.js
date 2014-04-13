@@ -349,10 +349,11 @@ module.exports = function () {
 	})
 }
 },{"../io/doesFileExist":15,"../io/downloadExternalFile":16,"../util/notify":30,"./config":2}],4:[function(require,module,exports){
+/*global $, require, module */
 var story = require('./story');
 
 $(document)
-	.on('click', 'header .show-menu', function () {
+	.on('touchend', 'header .show-menu', function () {
 		setTimeout(function () {
 			$('header').addClass('stay');
 			if ($('section.menu').hasClass('active')) {
@@ -362,7 +363,7 @@ $(document)
 			}
 		}, 0);
 	})
-	.on('click', 'header .story .back', function () {
+	.on('touchend', 'header .story .back', function () {
 		setTimeout(function () {
 			showStoryList();
 		}, 0);
@@ -488,7 +489,7 @@ var config = require('../config')
 				doesFileExist(filename).then(function () {
 					getFileContents(filename).then(function (contents) {
             var obj = (JSON.parse(contents.target._result));
-						update(filename, 'Updated: ' + obj.lastBuildDate);
+						update(filename, 'Updated: ' + (obj.friendlyPubDate !== undefined ? obj.friendlyPubDate : obj.lastBuildDate));
 						box.addClass('checked');
 					}, function (e){console.log(e)})
 				}, function (e){console.log(e)})
@@ -874,6 +875,8 @@ module.exports = (function () {
   }
 }());
 },{}],8:[function(require,module,exports){
+/*global module, require, $*/
+
 var config = require('../config')
 	, access = require('../access')
 	, notify = require('../../util/notify')
@@ -960,8 +963,8 @@ function hideTextResize() {
 var slider = document.getElementById('text-resize-input');
 slider.onchange = function () {
 	setTimeout(function () {
-		var val = parseFloat(slider.value, 10)
-			, value = (slider.value - slider.min)/(slider.max - slider.min)
+		var val = parseFloat(slider.value)
+			, value = (slider.value - slider.min)/(slider.max - slider.min);
 
 		config.storyFontSize = val;
 
@@ -1083,14 +1086,17 @@ function createPage(storyObj) {
 			})
 			, storyMeta = $('<div/>', {
 				addClass: 'story-meta'
-			}).append(storyAuthor).append(storyDate)
+			}).append(storyTitle).append(storyAuthor).append(storyDate)
+      , storyTop = $('<div/>', {
+        addClass: 'story-top'
+      }).append(storyImage).append(storyMeta)
 			, storyText = $('<div/>', {
 				addClass: 'story-text'
 				, html: storyObj.description
 			})
 			, page = $('<div/>', {
 				addClass: 'page'
-			}).append(topBar).append(storyTitle).append(storyImage).append(storyMeta).append(storyText);
+			}).append(topBar).append(storyTop).append(storyText);
 
 		storyImage.on('error', function (e) {
 	    $(this).prop('src', config.missingImageRef.toURL());
@@ -1172,6 +1178,7 @@ module.exports = {
 	, hide: hideTextResize
 }
 },{"../../util/notify":30,"../access":1,"../config":2}],9:[function(require,module,exports){
+/*global require, module, $*/
 var config = require('../config')
   , header = require('./header')
   , story = require('./story')
@@ -1195,7 +1202,7 @@ function show(feedObj, forceActive) {
       }).append(message)
       , topBar = $('<div/>', {
         addClass: 'top-bar'
-        , text: 'Updated: ' + feedObj.lastBuildDate
+        , text: 'Updated: ' + (feedObj.friendlyPubDate !== undefined ? feedObj.friendlyPubDate : feedObj.lastBuildDate)
       })
       , ul = $('<ul/>', {})
       , container = $('<div/>', {
@@ -1256,32 +1263,32 @@ function show(feedObj, forceActive) {
         $(this).addClass('active'); 
         story.show(index, feed).then(function () {
           header.showStory();
-        })
+        });
         sent = true;
     });
 
     $('.story-image').on('error', function (e) {
       $(this).prop('src', config.missingImageRef.toURL());
-    })
+    });
     setTimeout(function () {
       refresh.init();
       resolve(200);
-    }, 0)
+    }, 0);
 
     if (config.track && analytics) {
       analytics.trackEvent('Feed', 'Load', feedObj.title, 10);
     }
 
   })
-};
+}
 
 $(document).on('access.refresh', function (e, obj) {
   show(obj, true);
-})
+});
 
 module.exports = {
 	show: show
-}
+};
 },{"../config":2,"./header":4,"./refresh":6,"./story":8}],10:[function(require,module,exports){
 module.exports = function (res) {
 	var feedObject = {}
