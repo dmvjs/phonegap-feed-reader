@@ -1,3 +1,5 @@
+/*global module, require, $*/
+
 var config = require('../config')
 	, access = require('../access')
 	, notify = require('../../util/notify')
@@ -84,8 +86,8 @@ function hideTextResize() {
 var slider = document.getElementById('text-resize-input');
 slider.onchange = function () {
 	setTimeout(function () {
-		var val = parseFloat(slider.value, 10)
-			, value = (slider.value - slider.min)/(slider.max - slider.min)
+		var val = parseFloat(slider.value)
+			, value = (slider.value - slider.min)/(slider.max - slider.min);
 
 		config.storyFontSize = val;
 
@@ -207,14 +209,17 @@ function createPage(storyObj) {
 			})
 			, storyMeta = $('<div/>', {
 				addClass: 'story-meta'
-			}).append(storyAuthor).append(storyDate)
+			}).append(storyTitle).append(storyAuthor).append(storyDate)
+      , storyTop = $('<div/>', {
+        addClass: 'story-top'
+      }).append(storyImage).append(storyMeta)
 			, storyText = $('<div/>', {
 				addClass: 'story-text'
 				, html: storyObj.description
 			})
 			, page = $('<div/>', {
 				addClass: 'page'
-			}).append(topBar).append(storyTitle).append(storyImage).append(storyMeta).append(storyText);
+			}).append(topBar).append(storyTop).append(storyText);
 
 		storyImage.on('error', function (e) {
 	    $(this).prop('src', config.missingImageRef.toURL());
