@@ -133,7 +133,7 @@ function show(i, feed) {
 		  setTimeout(function () {
 		  	resolve(200)
 		  }, 0)
-		})
+		}, reject)
 	})
 }
 
@@ -223,7 +223,7 @@ function createPage(storyObj) {
 
 		storyImage.on('error', function (e) {
 	    $(this).prop('src', config.missingImageRef.toURL());
-	  })
+	  });
 
 		setTimeout(function () {
 			resolve(page)
@@ -299,4 +299,4 @@ module.exports = {
 	, next: next
 	, previous: previous
 	, hide: hideTextResize
-}
+};
