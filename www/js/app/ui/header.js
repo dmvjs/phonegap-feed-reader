@@ -2,7 +2,7 @@
 var story = require('./story');
 
 $(document)
-	.on('click', 'header .show-menu', function () {
+	.on('touchend', 'header .show-menu', function () {
 		setTimeout(function () {
 			$('header').addClass('stay');
 			if ($('section.menu').hasClass('active')) {
@@ -12,7 +12,7 @@ $(document)
 			}
 		}, 0);
 	})
-	.on('click', 'header .story .back', function () {
+	.on('touchend', 'header .story .back', function () {
 		setTimeout(function () {
 			showStoryList();
 		}, 0);
