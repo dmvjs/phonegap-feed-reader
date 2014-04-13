@@ -1,3 +1,4 @@
+/*global require, module, $*/
 var config = require('../config')
   , header = require('./header')
   , story = require('./story')
@@ -21,7 +22,7 @@ function show(feedObj, forceActive) {
       }).append(message)
       , topBar = $('<div/>', {
         addClass: 'top-bar'
-        , text: 'Updated: ' + feedObj.lastBuildDate
+        , text: 'Updated: ' + (feedObj.friendlyPubDate !== undefined ? feedObj.friendlyPubDate : feedObj.lastBuildDate)
       })
       , ul = $('<ul/>', {})
       , container = $('<div/>', {
@@ -82,29 +83,29 @@ function show(feedObj, forceActive) {
         $(this).addClass('active'); 
         story.show(index, feed).then(function () {
           header.showStory();
-        })
+        });
         sent = true;
     });
 
     $('.story-image').on('error', function (e) {
       $(this).prop('src', config.missingImageRef.toURL());
-    })
+    });
     setTimeout(function () {
       refresh.init();
       resolve(200);
-    }, 0)
+    }, 0);
 
     if (config.track && analytics) {
       analytics.trackEvent('Feed', 'Load', feedObj.title, 10);
     }
 
   })
-};
+}
 
 $(document).on('access.refresh', function (e, obj) {
   show(obj, true);
-})
+});
 
 module.exports = {
 	show: show
-}
+};

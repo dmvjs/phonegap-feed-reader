@@ -64,7 +64,7 @@ var config = require('../config')
 				doesFileExist(filename).then(function () {
 					getFileContents(filename).then(function (contents) {
             var obj = (JSON.parse(contents.target._result));
-						update(filename, 'Updated: ' + obj.lastBuildDate);
+						update(filename, 'Updated: ' + (obj.friendlyPubDate !== undefined ? obj.friendlyPubDate : obj.lastBuildDate));
 						box.addClass('checked');
 					}, function (e){console.log(e)})
 				}, function (e){console.log(e)})
