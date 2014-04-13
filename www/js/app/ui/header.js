@@ -16,17 +16,39 @@ $(document)
 		setTimeout(function () {
 			showStoryList();
 		}, 0);
-	})
-	.on('touchstart', 'header .story .btn-group .previous', function () {
-		setTimeout(function () {
-			story.previous();
-		}, 0);
-	})
-	.on('touchstart', 'header .story .btn-group .next', function () {
-		setTimeout(function () {
-			story.next();
-		}, 0);
 	});
+
+addListeners();
+
+function addListeners() {
+  addListener('previous');
+  addListener('next');
+}
+
+function removeListeners() {
+  removeListener('previous');
+  removeListener('next');
+}
+
+function removeListener(className) {
+  if (className === 'previous' || className === 'next') {
+    $(document).off('touchstart', 'header .story .btn-group .' + className);
+  }
+}
+
+function addListener(className) {
+  if (className === 'previous' || className === 'next') {
+    $(document).on('touchstart', 'header .story .btn-group .' + className, function () {
+      removeListeners();
+      setTimeout(function () {
+        story[className]();
+        setTimeout(function () {
+          addListeners();
+        }, 350)
+      }, 0);
+    })
+  }
+}
 
 function show(sel) {
 	var sels = ['.menu', '.story', '.story-list']
