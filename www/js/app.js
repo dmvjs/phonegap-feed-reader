@@ -106,7 +106,7 @@ function getFeedFromConfig(id) {
 }
 
 function getFilenameFromFeed(feed) {
-	return feed.filename || feed.url.split('/').pop().split('.').shift() + '.json';
+  return feed.filename || feed.url.split('/').pop().split('.').shift() + '.json';
 }
 
 function getFeedNameFromId(id) {
@@ -129,6 +129,8 @@ function get(id) {
 		var feed = getFeedFromConfig(id)
 			, url = feed.url
 			, filename = feed.filename || url.split('/').pop().split('.').shift() + '.json';
+
+    console.log(feed)
 
 		if (navigator.connection.type !== 'none') {
 			$.ajax({
@@ -219,7 +221,7 @@ module.exports = {
 	, track: true
 	, trackId: 'UA-31877-29'
 	, folder: 'com.ceip.carnegie'
-	, storyFontSize: 1.1
+	, storyFontSize: 1.0
 	, connectionMessage: 'No network connection detected'
 	, menuMessage: 'Not yet downloaded'
 	, missingImage: 'http://m.ceip.org/img/appsupport/image-unavailable_605x328.png'
@@ -234,7 +236,11 @@ module.exports = {
 			}, {
 				url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-Top5.xml'
 				, name: 'Most Popular'
-			}]
+			}, {
+        url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobal'
+        , name: 'Comment Test'
+        , filename: 'comment-test.json'
+      }]
 		}, {
 			title: 'Languages'
 			, sub: 'Read Offline'
@@ -276,46 +282,58 @@ module.exports = {
 			title: 'Blogs'
 			, sub: 'From m.ceip.org'
 			, links: [{
-				url: 'http://m.ceip.org/moscow/eurasiaoutlook/'
+				url: 'http://carnegie.ru/eurasiaoutlook/'
 				, name: 'Eurasia Outlook'
 			}, {
-				url: 'http://m.ceip.org/sada/'
+				url: 'http://carnegieendowment.org/sada/'
 				, name: 'Sada'
 			}, {
-				url: 'http://m.ceip.org/brussels/strategiceurope'
+				url: 'http://carnegieeurope.eu/strategiceurope/'
 				, name: 'Strategic Europe'
-			}]
+			}, {
+        url: 'http://carnegieendowment.org/syriaincrisis/'
+        , name: 'Syria in Crisis'
+      }]
 		}, {
 			title: 'Global Resources'
 			, links: [{
-				url: 'http://m.ceip.org/issues/'
+				url: 'http://carnegieendowment.org/topic/'
 				, name: 'Issues'
 			}, {
-				url: 'http://m.ceip.org/regions/'
+				url: 'http://carnegieendowment.org/regions/'
 				, name: 'Regions'
 			}, {
-				url: 'http://m.ceip.org/experts/'
+				url: 'http://carnegieendowment.org/experts/'
 				, name: 'Experts'
 			}, {
-				url: 'http://m.ceip.org/publications/'
+				url: 'http://carnegieendowment.org/publications/'
 				, name: 'Publications'
 			}, {
-				url: 'http://m.ceip.org/events/'
+				url: 'http://carnegieendowment.org/events/'
 				, name: 'Events'
+			}, {
+				url: 'http://carnegieendowment.org/programs/'
+				, name: 'Programs'
+			}, {
+				url: 'http://carnegieendowment.org/video/'
+				, name: 'Videos'
 			}]
 		}, {
 			title: 'Explore'
 			, links: [{
-				url: 'http://m.ceip.org/about/'
+				url: 'http://carnegieendowment.org/resources/?fa=register'
+				, name: 'Stay in the Know'
+			}, {
+				url: 'http://carnegieendowment.org/about/'
 				, name: 'About Us'
 			}, {
-				url: 'http://m.ceip.org/support/&lang=en'
+				url: 'http://carnegieendowment.org/about/development/'
 				, name: 'Support Carnegie'
 			}, {
-				url: 'http://m.ceip.org/about/&fa=contact'
+				url: 'http://carnegieendowment.org/about/?fa=contact'
 				, name: 'Help Desk'
 			}, {
-				url: 'http://m.ceip.org/about/&lang=en&fa=privacy'
+				url: 'http://carnegieendowment.org/about/index.cfm?fa=privacy'
 				, name: 'Privacy Statement'
 			}]
 		}
@@ -587,7 +605,7 @@ var config = require('../config')
 		e.preventDefault();
 		if (navigator.connection.type !== 'none') {
 			var url = $(e.currentTarget).prop('href');
-			window.open(encodeURI(url), '_blank', 'location=no, toolbar=yes');
+			window.open(encodeURI(url), '_blank', 'location=no,toolbar=yes,enableViewportScale=yes');
 			$('section.menu li.active').removeClass('active');
 			$(e.currentTarget).closest('li').addClass('active');
 			if (config.track && analytics) {
@@ -826,8 +844,7 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
         pullrefresh_el.className = 'slideup';
         container_el.className = 'pullrefresh-slideup';
 
-        //this.setHeight(0);
-        $(this).slideDown('fast')
+        this.setHeight(0);
 
         setTimeout(function() {
             self.hide();
@@ -956,7 +973,7 @@ if (browser) {
 					analytics.trackEvent('Story', 'Link', 'Email Link Clicked', 10);
 				}
 			} else {
-				window.open(encodeURI(href), '_blank', 'location=no, toolbar=yes');
+				window.open(encodeURI(href), '_blank', 'location=no,toolbar=yes,enableViewportScale=yes');
 				if (config.track && analytics) {
 					analytics.trackEvent('Story', 'Link', 'External Link Clicked', 10);
 				}
@@ -1365,7 +1382,7 @@ module.exports = (function () {
     document.addEventListener('deviceready', appReady, false);
 
     function appReady() {
-    	//setTimeout(function () {
+    	setTimeout(function () {
 				$(function () {
 					if (config.track && analytics) {
 						analytics.startTrackerWithId('UA-31877-29');
@@ -1373,7 +1390,7 @@ module.exports = (function () {
 					}
 					require('./init');
 				})
-    	//}, 6000)
+    	}, 6000)
     }
 }());
 
@@ -1430,6 +1447,7 @@ module.exports = function () {
 	})
 };
 },{"../app/config":2,"../util/notify":30,"./getFile":18,"./getFileSystem":22,"./makeDir":23}],14:[function(require,module,exports){
+/*global module, require*/
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
 	, getFileEntry = require('./getFileEntry')
