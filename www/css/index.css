@@ -862,8 +862,8 @@ footer.story-footer .text-resize .text-resize-slider {
         linear,
         left top,
         right top,
-        color-stop(0.2, #007aff),
-        color-stop(0.2, #b8b7b8)
+        color-stop(0.5, #007aff),
+        color-stop(0.5, #b8b7b8)
     );
 }
 
