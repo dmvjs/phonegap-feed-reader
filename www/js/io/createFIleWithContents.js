@@ -1,3 +1,4 @@
+/*global module, require*/
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
 	, getFileEntry = require('./getFileEntry')
