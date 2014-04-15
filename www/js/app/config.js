@@ -4,7 +4,7 @@ module.exports = {
 	, track: true
 	, trackId: 'UA-31877-29'
 	, folder: 'com.ceip.carnegie'
-	, storyFontSize: 1.1
+	, storyFontSize: 1.0
 	, connectionMessage: 'No network connection detected'
 	, menuMessage: 'Not yet downloaded'
 	, missingImage: 'http://m.ceip.org/img/appsupport/image-unavailable_605x328.png'
@@ -19,7 +19,11 @@ module.exports = {
 			}, {
 				url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-Top5.xml'
 				, name: 'Most Popular'
-			}]
+			}, {
+        url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobal'
+        , name: 'Comment Test'
+        , filename: 'comment-test.json'
+      }]
 		}, {
 			title: 'Languages'
 			, sub: 'Read Offline'
@@ -61,46 +65,58 @@ module.exports = {
 			title: 'Blogs'
 			, sub: 'From m.ceip.org'
 			, links: [{
-				url: 'http://m.ceip.org/moscow/eurasiaoutlook/'
+				url: 'http://carnegie.ru/eurasiaoutlook/'
 				, name: 'Eurasia Outlook'
 			}, {
-				url: 'http://m.ceip.org/sada/'
+				url: 'http://carnegieendowment.org/sada/'
 				, name: 'Sada'
 			}, {
-				url: 'http://m.ceip.org/brussels/strategiceurope'
+				url: 'http://carnegieeurope.eu/strategiceurope/'
 				, name: 'Strategic Europe'
-			}]
+			}, {
+        url: 'http://carnegieendowment.org/syriaincrisis/'
+        , name: 'Syria in Crisis'
+      }]
 		}, {
 			title: 'Global Resources'
 			, links: [{
-				url: 'http://m.ceip.org/issues/'
+				url: 'http://carnegieendowment.org/topic/'
 				, name: 'Issues'
 			}, {
-				url: 'http://m.ceip.org/regions/'
+				url: 'http://carnegieendowment.org/regions/'
 				, name: 'Regions'
 			}, {
-				url: 'http://m.ceip.org/experts/'
+				url: 'http://carnegieendowment.org/experts/'
 				, name: 'Experts'
 			}, {
-				url: 'http://m.ceip.org/publications/'
+				url: 'http://carnegieendowment.org/publications/'
 				, name: 'Publications'
 			}, {
-				url: 'http://m.ceip.org/events/'
+				url: 'http://carnegieendowment.org/events/'
 				, name: 'Events'
+			}, {
+				url: 'http://carnegieendowment.org/programs/'
+				, name: 'Programs'
+			}, {
+				url: 'http://carnegieendowment.org/video/'
+				, name: 'Videos'
 			}]
 		}, {
 			title: 'Explore'
 			, links: [{
-				url: 'http://m.ceip.org/about/'
+				url: 'http://carnegieendowment.org/resources/?fa=register'
+				, name: 'Stay in the Know'
+			}, {
+				url: 'http://carnegieendowment.org/about/'
 				, name: 'About Us'
 			}, {
-				url: 'http://m.ceip.org/support/&lang=en'
+				url: 'http://carnegieendowment.org/about/development/'
 				, name: 'Support Carnegie'
 			}, {
-				url: 'http://m.ceip.org/about/&fa=contact'
+				url: 'http://carnegieendowment.org/about/?fa=contact'
 				, name: 'Help Desk'
 			}, {
-				url: 'http://m.ceip.org/about/&lang=en&fa=privacy'
+				url: 'http://carnegieendowment.org/about/index.cfm?fa=privacy'
 				, name: 'Privacy Statement'
 			}]
 		}
