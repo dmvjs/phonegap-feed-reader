@@ -56,7 +56,7 @@ if (browser) {
 					analytics.trackEvent('Story', 'Link', 'Email Link Clicked', 10);
 				}
 			} else {
-				window.open(encodeURI(href), '_blank', 'location=no, toolbar=yes');
+				window.open(encodeURI(href), '_blank', 'location=no,toolbar=yes,enableViewportScale=yes');
 				if (config.track && analytics) {
 					analytics.trackEvent('Story', 'Link', 'External Link Clicked', 10);
 				}
