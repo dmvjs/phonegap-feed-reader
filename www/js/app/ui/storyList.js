@@ -6,7 +6,7 @@ var config = require('../config')
 
 function show(feedObj, forceActive) {
 	return new Promise(function(resolve, reject) {
-    var obj = feedObj.story
+    var obj = feedObj.story ? feedObj.story : feedObj.item
       , rtl = feedObj.title ? feedObj.title.toLowerCase().indexOf('arabic') > -1 : false
       , fs = config.fs.toURL()
       , path = fs + (fs.substr(-1) === '/' ? '' : '/')
@@ -52,7 +52,7 @@ function show(feedObj, forceActive) {
         })
         , storyDate = $('<div/>', {
           addClass: 'story-date'
-          , text: element.pubDate
+          , text: element.publishDate || element.pubDate
         })
         , storyText = $('<div/>', {
           addClass: 'story-text'
