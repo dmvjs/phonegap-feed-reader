@@ -607,6 +607,12 @@ section.story.active .previous {
     display: block;
 }
 
+section.story.active .current .video,
+section.story.active .next .video,
+section.story.active .previous .video {
+    display: none;
+}
+
 section.story .current,
 section.story .next,
 section.story .previous {
@@ -713,6 +719,19 @@ section.story .story-text a:link,
 section.story .story-text a:visited {
     color: #0079ff !important;
     text-decoration: none;
+}
+
+section.story .next .story-text iframe,
+section.story .next .story-text object,
+section.story .next .story-text embed,
+section.story .next .story-text videoEmbed,
+section.story .next .story-text dc,
+section.story .previous .story-text iframe,
+section.story .previous .story-text object,
+section.story .previous .story-text embed,
+section.story .previous .story-text videoEmbed,
+section.story .previous .story-text dc {
+   display: none;
 }
 
 section.story .story-text iframe,
