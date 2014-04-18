@@ -1,51 +1,52 @@
+/*global require, module, $*/
 var notify = require('../util/notify')
-	, config = require('./config')
-	, connection = require('../util/connection')
-	, createFileWithContents = require('../io/createFileWithContents')
-	, getFileContents = require('../io/getFileContents')
-	, doesFileExist = require('../io/doesFileExist')
-	, toJson = require('./xmlToJson')
-	, downloadExternalFile = require('../io/downloadExternalFile')
-	, getFileList = require('../io/getFileList')
-	, removeFile = require('../io/removeFile')
-	, currentFeedId = void 0
-	, feedRefresh = []
-	, increment = 60000;
+  , config = require('./config')
+  , connection = require('../util/connection')
+  , createFileWithContents = require('../io/createFileWithContents')
+  , getFileContents = require('../io/getFileContents')
+  , doesFileExist = require('../io/doesFileExist')
+  , toJson = require('./xmlToJson')
+  , downloadExternalFile = require('../io/downloadExternalFile')
+  , getFileList = require('../io/getFileList')
+  , removeFile = require('../io/removeFile')
+  , currentFeedId = void 0
+  , feedRefresh = []
+  , increment = 60000;
 
 function getFeed(id, loadOnly) {
-	return new Promise(function (resolve, reject) {
-		if (!loadOnly) {
-			currentFeedId = id;
-		}
-		get(id).then(function (fileentry) {
-			console.log(fileentry, name);
-			var filename;
-			if (fileentry.name) {
-				filename = fileentry.name;
-			} else if (fileentry.target && fileentry.target.localURL) {
-				filename = fileentry.target.localURL.split('/').pop();
-			} else if (fileentry.target && fileentry.target._localURL) {
-				filename = fileentry.target._localURL.split('/').pop();
-			}
-			getFileContents(filename).then(function (contents) {
-				var obj = (JSON.parse(contents.target._result));
-				getImages(obj).then(function () {
-					removeOrphanedImages().then(function () {
-						resolve(contents);
-					}, reject);
-				}, reject);
-			}, reject)
-		}, reject)
-	})
+  return new Promise(function (resolve, reject) {
+    if (!loadOnly) {
+        currentFeedId = id;
+    }
+    get(id).then(function (fileentry) {
+      console.log(fileentry, name);
+      var filename;
+      if (fileentry.name) {
+        filename = fileentry.name;
+      } else if (fileentry.target && fileentry.target.localURL) {
+        filename = fileentry.target.localURL.split('/').pop();
+      } else if (fileentry.target && fileentry.target._localURL) {
+        filename = fileentry.target._localURL.split('/').pop();
+      }
+      getFileContents(filename).then(function (contents) {
+        var obj = (JSON.parse(contents.target._result));
+        getImages(obj).then(function () {
+          removeOrphanedImages().then(function () {
+            resolve(contents);
+          }, reject);
+        }, reject);
+      }, reject)
+    }, reject)
+  })
 }
 
 function refresh() {
-	return new Promise(function (resolve, reject) {
-	  var id = currentFeedId || 0
-	  	, filename = getFilenameFromId(id)
-	  	, since = 0
-	    , last = feedRefresh[id]
-	    , now = new Date().valueOf();
+  return new Promise(function (resolve, reject) {
+    var id = currentFeedId || 0
+      , filename = getFilenameFromId(id)
+      , since = 0
+      , last = feedRefresh[id]
+      , now = new Date().valueOf();
 
     if (last !== undefined) {
       since = (now - last) > increment;
@@ -53,161 +54,169 @@ function refresh() {
     if (last === undefined || since) {
       feedRefresh[id] = now;
       getFeed(id).then(function (contents) {
-		    var obj = (JSON.parse(contents.target._result));
-		    $(document).trigger('access.refresh', [obj, filename]);
-		    resolve(obj);
-		  }, reject);
-		  if (config.track && analytics) {
-	      analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh');
-	    }
-    } else {
-  		setTimeout(function () {
-  			reject('Delaying refresh')
+        var obj = (JSON.parse(contents.target._result));
+        $(document).trigger('access.refresh', [obj, filename]);
+        resolve(obj);
+      }, reject);
         if (config.track && analytics) {
-		      analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh Fake');
-		    }
-  		}, 2000);
+        analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh');
+      }
+    } else {
+      setTimeout(function () {
+        reject('Delaying refresh');
+      if (config.track && analytics) {
+          analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh Fake');
+        }
+      }, 2000);
     }
-	})
+  })
+}
+
+function getStoryImageCount(element) {
+  return element.image !== undefined
 }
 
 function getImages(feedObject) {
-	return new Promise(function (resolve, reject) {
-  	var i = 0
-  		, items = feedObject.story.filter(function (element) {return element.image !== undefined}).length
-  		, prevPromise = Promise.resolve();
+  return new Promise(function (resolve, reject) {
+    var i = 0
+      , stories = feedObject.story ? feedObject.story : feedObject.item
+      , items = stories.filter(getStoryImageCount).length
+      , prevPromise = Promise.resolve();
 
-	  	feedObject.story.forEach(function(obj) { 
-		    if (obj.image) {
-		    	prevPromise = prevPromise.then(function() {
-			      return downloadExternalFile(obj.image);
-			    }).then(function(data) {
-			      i += 1;
-			      if (i === items) {
-			      	resolve(data);
-			      }
-			    }).catch(reject);
-		    }
-		  });
+    stories.forEach(function(obj) {
+      if (obj.image) {
+        prevPromise = prevPromise.then(function() {
+          return downloadExternalFile(obj.image);
+        }).then(function(data) {
+          i += 1;
+          if (i === items) {
+            resolve(data);
+          }
+        }).catch(reject);
+      }
+    });
   })
 }
 
 function getFeedFromConfig(id) {
-	var feeds = [];
-	config.menu.forEach(function (item) {
-		if (item.feeds) {
-			item.feeds.forEach(function (el) {
-				feeds.push(el);
-			})
-		}
-	})
-	return feeds[id];
+  var feeds = [];
+  config.menu.forEach(function (item) {
+    if (item.feeds) {
+      item.feeds.forEach(function (el) {
+        feeds.push(el);
+      })
+    }
+  });
+  return feeds[id];
 }
 
 function getFilenameFromFeed(feed) {
-	return feed.filename || feed.url.split('/').pop().split('.').shift() + '.json';
+  return feed.filename || feed.url.split('/').pop().split('.').shift() + '.json';
 }
 
 function getFeedNameFromId(id) {
-	var feed = getFeedFromConfig(id);
-	return feed.name;
+  var feed = getFeedFromConfig(id);
+  return feed.name;
 }
 
 function getFilenameFromId(id) {
-	var feed = getFeedFromConfig(id);
-	return getFilenameFromFeed(feed)
+  var feed = getFeedFromConfig(id);
+  return getFilenameFromFeed(feed)
 }
 
 function getCurrentId() {
-	return currentFeedId || 0;
+  return currentFeedId || 0;
 }
 
 function get(id) {
-	// resolves when feed is downloaded
-	return new Promise(function (resolve, reject) {
-		var feed = getFeedFromConfig(id)
-			, url = feed.url
-			, filename = feed.filename || url.split('/').pop().split('.').shift() + '.json';
+  // resolves when feed is downloaded
+  return new Promise(function (resolve, reject) {
+    var feed = getFeedFromConfig(id)
+      , url = feed.url
+      , type = feed.type || 'xml'
+      , filename = feed.filename || url.split('/').pop().split('.').shift() + '.json';
 
-		if (navigator.connection.type !== 'none') {
-			$.ajax({
-				url: url
-				, dataType: 'xml'
-			}).then(function (res) {
-				var obj = toJson(res);
-				doesFileExist(filename).then(function () {
-					//file exists
-					getFileContents(filename).then(function (contents) {
-						var o = JSON.parse(contents.target._result);
+    if (navigator.connection.type !== 'none') {
+      $.ajax({
+        url: url
+        , dataType: type
+      }).then(function (res) {
+        var obj = (type === 'json' ? res.rss.channel : toJson(res));
+        doesFileExist(filename).then(function () {
+          //file exists
+          getFileContents(filename).then(function (contents) {
+            var o = JSON.parse(contents.target._result);
 
-						if (o.lastBuildDate === obj.lastBuildDate) {
-							//no updates since last build
-							resolve(contents);
-						} else {
-							createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
-						}
-					}, reject) // file was created but doesn't exist? unlikely
-				}, function () {
-					//file does not exist
-					createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
-				});
-			}, reject);
-		} else {
-			doesFileExist(filename).then(resolve, reject);
-		}
-	})
+            if (o.lastBuildDate === obj.lastBuildDate) {
+              //no updates since last build
+              resolve(contents);
+            } else {
+              createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
+            }
+          }, reject) // file was created but doesn't exist? unlikely
+        }, function () {
+          //file does not exist
+          createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
+        });
+      }, reject);
+    } else {
+      doesFileExist(filename).then(resolve, reject);
+    }
+  })
 }
 
 function removeOrphanedImages() {
-	return new Promise(function (resolve, reject) {
-		var images = ['image-unavailable_605x328.png'];
-		getFileList().then(function (response) {
-			var json = response.filter(function (element) {return element.name.split('.').pop() === 'json'})
-				, imageFiles = response.filter(function (element) {
-						var ext = element.name.split('.').pop()
-						return ext === 'jpg' || ext === 'png' || ext === 'jpeg'
-					})
-				, filenames = json.map(function (element) {return element.name});
+  return new Promise(function (resolve, reject) {
+    var images = ['image-unavailable_605x328.png'];
+    getFileList().then(function (response) {
+      var json = response.filter(function (element) {return element.name.split('.').pop() === 'json'})
+        , imageFiles = response.filter(function (element) {
+            var ext = element.name.split('.').pop();
+            return ext === 'jpg' || ext === 'png' || ext === 'jpeg'
+          })
+        , filenames = json.map(function (element) {return element.name});
 
-			Promise.all(
-	    	filenames.map(getFileContents)
-	  	).then(function (res) {
-	  		var imagesToRemove = [];
-	  		res.forEach(function (el) {
-	  			var obj = JSON.parse(el.target.result)
-	  			obj.story.forEach(function (ele) {
-	  				if (ele.image && images.indexOf(ele.image.split('/').pop()) === -1) {
-	  					images.push(ele.image.split('/').pop())
-	  				}
-	  			})
-	  		})
-	  		imagesToRemove = imageFiles.filter(function(val) {
-				  return images.indexOf(val.name) === -1;
-				});
-	  		Promise.all(imagesToRemove.map(removeFile)).then(resolve, reject)
-	  	});
-		}, reject)
-	})
+      Promise.all(
+        filenames.map(getFileContents)
+      ).then(function (res) {
+        var imagesToRemove = [];
+        res.forEach(function (el) {
+          var obj = JSON.parse(el.target.result)
+            , stories = obj.story ? obj.story : obj.item;
+
+          stories.forEach(function (ele) {
+            if (ele.image && images.indexOf(ele.image.split('/').pop()) === -1) {
+              images.push(ele.image.split('/').pop())
+            }
+          })
+        });
+        imagesToRemove = imageFiles.filter(function(val) {
+          return images.indexOf(val.name) === -1;
+        });
+        Promise.all(imagesToRemove.map(removeFile)).then(resolve, reject)
+      });
+    }, reject)
+  })
 }
 
 function removeFeed(id) {
-	return new Promise(function (resolve, reject) {
-		var filename = getFilenameFromId(id);
-			
-		doesFileExist(filename).then(function (fileentry) {
-			removeFile(fileentry).then(function () {
-				removeOrphanedImages().then(resolve, reject);
-			}, reject)
-		}, reject);
-	})
+  return new Promise(function (resolve, reject) {
+    var filename = getFilenameFromId(id);
+      
+    doesFileExist(filename).then(function (fileentry) {
+      removeFile(fileentry).then(function () {
+        removeOrphanedImages().then(resolve, reject);
+      }, reject)
+    }, reject);
+  })
 }
 
 module.exports = {
-	get: getFeed
-	, getCurrentId: getCurrentId
-	, getFeedNameFromId: getFeedNameFromId
-	, getFilenameFromId: getFilenameFromId
-	, getFilenameFromFeed: getFilenameFromFeed
-	, removeFeed: removeFeed
-	, refresh: refresh
+  get: getFeed
+  , getCurrentId: getCurrentId
+  , getFeedNameFromId: getFeedNameFromId
+  , getFilenameFromId: getFilenameFromId
+  , getFilenameFromFeed: getFilenameFromFeed
+  , removeFeed: removeFeed
+  , refresh: refresh
 };
