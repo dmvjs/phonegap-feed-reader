@@ -15,10 +15,10 @@ if (share && plugins && plugins.socialsharing) {
         hideTextResize();
           if (typeof index !== 'undefined' && feedObj && navigator.connection.type !== 'none') {
             window.plugins.socialsharing.share(
-              'I\'m currently reading ' + feedObj.story[index].title,
-              feedObj.story[index].title,
-              feedObj.story[index].image || config.missingImage,
-              encodeURI(feedObj.story[index].link)
+              'I\'m currently reading ' + (feedObj.story ? feedObj.story[index].title : feedObj.item[index].title),
+              (feedObj.story ? feedObj.story[index].title : feedObj.item[index].title),
+              (feedObj.story ? (feedObj.story[index].image) : (feedObj.item[index].title)) || config.missingImage,
+              encodeURI(feedObj.story ? feedObj.story[index].link : feedObj.item[index].link)
             );
             if (config.track && analytics) {
               analytics.trackEvent('Story', 'Share', 'Share Clicked');
@@ -44,10 +44,15 @@ if (browser) {
 		var href = $(e.currentTarget).attr('href')
 			, selector = '';
 		if (href.substr(0, 1) === '#') {
-			if (config.track && analytics) {
-				analytics.trackEvent('Story', 'Link', 'Page Anchor Clicked');
-			}
-			return
+      if ($('.current').find(href)) {
+        if (config.track && analytics) {
+          analytics.trackEvent('Story', 'Link', 'Page Anchor Clicked');
+        }
+      } else {
+        e.preventDefault();
+        return false;
+      }
+      return
 		} else if (navigator.connection.type !== 'none') {
 			e.preventDefault();
 			if (href.substr(0, 6) === 'mailto') {
@@ -111,7 +116,7 @@ slider.onchange = function () {
 function show(i, feed) {
 	return new Promise(function (resolve, reject) {
 		var obj = feedObj = feed || feedObj
-			, storyObj = obj.story[i]
+			, storyObj = obj.story ? obj.story[i] : obj.item[i]
 			, rtl = obj.title ? obj.title.toLowerCase().indexOf('arabic') > -1 : false
 			, current = $('<div/>', {
 					addClass: 'current'
@@ -121,7 +126,7 @@ function show(i, feed) {
 		$('section.story').toggleClass('rtl', !!rtl).prop('dir', rtl ? 'rtl' : 'ltr');
 
 		if (config.track && analytics) {
-			track(obj.story[i].title);
+			track(obj.story ? obj.story[i].title : obj.item[i].title);
 		}
 
 		createPage(storyObj).then(function (page) {
@@ -144,7 +149,7 @@ function createPrevious() {
 		, $previous = $('section.story .previous');
 
 	if (notFirst()) {
-		createPage(feedObj.story[index - 1]).then(function (pageP) {
+		createPage(feedObj.story ? feedObj.story[index - 1] : feedObj.item[index - 1]).then(function (pageP) {
 			previous.append(pageP);
 			if ($previous.length) {
 				$previous.replaceWith(previous);
@@ -164,7 +169,7 @@ function createNext() {
 		, $next = $('section.story .next');
 
 	if (notLast()) {
-		createPage(feedObj.story[index + 1]).then(function (pageN) {
+		createPage(feedObj.story ? feedObj.story[index + 1] : feedObj.item[index + 1]).then(function (pageN) {
 			next.append(pageN);
 			if ($next.length) {
 				$next.replaceWith(next);
@@ -205,7 +210,7 @@ function createPage(storyObj) {
 			})
 			, storyDate = $('<div/>', {
 				addClass: 'story-date'
-				, text: storyObj.pubDate
+				, text: storyObj.publishDate || storyObj.pubDate
 			})
 			, storyMeta = $('<div/>', {
 				addClass: 'story-meta'
@@ -232,7 +237,8 @@ function createPage(storyObj) {
 }
 
 function notLast(id) {
-	return id || index < feedObj.story.length - 1;
+	var length = feedObj.story ? feedObj.story.length : feedObj.item.length;
+  return id || index < length - 1;
 }
 
 function notFirst(id) {
@@ -246,7 +252,7 @@ function next() {
 			, n = $('section.story .next')
 			, p = $('section.story .previous').remove();
 
-		track(feedObj.story[index].title);
+		track(feedObj.story ? feedObj.story[index].title : feedObj.item[index].title);
 
 		c.removeClass('current').addClass('previous');
 		n.removeClass('next').addClass('current');
@@ -268,7 +274,7 @@ function previous() {
 			, p = $('section.story .previous')
 			, n = $('section.story .next').remove();
 
-		track(feedObj.story[index].title);
+		track(feedObj.story ? feedObj.story[index].title : feedObj.item[index].title);
 
 		c.removeClass('current').addClass('next');
 		p.removeClass('previous').addClass('current');
