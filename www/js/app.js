@@ -1,52 +1,53 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+/*global require, module, $*/
 var notify = require('../util/notify')
-	, config = require('./config')
-	, connection = require('../util/connection')
-	, createFileWithContents = require('../io/createFileWithContents')
-	, getFileContents = require('../io/getFileContents')
-	, doesFileExist = require('../io/doesFileExist')
-	, toJson = require('./xmlToJson')
-	, downloadExternalFile = require('../io/downloadExternalFile')
-	, getFileList = require('../io/getFileList')
-	, removeFile = require('../io/removeFile')
-	, currentFeedId = void 0
-	, feedRefresh = []
-	, increment = 60000;
+  , config = require('./config')
+  , connection = require('../util/connection')
+  , createFileWithContents = require('../io/createFileWithContents')
+  , getFileContents = require('../io/getFileContents')
+  , doesFileExist = require('../io/doesFileExist')
+  , toJson = require('./xmlToJson')
+  , downloadExternalFile = require('../io/downloadExternalFile')
+  , getFileList = require('../io/getFileList')
+  , removeFile = require('../io/removeFile')
+  , currentFeedId = void 0
+  , feedRefresh = []
+  , increment = 60000;
 
 function getFeed(id, loadOnly) {
-	return new Promise(function (resolve, reject) {
-		if (!loadOnly) {
-			currentFeedId = id;
-		}
-		get(id).then(function (fileentry) {
-			console.log(fileentry, name);
-			var filename;
-			if (fileentry.name) {
-				filename = fileentry.name;
-			} else if (fileentry.target && fileentry.target.localURL) {
-				filename = fileentry.target.localURL.split('/').pop();
-			} else if (fileentry.target && fileentry.target._localURL) {
-				filename = fileentry.target._localURL.split('/').pop();
-			}
-			getFileContents(filename).then(function (contents) {
-				var obj = (JSON.parse(contents.target._result));
-				getImages(obj).then(function () {
-					removeOrphanedImages().then(function () {
-						resolve(contents);
-					}, reject);
-				}, reject);
-			}, reject)
-		}, reject)
-	})
+  return new Promise(function (resolve, reject) {
+    if (!loadOnly) {
+        currentFeedId = id;
+    }
+    get(id).then(function (fileentry) {
+      console.log(fileentry, name);
+      var filename;
+      if (fileentry.name) {
+        filename = fileentry.name;
+      } else if (fileentry.target && fileentry.target.localURL) {
+        filename = fileentry.target.localURL.split('/').pop();
+      } else if (fileentry.target && fileentry.target._localURL) {
+        filename = fileentry.target._localURL.split('/').pop();
+      }
+      getFileContents(filename).then(function (contents) {
+        var obj = (JSON.parse(contents.target._result));
+        getImages(obj).then(function () {
+          removeOrphanedImages().then(function () {
+            resolve(contents);
+          }, reject);
+        }, reject);
+      }, reject)
+    }, reject)
+  })
 }
 
 function refresh() {
-	return new Promise(function (resolve, reject) {
-	  var id = currentFeedId || 0
-	  	, filename = getFilenameFromId(id)
-	  	, since = 0
-	    , last = feedRefresh[id]
-	    , now = new Date().valueOf();
+  return new Promise(function (resolve, reject) {
+    var id = currentFeedId || 0
+      , filename = getFilenameFromId(id)
+      , since = 0
+      , last = feedRefresh[id]
+      , now = new Date().valueOf();
 
     if (last !== undefined) {
       since = (now - last) > increment;
@@ -54,55 +55,60 @@ function refresh() {
     if (last === undefined || since) {
       feedRefresh[id] = now;
       getFeed(id).then(function (contents) {
-		    var obj = (JSON.parse(contents.target._result));
-		    $(document).trigger('access.refresh', [obj, filename]);
-		    resolve(obj);
-		  }, reject);
-		  if (config.track && analytics) {
-	      analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh');
-	    }
-    } else {
-  		setTimeout(function () {
-  			reject('Delaying refresh')
+        var obj = (JSON.parse(contents.target._result));
+        $(document).trigger('access.refresh', [obj, filename]);
+        resolve(obj);
+      }, reject);
         if (config.track && analytics) {
-		      analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh Fake');
-		    }
-  		}, 2000);
+        analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh');
+      }
+    } else {
+      setTimeout(function () {
+        reject('Delaying refresh');
+      if (config.track && analytics) {
+          analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh Fake');
+        }
+      }, 2000);
     }
-	})
+  })
+}
+
+function getStoryImageCount(element) {
+  return element.image !== undefined
 }
 
 function getImages(feedObject) {
-	return new Promise(function (resolve, reject) {
-  	var i = 0
-  		, items = feedObject.story.filter(function (element) {return element.image !== undefined}).length
-  		, prevPromise = Promise.resolve();
+  return new Promise(function (resolve, reject) {
+    var i = 0
+      , stories = feedObject.story ? feedObject.story : feedObject.item
+      , items = stories.filter(getStoryImageCount).length
+      , prevPromise = Promise.resolve();
 
-	  	feedObject.story.forEach(function(obj) { 
-		    if (obj.image) {
-		    	prevPromise = prevPromise.then(function() {
-			      return downloadExternalFile(obj.image);
-			    }).then(function(data) {
-			      i += 1;
-			      if (i === items) {
-			      	resolve(data);
-			      }
-			    }).catch(reject);
-		    }
-		  });
+    stories.forEach(function(obj) {
+      if (obj.image) {
+        prevPromise = prevPromise.then(function() {
+          return downloadExternalFile(obj.image);
+        }).then(function(data) {
+          i += 1;
+          if (i === items) {
+            resolve(data);
+          }
+        }).catch(reject);
+      }
+    });
   })
 }
 
 function getFeedFromConfig(id) {
-	var feeds = [];
-	config.menu.forEach(function (item) {
-		if (item.feeds) {
-			item.feeds.forEach(function (el) {
-				feeds.push(el);
-			})
-		}
-	})
-	return feeds[id];
+  var feeds = [];
+  config.menu.forEach(function (item) {
+    if (item.feeds) {
+      item.feeds.forEach(function (el) {
+        feeds.push(el);
+      })
+    }
+  });
+  return feeds[id];
 }
 
 function getFilenameFromFeed(feed) {
@@ -110,234 +116,237 @@ function getFilenameFromFeed(feed) {
 }
 
 function getFeedNameFromId(id) {
-	var feed = getFeedFromConfig(id);
-	return feed.name;
+  var feed = getFeedFromConfig(id);
+  return feed.name;
 }
 
 function getFilenameFromId(id) {
-	var feed = getFeedFromConfig(id);
-	return getFilenameFromFeed(feed)
+  var feed = getFeedFromConfig(id);
+  return getFilenameFromFeed(feed)
 }
 
 function getCurrentId() {
-	return currentFeedId || 0;
+  return currentFeedId || 0;
 }
 
 function get(id) {
-	// resolves when feed is downloaded
-	return new Promise(function (resolve, reject) {
-		var feed = getFeedFromConfig(id)
-			, url = feed.url
-			, filename = feed.filename || url.split('/').pop().split('.').shift() + '.json';
+  // resolves when feed is downloaded
+  return new Promise(function (resolve, reject) {
+    var feed = getFeedFromConfig(id)
+      , url = feed.url
+      , type = feed.type || 'xml'
+      , filename = feed.filename || url.split('/').pop().split('.').shift() + '.json';
 
-    console.log(feed)
+    if (navigator.connection.type !== 'none') {
+      $.ajax({
+        url: url
+        , dataType: type
+      }).then(function (res) {
+        var obj = (type === 'json' ? res.rss.channel : toJson(res));
+        doesFileExist(filename).then(function () {
+          //file exists
+          getFileContents(filename).then(function (contents) {
+            var o = JSON.parse(contents.target._result);
 
-		if (navigator.connection.type !== 'none') {
-			$.ajax({
-				url: url
-				, dataType: 'xml'
-			}).then(function (res) {
-				var obj = toJson(res);
-				doesFileExist(filename).then(function () {
-					//file exists
-					getFileContents(filename).then(function (contents) {
-						var o = JSON.parse(contents.target._result);
-
-						if (o.lastBuildDate === obj.lastBuildDate) {
-							//no updates since last build
-							resolve(contents);
-						} else {
-							createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
-						}
-					}, reject) // file was created but doesn't exist? unlikely
-				}, function () {
-					//file does not exist
-					createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
-				});
-			}, reject);
-		} else {
-			doesFileExist(filename).then(resolve, reject);
-		}
-	})
+            if (o.lastBuildDate === obj.lastBuildDate) {
+              //no updates since last build
+              resolve(contents);
+            } else {
+              createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
+            }
+          }, reject) // file was created but doesn't exist? unlikely
+        }, function () {
+          //file does not exist
+          createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
+        });
+      }, reject);
+    } else {
+      doesFileExist(filename).then(resolve, reject);
+    }
+  })
 }
 
 function removeOrphanedImages() {
-	return new Promise(function (resolve, reject) {
-		var images = ['image-unavailable_605x328.png'];
-		getFileList().then(function (response) {
-			var json = response.filter(function (element) {return element.name.split('.').pop() === 'json'})
-				, imageFiles = response.filter(function (element) {
-						var ext = element.name.split('.').pop()
-						return ext === 'jpg' || ext === 'png' || ext === 'jpeg'
-					})
-				, filenames = json.map(function (element) {return element.name});
+  return new Promise(function (resolve, reject) {
+    var images = ['image-unavailable_605x328.png'];
+    getFileList().then(function (response) {
+      var json = response.filter(function (element) {return element.name.split('.').pop() === 'json'})
+        , imageFiles = response.filter(function (element) {
+            var ext = element.name.split('.').pop();
+            return ext === 'jpg' || ext === 'png' || ext === 'jpeg'
+          })
+        , filenames = json.map(function (element) {return element.name});
 
-			Promise.all(
-	    	filenames.map(getFileContents)
-	  	).then(function (res) {
-	  		var imagesToRemove = [];
-	  		res.forEach(function (el) {
-	  			var obj = JSON.parse(el.target.result)
-	  			obj.story.forEach(function (ele) {
-	  				if (ele.image && images.indexOf(ele.image.split('/').pop()) === -1) {
-	  					images.push(ele.image.split('/').pop())
-	  				}
-	  			})
-	  		})
-	  		imagesToRemove = imageFiles.filter(function(val) {
-				  return images.indexOf(val.name) === -1;
-				});
-	  		Promise.all(imagesToRemove.map(removeFile)).then(resolve, reject)
-	  	});
-		}, reject)
-	})
+      Promise.all(
+        filenames.map(getFileContents)
+      ).then(function (res) {
+        var imagesToRemove = [];
+        res.forEach(function (el) {
+          var obj = JSON.parse(el.target.result)
+            , stories = obj.story ? obj.story : obj.item;
+
+          stories.forEach(function (ele) {
+            if (ele.image && images.indexOf(ele.image.split('/').pop()) === -1) {
+              images.push(ele.image.split('/').pop())
+            }
+          })
+        });
+        imagesToRemove = imageFiles.filter(function(val) {
+          return images.indexOf(val.name) === -1;
+        });
+        Promise.all(imagesToRemove.map(removeFile)).then(resolve, reject)
+      });
+    }, reject)
+  })
 }
 
 function removeFeed(id) {
-	return new Promise(function (resolve, reject) {
-		var filename = getFilenameFromId(id);
-			
-		doesFileExist(filename).then(function (fileentry) {
-			removeFile(fileentry).then(function () {
-				removeOrphanedImages().then(resolve, reject);
-			}, reject)
-		}, reject);
-	})
+  return new Promise(function (resolve, reject) {
+    var filename = getFilenameFromId(id);
+      
+    doesFileExist(filename).then(function (fileentry) {
+      removeFile(fileentry).then(function () {
+        removeOrphanedImages().then(resolve, reject);
+      }, reject)
+    }, reject);
+  })
 }
 
 module.exports = {
-	get: getFeed
-	, getCurrentId: getCurrentId
-	, getFeedNameFromId: getFeedNameFromId
-	, getFilenameFromId: getFilenameFromId
-	, getFilenameFromFeed: getFilenameFromFeed
-	, removeFeed: removeFeed
-	, refresh: refresh
+  get: getFeed
+  , getCurrentId: getCurrentId
+  , getFeedNameFromId: getFeedNameFromId
+  , getFilenameFromId: getFilenameFromId
+  , getFilenameFromFeed: getFilenameFromFeed
+  , removeFeed: removeFeed
+  , refresh: refresh
 };
 },{"../io/createFileWithContents":14,"../io/doesFileExist":15,"../io/downloadExternalFile":16,"../io/getFileContents":19,"../io/getFileList":21,"../io/removeFile":26,"../util/connection":28,"../util/notify":30,"./config":2,"./xmlToJson":10}],2:[function(require,module,exports){
+/*global module, require*/
 module.exports = {
-	fs: void 0
-	, appName: 'Carnegie'
-	, track: true
-	, trackId: 'UA-31877-29'
-	, folder: 'com.ceip.carnegie'
-	, storyFontSize: 1.0
-	, connectionMessage: 'No network connection detected'
-	, menuMessage: 'Not yet downloaded'
-	, missingImage: 'http://m.ceip.org/img/appsupport/image-unavailable_605x328.png'
-	, missingImageRef: void 0
-	, menu: [{
-			title: 'Analysis'
-			, sub: 'Read Offline'
-			, feeds: [{
-				url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-english-dc.xml'
-				, name: 'Latest Analysis'
-				, required: true
-			}, {
-				url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-Top5.xml'
-				, name: 'Most Popular'
-			}, {
-        url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobal'
+  fs: void 0
+  , appName: 'Carnegie'
+  , track: true
+  , trackId: 'UA-31877-29'
+  , folder: 'com.ceip.carnegie'
+  , storyFontSize: 1.0
+  , connectionMessage: 'No network connection detected'
+  , menuMessage: 'Not yet downloaded'
+  , missingImage: 'http://m.ceip.org/img/appsupport/image-unavailable_605x328.png'
+  , missingImageRef: void 0
+  , menu: [{
+      title: 'Analysis'
+      , sub: 'Read Offline'
+      , feeds: [{
+        url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-english-dc.xml'
+        , name: 'Latest Analysis'
+        , required: true
+      }, {
+        url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-Top5.xml'
+        , name: 'Most Popular'
+      }, {
+        url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
         , name: 'Comment Test'
         , filename: 'comment-test.json'
+        , type: 'json'
       }]
-		}, {
-			title: 'Languages'
-			, sub: 'Read Offline'
-			, feeds: [{
-				url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-english.xml'
-				, name: 'English'
-			}, {
-				url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-russian.xml'
-				, name: 'Русский'
-			}, {
-				url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-chinese.xml'
-				, name: '中文'
-			}, {
-				url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-arabic.xml'
-				, name: 'عربي'
-				, dir: 'rtl'
-			}]
-		}, {
-			title: 'Global Centers'
-			, sub: 'Read Offline'
-			, feeds: [{
-				url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-beijing.xml'
-				, name: 'Beijing'
-			}, {
-				url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-beirut.xml'
-				, name: 'Beirut'
-			}, {
-				url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-brussels.xml'
-				, name: 'Brussels'
-			}, {
-				url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-moscow.xml'
-				, name: 'Moscow'
-			}, {
-				url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-english-dc.xml'
-				, name: 'Washington'
-				, required: true
-			}]
-		}, {
-			title: 'Blogs'
-			, sub: 'From m.ceip.org'
-			, links: [{
-				url: 'http://carnegie.ru/eurasiaoutlook/'
-				, name: 'Eurasia Outlook'
-			}, {
-				url: 'http://carnegieendowment.org/sada/'
-				, name: 'Sada'
-			}, {
-				url: 'http://carnegieeurope.eu/strategiceurope/'
-				, name: 'Strategic Europe'
-			}, {
+    }, {
+      title: 'Languages'
+      , sub: 'Read Offline'
+      , feeds: [{
+        url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-english.xml'
+        , name: 'English'
+      }, {
+        url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-russian.xml'
+        , name: 'Русский'
+      }, {
+        url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-chinese.xml'
+        , name: '中文'
+      }, {
+        url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-arabic.xml'
+        , name: 'عربي'
+        , dir: 'rtl'
+      }]
+    }, {
+      title: 'Global Centers'
+      , sub: 'Read Offline'
+      , feeds: [{
+        url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-beijing.xml'
+        , name: 'Beijing'
+      }, {
+        url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-beirut.xml'
+        , name: 'Beirut'
+      }, {
+        url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-brussels.xml'
+        , name: 'Brussels'
+      }, {
+        url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-moscow.xml'
+        , name: 'Moscow'
+      }, {
+        url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-english-dc.xml'
+        , name: 'Washington'
+        , required: true
+      }]
+    }, {
+      title: 'Blogs'
+      , sub: 'From m.ceip.org'
+      , links: [{
+        url: 'http://carnegie.ru/eurasiaoutlook/'
+        , name: 'Eurasia Outlook'
+      }, {
+        url: 'http://carnegieendowment.org/sada/'
+        , name: 'Sada'
+      }, {
+        url: 'http://carnegieeurope.eu/strategiceurope/'
+        , name: 'Strategic Europe'
+      }, {
         url: 'http://carnegieendowment.org/syriaincrisis/'
         , name: 'Syria in Crisis'
       }]
-		}, {
-			title: 'Global Resources'
-			, links: [{
-				url: 'http://carnegieendowment.org/topic/'
-				, name: 'Issues'
-			}, {
-				url: 'http://carnegieendowment.org/regions/'
-				, name: 'Regions'
-			}, {
-				url: 'http://carnegieendowment.org/experts/'
-				, name: 'Experts'
-			}, {
-				url: 'http://carnegieendowment.org/publications/'
-				, name: 'Publications'
-			}, {
-				url: 'http://carnegieendowment.org/events/'
-				, name: 'Events'
-			}, {
-				url: 'http://carnegieendowment.org/programs/'
-				, name: 'Programs'
-			}, {
-				url: 'http://carnegieendowment.org/video/'
-				, name: 'Videos'
-			}]
-		}, {
-			title: 'Explore'
-			, links: [{
-				url: 'http://carnegieendowment.org/resources/?fa=register'
-				, name: 'Stay in the Know'
-			}, {
-				url: 'http://carnegieendowment.org/about/'
-				, name: 'About Us'
-			}, {
-				url: 'http://carnegieendowment.org/about/development/'
-				, name: 'Support Carnegie'
-			}, {
-				url: 'http://carnegieendowment.org/about/?fa=contact'
-				, name: 'Help Desk'
-			}, {
-				url: 'http://carnegieendowment.org/about/index.cfm?fa=privacy'
-				, name: 'Privacy Statement'
-			}]
-		}
-	]
+    }, {
+      title: 'Global Resources'
+      , links: [{
+        url: 'http://carnegieendowment.org/topic/'
+        , name: 'Issues'
+      }, {
+        url: 'http://carnegieendowment.org/regions/'
+        , name: 'Regions'
+      }, {
+        url: 'http://carnegieendowment.org/experts/'
+        , name: 'Experts'
+      }, {
+        url: 'http://carnegieendowment.org/publications/'
+        , name: 'Publications'
+      }, {
+        url: 'http://carnegieendowment.org/events/'
+        , name: 'Events'
+      }, {
+        url: 'http://carnegieendowment.org/programs/'
+        , name: 'Programs'
+      }, {
+        url: 'http://carnegieendowment.org/video/'
+        , name: 'Carnegie Video'
+      }]
+    }, {
+      title: 'Explore'
+      , links: [{
+        url: 'http://carnegieendowment.org/resources/?fa=register'
+        , name: 'Stay in the Know'
+      }, {
+        url: 'http://carnegieendowment.org/about/'
+        , name: 'About Us'
+      }, {
+        url: 'http://carnegieendowment.org/about/development/'
+        , name: 'Support Carnegie'
+      }, {
+        url: 'http://carnegieendowment.org/about/?fa=contact'
+        , name: 'Help Desk'
+      }, {
+        url: 'http://carnegieendowment.org/about/index.cfm?fa=privacy'
+        , name: 'Privacy Statement'
+      }]
+    }
+  ]
 };
 },{}],3:[function(require,module,exports){
 module.exports = function () {
@@ -463,6 +472,8 @@ module.exports = {
 	, showStory: showStory
 };
 },{"./story":8}],5:[function(require,module,exports){
+/*global module, require, $*/
+
 var config = require('../config')
 	, notify = require('../../util/notify')
 	, access = require('../access')
@@ -471,6 +482,10 @@ var config = require('../config')
 	, doesFileExist = require('../../io/doesFileExist')
 	, getFileContents = require('../../io/getFileContents')
 	, primary = false;
+
+function friendlyDate (obj) {
+  return obj.friendlyPubDate !== undefined ? obj.friendlyPubDate : obj.lastBuildDate;
+}
 
 (function init() {
 	var menuFragment = $('<section/>', {
@@ -529,7 +544,7 @@ var config = require('../config')
 				doesFileExist(filename).then(function () {
 					getFileContents(filename).then(function (contents) {
             var obj = (JSON.parse(contents.target._result));
-						update(filename, 'Updated: ' + (obj.friendlyPubDate !== undefined ? obj.friendlyPubDate : obj.lastBuildDate));
+						update(filename, 'Updated: ' + friendlyDate(obj));
 						box.addClass('checked');
 					}, function (e){console.log(e)})
 				}, function (e){console.log(e)})
@@ -631,7 +646,7 @@ function get(id, loadOnly) {
 	access.get(id, loadOnly).then(function (contents) {
 		var obj = (JSON.parse(contents.target._result));
 
-		update(filename, 'Updated: ' + obj.lastBuildDate);
+		update(filename, 'Updated: ' + friendlyDate(obj));
 		if (!loadOnly) {
 			storyList.show(obj).then(function () {
         header.showStoryList();
@@ -662,12 +677,12 @@ function remove(id) {
 }
 
 $(document).on('access.refresh', function (e, obj, filename) {
-  update(filename, 'Updated: ' + obj.lastBuildDate);
-})
+  update(filename, 'Updated: ' + friendlyDate(obj));
+});
 
 module.exports = {
 	update: update
-}
+};
 },{"../../io/doesFileExist":15,"../../io/getFileContents":19,"../../util/notify":30,"../access":1,"../config":2,"./header":4,"./storyList":9}],6:[function(require,module,exports){
 var access = require('../access');
 
@@ -932,10 +947,10 @@ if (share && plugins && plugins.socialsharing) {
         hideTextResize();
           if (typeof index !== 'undefined' && feedObj && navigator.connection.type !== 'none') {
             window.plugins.socialsharing.share(
-              'I\'m currently reading ' + feedObj.story[index].title,
-              feedObj.story[index].title,
-              feedObj.story[index].image || config.missingImage,
-              encodeURI(feedObj.story[index].link)
+              'I\'m currently reading ' + (feedObj.story ? feedObj.story[index].title : feedObj.item[index].title),
+              (feedObj.story ? feedObj.story[index].title : feedObj.item[index].title),
+              (feedObj.story ? (feedObj.story[index].image) : (feedObj.item[index].title)) || config.missingImage,
+              encodeURI(feedObj.story ? feedObj.story[index].link : feedObj.item[index].link)
             );
             if (config.track && analytics) {
               analytics.trackEvent('Story', 'Share', 'Share Clicked');
@@ -961,10 +976,15 @@ if (browser) {
 		var href = $(e.currentTarget).attr('href')
 			, selector = '';
 		if (href.substr(0, 1) === '#') {
-			if (config.track && analytics) {
-				analytics.trackEvent('Story', 'Link', 'Page Anchor Clicked');
-			}
-			return
+      if ($('.current').find(href)) {
+        if (config.track && analytics) {
+          analytics.trackEvent('Story', 'Link', 'Page Anchor Clicked');
+        }
+      } else {
+        e.preventDefault();
+        return false;
+      }
+      return
 		} else if (navigator.connection.type !== 'none') {
 			e.preventDefault();
 			if (href.substr(0, 6) === 'mailto') {
@@ -1028,7 +1048,7 @@ slider.onchange = function () {
 function show(i, feed) {
 	return new Promise(function (resolve, reject) {
 		var obj = feedObj = feed || feedObj
-			, storyObj = obj.story[i]
+			, storyObj = obj.story ? obj.story[i] : obj.item[i]
 			, rtl = obj.title ? obj.title.toLowerCase().indexOf('arabic') > -1 : false
 			, current = $('<div/>', {
 					addClass: 'current'
@@ -1038,7 +1058,7 @@ function show(i, feed) {
 		$('section.story').toggleClass('rtl', !!rtl).prop('dir', rtl ? 'rtl' : 'ltr');
 
 		if (config.track && analytics) {
-			track(obj.story[i].title);
+			track(obj.story ? obj.story[i].title : obj.item[i].title);
 		}
 
 		createPage(storyObj).then(function (page) {
@@ -1061,7 +1081,7 @@ function createPrevious() {
 		, $previous = $('section.story .previous');
 
 	if (notFirst()) {
-		createPage(feedObj.story[index - 1]).then(function (pageP) {
+		createPage(feedObj.story ? feedObj.story[index - 1] : feedObj.item[index - 1]).then(function (pageP) {
 			previous.append(pageP);
 			if ($previous.length) {
 				$previous.replaceWith(previous);
@@ -1081,7 +1101,7 @@ function createNext() {
 		, $next = $('section.story .next');
 
 	if (notLast()) {
-		createPage(feedObj.story[index + 1]).then(function (pageN) {
+		createPage(feedObj.story ? feedObj.story[index + 1] : feedObj.item[index + 1]).then(function (pageN) {
 			next.append(pageN);
 			if ($next.length) {
 				$next.replaceWith(next);
@@ -1122,7 +1142,7 @@ function createPage(storyObj) {
 			})
 			, storyDate = $('<div/>', {
 				addClass: 'story-date'
-				, text: storyObj.pubDate
+				, text: storyObj.publishDate || storyObj.pubDate
 			})
 			, storyMeta = $('<div/>', {
 				addClass: 'story-meta'
@@ -1149,7 +1169,8 @@ function createPage(storyObj) {
 }
 
 function notLast(id) {
-	return id || index < feedObj.story.length - 1;
+	var length = feedObj.story ? feedObj.story.length : feedObj.item.length;
+  return id || index < length - 1;
 }
 
 function notFirst(id) {
@@ -1163,7 +1184,7 @@ function next() {
 			, n = $('section.story .next')
 			, p = $('section.story .previous').remove();
 
-		track(feedObj.story[index].title);
+		track(feedObj.story ? feedObj.story[index].title : feedObj.item[index].title);
 
 		c.removeClass('current').addClass('previous');
 		n.removeClass('next').addClass('current');
@@ -1185,7 +1206,7 @@ function previous() {
 			, p = $('section.story .previous')
 			, n = $('section.story .next').remove();
 
-		track(feedObj.story[index].title);
+		track(feedObj.story ? feedObj.story[index].title : feedObj.item[index].title);
 
 		c.removeClass('current').addClass('next');
 		p.removeClass('previous').addClass('current');
@@ -1226,7 +1247,7 @@ var config = require('../config')
 
 function show(feedObj, forceActive) {
 	return new Promise(function(resolve, reject) {
-    var obj = feedObj.story
+    var obj = feedObj.story ? feedObj.story : feedObj.item
       , rtl = feedObj.title ? feedObj.title.toLowerCase().indexOf('arabic') > -1 : false
       , fs = config.fs.toURL()
       , path = fs + (fs.substr(-1) === '/' ? '' : '/')
@@ -1272,7 +1293,7 @@ function show(feedObj, forceActive) {
         })
         , storyDate = $('<div/>', {
           addClass: 'story-date'
-          , text: element.pubDate
+          , text: element.publishDate || element.pubDate
         })
         , storyText = $('<div/>', {
           addClass: 'story-text'
@@ -1330,28 +1351,26 @@ module.exports = {
 	show: show
 };
 },{"../config":2,"./header":4,"./refresh":6,"./story":8}],10:[function(require,module,exports){
+/*global module, require*/
 module.exports = function (res) {
 	var feedObject = {}
     , root = res.firstChild.firstChild
     , numberOfFeeds = root.childNodes.length - 2
-    , nodesInFeed = root.childNodes[2].childNodes.length
     , i
     , j;
 
   feedObject.title = root.childNodes[0].textContent;
   feedObject.lastBuildDate = root.childNodes[1].textContent;
-  feedObject.story = [];
+  feedObject.item = [];
 
   for (i = 0; i < numberOfFeeds; i += 1) {
-      feedObject.story[i] = {};
-      for (j = 0; j < root.childNodes[2 + i].childNodes.length; j += 1) {
-          feedObject.story[i][root.childNodes[2 + i].childNodes[j].nodeName] =
-              root.childNodes[2 + i].childNodes[j].textContent;
-      }
+    feedObject.item[i] = {};
+    for (j = 0; j < root.childNodes[2 + i].childNodes.length; j += 1) {
+      feedObject.item[i][root.childNodes[2 + i].childNodes[j].nodeName] = root.childNodes[2 + i].childNodes[j].textContent;
+    }
   }
-
   return feedObject;
-}
+};
 },{}],11:[function(require,module,exports){
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -1382,7 +1401,7 @@ module.exports = (function () {
     document.addEventListener('deviceready', appReady, false);
 
     function appReady() {
-    	setTimeout(function () {
+    	//setTimeout(function () {
 				$(function () {
 					if (config.track && analytics) {
 						analytics.startTrackerWithId('UA-31877-29');
@@ -1390,7 +1409,7 @@ module.exports = (function () {
 					}
 					require('./init');
 				})
-    	}, 6000)
+    	//}, 6000)
     }
 }());
 
