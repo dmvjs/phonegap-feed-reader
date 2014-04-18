@@ -1,3 +1,5 @@
+/*global module, require, $*/
+
 var config = require('../config')
 	, notify = require('../../util/notify')
 	, access = require('../access')
@@ -6,6 +8,10 @@ var config = require('../config')
 	, doesFileExist = require('../../io/doesFileExist')
 	, getFileContents = require('../../io/getFileContents')
 	, primary = false;
+
+function friendlyDate (obj) {
+  return obj.friendlyPubDate !== undefined ? obj.friendlyPubDate : obj.lastBuildDate;
+}
 
 (function init() {
 	var menuFragment = $('<section/>', {
@@ -64,7 +70,7 @@ var config = require('../config')
 				doesFileExist(filename).then(function () {
 					getFileContents(filename).then(function (contents) {
             var obj = (JSON.parse(contents.target._result));
-						update(filename, 'Updated: ' + (obj.friendlyPubDate !== undefined ? obj.friendlyPubDate : obj.lastBuildDate));
+						update(filename, 'Updated: ' + friendlyDate(obj));
 						box.addClass('checked');
 					}, function (e){console.log(e)})
 				}, function (e){console.log(e)})
@@ -166,7 +172,7 @@ function get(id, loadOnly) {
 	access.get(id, loadOnly).then(function (contents) {
 		var obj = (JSON.parse(contents.target._result));
 
-		update(filename, 'Updated: ' + obj.lastBuildDate);
+		update(filename, 'Updated: ' + friendlyDate(obj));
 		if (!loadOnly) {
 			storyList.show(obj).then(function () {
         header.showStoryList();
@@ -197,9 +203,9 @@ function remove(id) {
 }
 
 $(document).on('access.refresh', function (e, obj, filename) {
-  update(filename, 'Updated: ' + obj.lastBuildDate);
-})
+  update(filename, 'Updated: ' + friendlyDate(obj));
+});
 
 module.exports = {
 	update: update
-}
+};
