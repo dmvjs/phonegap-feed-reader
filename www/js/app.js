@@ -972,19 +972,25 @@ if (share && plugins && plugins.socialsharing) {
 }
 
 if (browser) {
-	$(document).on('click', 'section.story a', function (e) {
+	$(document).on('click', 'section.story .current a', function (e) {
 		var href = $(e.currentTarget).attr('href')
-			, selector = '';
+      , offset;
+
 		if (href.substr(0, 1) === '#') {
       if ($('.current').find(href)) {
         if (config.track && analytics) {
           analytics.trackEvent('Story', 'Link', 'Page Anchor Clicked');
         }
+        offset = $('.current').find(href).offset();
+        $('.current').animate({
+          scrollTop: offset.top - 60,
+          scrollLeft: offset.left
+        });
+        return
       } else {
         e.preventDefault();
         return false;
       }
-      return
 		} else if (navigator.connection.type !== 'none') {
 			e.preventDefault();
 			if (href.substr(0, 6) === 'mailto') {
@@ -1424,7 +1430,7 @@ module.exports = (function () {
 		, downloadMissingImage = require('./app/downloadMissingImage')
 		, err = require('./util/err')
     , responsive = require('./app/ui/responsive')
-		, timeout = ['android'].indexOf(device.platform.toLowerCase()) > -1 ? 500 : 100
+		, timeout = 500
     , menu;
 
 	createDir().then(function () {
