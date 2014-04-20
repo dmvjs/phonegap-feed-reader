@@ -1,33 +1,34 @@
+/*global module, require, $*/
 module.exports = (function () {
 	var access = require('./app/access')
-		, createDir = require('./io/createDir')
-		, storyList = require('./app/ui/storyList')
-		, notify = require('./util/notify')
-		, header = require('./app/ui/header')
-		, doesFileExist = require('./io/doesFileExist')
-		, downloadMissingImage = require('./app/downloadMissingImage')
-		, err = require('./util/err')
+    , createDir = require('./io/createDir')
+    , storyList = require('./app/ui/storyList')
+    , notify = require('./util/notify')
+    , header = require('./app/ui/header')
+    , doesFileExist = require('./io/doesFileExist')
+    , downloadMissingImage = require('./app/downloadMissingImage')
+    , err = require('./util/err')
     , responsive = require('./app/ui/responsive')
-		, timeout = ['android'].indexOf(device.platform.toLowerCase()) > -1 ? 500 : 100
+    , timeout = 500
     , menu;
 
 	createDir().then(function () {
 		downloadMissingImage().then(function () {
-      menu = require('./app/ui/menu');
-      access.get(0).then(function (contents) {
-				//console.log(contents)
-				var obj = (JSON.parse(contents.target._result))
-					, filename = access.getFilenameFromId(0);
+          menu = require('./app/ui/menu');
+          access.get(0).then(function (contents) {
+              //console.log(contents)
+              var obj = (JSON.parse(contents.target._result))
+                  , filename = access.getFilenameFromId(0);
 
-				menu.update(filename, 'Updated: ' + obj.lastBuildDate);
-				storyList.show(obj).then(function () {
-					header.showStoryList();
+              menu.update(filename, 'Updated: ' + obj.lastBuildDate);
+              storyList.show(obj).then(function () {
+                  header.showStoryList();
 
-					setTimeout(function () {
-						navigator.splashscreen.hide();
-					}, timeout)
-				})
+                  setTimeout(function () {
+                      navigator.splashscreen.hide();
+                  }, timeout)
+              })
 			}, err);
 		}, err)
 	}, err)
-}())
+}());
