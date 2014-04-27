@@ -1,4 +1,4 @@
-plugins/
-platforms/
-merges/
+plugins/*
+platforms/*
+merges/*
 .idea
