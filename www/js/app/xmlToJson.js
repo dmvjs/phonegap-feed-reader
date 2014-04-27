@@ -1,20 +1,29 @@
 /*global module, require*/
 module.exports = function (res) {
-	var feedObject = {}
+	var feedObject = {item:[]}
     , root = res.firstChild.firstChild
-    , numberOfFeeds = root.childNodes.length - 2
+    , numberOfNodes = root.childNodes.length
+    , items = []
     , i
     , j;
 
-  feedObject.title = root.childNodes[0].textContent;
-  feedObject.lastBuildDate = root.childNodes[1].textContent;
-  feedObject.item = [];
-
-  for (i = 0; i < numberOfFeeds; i += 1) {
-    feedObject.item[i] = {};
-    for (j = 0; j < root.childNodes[2 + i].childNodes.length; j += 1) {
-      feedObject.item[i][root.childNodes[2 + i].childNodes[j].nodeName] = root.childNodes[2 + i].childNodes[j].textContent;
+  for (i = 0; i < numberOfNodes; i += 1) {
+    switch (root.childNodes[i].nodeName) {
+      case 'item' :
+        items.push(root.childNodes[i]);
+        break;
+      default :
+        feedObject[root.childNodes[i].nodeName] = root.childNodes[i].textContent;
+        break;
     }
   }
+
+  for (i = 0; i < items.length; i += 1) {
+    feedObject.item[i] = {};
+    for (j = 0; j < items[i].childNodes.length; j += 1) {
+      feedObject.item[i][items[i].childNodes[j].nodeName] = items[i].childNodes[j].textContent;
+    }
+  }
+
   return feedObject;
 };
