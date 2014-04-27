@@ -123,7 +123,7 @@ function show(i, feed) {
   return new Promise(function (resolve, reject) {
     var obj = feedObj = feed || feedObj
       , storyObj = obj.story ? obj.story[i] : obj.item[i]
-      , rtl = obj.title ? obj.title.toLowerCase().indexOf('arabic') > -1 : false
+      , rtl = /[\u0600-\u06FF\u0750-\u077F]/.test(feedObj.title) || feedObj.title.toLowerCase().indexOf('arabic') > -1
       , current = $('<div/>', {
         addClass: 'current'
       });

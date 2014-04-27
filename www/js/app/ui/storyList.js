@@ -7,7 +7,7 @@ var config = require('../config')
 function show(feedObj, forceActive) {
 	return new Promise(function(resolve, reject) {
     var obj = feedObj.story ? feedObj.story : feedObj.item
-      , rtl = feedObj.title ? feedObj.title.toLowerCase().indexOf('arabic') > -1 : false
+      , rtl = /[\u0600-\u06FF\u0750-\u077F]/.test(feedObj.title) || feedObj.title.toLowerCase().indexOf('arabic') > -1
       , fs = config.fs.toURL()
       , path = fs + (fs.substr(-1) === '/' ? '' : '/')
       , pullTop = $('<div/>', {
