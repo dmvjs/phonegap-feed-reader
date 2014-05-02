@@ -1,4 +1,5 @@
-plugins/*
 platforms/*
+!platforms/.*
 merges/*
-.idea
+!merges/.*
+.idea/**/*

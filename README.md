@@ -1,6 +1,17 @@
 phonegap-feed-reader
 ====================
 
+To use:
+
+clone this repo
+(change directory into the 'phonegap-feed-reader' folder once complete)
+
+add the platform
+(should install plugins for ios)
+cordova platform add ios
+
+
+
 a PhoneGap Feed Reader (only iOS & Android so far but this will support FFOS, Windows and BBOS if all goes well)
 
 This feed reader application displays RSSish xml feeds by converting them to JSON objects which are stored locally on a users device using the PhoneGap File API. Feeds are comprised of stories which have titles, text, images, etc. The images for each feed are stored locally as well for offline viewing. Some images are used across feeds so this feed reader only downloads images once and uses JS promises to check if they exist already before downloading again. 
