@@ -1,1 +1,150 @@
-{"prepare_queue":{"installed":[],"uninstalled":[]},"config_munge":{"framework":{"SystemConfiguration.framework":{"false":1,"true":1},"CoreData.framework":{"false":1},"AdSupport.framework":{"false":1},"libz.dylib":{"false":1},"Social.framework":{"false":1},"MessageUI.framework":{"false":1},"AudioToolbox.framework":{"true":1},"AssetsLibrary.framework":{"false":2},"MobileCoreServices.framework":{"false":1},"CoreGraphics.framework":{"false":2}},"config.xml":{"/*":{"<feature name=\"UniversalAnalytics\"><param name=\"ios-package\" value=\"UniversalAnalyticsPlugin\" /></feature>":1,"<feature name=\"SocialSharing\"><param name=\"ios-package\" value=\"SocialSharing\" /></feature>":1,"<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>":1,"<feature name=\"Notification\"><param name=\"ios-package\" value=\"CDVNotification\" /></feature>":1,"<feature name=\"File\"><param name=\"ios-package\" value=\"CDVFile\" /></feature>":1,"<feature name=\"FileTransfer\"><param name=\"ios-package\" value=\"CDVFileTransfer\" /></feature>":1,"<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>":1,"<feature name=\"NetworkStatus\"><param name=\"ios-package\" value=\"CDVConnection\" /></feature>":1,"<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>":1}}},"installed_plugins":{"com.danielcwilson.plugins.googleanalytics":{"PACKAGE_NAME":"com.ceip.carnegie"},"nl.x-services.plugins.socialsharing":{"PACKAGE_NAME":"com.ceip.carnegie"},"org.apache.cordova.device":{"PACKAGE_NAME":"com.ceip.carnegie"},"org.apache.cordova.dialogs":{"PACKAGE_NAME":"com.ceip.carnegie"},"org.apache.cordova.file":{"PACKAGE_NAME":"com.ceip.carnegie"},"org.apache.cordova.file-transfer":{"PACKAGE_NAME":"com.ceip.carnegie"},"org.apache.cordova.inappbrowser":{"PACKAGE_NAME":"com.ceip.carnegie"},"org.apache.cordova.network-information":{"PACKAGE_NAME":"com.ceip.carnegie"},"org.apache.cordova.splashscreen":{"PACKAGE_NAME":"com.ceip.carnegie"}},"dependent_plugins":{}}
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "framework": {
+                "parents": {
+                    "SystemConfiguration.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        },
+                        {
+                            "xml": "true",
+                            "count": 1
+                        }
+                    ],
+                    "CoreData.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "AdSupport.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "libz.dylib": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "Social.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "MessageUI.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "AudioToolbox.framework": [
+                        {
+                            "xml": "true",
+                            "count": 1
+                        }
+                    ],
+                    "AssetsLibrary.framework": [
+                        {
+                            "xml": "false",
+                            "count": 2
+                        }
+                    ],
+                    "MobileCoreServices.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "CoreGraphics.framework": [
+                        {
+                            "xml": "false",
+                            "count": 2
+                        }
+                    ]
+                }
+            },
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"UniversalAnalytics\"><param name=\"ios-package\" value=\"UniversalAnalyticsPlugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SocialSharing\"><param name=\"ios-package\" value=\"SocialSharing\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Notification\"><param name=\"ios-package\" value=\"CDVNotification\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"File\"><param name=\"ios-package\" value=\"CDVFile\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"FileTransfer\"><param name=\"ios-package\" value=\"CDVFileTransfer\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"ios-package\" value=\"CDVConnection\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "com.danielcwilson.plugins.googleanalytics": {
+            "PACKAGE_NAME": "com.ceip.carnegie"
+        },
+        "nl.x-services.plugins.socialsharing": {
+            "PACKAGE_NAME": "com.ceip.carnegie"
+        },
+        "org.apache.cordova.device": {
+            "PACKAGE_NAME": "com.ceip.carnegie"
+        },
+        "org.apache.cordova.dialogs": {
+            "PACKAGE_NAME": "com.ceip.carnegie"
+        },
+        "org.apache.cordova.file": {
+            "PACKAGE_NAME": "com.ceip.carnegie"
+        },
+        "org.apache.cordova.file-transfer": {
+            "PACKAGE_NAME": "com.ceip.carnegie"
+        },
+        "org.apache.cordova.inappbrowser": {
+            "PACKAGE_NAME": "com.ceip.carnegie"
+        },
+        "org.apache.cordova.network-information": {
+            "PACKAGE_NAME": "com.ceip.carnegie"
+        },
+        "org.apache.cordova.splashscreen": {
+            "PACKAGE_NAME": "com.ceip.carnegie"
+        }
+    },
+    "dependent_plugins": {}
+}
