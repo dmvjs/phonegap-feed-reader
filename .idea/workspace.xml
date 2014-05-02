@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f32db74-e819-40a1-a8f2-fe9dad9cbebb" name="Default" comment="setting same timeout for iOS &amp; Android&#10;link friendly">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/ios.json" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/org.apache.cordova.inappbrowser/src/ios/CDVInAppBrowser.m" afterPath="$PROJECT_DIR$/plugins/org.apache.cordova.inappbrowser/src/ios/CDVInAppBrowser.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/org.apache.cordova.splashscreen/src/ios/CDVSplashScreen.m" afterPath="$PROJECT_DIR$/plugins/org.apache.cordova.splashscreen/src/ios/CDVSplashScreen.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
+    <list default="true" id="2f32db74-e819-40a1-a8f2-fe9dad9cbebb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="carnegie-feed-reader.iws" />
@@ -590,7 +585,11 @@
       <created>1398619105440</created>
       <updated>1398619105440</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="changes for faster building&#10;including edited plugin files">
+      <created>1398997343819</created>
+      <updated>1398997343819</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -648,7 +647,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="compiled app.js" />
     <MESSAGE value="added a reject handler" />
     <MESSAGE value="adding &amp; removing listeners so that the next &amp; previous header buttons don't get to a place where no story exists" />
     <MESSAGE value="new universal urls and new feed" />
@@ -673,7 +671,8 @@
     <MESSAGE value="better checking for arabic titles (slightly)" />
     <MESSAGE value="new xml feeds" />
     <MESSAGE value="recompiled app.js&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="recompiled app.js&#10;" />
+    <MESSAGE value="changes for faster building&#10;including edited plugin files" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes for faster building&#10;including edited plugin files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
