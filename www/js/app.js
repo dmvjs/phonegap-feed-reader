@@ -1063,12 +1063,12 @@ if (browser) {
         if (config.track && analytics) {
           analytics.trackEvent('Story', 'Link', 'Page Anchor Clicked');
         }
-        offset = $('.current').find(href).offset();
+        /*offset = $('.current').find(href).offset();
         $('.current').animate({
           scrollTop: offset.top - 60,
           scrollLeft: offset.left
         });
-        return
+        return*/
       } else {
         e.preventDefault();
         return false;
