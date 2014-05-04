@@ -4,5 +4,5 @@ platforms/.DS_Store
 merges/*
 !merges/.*
 plugins/ios.json
-.idea/**/*
+.idea
 workspace.xml
