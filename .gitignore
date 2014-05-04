@@ -5,3 +5,4 @@ merges/*
 !merges/.*
 plugins/ios.json
 .idea/**/*
+.idea/workspace.xml'
