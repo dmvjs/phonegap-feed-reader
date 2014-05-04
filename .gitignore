@@ -1,5 +1,6 @@
 platforms/*
 !platforms/.*
+platforms/.DS_Store
 merges/*
 !merges/.*
 plugins/ios.json
