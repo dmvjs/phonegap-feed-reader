@@ -17,7 +17,7 @@ if (share && plugins && plugins.socialsharing) {
           window.plugins.socialsharing.share(
               'I\'m currently reading ' + (feedObj.story ? feedObj.story[index].title : feedObj.item[index].title),
             (feedObj.story ? feedObj.story[index].title : feedObj.item[index].title),
-              (feedObj.story ? (feedObj.story[index].image) : (feedObj.item[index].title)) || config.missingImage,
+              (feedObj.story ? (feedObj.story[index].image) : (feedObj.item[index].image)) || config.missingImage,
             encodeURI(feedObj.story ? feedObj.story[index].link : feedObj.item[index].link)
           );
           if (config.track && analytics) {
