@@ -2,4 +2,5 @@ platforms/*
 !platforms/.*
 merges/*
 !merges/.*
+plugins/ios.json
 .idea/**/*
