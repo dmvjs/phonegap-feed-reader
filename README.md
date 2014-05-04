@@ -22,6 +22,8 @@ browserify index.js -o app.js
 
 cordova build ios
 
+# to add start screens
+
 
 
 
