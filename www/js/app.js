@@ -475,7 +475,7 @@ $(document)
 				showMenu();
 			}
 			ui.removeClass('active');
-		}, 0);
+		}, 100);
 	})
 	.on('touchstart', 'header .story .back', function (e) {
 		$(e.currentTarget).addClass('active');
@@ -485,7 +485,7 @@ $(document)
 		setTimeout(function () {
 			showStoryList();
 			ui.removeClass('active');
-		}, 0);
+		}, 100);
 	});
 
 addListeners();
