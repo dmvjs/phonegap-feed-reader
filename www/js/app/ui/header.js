@@ -2,7 +2,11 @@
 var story = require('./story');
 
 $(document)
-	.on('touchend', 'header .show-menu', function () {
+	.on('touchstart', 'header .show-menu', function (e) {
+		$(e.currentTarget).addClass('active');
+	})
+	.on('touchend', 'header .show-menu', function (e) {
+		var ui = $(e.currentTarget);
 		setTimeout(function () {
 			$('header').addClass('stay');
 			if ($('section.menu').hasClass('active')) {
@@ -10,11 +14,17 @@ $(document)
 			} else {
 				showMenu();
 			}
+			ui.removeClass('active');
 		}, 0);
 	})
-	.on('touchend', 'header .story .back', function () {
+	.on('touchstart', 'header .story .back', function (e) {
+		$(e.currentTarget).addClass('active');
+	})
+	.on('touchend', 'header .story .back', function (e) {
+		var ui = $(e.currentTarget);
 		setTimeout(function () {
 			showStoryList();
+			ui.removeClass('active');
 		}, 0);
 	});
 
@@ -32,21 +42,29 @@ function removeListeners() {
 
 function removeListener(className) {
   if (className === 'previous' || className === 'next') {
-    $(document).off('touchstart', 'header .story .btn-group .' + className);
+    $(document)
+			.off('touchstart', 'header .story .btn-group .' + className)
+			.off('touchend', 'header .story .btn-group .' + className);
   }
 }
 
 function addListener(className) {
   if (className === 'previous' || className === 'next') {
-    $(document).on('touchstart', 'header .story .btn-group .' + className, function () {
-      removeListeners();
-      setTimeout(function () {
-        story[className]();
-        setTimeout(function () {
-          addListeners();
-        }, 350)
-      }, 0);
-    })
+    $(document)
+			.on('touchstart', 'header .story .btn-group .' + className, function (e) {
+				$(e.currentTarget).addClass('active');
+			})
+			.on('touchend', 'header .story .btn-group .' + className, function (e) {
+				var ui = $(e.currentTarget);
+				removeListeners();
+				setTimeout(function () {
+					story[className]();
+					setTimeout(function () {
+						addListeners();
+						ui.removeClass('active');
+					}, 350)
+				}, 0);
+			})
   }
 }
 

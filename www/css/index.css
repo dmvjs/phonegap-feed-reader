@@ -183,11 +183,11 @@ header .menu .show-menu {
     background-image: url('../img/header-btn-menu-menu.png');
 }
 
-header .story-list .show-menu:active {
+header .story-list .show-menu.active {
     background-image: url('../img/header-btn-story-menu-active.png');
 }
 
-header .menu .show-menu:active {
+header .menu .show-menu.active {
     background-image: url('../img/header-btn-menu-menu-active.png');
 }
 
@@ -211,7 +211,7 @@ header .story .back {
     background-size: auto 44px;
 }
 
-header .story .back:active {
+header .story .back.active {
     background-image: url('../img/header-btn-story-back-active.png');
 }
 
@@ -232,8 +232,8 @@ header .story .btn-group .next {
     background-size: auto 44px;
 }
 
-header .story .btn-group .previous:active,
-header .story .btn-group .next:active {
+header .story .btn-group .previous.active,
+header .story .btn-group .next.active {
     background-image: url('../img/header-btn-story-arrow-active.png');
 }
 
@@ -969,7 +969,7 @@ footer.story-footer.active {
     transition: left 350ms;
 }
 
-footer.story-footer button.share {
+footer.story-footer a.share {
     height: 44px;
     width: 44px;
     float: left;
@@ -979,16 +979,16 @@ footer.story-footer button.share {
     background-size: auto 44px;
 }
 
-footer.story-footer button.share:active {
+footer.story-footer a.share.active {
     background-image: url('../img/footer-story-share-active.png');
 }
 
-footer.story-footer button.share.disabled,
-footer.story-footer button.share.disabled:active {
+footer.story-footer a.share.disabled,
+footer.story-footer a.share.disabled.active {
     background-image: none;
 }
 
-footer.story-footer button.text {
+footer.story-footer a.text {
     height: 44px;
     width: 44px;
     float: left;
@@ -1000,7 +1000,7 @@ footer.story-footer button.text {
     background-size: auto 44px;
 }
 
-footer.story-footer button.text:active {
+footer.story-footer a.text.active {
     background-image: url('../img/footer-story-text-active.png');
 }
 
