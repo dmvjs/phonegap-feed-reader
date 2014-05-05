@@ -462,7 +462,11 @@ module.exports = function () {
 var story = require('./story');
 
 $(document)
-	.on('touchend', 'header .show-menu', function () {
+	.on('touchstart', 'header .show-menu', function (e) {
+		$(e.currentTarget).addClass('active');
+	})
+	.on('touchend', 'header .show-menu', function (e) {
+		var ui = $(e.currentTarget);
 		setTimeout(function () {
 			$('header').addClass('stay');
 			if ($('section.menu').hasClass('active')) {
@@ -470,11 +474,17 @@ $(document)
 			} else {
 				showMenu();
 			}
+			ui.removeClass('active');
 		}, 0);
 	})
-	.on('touchend', 'header .story .back', function () {
+	.on('touchstart', 'header .story .back', function (e) {
+		$(e.currentTarget).addClass('active');
+	})
+	.on('touchend', 'header .story .back', function (e) {
+		var ui = $(e.currentTarget);
 		setTimeout(function () {
 			showStoryList();
+			ui.removeClass('active');
 		}, 0);
 	});
 
@@ -492,21 +502,29 @@ function removeListeners() {
 
 function removeListener(className) {
   if (className === 'previous' || className === 'next') {
-    $(document).off('touchstart', 'header .story .btn-group .' + className);
+    $(document)
+			.off('touchstart', 'header .story .btn-group .' + className)
+			.off('touchend', 'header .story .btn-group .' + className);
   }
 }
 
 function addListener(className) {
   if (className === 'previous' || className === 'next') {
-    $(document).on('touchstart', 'header .story .btn-group .' + className, function () {
-      removeListeners();
-      setTimeout(function () {
-        story[className]();
-        setTimeout(function () {
-          addListeners();
-        }, 350)
-      }, 0);
-    })
+    $(document)
+			.on('touchstart', 'header .story .btn-group .' + className, function (e) {
+				$(e.currentTarget).addClass('active');
+			})
+			.on('touchend', 'header .story .btn-group .' + className, function (e) {
+				var ui = $(e.currentTarget);
+				removeListeners();
+				setTimeout(function () {
+					story[className]();
+					setTimeout(function () {
+						addListeners();
+						ui.removeClass('active');
+					}, 350)
+				}, 0);
+			})
   }
 }
 
@@ -1023,31 +1041,38 @@ var config = require('../config')
   , index;
 
 if (share && plugins && plugins.socialsharing) {
-  $(document).on('touchstart', 'footer.story-footer .share', function (e) {
-    if ($(e.currentTarget).hasClass('disabled') === false) {
-      setTimeout(function () {
-        hideTextResize();
-        if (typeof index !== 'undefined' && feedObj && navigator.connection.type !== 'none') {
-          window.plugins.socialsharing.share(
-              'I\'m currently reading ' + (feedObj.story ? feedObj.story[index].title : feedObj.item[index].title),
-            (feedObj.story ? feedObj.story[index].title : feedObj.item[index].title),
-              (feedObj.story ? (feedObj.story[index].image) : (feedObj.item[index].image)) || config.missingImage,
-            encodeURI(feedObj.story ? feedObj.story[index].link : feedObj.item[index].link)
-          );
-          if (config.track && analytics) {
-            analytics.trackEvent('Story', 'Share', 'Share Clicked');
-          }
-        } else {
-          if (navigator.connection.type === 'none') {
-            notify.alert(config.connectionMessage);
-          } else {
-            notify.alert('Sorry, a problem occurred while trying to share this post')
-          }
-
-        }
-      }, 0)
-    }
-  })
+  $(document)
+		.on('touchstart', 'footer.story-footer .share', function (e) {
+			$(e.currentTarget).addClass('active');
+		})
+		.on('touchend', 'footer.story-footer .share', function (e) {
+			var ui = $(e.currentTarget);
+			if ($(e.currentTarget).hasClass('disabled') === false) {
+				setTimeout(function () {
+					hideTextResize();
+					if (typeof index !== 'undefined' && feedObj && navigator.connection.type !== 'none') {
+						window.plugins.socialsharing.share(
+								'I\'m currently reading ' + (feedObj.story ? feedObj.story[index].title : feedObj.item[index].title),
+							(feedObj.story ? feedObj.story[index].title : feedObj.item[index].title),
+								(feedObj.story ? (feedObj.story[index].image) : (feedObj.item[index].image)) || config.missingImage,
+							encodeURI(feedObj.story ? feedObj.story[index].link : feedObj.item[index].link)
+						);
+						if (config.track && analytics) {
+							analytics.trackEvent('Story', 'Share', 'Share Clicked');
+						}
+					} else {
+						if (navigator.connection.type === 'none') {
+							notify.alert(config.connectionMessage);
+						} else {
+							notify.alert('Sorry, a problem occurred while trying to share this post')
+						}
+					}
+					ui.removeClass('active');
+				}, 0)
+			} else {
+				ui.removeClass('active');
+			}
+		})
 } else {
   //remove footer & make story window taller, sharing not supported
   $('footer.story-footer button.share').addClass('disabled');
@@ -1063,12 +1088,6 @@ if (browser) {
         if (config.track && analytics) {
           analytics.trackEvent('Story', 'Link', 'Page Anchor Clicked');
         }
-        /*offset = $('.current').find(href).offset();
-        $('.current').animate({
-          scrollTop: offset.top - 60,
-          scrollLeft: offset.left
-        });
-        return*/
       } else {
         e.preventDefault();
         return false;
@@ -1095,14 +1114,20 @@ if (browser) {
   // handle systems with no inapp browser, or don't...
 }
 
-$(document).on('touchstart', 'footer.story-footer .text', function () {
-  setTimeout(function () {
-    $('.text-resize').toggleClass('active');
-    if (config.track && analytics) {
-      analytics.trackEvent('Story', 'UI', 'Text Resize Opened', 10);
-    }
-  }, 0)
-});
+$(document)
+	.on('touchstart', 'footer.story-footer .text', function (e) {
+		$(e.currentTarget).addClass('active');
+	})
+	.on('touchend', 'footer.story-footer .text', function (e) {
+		var ui = $(e.currentTarget);
+		setTimeout(function () {
+			$('.text-resize').toggleClass('active');
+			if (config.track && analytics) {
+				analytics.trackEvent('Story', 'UI', 'Text Resize Opened', 10);
+			}
+			ui.removeClass('active');
+		}, 0)
+	});
 
 function hideTextResize() {
   $('.text-resize').removeClass('active');
