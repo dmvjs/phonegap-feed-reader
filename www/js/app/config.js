@@ -15,39 +15,25 @@ module.exports = {
 		title: 'Analysis'
 		, sub: 'Read Offline'
 		, feeds: [{
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-english-dc.xml'
+			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
 			, name: 'Latest Analysis'
+			, filename: 'mobile-global.json'
+			, type: 'json'
 			, required: true
 		}, {
 			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-Top5.xml'
 			, name: 'Most Popular'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
-			, name: 'Comment Test'
-			, filename: 'comment-test.json'
-			, type: 'json'
 		}]
 	}, {
 		title: 'Languages'
 		, sub: 'Read Offline'
 		, feeds: [{
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-english.xml'
+			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
 			, name: 'English'
+			, filename: 'mobile-global.json'
+			, type: 'json'
+			, required: true
 		}, {
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-russian.xml'
-			, name: 'Русский'
-		}, {
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-chinese.xml'
-			, name: '中文'
-		}, {
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-arabic.xml'
-			, name: 'عربي'
-			, dir: 'rtl'
-		}]
-	}, {
-		title: 'Lang. JSON'
-		, sub: 'Read Offline'
-		, feeds: [{
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&lang=ru'
 			, name: 'Русский'
 			, type: 'json'
@@ -65,44 +51,7 @@ module.exports = {
 			, filename: 'arabic-json-test.json'
 		}]
 	}, {
-		title: 'Lang. XML'
-		, sub: 'Read Offline'
-		, feeds: [{
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobal&lang=ru'
-			, name: 'Русский'
-			, filename: 'russian-test.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobal&lang=zh'
-			, name: '中文'
-			, filename: 'china-test.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobal&lang=ar'
-			, name: 'عربي'
-			, dir: 'rtl'
-			, filename: 'arabic-test.json'
-		}]
-	}, {
 		title: 'Global Centers'
-		, sub: 'Read Offline'
-		, feeds: [{
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-beijing.xml'
-			, name: 'Beijing'
-		}, {
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-beirut.xml'
-			, name: 'Beirut'
-		}, {
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-brussels.xml'
-			, name: 'Brussels'
-		}, {
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-moscow.xml'
-			, name: 'Moscow'
-		}, {
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-english-dc.xml'
-			, name: 'Washington'
-			, required: true
-		}]
-	}, {
-		title: 'Global Centers JSON'
 		, sub: 'Read Offline'
 		, feeds: [{
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=beijing'
@@ -124,26 +73,12 @@ module.exports = {
 			, name: 'Moscow'
 			, type: 'json'
 			, filename: 'moscow-json-test.json'
-		}]
-	}, {
-		title: 'Global Centers XML'
-		, sub: 'Read Offline'
-		, feeds: [{
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobal&center=beijing'
-			, name: 'Beijing'
-			, filename: 'beijing-test.json'
 		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobal&center=beirut'
-			, name: 'Beirut'
-			, filename: 'beirut-test.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobal&center=brussels'
-			, name: 'Brussels'
-			, filename: 'brussels-test.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobal&center=moscow'
-			, name: 'Moscow'
-			, filename: 'moscow-test.json'
+			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
+			, name: 'Washington D.C.'
+			, filename: 'mobile-global.json'
+			, type: 'json'
+			, required: true
 		}]
 	}, {
 		title: 'Blogs'
