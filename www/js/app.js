@@ -239,39 +239,25 @@ module.exports = {
 		title: 'Analysis'
 		, sub: 'Read Offline'
 		, feeds: [{
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-english-dc.xml'
+			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
 			, name: 'Latest Analysis'
+			, filename: 'mobile-global.json'
+			, type: 'json'
 			, required: true
 		}, {
 			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-Top5.xml'
 			, name: 'Most Popular'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
-			, name: 'Comment Test'
-			, filename: 'comment-test.json'
-			, type: 'json'
 		}]
 	}, {
 		title: 'Languages'
 		, sub: 'Read Offline'
 		, feeds: [{
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-english.xml'
+			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
 			, name: 'English'
+			, filename: 'mobile-global.json'
+			, type: 'json'
+			, required: true
 		}, {
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-russian.xml'
-			, name: 'Русский'
-		}, {
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-chinese.xml'
-			, name: '中文'
-		}, {
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-arabic.xml'
-			, name: 'عربي'
-			, dir: 'rtl'
-		}]
-	}, {
-		title: 'Lang. JSON'
-		, sub: 'Read Offline'
-		, feeds: [{
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&lang=ru'
 			, name: 'Русский'
 			, type: 'json'
@@ -289,44 +275,7 @@ module.exports = {
 			, filename: 'arabic-json-test.json'
 		}]
 	}, {
-		title: 'Lang. XML'
-		, sub: 'Read Offline'
-		, feeds: [{
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobal&lang=ru'
-			, name: 'Русский'
-			, filename: 'russian-test.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobal&lang=zh'
-			, name: '中文'
-			, filename: 'china-test.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobal&lang=ar'
-			, name: 'عربي'
-			, dir: 'rtl'
-			, filename: 'arabic-test.json'
-		}]
-	}, {
 		title: 'Global Centers'
-		, sub: 'Read Offline'
-		, feeds: [{
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-beijing.xml'
-			, name: 'Beijing'
-		}, {
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-beirut.xml'
-			, name: 'Beirut'
-		}, {
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-brussels.xml'
-			, name: 'Brussels'
-		}, {
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-moscow.xml'
-			, name: 'Moscow'
-		}, {
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-english-dc.xml'
-			, name: 'Washington'
-			, required: true
-		}]
-	}, {
-		title: 'Global Centers JSON'
 		, sub: 'Read Offline'
 		, feeds: [{
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=beijing'
@@ -348,26 +297,12 @@ module.exports = {
 			, name: 'Moscow'
 			, type: 'json'
 			, filename: 'moscow-json-test.json'
-		}]
-	}, {
-		title: 'Global Centers XML'
-		, sub: 'Read Offline'
-		, feeds: [{
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobal&center=beijing'
-			, name: 'Beijing'
-			, filename: 'beijing-test.json'
 		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobal&center=beirut'
-			, name: 'Beirut'
-			, filename: 'beirut-test.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobal&center=brussels'
-			, name: 'Brussels'
-			, filename: 'brussels-test.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobal&center=moscow'
-			, name: 'Moscow'
-			, filename: 'moscow-test.json'
+			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
+			, name: 'Washington D.C.'
+			, filename: 'mobile-global.json'
+			, type: 'json'
+			, required: true
 		}]
 	}, {
 		title: 'Blogs'
@@ -513,17 +448,17 @@ function addListener(className) {
     $(document)
 			.on('touchstart', 'header .story .btn-group .' + className, function (e) {
 				$(e.currentTarget).addClass('active');
+				setTimeout(function () {
+					story[className]();
+				}, 0);
 			})
 			.on('touchend', 'header .story .btn-group .' + className, function (e) {
 				var ui = $(e.currentTarget);
 				removeListeners();
 				setTimeout(function () {
-					story[className]();
-					setTimeout(function () {
-						addListeners();
-						ui.removeClass('active');
-					}, 350)
-				}, 0);
+					addListeners();
+					ui.removeClass('active');
+				}, 350)
 			})
   }
 }
@@ -643,11 +578,11 @@ function friendlyDate (obj) {
 				}
 				doesFileExist(filename).then(function () {
 					getFileContents(filename).then(function (contents) {
-            var obj = (JSON.parse(contents.target._result));
+						var obj = (JSON.parse(contents.target._result));
 						update(filename, 'Updated: ' + friendlyDate(obj));
 						box.addClass('checked');
-					}, function (e){console.log(e)})
-				}, function (e){console.log(e)})
+					}, function (e){console.log(e)});
+				}, function (e){console.log(e)});
 
 				list.append(item);
 			})
@@ -702,7 +637,7 @@ function friendlyDate (obj) {
 				notify.alert(config.connectionMessage);
 			}
 		}
-	})
+	});
 
 	$('a.menu-link.feed').on('click', function (e) {
 		var $check = $(e.currentTarget).find('.check');
@@ -714,7 +649,7 @@ function friendlyDate (obj) {
 		} else {
 			notify.alert(config.connectionMessage);
 		}
-	})
+	});
 
 	$('a.menu-link.link').on('click', function (e) {
 		e.preventDefault();
@@ -753,7 +688,7 @@ function get(id, loadOnly) {
 			});
 		}
 	}, function (error) {
-		console.log(error)
+		console.log(error);
 		notify.alert('There was an error processing the ' + access.getFeedNameFromId(id) + ' feed');
 	});
 }
@@ -784,7 +719,10 @@ module.exports = {
 	update: update
 };
 },{"../../io/doesFileExist":15,"../../io/getFileContents":19,"../../util/notify":30,"../access":1,"../config":2,"./header":4,"./storyList":9}],6:[function(require,module,exports){
-var access = require('../access');
+var access = require('../access')
+	, android = device.platform.toLowerCase === 'android'
+	, version = device.version.split('.');
+
 
 /**
  * requestAnimationFrame and cancel polyfill
@@ -812,7 +750,7 @@ var access = require('../access');
       window.cancelAnimationFrame = function(id) {
           clearTimeout(id);
       };
-}())
+}());
 
 
 /**
@@ -916,23 +854,22 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
      * @param   {Number}    height
      */
     Main.prototype.setHeight = function(height) {
-        if(Modernizr.csstransforms3d) {
+        if(android && version[0] === '2' && version[1] === '3') {
             this.container.style.transform = 'translate3d(0,'+height+'px,0) ';
             this.container.style.oTransform = 'translate3d(0,'+height+'px,0)';
             this.container.style.msTransform = 'translate3d(0,'+height+'px,0)';
             this.container.style.mozTransform = 'translate3d(0,'+height+'px,0)';
             this.container.style.webkitTransform = 'translate3d(0,'+height+'px,0) scale3d(1,1,1)';
-        }
-        else if(Modernizr.csstransforms) {
+        } else {
             this.container.style.transform = 'translate(0,'+height+'px) ';
             this.container.style.oTransform = 'translate(0,'+height+'px)';
             this.container.style.msTransform = 'translate(0,'+height+'px)';
             this.container.style.mozTransform = 'translate(0,'+height+'px)';
             this.container.style.webkitTransform = 'translate(0,'+height+'px)';
-        }
+        }/*
         else {
             this.container.style.top = height+"px";
-        }
+        }*/
     };
 
 
@@ -1033,12 +970,18 @@ module.exports = (function () {
 /*global module, require, $*/
 
 var config = require('../config')
-  , access = require('../access')
-  , notify = require('../../util/notify')
-  , share = ['ios', 'android', 'win32nt'].indexOf(device.platform.toLowerCase()) > -1
-  , browser = ['ios', 'android', 'blackberry 10', 'win32nt'].indexOf(device.platform.toLowerCase()) > -1
-  , feedObj
-  , index;
+	, access = require('../access')
+	, notify = require('../../util/notify')
+	, share = ['ios', 'android', 'win32nt'].indexOf(device.platform.toLowerCase()) > -1
+	, browser = ['ios', 'android', 'blackberry 10', 'win32nt'].indexOf(device.platform.toLowerCase()) > -1
+	, $story = $('section.story')
+	, slider = document.getElementById('text-resize-input')
+	, feedObj
+	, index;
+
+if (device.platform.toLowerCase() === 'android') {
+	$story.addClass('android');
+}
 
 if (share && plugins && plugins.socialsharing) {
   $(document)
@@ -1133,17 +1076,12 @@ function hideTextResize() {
   $('.text-resize').removeClass('active');
 }
 
-var slider = document.getElementById('text-resize-input');
 slider.onchange = function () {
   setTimeout(function () {
     var val = parseFloat(slider.value)
       , value = (slider.value - slider.min) / (slider.max - slider.min);
 
     config.storyFontSize = val;
-
-    if (config.track && analytics) {
-      analytics.trackEvent('Story', 'Share', 'Text Resize Event', 10);
-    }
 
     slider.style.backgroundImage = [
       '-webkit-gradient(',
@@ -1154,7 +1092,7 @@ slider.onchange = function () {
         'color-stop(' + value + ', #b8b7b8)',
       ')'
     ].join('');
-    $('section.story').css('font-size', val + 'em');
+    $story.css('font-size', val + 'em');
   }, 0)
 };
 
@@ -1288,15 +1226,14 @@ function next() {
   if (notLast()) {
     index += 1;
     var c = $('section.story .current')
-      , n = $('section.story .next')
-      , p = $('section.story .previous').remove();
+      , n = $('section.story .next');
 
-    track(feedObj.story ? feedObj.story[index].title : feedObj.item[index].title);
-
+    $('section.story .previous').remove();
     c.removeClass('current').addClass('previous');
     n.removeClass('next').addClass('current');
-    createNext();
     update();
+    createNext();
+    track(feedObj.story ? feedObj.story[index].title : feedObj.item[index].title);
   }
 }
 
@@ -1310,15 +1247,14 @@ function previous() {
   if (notFirst()) {
     index -= 1;
     var c = $('section.story .current')
-      , p = $('section.story .previous')
-      , n = $('section.story .next').remove();
+      , p = $('section.story .previous');
 
-    track(feedObj.story ? feedObj.story[index].title : feedObj.item[index].title);
-
+    $('section.story .next').remove();
     c.removeClass('current').addClass('next');
     p.removeClass('previous').addClass('current');
-    createPrevious();
     update();
+    createPrevious();
+    track(feedObj.story ? feedObj.story[index].title : feedObj.item[index].title);
   }
 }
 
