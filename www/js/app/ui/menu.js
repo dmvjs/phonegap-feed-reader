@@ -69,11 +69,11 @@ function friendlyDate (obj) {
 				}
 				doesFileExist(filename).then(function () {
 					getFileContents(filename).then(function (contents) {
-            var obj = (JSON.parse(contents.target._result));
+						var obj = (JSON.parse(contents.target._result));
 						update(filename, 'Updated: ' + friendlyDate(obj));
 						box.addClass('checked');
-					}, function (e){console.log(e)})
-				}, function (e){console.log(e)})
+					}, function (e){console.log(e)});
+				}, function (e){console.log(e)});
 
 				list.append(item);
 			})
@@ -128,7 +128,7 @@ function friendlyDate (obj) {
 				notify.alert(config.connectionMessage);
 			}
 		}
-	})
+	});
 
 	$('a.menu-link.feed').on('click', function (e) {
 		var $check = $(e.currentTarget).find('.check');
@@ -140,7 +140,7 @@ function friendlyDate (obj) {
 		} else {
 			notify.alert(config.connectionMessage);
 		}
-	})
+	});
 
 	$('a.menu-link.link').on('click', function (e) {
 		e.preventDefault();
@@ -179,7 +179,7 @@ function get(id, loadOnly) {
 			});
 		}
 	}, function (error) {
-		console.log(error)
+		console.log(error);
 		notify.alert('There was an error processing the ' + access.getFeedNameFromId(id) + ' feed');
 	});
 }
