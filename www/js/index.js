@@ -23,18 +23,17 @@ var connection = require('./util/connection')
 module.exports = (function () {
 		document.addEventListener('online', connection.online, false);
 		document.addEventListener('offline', connection.offline, false);
-		
-    document.addEventListener('deviceready', appReady, false);
+		document.addEventListener('deviceready', appReady, false);
 
-    function appReady() {
-    	//setTimeout(function () {
+		function appReady() {
+			//setTimeout(function () {
 				$(function () {
 					if (config.track && analytics) {
 						analytics.startTrackerWithId('UA-31877-29');
 						analytics.trackEvent('Init', 'Load', 'App Started', 10);
 					}
 					require('./init');
-				})
-    	//}, 6000)
-    }
+				});
+			//}, 6000)
+		}
 }());
