@@ -1,4 +1,7 @@
-var access = require('../access');
+var access = require('../access')
+	, android = device.platform.toLowerCase === 'android'
+	, version = device.version.split('.');
+
 
 /**
  * requestAnimationFrame and cancel polyfill
@@ -26,7 +29,7 @@ var access = require('../access');
       window.cancelAnimationFrame = function(id) {
           clearTimeout(id);
       };
-}())
+}());
 
 
 /**
@@ -130,23 +133,22 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
      * @param   {Number}    height
      */
     Main.prototype.setHeight = function(height) {
-        if(Modernizr.csstransforms3d) {
-            this.container.style.transform = 'translate3d(0,'+height+'px,0) ';
-            this.container.style.oTransform = 'translate3d(0,'+height+'px,0)';
-            this.container.style.msTransform = 'translate3d(0,'+height+'px,0)';
-            this.container.style.mozTransform = 'translate3d(0,'+height+'px,0)';
-            this.container.style.webkitTransform = 'translate3d(0,'+height+'px,0) scale3d(1,1,1)';
-        }
-        else if(Modernizr.csstransforms) {
-            this.container.style.transform = 'translate(0,'+height+'px) ';
-            this.container.style.oTransform = 'translate(0,'+height+'px)';
-            this.container.style.msTransform = 'translate(0,'+height+'px)';
-            this.container.style.mozTransform = 'translate(0,'+height+'px)';
-            this.container.style.webkitTransform = 'translate(0,'+height+'px)';
-        }
+        if(android && version[0] === '2') {
+	        this.container.style.transform = 'translate(0,'+height+'px) ';
+	        this.container.style.oTransform = 'translate(0,'+height+'px)';
+	        this.container.style.msTransform = 'translate(0,'+height+'px)';
+	        this.container.style.mozTransform = 'translate(0,'+height+'px)';
+	        this.container.style.webkitTransform = 'translate(0,'+height+'px)';
+        } else {
+	        this.container.style.transform = 'translate3d(0,'+height+'px,0) ';
+	        this.container.style.oTransform = 'translate3d(0,'+height+'px,0)';
+	        this.container.style.msTransform = 'translate3d(0,'+height+'px,0)';
+	        this.container.style.mozTransform = 'translate3d(0,'+height+'px,0)';
+	        this.container.style.webkitTransform = 'translate3d(0,'+height+'px,0) scale3d(1,1,1)';
+        }/*
         else {
             this.container.style.top = height+"px";
-        }
+        }*/
     };
 
 
