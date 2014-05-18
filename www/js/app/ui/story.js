@@ -1,12 +1,18 @@
 /*global module, require, $*/
 
 var config = require('../config')
-  , access = require('../access')
-  , notify = require('../../util/notify')
-  , share = ['ios', 'android', 'win32nt'].indexOf(device.platform.toLowerCase()) > -1
-  , browser = ['ios', 'android', 'blackberry 10', 'win32nt'].indexOf(device.platform.toLowerCase()) > -1
-  , feedObj
-  , index;
+	, access = require('../access')
+	, notify = require('../../util/notify')
+	, share = ['ios', 'android', 'win32nt'].indexOf(device.platform.toLowerCase()) > -1
+	, browser = ['ios', 'android', 'blackberry 10', 'win32nt'].indexOf(device.platform.toLowerCase()) > -1
+	, $story = $('section.story')
+	, slider = document.getElementById('text-resize-input')
+	, feedObj
+	, index;
+
+if (device.platform.toLowerCase() === 'android') {
+	$story.addClass('android');
+}
 
 if (share && plugins && plugins.socialsharing) {
   $(document)
@@ -48,8 +54,7 @@ if (share && plugins && plugins.socialsharing) {
 
 if (browser) {
   $(document).on('click', 'section.story .current a', function (e) {
-    var href = $(e.currentTarget).attr('href')
-      , offset;
+    var href = $(e.currentTarget).attr('href');
 
     if (href.substr(0, 1) === '#') {
       if ($('.current').find(href)) {
@@ -101,17 +106,12 @@ function hideTextResize() {
   $('.text-resize').removeClass('active');
 }
 
-var slider = document.getElementById('text-resize-input');
 slider.onchange = function () {
   setTimeout(function () {
     var val = parseFloat(slider.value)
       , value = (slider.value - slider.min) / (slider.max - slider.min);
 
     config.storyFontSize = val;
-
-    if (config.track && analytics) {
-      analytics.trackEvent('Story', 'Share', 'Text Resize Event', 10);
-    }
 
     slider.style.backgroundImage = [
       '-webkit-gradient(',
@@ -122,7 +122,7 @@ slider.onchange = function () {
         'color-stop(' + value + ', #b8b7b8)',
       ')'
     ].join('');
-    $('section.story').css('font-size', val + 'em');
+    $story.css('font-size', val + 'em');
   }, 0)
 };
 
@@ -256,15 +256,14 @@ function next() {
   if (notLast()) {
     index += 1;
     var c = $('section.story .current')
-      , n = $('section.story .next')
-      , p = $('section.story .previous').remove();
+      , n = $('section.story .next');
 
-    track(feedObj.story ? feedObj.story[index].title : feedObj.item[index].title);
-
+    $('section.story .previous').remove();
     c.removeClass('current').addClass('previous');
     n.removeClass('next').addClass('current');
-    createNext();
     update();
+    createNext();
+    track(feedObj.story ? feedObj.story[index].title : feedObj.item[index].title);
   }
 }
 
@@ -278,15 +277,14 @@ function previous() {
   if (notFirst()) {
     index -= 1;
     var c = $('section.story .current')
-      , p = $('section.story .previous')
-      , n = $('section.story .next').remove();
+      , p = $('section.story .previous');
 
-    track(feedObj.story ? feedObj.story[index].title : feedObj.item[index].title);
-
+    $('section.story .next').remove();
     c.removeClass('current').addClass('next');
     p.removeClass('previous').addClass('current');
-    createPrevious();
     update();
+    createPrevious();
+    track(feedObj.story ? feedObj.story[index].title : feedObj.item[index].title);
   }
 }
 
