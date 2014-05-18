@@ -53,17 +53,17 @@ function addListener(className) {
     $(document)
 			.on('touchstart', 'header .story .btn-group .' + className, function (e) {
 				$(e.currentTarget).addClass('active');
+				setTimeout(function () {
+					story[className]();
+				}, 0);
 			})
 			.on('touchend', 'header .story .btn-group .' + className, function (e) {
 				var ui = $(e.currentTarget);
 				removeListeners();
 				setTimeout(function () {
-					story[className]();
-					setTimeout(function () {
-						addListeners();
-						ui.removeClass('active');
-					}, 350)
-				}, 0);
+					addListeners();
+					ui.removeClass('active');
+				}, 350)
 			})
   }
 }
