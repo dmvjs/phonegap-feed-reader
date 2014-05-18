@@ -692,6 +692,14 @@ section.story .story-text {
     font-size: 1.1em;
 }
 
+section.story .story-text b, section.story .story-text strong {
+    font-weight: bold;
+}
+
+section.story .story-text i, section.story .story-text em {
+    font-style: italic;
+}
+
 .tablet section.story .story-text {
     margin: 0 30px;
 }
