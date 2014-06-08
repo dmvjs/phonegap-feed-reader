@@ -1,28 +1,25 @@
+/*global require, module, $*/
 var notify = require('./notify')
 	, config = require('../app/config');
 
 function get() {
-  return navigator.connection.type;
+	return navigator.connection.type;
 }
 
 function online(e) {
-		//console.log(e)
-		$('header .menu .offline').fadeOut();
-    //alert(get())
+	$('header .menu .offline').fadeOut();
 }
 
 function offline(e) {
-    //console.log(e)
-    $('header .menu .offline').fadeIn();
-    //alert(get());
+	$('header .menu .offline').fadeIn();
 }
 
-$(document).on('click', 'header.menu .offline', function () {
+$('header .menu .offline').on('click', function () {
 	notify.alert(config.connectionMessage);
-})
+});
 
 module.exports = {
-    online: online
-    , offline: offline
-    , get: get
-}
+	online: online
+	, offline: offline
+	, get: get
+};
