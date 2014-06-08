@@ -21,8 +21,10 @@ module.exports = {
 			, type: 'json'
 			, required: true
 		}, {
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-Top5.xml'
+			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-top5.json.txt'
 			, name: 'Most Popular'
+			, filename: 'top5.json'
+			, type: 'json'
 		}]
 	}, {
 		title: 'Languages'
@@ -119,6 +121,9 @@ module.exports = {
 		}, {
 			url: 'http://carnegieendowment.org/video/'
 			, name: 'Carnegie Video'
+		}, {
+			url: 'http://carnegieendowment.org/infographics'
+			, name: 'Infographics'
 		}]
 	}, {
 		title: 'Explore'
