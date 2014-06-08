@@ -26,6 +26,6 @@
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
     <preference name="SplashScreen" value="splash" />
-    <preference name="SplashScreenDelay" value="20000" />
+    <preference name="SplashScreenDelay" value="100000" />
     <access origin="*" />
 </widget>
