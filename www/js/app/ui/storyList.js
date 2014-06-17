@@ -1,6 +1,8 @@
 /*global require, module, $*/
 var config = require('../config')
+  , connection = require('../../util/connection')
   , header = require('./header')
+	, notify = require('../../util/notify')
   , story = require('./story')
   , refresh = require('./refresh');
 
@@ -72,9 +74,25 @@ function show(feedObj, forceActive) {
         ul.append(li);
     });
 
-    $('.container section.story-list').replaceWith(section)
+    $('.container section.story-list').replaceWith(section);
+
+		/*$('#story-list-container').on('touchmove touchend', function () {
+			var pos = parseInt($('#story-list-container').offset().top, 10);
+			var lastLi = $('#story-list-container').find('ul').find('li').last();
+			var fLi = $('#story-list-container').find('ul').find('li').first();
+			if (pos <= -500) {
+				$('#story-list-container').offset({top:lastLi.offset().top})
+			} else if (pos > 44) {
+				$('#story-list-container').offset({top:fLi.offset().top})
+			}
+		});*/
 
     $('.story-item').on('click', function (e) {
+	    if (connection.get() === 'none') {
+			$('body').addClass('offline')
+	    } else {
+		    $('body').removeClass('offline')
+	    }
       var li = $(this).closest('li')
         , index = $('section.story-list ul li').index(li)
         , feed = sent ? void 0 : feedObj;

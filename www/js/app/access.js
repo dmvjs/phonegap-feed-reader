@@ -29,7 +29,15 @@ function getFeed(id, loadOnly) {
         filename = fileentry.target._localURL.split('/').pop();
       }
       getFileContents(filename).then(function (contents) {
-        var obj = (JSON.parse(contents.target._result));
+        var obj;
+	      try {
+		      obj = (JSON.parse(contents.target._result));
+	      }
+	      catch(err) {
+		      alert('Y')
+		      analytics.trackEvent('StoryList', 'Error', 'JSON Parse Error', 10);
+		      reject(err)
+	      }
         getImages(obj).then(function () {
           removeOrphanedImages().then(function () {
             resolve(contents);
@@ -54,18 +62,25 @@ function refresh() {
     if (last === undefined || since) {
       feedRefresh[id] = now;
       getFeed(id).then(function (contents) {
-        var obj = (JSON.parse(contents.target._result));
+	      var obj;
+	      try {
+		      obj = (JSON.parse(contents.target._result));
+	      }
+	      catch(err) {
+		      analytics.trackEvent('StoryList', 'Error', 'JSON Parse Error', 10);
+		      reject(err)
+	      }
         $(document).trigger('access.refresh', [obj, filename]);
         resolve(obj);
       }, reject);
         if (config.track && analytics) {
-        analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh');
+        analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh', 10);
       }
     } else {
       setTimeout(function () {
         reject('Delaying refresh');
       if (config.track && analytics) {
-          analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh Fake');
+          analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh Fake', 10);
         }
       }, 2000);
     }
@@ -145,8 +160,14 @@ function get(id) {
         doesFileExist(filename).then(function () {
           //file exists
           getFileContents(filename).then(function (contents) {
-            var o = JSON.parse(contents.target._result);
-
+	          var o;
+	          try {
+		          o = (JSON.parse(contents.target._result));
+	          }
+	          catch(err) {
+		          analytics.trackEvent('StoryList', 'Error', 'JSON Parse Error', 10);
+		          reject(err)
+	          }
             if (o.lastBuildDate === obj.lastBuildDate) {
               //no updates since last build
               resolve(contents);
@@ -155,8 +176,16 @@ function get(id) {
             }
           }, reject) // file was created but doesn't exist? unlikely
         }, function () {
+	        var data;
+	        try {
+		        data = JSON.stringify(obj);
+		        JSON.parse(data);
+	        }
+	        catch(err) {
+		        reject(err)
+	        }
           //file does not exist
-          createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
+          createFileWithContents(filename, data).then(resolve, reject);
         });
       }, reject);
     } else {
@@ -181,8 +210,17 @@ function removeOrphanedImages() {
       ).then(function (res) {
         var imagesToRemove = [];
         res.forEach(function (el) {
-          var obj = JSON.parse(el.target.result)
-            , stories = obj.story ? obj.story : obj.item;
+          var obj
+            , stories;
+
+	        try {
+		        obj = (JSON.parse(el.target._result));
+	        }
+	        catch(err) {
+		        analytics.trackEvent('StoryList', 'Error', 'JSON Parse Error', 10);
+	        }
+
+	        stories = obj.story ? obj.story : obj.item;
 
           stories.forEach(function (ele) {
             if (ele.image && images.indexOf(ele.image.split('/').pop()) === -1) {
@@ -200,15 +238,15 @@ function removeOrphanedImages() {
 }
 
 function removeFeed(id) {
-  return new Promise(function (resolve, reject) {
-    var filename = getFilenameFromId(id);
-      
-    doesFileExist(filename).then(function (fileentry) {
-      removeFile(fileentry).then(function () {
-        removeOrphanedImages().then(resolve, reject);
-      }, reject)
-    }, reject);
-  })
+	return new Promise(function (resolve, reject) {
+		var filename = getFilenameFromId(id);
+
+		doesFileExist(filename).then(function (fileentry) {
+			removeFile(fileentry).then(function () {
+				removeOrphanedImages().then(resolve, reject);
+			}, reject)
+		}, reject);
+	})
 }
 
 module.exports = {

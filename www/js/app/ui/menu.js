@@ -69,7 +69,13 @@ function friendlyDate (obj) {
 				}
 				doesFileExist(filename).then(function () {
 					getFileContents(filename).then(function (contents) {
-						var obj = (JSON.parse(contents.target._result));
+						var obj;
+						try {
+							obj = (JSON.parse(contents.target._result));
+						}
+						catch(err) {
+							analytics.trackEvent('Menu', 'Error', 'JSON Parse Error', 10);
+						}
 						update(filename, 'Updated: ' + friendlyDate(obj));
 						box.addClass('checked');
 					}, function (e){console.log(e)});
@@ -120,7 +126,7 @@ function friendlyDate (obj) {
 			}
 		} else {
 			if (navigator.connection.type !== 'none') {
-				get(index, true);
+				get(index, true, $(this));
 				if (config.track && analytics) {
 					analytics.trackEvent('Menu', 'Feed', 'Download Feed', 10);
 				}
@@ -131,10 +137,11 @@ function friendlyDate (obj) {
 	});
 
 	$('a.menu-link.feed').on('click', function (e) {
-		var $check = $(e.currentTarget).find('.check');
+		var $check = $(e.currentTarget).find('.check')
+			, index = $('section.menu li').index($(this).closest('li'));
 		e.preventDefault();
 		if (navigator.connection.type !== 'none' || $check.hasClass('checked') || $check.hasClass('required')) {
-			get($('section.menu li').index($(this).closest('li')));
+			get(index, false, $(this));
 			$('section.menu li.active').removeClass('active');
 			$(e.currentTarget).closest('li').addClass('active');
 		} else {
@@ -165,12 +172,18 @@ function update(filename, date) {
 	items.closest('li').find('.check').removeClass('loading').addClass('checked');
 }
 
-function get(id, loadOnly) {
+function get(id, loadOnly, $el) {
 	var filename = access.getFilenameFromId(id);
-	$('section.menu .menu-item-box .sub[data-url="' + filename + '"]').closest('li').find('.check').addClass('loading');
+	$el.closest('li').find('.check').addClass('loading');
 
 	access.get(id, loadOnly).then(function (contents) {
-		var obj = (JSON.parse(contents.target._result));
+		var obj;
+		try {
+			obj = (JSON.parse(contents.target._result));
+		}
+		catch(err) {
+			analytics.trackEvent('Menu', 'Error', 'JSON Parse Error', 10);
+		}
 
 		update(filename, 'Updated: ' + friendlyDate(obj));
 		if (!loadOnly) {
@@ -195,7 +208,13 @@ function remove(id) {
 			item.removeClass('active');
 			primary.addClass('active');
 			getFileContents(access.getFilenameFromId(0)).then(function (contents) {
-				var obj = (JSON.parse(contents.target._result));
+				var obj;
+				try {
+					obj = (JSON.parse(contents.target._result));
+				}
+				catch(err) {
+					analytics.trackEvent('Menu', 'Error', 'JSON Parse Error', 10);
+				}
 				storyList.show(obj);
 			})
 		}

@@ -30,7 +30,15 @@ function getFeed(id, loadOnly) {
         filename = fileentry.target._localURL.split('/').pop();
       }
       getFileContents(filename).then(function (contents) {
-        var obj = (JSON.parse(contents.target._result));
+        var obj;
+	      try {
+		      obj = (JSON.parse(contents.target._result));
+	      }
+	      catch(err) {
+		      alert('Y')
+		      analytics.trackEvent('StoryList', 'Error', 'JSON Parse Error', 10);
+		      reject(err)
+	      }
         getImages(obj).then(function () {
           removeOrphanedImages().then(function () {
             resolve(contents);
@@ -55,18 +63,25 @@ function refresh() {
     if (last === undefined || since) {
       feedRefresh[id] = now;
       getFeed(id).then(function (contents) {
-        var obj = (JSON.parse(contents.target._result));
+	      var obj;
+	      try {
+		      obj = (JSON.parse(contents.target._result));
+	      }
+	      catch(err) {
+		      analytics.trackEvent('StoryList', 'Error', 'JSON Parse Error', 10);
+		      reject(err)
+	      }
         $(document).trigger('access.refresh', [obj, filename]);
         resolve(obj);
       }, reject);
         if (config.track && analytics) {
-        analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh');
+        analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh', 10);
       }
     } else {
       setTimeout(function () {
         reject('Delaying refresh');
       if (config.track && analytics) {
-          analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh Fake');
+          analytics.trackEvent('StoryList', 'Feed', 'Pull to Refresh Fake', 10);
         }
       }, 2000);
     }
@@ -146,8 +161,14 @@ function get(id) {
         doesFileExist(filename).then(function () {
           //file exists
           getFileContents(filename).then(function (contents) {
-            var o = JSON.parse(contents.target._result);
-
+	          var o;
+	          try {
+		          o = (JSON.parse(contents.target._result));
+	          }
+	          catch(err) {
+		          analytics.trackEvent('StoryList', 'Error', 'JSON Parse Error', 10);
+		          reject(err)
+	          }
             if (o.lastBuildDate === obj.lastBuildDate) {
               //no updates since last build
               resolve(contents);
@@ -156,8 +177,16 @@ function get(id) {
             }
           }, reject) // file was created but doesn't exist? unlikely
         }, function () {
+	        var data;
+	        try {
+		        data = JSON.stringify(obj);
+		        JSON.parse(data);
+	        }
+	        catch(err) {
+		        reject(err)
+	        }
           //file does not exist
-          createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
+          createFileWithContents(filename, data).then(resolve, reject);
         });
       }, reject);
     } else {
@@ -182,8 +211,17 @@ function removeOrphanedImages() {
       ).then(function (res) {
         var imagesToRemove = [];
         res.forEach(function (el) {
-          var obj = JSON.parse(el.target.result)
-            , stories = obj.story ? obj.story : obj.item;
+          var obj
+            , stories;
+
+	        try {
+		        obj = (JSON.parse(el.target._result));
+	        }
+	        catch(err) {
+		        analytics.trackEvent('StoryList', 'Error', 'JSON Parse Error', 10);
+	        }
+
+	        stories = obj.story ? obj.story : obj.item;
 
           stories.forEach(function (ele) {
             if (ele.image && images.indexOf(ele.image.split('/').pop()) === -1) {
@@ -201,15 +239,15 @@ function removeOrphanedImages() {
 }
 
 function removeFeed(id) {
-  return new Promise(function (resolve, reject) {
-    var filename = getFilenameFromId(id);
-      
-    doesFileExist(filename).then(function (fileentry) {
-      removeFile(fileentry).then(function () {
-        removeOrphanedImages().then(resolve, reject);
-      }, reject)
-    }, reject);
-  })
+	return new Promise(function (resolve, reject) {
+		var filename = getFilenameFromId(id);
+
+		doesFileExist(filename).then(function (fileentry) {
+			removeFile(fileentry).then(function () {
+				removeOrphanedImages().then(resolve, reject);
+			}, reject)
+		}, reject);
+	})
 }
 
 module.exports = {
@@ -245,8 +283,10 @@ module.exports = {
 			, type: 'json'
 			, required: true
 		}, {
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-Top5.xml'
+			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-top5.json.txt'
 			, name: 'Most Popular'
+			, filename: 'top5.json'
+			, type: 'json'
 		}]
 	}, {
 		title: 'Languages'
@@ -343,6 +383,9 @@ module.exports = {
 		}, {
 			url: 'http://carnegieendowment.org/video/'
 			, name: 'Carnegie Video'
+		}, {
+			url: 'http://carnegieendowment.org/infographics'
+			, name: 'Infographics'
 		}]
 	}, {
 		title: 'Explore'
@@ -382,6 +425,7 @@ module.exports = function () {
 		}
 
 		function getImage(reason) {
+
 			if (navigator.connection.type !== 'none') {
 				downloadExternalFile(config.missingImage).then(init, reject);
 			} else {
@@ -578,7 +622,13 @@ function friendlyDate (obj) {
 				}
 				doesFileExist(filename).then(function () {
 					getFileContents(filename).then(function (contents) {
-						var obj = (JSON.parse(contents.target._result));
+						var obj;
+						try {
+							obj = (JSON.parse(contents.target._result));
+						}
+						catch(err) {
+							analytics.trackEvent('Menu', 'Error', 'JSON Parse Error', 10);
+						}
 						update(filename, 'Updated: ' + friendlyDate(obj));
 						box.addClass('checked');
 					}, function (e){console.log(e)});
@@ -629,7 +679,7 @@ function friendlyDate (obj) {
 			}
 		} else {
 			if (navigator.connection.type !== 'none') {
-				get(index, true);
+				get(index, true, $(this));
 				if (config.track && analytics) {
 					analytics.trackEvent('Menu', 'Feed', 'Download Feed', 10);
 				}
@@ -640,10 +690,11 @@ function friendlyDate (obj) {
 	});
 
 	$('a.menu-link.feed').on('click', function (e) {
-		var $check = $(e.currentTarget).find('.check');
+		var $check = $(e.currentTarget).find('.check')
+			, index = $('section.menu li').index($(this).closest('li'));
 		e.preventDefault();
 		if (navigator.connection.type !== 'none' || $check.hasClass('checked') || $check.hasClass('required')) {
-			get($('section.menu li').index($(this).closest('li')));
+			get(index, false, $(this));
 			$('section.menu li.active').removeClass('active');
 			$(e.currentTarget).closest('li').addClass('active');
 		} else {
@@ -674,12 +725,18 @@ function update(filename, date) {
 	items.closest('li').find('.check').removeClass('loading').addClass('checked');
 }
 
-function get(id, loadOnly) {
+function get(id, loadOnly, $el) {
 	var filename = access.getFilenameFromId(id);
-	$('section.menu .menu-item-box .sub[data-url="' + filename + '"]').closest('li').find('.check').addClass('loading');
+	$el.closest('li').find('.check').addClass('loading');
 
 	access.get(id, loadOnly).then(function (contents) {
-		var obj = (JSON.parse(contents.target._result));
+		var obj;
+		try {
+			obj = (JSON.parse(contents.target._result));
+		}
+		catch(err) {
+			analytics.trackEvent('Menu', 'Error', 'JSON Parse Error', 10);
+		}
 
 		update(filename, 'Updated: ' + friendlyDate(obj));
 		if (!loadOnly) {
@@ -704,7 +761,13 @@ function remove(id) {
 			item.removeClass('active');
 			primary.addClass('active');
 			getFileContents(access.getFilenameFromId(0)).then(function (contents) {
-				var obj = (JSON.parse(contents.target._result));
+				var obj;
+				try {
+					obj = (JSON.parse(contents.target._result));
+				}
+				catch(err) {
+					analytics.trackEvent('Menu', 'Error', 'JSON Parse Error', 10);
+				}
 				storyList.show(obj);
 			})
 		}
@@ -776,7 +839,7 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
         this.hammertime = Hammer(this.container)
             .on("touch dragdown release", function(ev) {
                 if ($('.top-bar').eq(0).position().top > -25) {
-            		self.handleHammer(ev);
+            		  self.handleHammer(ev);
                 }
             });
     }
@@ -853,27 +916,25 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
      * when we set the height, we just change the container y
      * @param   {Number}    height
      */
-    Main.prototype.setHeight = function(height) {
-        if(android && version[0] === '2' && version[1] === '3') {
-            this.container.style.transform = 'translate3d(0,'+height+'px,0) ';
-            this.container.style.oTransform = 'translate3d(0,'+height+'px,0)';
-            this.container.style.msTransform = 'translate3d(0,'+height+'px,0)';
-            this.container.style.mozTransform = 'translate3d(0,'+height+'px,0)';
-            this.container.style.webkitTransform = 'translate3d(0,'+height+'px,0) scale3d(1,1,1)';
-        } else {
-            this.container.style.transform = 'translate(0,'+height+'px) ';
-            this.container.style.oTransform = 'translate(0,'+height+'px)';
-            this.container.style.msTransform = 'translate(0,'+height+'px)';
-            this.container.style.mozTransform = 'translate(0,'+height+'px)';
-            this.container.style.webkitTransform = 'translate(0,'+height+'px)';
-        }/*
-        else {
-            this.container.style.top = height+"px";
-        }*/
-    };
+		Main.prototype.setHeight = function(height) {
+			if(Modernizr.csstransforms3d) {
+				this.container.style.transform = 'translate3d(0,'+height+'px,0) ';
+				this.container.style.oTransform = 'translate3d(0,'+height+'px,0)';
+				this.container.style.msTransform = 'translate3d(0,'+height+'px,0)';
+				this.container.style.mozTransform = 'translate3d(0,'+height+'px,0)';
+				this.container.style.webkitTransform = 'translate3d(0,'+height+'px,0) scale3d(1,1,1)';
+			} else if(Modernizr.csstransforms) {
+				this.container.style.transform = 'translate(0,'+height+'px) ';
+				this.container.style.oTransform = 'translate(0,'+height+'px)';
+				this.container.style.msTransform = 'translate(0,'+height+'px)';
+				this.container.style.mozTransform = 'translate(0,'+height+'px)';
+				this.container.style.webkitTransform = 'translate(0,'+height+'px)';
+			} else {
+				this.container.style.top = height+"px";
+			}
+		};
 
-
-    /**
+		/**
      * hide the pullrefresh message and reset the vars
      */
     Main.prototype.hide = function() {
@@ -960,10 +1021,10 @@ module.exports = {
 module.exports = (function () {
   var win = $(window)
     , w = win.width()
-    , h = win.height()
+    , h = win.height();
 
   if (parseInt(Math.min(w, h), 10) >= 600) {
-    $('body').addClass('tablet');
+	  $('body').addClass('tablet');
   }
 }());
 },{}],8:[function(require,module,exports){
@@ -978,10 +1039,6 @@ var config = require('../config')
 	, slider = document.getElementById('text-resize-input')
 	, feedObj
 	, index;
-
-if (device.platform.toLowerCase() === 'android') {
-	$story.addClass('android');
-}
 
 if (share && plugins && plugins.socialsharing) {
   $(document)
@@ -1001,7 +1058,7 @@ if (share && plugins && plugins.socialsharing) {
 							encodeURI(feedObj.story ? feedObj.story[index].link : feedObj.item[index].link)
 						);
 						if (config.track && analytics) {
-							analytics.trackEvent('Story', 'Share', 'Share Clicked');
+							analytics.trackEvent('Story', 'Share', 'Share Clicked', 10);
 						}
 					} else {
 						if (navigator.connection.type === 'none') {
@@ -1023,14 +1080,15 @@ if (share && plugins && plugins.socialsharing) {
 
 if (browser) {
   $(document).on('click', 'section.story .current a', function (e) {
-    var href = $(e.currentTarget).attr('href')
-      , offset;
+    var href = $(e.currentTarget).attr('href');
 
     if (href.substr(0, 1) === '#') {
       if ($('.current').find(href)) {
         if (config.track && analytics) {
-          analytics.trackEvent('Story', 'Link', 'Page Anchor Clicked');
+          analytics.trackEvent('Story', 'Link', 'Page Anchor Clicked', 10);
         }
+	      e.preventDefault()
+	      $('.current').scrollTop($(href).position().top);
       } else {
         e.preventDefault();
         return false;
@@ -1281,7 +1339,9 @@ module.exports = {
 },{"../../util/notify":30,"../access":1,"../config":2}],9:[function(require,module,exports){
 /*global require, module, $*/
 var config = require('../config')
+  , connection = require('../../util/connection')
   , header = require('./header')
+	, notify = require('../../util/notify')
   , story = require('./story')
   , refresh = require('./refresh');
 
@@ -1353,9 +1413,25 @@ function show(feedObj, forceActive) {
         ul.append(li);
     });
 
-    $('.container section.story-list').replaceWith(section)
+    $('.container section.story-list').replaceWith(section);
+
+		/*$('#story-list-container').on('touchmove touchend', function () {
+			var pos = parseInt($('#story-list-container').offset().top, 10);
+			var lastLi = $('#story-list-container').find('ul').find('li').last();
+			var fLi = $('#story-list-container').find('ul').find('li').first();
+			if (pos <= -500) {
+				$('#story-list-container').offset({top:lastLi.offset().top})
+			} else if (pos > 44) {
+				$('#story-list-container').offset({top:fLi.offset().top})
+			}
+		});*/
 
     $('.story-item').on('click', function (e) {
+	    if (connection.get() === 'none') {
+			$('body').addClass('offline')
+	    } else {
+		    $('body').removeClass('offline')
+	    }
       var li = $(this).closest('li')
         , index = $('section.story-list ul li').index(li)
         , feed = sent ? void 0 : feedObj;
@@ -1390,7 +1466,7 @@ $(document).on('access.refresh', function (e, obj) {
 module.exports = {
 	show: show
 };
-},{"../config":2,"./header":4,"./refresh":6,"./story":8}],10:[function(require,module,exports){
+},{"../../util/connection":28,"../../util/notify":30,"../config":2,"./header":4,"./refresh":6,"./story":8}],10:[function(require,module,exports){
 /*global module, require*/
 module.exports = function (res) {
 	var feedObject = {item:[]}
@@ -1440,64 +1516,74 @@ module.exports = function (res) {
  * under the License.
  */
 
-var connection = require('./util/connection')
-	, config = require('./app/config');
+var config = require('./app/config');
 
 module.exports = (function () {
-		document.addEventListener('online', connection.online, false);
-		document.addEventListener('offline', connection.offline, false);
-		
-    document.addEventListener('deviceready', appReady, false);
+		document.addEventListener('deviceready', appReady, false);
 
-    function appReady() {
-    	//setTimeout(function () {
+		function appReady() {
+			//setTimeout(function () {
 				$(function () {
 					if (config.track && analytics) {
-						analytics.startTrackerWithId('UA-31877-29');
+						analytics.startTrackerWithId(config.trackId);
 						analytics.trackEvent('Init', 'Load', 'App Started', 10);
 					}
 					require('./init');
-				})
-    	//}, 6000)
-    }
+				});
+			//}, 6000)
+		}
 }());
 
-},{"./app/config":2,"./init":12,"./util/connection":28}],12:[function(require,module,exports){
+},{"./app/config":2,"./init":12}],12:[function(require,module,exports){
 /*global module, require, $*/
 module.exports = (function () {
 	var access = require('./app/access')
-    , createDir = require('./io/createDir')
-    , storyList = require('./app/ui/storyList')
-    , notify = require('./util/notify')
-    , header = require('./app/ui/header')
-    , doesFileExist = require('./io/doesFileExist')
-    , downloadMissingImage = require('./app/downloadMissingImage')
-    , err = require('./util/err')
-    , responsive = require('./app/ui/responsive')
-    , timeout = 500
-    , menu;
+		, responsive = require('./app/ui/responsive')
+		, connection = require('./util/connection')
+		, createDir = require('./io/createDir')
+		, storyList = require('./app/ui/storyList')
+		, notify = require('./util/notify')
+		, header = require('./app/ui/header')
+		, doesFileExist = require('./io/doesFileExist')
+		, downloadMissingImage = require('./app/downloadMissingImage')
+		, err = require('./util/err')
+		, platform = device.platform.toLowerCase()
+		, timeout = 500
+		, menu;
+
+	document.addEventListener('online', connection.online, false);
+	document.addEventListener('offline', connection.offline, false);
+
+	$('body').addClass(platform);
+
+	function getFeed() {
+		access.get(0).then(function (contents) {
+			var obj = (JSON.parse(contents.target._result))
+				, filename = access.getFilenameFromId(0)
+				, date = obj.friendlyPubDate || obj.lastBuildDate;
+
+			menu.update(filename, 'Updated: ' + date);
+			storyList.show(obj).then(function () {
+				header.showStoryList();
+
+				setTimeout(function () {
+					navigator.splashscreen.hide();
+				}, timeout)
+			})
+		}, function () {
+			analytics.trackEvent('Load', 'Error', 'JSON Parse Error', 10);
+			notify.confirm('There was an error processing the feed data. Try again in a few minutes.', getFeed, null, ['Try again', 'Cancel']);
+		});
+	}
 
 	createDir().then(function () {
 		downloadMissingImage().then(function () {
-          menu = require('./app/ui/menu');
-          access.get(0).then(function (contents) {
-              //console.log(contents)
-              var obj = (JSON.parse(contents.target._result))
-                  , filename = access.getFilenameFromId(0);
-
-              menu.update(filename, 'Updated: ' + obj.lastBuildDate);
-              storyList.show(obj).then(function () {
-                  header.showStoryList();
-
-                  setTimeout(function () {
-                      navigator.splashscreen.hide();
-                  }, timeout)
-              })
-			}, err);
+			menu = require('./app/ui/menu');
+			getFeed();
 		}, err)
 	}, err)
 }());
-},{"./app/access":1,"./app/downloadMissingImage":3,"./app/ui/header":4,"./app/ui/menu":5,"./app/ui/responsive":7,"./app/ui/storyList":9,"./io/createDir":13,"./io/doesFileExist":15,"./util/err":29,"./util/notify":30}],13:[function(require,module,exports){
+},{"./app/access":1,"./app/downloadMissingImage":3,"./app/ui/header":4,"./app/ui/menu":5,"./app/ui/responsive":7,"./app/ui/storyList":9,"./io/createDir":13,"./io/doesFileExist":15,"./util/connection":28,"./util/err":29,"./util/notify":30}],13:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
 	, makeDir = require('./makeDir')
@@ -1675,38 +1761,35 @@ module.exports = function (filewriter, contents) {
 
 
 },{}],28:[function(require,module,exports){
+/*global require, module, $*/
 var notify = require('./notify')
 	, config = require('../app/config');
 
 function get() {
-  return navigator.connection.type;
+	return navigator.connection.type;
 }
 
 function online(e) {
-		//console.log(e)
-		$('header .menu .offline').fadeOut();
-    //alert(get())
+	$('header .menu .offline').fadeOut();
 }
 
 function offline(e) {
-    //console.log(e)
-    $('header .menu .offline').fadeIn();
-    //alert(get());
+	$('header .menu .offline').fadeIn();
 }
 
-$(document).on('click', 'header.menu .offline', function () {
+$('header .menu .offline').on('click', function () {
 	notify.alert(config.connectionMessage);
-})
+});
 
 module.exports = {
-    online: online
-    , offline: offline
-    , get: get
-}
+	online: online
+	, offline: offline
+	, get: get
+};
 },{"../app/config":2,"./notify":30}],29:[function(require,module,exports){
 module.exports = function (reason) {
 	console.log(reason);
-}
+};
 },{}],30:[function(require,module,exports){
 var config = require('../app/config');
 
@@ -1717,7 +1800,7 @@ function alert(message, callback, title, buttonLabel) {
 function confirm(message, callback, title, buttonLabels) {
 	//title: defaults to 'Confirm'
 	//buttonLabels: defaults to [OK, Cancel]
-	navigator.notification.confirm(message, confirmCallback, title || config.appName, buttonLabels);
+	navigator.notification.confirm(message, callback, title || config.appName, buttonLabels);
 }
 
 function y(message) {

@@ -7,7 +7,7 @@ function alert(message, callback, title, buttonLabel) {
 function confirm(message, callback, title, buttonLabels) {
 	//title: defaults to 'Confirm'
 	//buttonLabels: defaults to [OK, Cancel]
-	navigator.notification.confirm(message, confirmCallback, title || config.appName, buttonLabels);
+	navigator.notification.confirm(message, callback, title || config.appName, buttonLabels);
 }
 
 function y(message) {

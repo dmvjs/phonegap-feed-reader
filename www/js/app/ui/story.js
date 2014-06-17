@@ -10,10 +10,6 @@ var config = require('../config')
 	, feedObj
 	, index;
 
-if (device.platform.toLowerCase() === 'android') {
-	$story.addClass('android');
-}
-
 if (share && plugins && plugins.socialsharing) {
   $(document)
 		.on('touchstart', 'footer.story-footer .share', function (e) {
@@ -32,7 +28,7 @@ if (share && plugins && plugins.socialsharing) {
 							encodeURI(feedObj.story ? feedObj.story[index].link : feedObj.item[index].link)
 						);
 						if (config.track && analytics) {
-							analytics.trackEvent('Story', 'Share', 'Share Clicked');
+							analytics.trackEvent('Story', 'Share', 'Share Clicked', 10);
 						}
 					} else {
 						if (navigator.connection.type === 'none') {
@@ -59,8 +55,10 @@ if (browser) {
     if (href.substr(0, 1) === '#') {
       if ($('.current').find(href)) {
         if (config.track && analytics) {
-          analytics.trackEvent('Story', 'Link', 'Page Anchor Clicked');
+          analytics.trackEvent('Story', 'Link', 'Page Anchor Clicked', 10);
         }
+	      e.preventDefault()
+	      $('.current').scrollTop($(href).position().top);
       } else {
         e.preventDefault();
         return false;

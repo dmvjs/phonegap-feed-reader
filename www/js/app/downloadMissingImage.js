@@ -14,6 +14,7 @@ module.exports = function () {
 		}
 
 		function getImage(reason) {
+
 			if (navigator.connection.type !== 'none') {
 				downloadExternalFile(config.missingImage).then(init, reject);
 			} else {

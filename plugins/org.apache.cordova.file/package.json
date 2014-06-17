@@ -1,5 +1,5 @@
 {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "org.apache.cordova.file",
     "cordova_name": "File",
     "description": "Cordova File Plugin",
@@ -9,6 +9,16 @@
     "keywords": [
         "cordova",
         "file"
+    ],
+    "platforms": [
+        "android",
+        "amazon-fireos",
+        "ubuntu",
+        "ios",
+        "wp7",
+        "wp8",
+        "blackberry10",
+        "windows8"
     ],
     "engines": []
 }
