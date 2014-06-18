@@ -35,7 +35,6 @@ function getFeed(id, loadOnly) {
 		      obj = (JSON.parse(contents.target._result));
 	      }
 	      catch(err) {
-		      alert('Y')
 		      analytics.trackEvent('StoryList', 'Error', 'JSON Parse Error', 10);
 		      reject(err)
 	      }
@@ -745,32 +744,43 @@ function get(id, loadOnly, $el) {
 			});
 		}
 	}, function (error) {
-		console.log(error);
+		var filename = access.getFilenameFromId(id)
+			, item = $('section.menu .menu-item-box .sub[data-url="' + filename + '"]').closest('li');
+
+		analytics.trackEvent('Menu', 'Error', 'Feed Load Error: ' + access.getFilenameFromId(id), 10);
+		remove(id);
 		notify.alert('There was an error processing the ' + access.getFeedNameFromId(id) + ' feed');
 	});
 }
 
-function remove(id) {
+function cleanup(id) {
 	var filename = access.getFilenameFromId(id)
 		, item = $('section.menu .menu-item-box .sub[data-url="' + filename + '"]').closest('li');
 
+	item.find('.check').removeClass('checked loading');
+	item.find('.sub').text(config.menuMessage);
+	if (item.hasClass('active')) {
+		item.removeClass('active');
+		primary.addClass('active');
+		getFileContents(access.getFilenameFromId(0)).then(function (contents) {
+			var obj;
+			try {
+				obj = (JSON.parse(contents.target._result));
+			}
+			catch(err) {
+				analytics.trackEvent('Menu', 'Error', 'JSON Parse Error', 10);
+			}
+			storyList.show(obj);
+		})
+	}
+}
+
+function remove(id) {
+
 	access.removeFeed(id).then(function () {
-		item.find('.check').removeClass('checked');
-		item.find('.sub').text(config.menuMessage);
-		if (item.hasClass('active')) {
-			item.removeClass('active');
-			primary.addClass('active');
-			getFileContents(access.getFilenameFromId(0)).then(function (contents) {
-				var obj;
-				try {
-					obj = (JSON.parse(contents.target._result));
-				}
-				catch(err) {
-					analytics.trackEvent('Menu', 'Error', 'JSON Parse Error', 10);
-				}
-				storyList.show(obj);
-			})
-		}
+		cleanup(id)
+	}, function () {
+		cleanup(id)
 	})
 }
 
@@ -782,10 +792,7 @@ module.exports = {
 	update: update
 };
 },{"../../io/doesFileExist":15,"../../io/getFileContents":19,"../../util/notify":30,"../access":1,"../config":2,"./header":4,"./storyList":9}],6:[function(require,module,exports){
-var access = require('../access')
-	, android = device.platform.toLowerCase === 'android'
-	, version = device.version.split('.');
-
+var access = require('../access');
 
 /**
  * requestAnimationFrame and cancel polyfill
@@ -1343,7 +1350,11 @@ var config = require('../config')
   , header = require('./header')
 	, notify = require('../../util/notify')
   , story = require('./story')
-  , refresh = require('./refresh');
+  , refresh = require('./refresh')
+	, android = device.platform.toLowerCase() === 'android'
+	, version = device.version.split('.')
+	// allow iOS devices and Android devices 4.4 and up to have pull to refresh
+	, allowRefresh = !android || (parseInt(version[0], 10) > 4) || ((parseInt(version[0], 10) > 4) && (parseInt(version[1], 10) >= 4));
 
 function show(feedObj, forceActive) {
 	return new Promise(function(resolve, reject) {
@@ -1368,12 +1379,6 @@ function show(feedObj, forceActive) {
       , ul = $('<ul/>', {})
       , container = $('<div/>', {
         id: 'story-list-container'
-        , css: {
-          '-webkit-user-select': 'none'
-          , '-webkit-user-drag': 'none'
-          , '-webkit-tap-highlight-color': 'rgba(0, 0, 0, 0)'
-          , '-webkit-transform': 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1)'
-        }
       }).append(topBar).append(pull).append(ul)
       , section = $('<section/>', {
         addClass: 'story-list' + (!!forceActive ? ' active' : '')
@@ -1448,7 +1453,9 @@ function show(feedObj, forceActive) {
       $(this).prop('src', config.missingImageRef.toURL());
     });
     setTimeout(function () {
-      refresh.init();
+			if (allowRefresh) {
+				refresh.init();
+			}
       resolve(200);
     }, 0);
 
@@ -1548,6 +1555,9 @@ module.exports = (function () {
 		, downloadMissingImage = require('./app/downloadMissingImage')
 		, err = require('./util/err')
 		, platform = device.platform.toLowerCase()
+		, android = device.platform.toLowerCase() === 'android'
+		, version = device.version.split('.')
+		, legacy = android && parseInt(version[1], 10) < 4
 		, timeout = 500
 		, menu;
 
@@ -1555,6 +1565,9 @@ module.exports = (function () {
 	document.addEventListener('offline', connection.offline, false);
 
 	$('body').addClass(platform);
+	if (legacy) {
+		$('body').addClass(legacy);
+	}
 
 	function getFeed() {
 		access.get(0).then(function (contents) {

@@ -4,7 +4,11 @@ var config = require('../config')
   , header = require('./header')
 	, notify = require('../../util/notify')
   , story = require('./story')
-  , refresh = require('./refresh');
+  , refresh = require('./refresh')
+	, android = device.platform.toLowerCase() === 'android'
+	, version = device.version.split('.')
+	// allow iOS devices and Android devices 4.4 and up to have pull to refresh
+	, allowRefresh = !android || (parseInt(version[0], 10) > 4) || ((parseInt(version[0], 10) > 4) && (parseInt(version[1], 10) >= 4));
 
 function show(feedObj, forceActive) {
 	return new Promise(function(resolve, reject) {
@@ -29,12 +33,6 @@ function show(feedObj, forceActive) {
       , ul = $('<ul/>', {})
       , container = $('<div/>', {
         id: 'story-list-container'
-        , css: {
-          '-webkit-user-select': 'none'
-          , '-webkit-user-drag': 'none'
-          , '-webkit-tap-highlight-color': 'rgba(0, 0, 0, 0)'
-          , '-webkit-transform': 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1)'
-        }
       }).append(topBar).append(pull).append(ul)
       , section = $('<section/>', {
         addClass: 'story-list' + (!!forceActive ? ' active' : '')
@@ -109,7 +107,9 @@ function show(feedObj, forceActive) {
       $(this).prop('src', config.missingImageRef.toURL());
     });
     setTimeout(function () {
-      refresh.init();
+			if (allowRefresh) {
+				refresh.init();
+			}
       resolve(200);
     }, 0);
 

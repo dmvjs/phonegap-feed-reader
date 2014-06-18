@@ -34,7 +34,6 @@ function getFeed(id, loadOnly) {
 		      obj = (JSON.parse(contents.target._result));
 	      }
 	      catch(err) {
-		      alert('Y')
 		      analytics.trackEvent('StoryList', 'Error', 'JSON Parse Error', 10);
 		      reject(err)
 	      }

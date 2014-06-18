@@ -76,7 +76,7 @@ html, body {
     -webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
     -webkit-user-select: none; /* prevent copy paste, to allow, change 'none' to 'text' */
-    font-family: 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     height: 100%;
     margin: 0;
     padding: 0;
@@ -249,7 +249,16 @@ section.story-list {
     -webkit-user-select: none;
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1);
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+
+
+section.story-list.active {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
 section.story-list.active {
@@ -534,15 +543,8 @@ section.menu .check.required {
     background-image: url('../img/check-required.png');
 }
 
-.android.ice-cream-sandwich section.menu .check.loading,
-.android.jellybean section.menu .check.loading {
-    background-image: url('../img/loading.gif');
-    background-size: 50%;
-}
-
-
 .ios section.menu .check.loading,
-.android.kitkat section.menu .check.loading {
+.android section.menu .check.loading {
     background-image: url('../img/spinner-dark.png');
     background-size: 50%;
 
@@ -551,6 +553,16 @@ section.menu .check.required {
     -ms-animation: rotate 1s linear infinite;
     -moz-animation: rotate 1s linear infinite;
     -webkit-animation: rotate 1s linear infinite;
+}
+
+.android.legacy section.menu .check.loading {
+    background-image: url('../img/loading.gif');
+    background-size: 50%;
+    animation: none;
+    -o-animation: none;
+    -ms-animation: none;
+    -moz-animation: none;
+    -webkit-animation: none;
 }
 
 section.story {

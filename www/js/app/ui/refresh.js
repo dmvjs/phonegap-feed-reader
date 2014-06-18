@@ -1,7 +1,4 @@
-var access = require('../access')
-	, android = device.platform.toLowerCase === 'android'
-	, version = device.version.split('.');
-
+var access = require('../access');
 
 /**
  * requestAnimationFrame and cancel polyfill

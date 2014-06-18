@@ -11,6 +11,9 @@ module.exports = (function () {
 		, downloadMissingImage = require('./app/downloadMissingImage')
 		, err = require('./util/err')
 		, platform = device.platform.toLowerCase()
+		, android = device.platform.toLowerCase() === 'android'
+		, version = device.version.split('.')
+		, legacy = android && parseInt(version[1], 10) < 4
 		, timeout = 500
 		, menu;
 
@@ -18,6 +21,9 @@ module.exports = (function () {
 	document.addEventListener('offline', connection.offline, false);
 
 	$('body').addClass(platform);
+	if (legacy) {
+		$('body').addClass(legacy);
+	}
 
 	function getFeed() {
 		access.get(0).then(function (contents) {

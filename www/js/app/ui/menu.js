@@ -192,32 +192,43 @@ function get(id, loadOnly, $el) {
 			});
 		}
 	}, function (error) {
-		console.log(error);
+		var filename = access.getFilenameFromId(id)
+			, item = $('section.menu .menu-item-box .sub[data-url="' + filename + '"]').closest('li');
+
+		analytics.trackEvent('Menu', 'Error', 'Feed Load Error: ' + access.getFilenameFromId(id), 10);
+		remove(id);
 		notify.alert('There was an error processing the ' + access.getFeedNameFromId(id) + ' feed');
 	});
 }
 
-function remove(id) {
+function cleanup(id) {
 	var filename = access.getFilenameFromId(id)
 		, item = $('section.menu .menu-item-box .sub[data-url="' + filename + '"]').closest('li');
 
+	item.find('.check').removeClass('checked loading');
+	item.find('.sub').text(config.menuMessage);
+	if (item.hasClass('active')) {
+		item.removeClass('active');
+		primary.addClass('active');
+		getFileContents(access.getFilenameFromId(0)).then(function (contents) {
+			var obj;
+			try {
+				obj = (JSON.parse(contents.target._result));
+			}
+			catch(err) {
+				analytics.trackEvent('Menu', 'Error', 'JSON Parse Error', 10);
+			}
+			storyList.show(obj);
+		})
+	}
+}
+
+function remove(id) {
+
 	access.removeFeed(id).then(function () {
-		item.find('.check').removeClass('checked');
-		item.find('.sub').text(config.menuMessage);
-		if (item.hasClass('active')) {
-			item.removeClass('active');
-			primary.addClass('active');
-			getFileContents(access.getFilenameFromId(0)).then(function (contents) {
-				var obj;
-				try {
-					obj = (JSON.parse(contents.target._result));
-				}
-				catch(err) {
-					analytics.trackEvent('Menu', 'Error', 'JSON Parse Error', 10);
-				}
-				storyList.show(obj);
-			})
-		}
+		cleanup(id)
+	}, function () {
+		cleanup(id)
 	})
 }
 
