@@ -630,6 +630,10 @@ section.story.active .current .video {
     display: block;
 }
 
+.android.legacy section.story.active .current .video {
+    display: none;
+}
+
 section.story .current,
 section.story .next,
 section.story .previous {
@@ -800,6 +804,14 @@ section.story .story-text dc {
     min-height: 170px;
 }
 
+.android.legacy section.story .story-text iframe,
+.android.legacy section.story .story-text object,
+.android.legacy section.story .story-text embed,
+.android.legacy section.story .story-text videoEmbed,
+.android.legacy section.story .story-text dc {
+    display: none;
+}
+
 .tablet section.story .story-text iframe,
 .tablet section.story .story-text object,
 .tablet section.story .story-text embed,
@@ -838,6 +850,11 @@ section.story .story-text .jumpLink.infographic {
     padding-left: 44px;
     display: block;
     margin: 0.5em 0;
+}
+
+.android.legacy section.story .story-text .jumpLink.video,
+.android.legacy section.story .story-text .jumpLink.infographic {
+    display: none;
 }
 
 section.story.rtl .story-text .jumpLink.video,
@@ -894,6 +911,7 @@ section.story .story-text .comments .post {
 }
 
 section.story.android .story-text .comments .post {
+    font-style: normal;
     font-size: 0.95em;
 }
 
@@ -914,11 +932,13 @@ section.story .story-text .comments .date-time {
     text-transform: uppercase;
 }
 
-section.story .story-text .comments .button {
+section.story .story-text .comments .button,
+section.story .story-text .bigButton {
     text-align: center;
 }
 
-section.story .story-text .comments .button a {
+section.story .story-text .comments .button a,
+section.story .story-text .bigButton a {
     font: normal 1.2em "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: white !important;
     background-color: #001c3d;
