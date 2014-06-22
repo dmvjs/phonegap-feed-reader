@@ -21,8 +21,11 @@ module.exports = (function () {
 	document.addEventListener('offline', connection.offline, false);
 
 	$('body').addClass(platform);
+	if (platform.indexOf('amazon') > -1) {
+		$('body').addClass('android');
+	}
 	if (legacy) {
-		$('body').addClass(legacy);
+		$('body').addClass('legacy');
 	}
 
 	function getFeed() {
