@@ -30,14 +30,7 @@ function getFeed(id, loadOnly) {
         filename = fileentry.target._localURL.split('/').pop();
       }
       getFileContents(filename).then(function (contents) {
-        var obj;
-	      try {
-		      obj = (JSON.parse(contents.target._result));
-	      }
-	      catch(err) {
-		      analytics.trackEvent('StoryList', 'Error', 'JSON Parse Error', 10);
-		      reject(err)
-	      }
+        var obj = (JSON.parse(contents.target._result));
         getImages(obj).then(function () {
           removeOrphanedImages().then(function () {
             resolve(contents);
@@ -62,14 +55,7 @@ function refresh() {
     if (last === undefined || since) {
       feedRefresh[id] = now;
       getFeed(id).then(function (contents) {
-	      var obj;
-	      try {
-		      obj = (JSON.parse(contents.target._result));
-	      }
-	      catch(err) {
-		      analytics.trackEvent('StoryList', 'Error', 'JSON Parse Error', 10);
-		      reject(err)
-	      }
+	      var obj = (JSON.parse(contents.target._result));
         $(document).trigger('access.refresh', [obj, filename]);
         resolve(obj);
       }, reject);
@@ -156,18 +142,11 @@ function get(id) {
         url: url
         , dataType: type
       }).then(function (res) {
-        var obj = (type === 'json' ? res.rss.channel : toJson(res));
+        var obj = (type === 'json' ? (res && res.rss && res.rss.channel) : toJson(res));
         doesFileExist(filename).then(function () {
           //file exists
           getFileContents(filename).then(function (contents) {
-	          var o;
-	          try {
-		          o = (JSON.parse(contents.target._result));
-	          }
-	          catch(err) {
-		          analytics.trackEvent('StoryList', 'Error', 'JSON Parse Error', 10);
-		          reject(err)
-	          }
+	          var o = (JSON.parse(contents.target._result));
             if (o.lastBuildDate === obj.lastBuildDate) {
               //no updates since last build
               resolve(contents);
@@ -176,16 +155,8 @@ function get(id) {
             }
           }, reject) // file was created but doesn't exist? unlikely
         }, function () {
-	        var data;
-	        try {
-		        data = JSON.stringify(obj);
-		        JSON.parse(data);
-	        }
-	        catch(err) {
-		        reject(err)
-	        }
           //file does not exist
-          createFileWithContents(filename, data).then(resolve, reject);
+          createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
         });
       }, reject);
     } else {
@@ -210,17 +181,8 @@ function removeOrphanedImages() {
       ).then(function (res) {
         var imagesToRemove = [];
         res.forEach(function (el) {
-          var obj
-            , stories;
-
-	        try {
-		        obj = (JSON.parse(el.target._result));
-	        }
-	        catch(err) {
-		        analytics.trackEvent('StoryList', 'Error', 'JSON Parse Error', 10);
-	        }
-
-	        stories = obj.story ? obj.story : obj.item;
+          var obj = (JSON.parse(el.target._result))
+            , stories = obj.story ? obj.story : obj.item;
 
           stories.forEach(function (ele) {
             if (ele.image && images.indexOf(ele.image.split('/').pop()) === -1) {
@@ -347,7 +309,7 @@ module.exports = {
 		title: 'Blogs'
 		, sub: 'From m.ceip.org'
 		, links: [{
-			url: 'http://carnegie.ru/eurasiaoutlook/'
+			url: 'http://carnegie.ru/eurasiaoutlook/?lang=en'
 			, name: 'Eurasia Outlook'
 		}, {
 			url: 'http://carnegieendowment.org/sada/'
@@ -621,13 +583,7 @@ function friendlyDate (obj) {
 				}
 				doesFileExist(filename).then(function () {
 					getFileContents(filename).then(function (contents) {
-						var obj;
-						try {
-							obj = (JSON.parse(contents.target._result));
-						}
-						catch(err) {
-							analytics.trackEvent('Menu', 'Error', 'JSON Parse Error', 10);
-						}
+						var obj = (JSON.parse(contents.target._result));
 						update(filename, 'Updated: ' + friendlyDate(obj));
 						box.addClass('checked');
 					}, function (e){console.log(e)});
@@ -729,13 +685,7 @@ function get(id, loadOnly, $el) {
 	$el.closest('li').find('.check').addClass('loading');
 
 	access.get(id, loadOnly).then(function (contents) {
-		var obj;
-		try {
-			obj = (JSON.parse(contents.target._result));
-		}
-		catch(err) {
-			analytics.trackEvent('Menu', 'Error', 'JSON Parse Error', 10);
-		}
+		var obj = (JSON.parse(contents.target._result));
 
 		update(filename, 'Updated: ' + friendlyDate(obj));
 		if (!loadOnly) {
@@ -763,13 +713,7 @@ function cleanup(id) {
 		item.removeClass('active');
 		primary.addClass('active');
 		getFileContents(access.getFilenameFromId(0)).then(function (contents) {
-			var obj;
-			try {
-				obj = (JSON.parse(contents.target._result));
-			}
-			catch(err) {
-				analytics.trackEvent('Menu', 'Error', 'JSON Parse Error', 10);
-			}
+			var obj = (JSON.parse(contents.target._result));
 			storyList.show(obj);
 		})
 	}
@@ -1354,7 +1298,7 @@ var config = require('../config')
 	, android = device.platform.toLowerCase() === 'android'
 	, version = device.version.split('.')
 	// allow iOS devices and Android devices 4.4 and up to have pull to refresh
-	, allowRefresh = !android || (parseInt(version[0], 10) > 4) || ((parseInt(version[0], 10) > 4) && (parseInt(version[1], 10) >= 4));
+	, allowRefresh = !android || (parseInt(version[0], 10) > 4) || ((parseInt(version[0], 10) === 4) && (parseInt(version[1], 10) >= 4));
 
 function show(feedObj, forceActive) {
 	return new Promise(function(resolve, reject) {
@@ -1565,8 +1509,11 @@ module.exports = (function () {
 	document.addEventListener('offline', connection.offline, false);
 
 	$('body').addClass(platform);
+	if (platform.indexOf('amazon') > -1) {
+		$('body').addClass('android');
+	}
 	if (legacy) {
-		$('body').addClass(legacy);
+		$('body').addClass('legacy');
 	}
 
 	function getFeed() {
@@ -1619,10 +1566,18 @@ module.exports = function () {
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
 	, getFileEntry = require('./getFileEntry')
-	, writeFile = require('./writeFile');
+	, writeFile = require('./writeFile')
+	, notify = require('../util/notify');
 
 module.exports = function (filename, contents) {
 	return new Promise(function (resolve, reject) {
+		try {
+			JSON.parse(contents)
+		}
+		catch (e) {
+			analytics.trackEvent('Feed', 'Error', 'JSON Parse Error: ' + filename, 10);
+			reject()
+		}
 		getFileSystem().then(function (filesystem) {
 			getFile(filesystem, filename, true).then(function (fileentry) {  
 				getFileEntry(fileentry).then(function (filewriter) {
@@ -1632,7 +1587,7 @@ module.exports = function (filename, contents) {
 		}, reject);
 	})
 };
-},{"./getFile":18,"./getFileEntry":20,"./getFileSystem":22,"./writeFile":27}],15:[function(require,module,exports){
+},{"../util/notify":30,"./getFile":18,"./getFileEntry":20,"./getFileSystem":22,"./writeFile":27}],15:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile');
 
@@ -1670,9 +1625,12 @@ module.exports = function (fileentry, url) {
 
   return new Promise(function (resolve, reject) {
 	  function catchErrors(reason) {
-	  	if (reason.http_status === 404) {
+	  	if ((reason.http_status === 404) || (reason.http_status === 410)) {
 				resolve(config.missingFileRef)
 			} else {
+			  /*for (var prop in reason) {
+				  alert(prop + ':: ' + reason[prop])
+			  }*/
 				reject(reason);
 			}
 	  }
