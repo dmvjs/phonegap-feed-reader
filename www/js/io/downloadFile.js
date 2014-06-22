@@ -7,7 +7,7 @@ module.exports = function (fileentry, url) {
 
   return new Promise(function (resolve, reject) {
 	  function catchErrors(reason) {
-	  	if (reason.http_status === 404) {
+	  	if ((reason.http_status === 404) || (reason.http_status === 410)) {
 				resolve(config.missingFileRef)
 			} else {
 				reject(reason);
