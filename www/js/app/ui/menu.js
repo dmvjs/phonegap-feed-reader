@@ -69,13 +69,7 @@ function friendlyDate (obj) {
 				}
 				doesFileExist(filename).then(function () {
 					getFileContents(filename).then(function (contents) {
-						var obj;
-						try {
-							obj = (JSON.parse(contents.target._result));
-						}
-						catch(err) {
-							analytics.trackEvent('Menu', 'Error', 'JSON Parse Error', 10);
-						}
+						var obj = (JSON.parse(contents.target._result));
 						update(filename, 'Updated: ' + friendlyDate(obj));
 						box.addClass('checked');
 					}, function (e){console.log(e)});
@@ -177,13 +171,7 @@ function get(id, loadOnly, $el) {
 	$el.closest('li').find('.check').addClass('loading');
 
 	access.get(id, loadOnly).then(function (contents) {
-		var obj;
-		try {
-			obj = (JSON.parse(contents.target._result));
-		}
-		catch(err) {
-			analytics.trackEvent('Menu', 'Error', 'JSON Parse Error', 10);
-		}
+		var obj = (JSON.parse(contents.target._result));
 
 		update(filename, 'Updated: ' + friendlyDate(obj));
 		if (!loadOnly) {
@@ -211,13 +199,7 @@ function cleanup(id) {
 		item.removeClass('active');
 		primary.addClass('active');
 		getFileContents(access.getFilenameFromId(0)).then(function (contents) {
-			var obj;
-			try {
-				obj = (JSON.parse(contents.target._result));
-			}
-			catch(err) {
-				analytics.trackEvent('Menu', 'Error', 'JSON Parse Error', 10);
-			}
+			var obj = (JSON.parse(contents.target._result));
 			storyList.show(obj);
 		})
 	}

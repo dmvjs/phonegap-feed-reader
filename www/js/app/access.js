@@ -29,14 +29,7 @@ function getFeed(id, loadOnly) {
         filename = fileentry.target._localURL.split('/').pop();
       }
       getFileContents(filename).then(function (contents) {
-        var obj;
-	      try {
-		      obj = (JSON.parse(contents.target._result));
-	      }
-	      catch(err) {
-		      analytics.trackEvent('StoryList', 'Error', 'JSON Parse Error', 10);
-		      reject(err)
-	      }
+        var obj = (JSON.parse(contents.target._result));
         getImages(obj).then(function () {
           removeOrphanedImages().then(function () {
             resolve(contents);
@@ -61,14 +54,7 @@ function refresh() {
     if (last === undefined || since) {
       feedRefresh[id] = now;
       getFeed(id).then(function (contents) {
-	      var obj;
-	      try {
-		      obj = (JSON.parse(contents.target._result));
-	      }
-	      catch(err) {
-		      analytics.trackEvent('StoryList', 'Error', 'JSON Parse Error', 10);
-		      reject(err)
-	      }
+	      var obj = (JSON.parse(contents.target._result));
         $(document).trigger('access.refresh', [obj, filename]);
         resolve(obj);
       }, reject);
@@ -155,18 +141,11 @@ function get(id) {
         url: url
         , dataType: type
       }).then(function (res) {
-        var obj = (type === 'json' ? res.rss.channel : toJson(res));
+        var obj = (type === 'json' ? (res && res.rss && res.rss.channel) : toJson(res));
         doesFileExist(filename).then(function () {
           //file exists
           getFileContents(filename).then(function (contents) {
-	          var o;
-	          try {
-		          o = (JSON.parse(contents.target._result));
-	          }
-	          catch(err) {
-		          analytics.trackEvent('StoryList', 'Error', 'JSON Parse Error', 10);
-		          reject(err)
-	          }
+	          var o = (JSON.parse(contents.target._result));
             if (o.lastBuildDate === obj.lastBuildDate) {
               //no updates since last build
               resolve(contents);
@@ -175,16 +154,8 @@ function get(id) {
             }
           }, reject) // file was created but doesn't exist? unlikely
         }, function () {
-	        var data;
-	        try {
-		        data = JSON.stringify(obj);
-		        JSON.parse(data);
-	        }
-	        catch(err) {
-		        reject(err)
-	        }
           //file does not exist
-          createFileWithContents(filename, data).then(resolve, reject);
+          createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
         });
       }, reject);
     } else {
@@ -209,17 +180,8 @@ function removeOrphanedImages() {
       ).then(function (res) {
         var imagesToRemove = [];
         res.forEach(function (el) {
-          var obj
-            , stories;
-
-	        try {
-		        obj = (JSON.parse(el.target._result));
-	        }
-	        catch(err) {
-		        analytics.trackEvent('StoryList', 'Error', 'JSON Parse Error', 10);
-	        }
-
-	        stories = obj.story ? obj.story : obj.item;
+          var obj = (JSON.parse(el.target._result))
+            , stories = obj.story ? obj.story : obj.item;
 
           stories.forEach(function (ele) {
             if (ele.image && images.indexOf(ele.image.split('/').pop()) === -1) {
