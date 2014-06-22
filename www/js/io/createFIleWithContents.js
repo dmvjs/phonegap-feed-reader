@@ -6,6 +6,13 @@ var getFileSystem = require('./getFileSystem')
 
 module.exports = function (filename, contents) {
 	return new Promise(function (resolve, reject) {
+		try {
+			JSON.parse(contents)
+		}
+		catch (e) {
+			analytics.trackEvent('Feed', 'Error', 'JSON Parse Error: ' + filename, 10);
+			reject()
+		}
 		getFileSystem().then(function (filesystem) {
 			getFile(filesystem, filename, true).then(function (fileentry) {  
 				getFileEntry(fileentry).then(function (filewriter) {
