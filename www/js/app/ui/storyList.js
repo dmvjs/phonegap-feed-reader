@@ -8,7 +8,7 @@ var config = require('../config')
 	, android = device.platform.toLowerCase() === 'android'
 	, version = device.version.split('.')
 	// allow iOS devices and Android devices 4.4 and up to have pull to refresh
-	, allowRefresh = !android || (parseInt(version[0], 10) > 4) || ((parseInt(version[0], 10) > 4) && (parseInt(version[1], 10) >= 4));
+	, allowRefresh = !android || (parseInt(version[0], 10) > 4) || ((parseInt(version[0], 10) === 4) && (parseInt(version[1], 10) >= 4));
 
 function show(feedObj, forceActive) {
 	return new Promise(function(resolve, reject) {
