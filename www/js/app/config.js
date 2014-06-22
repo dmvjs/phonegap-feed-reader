@@ -86,7 +86,7 @@ module.exports = {
 		title: 'Blogs'
 		, sub: 'From m.ceip.org'
 		, links: [{
-			url: 'http://carnegie.ru/eurasiaoutlook/'
+			url: 'http://carnegie.ru/eurasiaoutlook/?lang=en'
 			, name: 'Eurasia Outlook'
 		}, {
 			url: 'http://carnegieendowment.org/sada/'
