@@ -1566,13 +1566,14 @@ module.exports = function () {
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile')
 	, getFileEntry = require('./getFileEntry')
-	, writeFile = require('./writeFile')
-	, notify = require('../util/notify');
+	, writeFile = require('./writeFile');
 
 module.exports = function (filename, contents) {
 	return new Promise(function (resolve, reject) {
 		try {
 			JSON.parse(contents)
+			var reg = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff']/g;
+			contents = contents.replace(reg, '');
 		}
 		catch (e) {
 			analytics.trackEvent('Feed', 'Error', 'JSON Parse Error: ' + filename, 10);
@@ -1587,7 +1588,7 @@ module.exports = function (filename, contents) {
 		}, reject);
 	})
 };
-},{"../util/notify":30,"./getFile":18,"./getFileEntry":20,"./getFileSystem":22,"./writeFile":27}],15:[function(require,module,exports){
+},{"./getFile":18,"./getFileEntry":20,"./getFileSystem":22,"./writeFile":27}],15:[function(require,module,exports){
 var getFileSystem = require('./getFileSystem')
 	, getFile = require('./getFile');
 
@@ -1628,9 +1629,6 @@ module.exports = function (fileentry, url) {
 	  	if ((reason.http_status === 404) || (reason.http_status === 410)) {
 				resolve(config.missingFileRef)
 			} else {
-			  /*for (var prop in reason) {
-				  alert(prop + ':: ' + reason[prop])
-			  }*/
 				reject(reason);
 			}
 	  }
@@ -1705,17 +1703,40 @@ module.exports = function (filesystem) {
 	});
 }
 },{"../app/config":2}],25:[function(require,module,exports){
+var removeFile = require('./removeFile');
+
 module.exports = function (fileentry) {
-    var reader = new FileReader();
+    var reader = new FileReader()
+	    , errorHandler = window.onerror
+	    , restoreHandler = function () {
+		    window.onerror = errorHandler;
+	    };
+
     return new Promise(function (resolve, reject) {
+	      window.onerror = function (err) {
+		      console.log(err, arguments);
+		      removeFile(fileentry).then(function () {
+			      restoreHandler();
+			      reject()
+		      }, function () {
+			      restoreHandler();
+			      reject()
+		      })
+	      };
         fileentry.file(function (f) {
-            reader.onloadend = resolve;
-            reader.onerror = reject;
-            reader.readAsText(f);
+          reader.onloadend = function (s) {
+	          restoreHandler();
+	          resolve(s);
+          };
+          reader.onerror = function (e) {
+	          restoreHandler()
+	          reject(e);
+          };
+          reader.readAsText(f);
         })
     });
 };
-},{}],26:[function(require,module,exports){
+},{"./removeFile":26}],26:[function(require,module,exports){
 module.exports = function (fileentry) {
     return new Promise(function (resolve, reject) {
         fileentry.remove(resolve, reject)
