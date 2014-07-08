@@ -204,7 +204,7 @@ function createPage(storyObj) {
       , path = fs + (fs.substr(-1) === '/' ? '' : '/')
       , image = storyObj.image ? path + storyObj.image.split('/').pop() : config.missingImageRef.toURL()
       , topBar = $('<div/>', {
-        addClass: 'top-bar', text: storyObj.docType
+        addClass: 'top-bar', html: storyObj.docType || ''
       })
       , storyTitle = $('<div/>', {
         addClass: 'story-title', text: storyObj.title
@@ -213,10 +213,10 @@ function createPage(storyObj) {
         src: image, addClass: 'story-image'
       })
       , storyAuthor = $('<div/>', {
-        addClass: 'story-author', text: storyObj.author
+        addClass: 'story-author', text: storyObj.author || ''
       })
       , storyDate = $('<div/>', {
-        addClass: 'story-date', text: storyObj.publishDate || storyObj.pubDate
+        addClass: 'story-date', text: storyObj.publishDate || storyObj.pubDate || ''
       })
       , storyMeta = $('<div/>', {
         addClass: 'story-meta'
