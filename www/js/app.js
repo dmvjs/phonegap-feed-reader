@@ -262,18 +262,18 @@ module.exports = {
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&lang=ru'
 			, name: 'Русский'
 			, type: 'json'
-			, filename: 'russian-json-test.json'
+			, filename: 'russian-json.json'
 		}, {
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&lang=zh'
 			, name: '中文'
 			, type: 'json'
-			, filename: 'china-json-test.json'
+			, filename: 'china-json.json'
 		}, {
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&lang=ar'
 			, name: 'عربي'
 			, dir: 'rtl'
 			, type: 'json'
-			, filename: 'arabic-json-test.json'
+			, filename: 'arabic-json.json'
 		}]
 	}, {
 		title: 'Global Centers'
@@ -282,22 +282,22 @@ module.exports = {
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=beijing'
 			, name: 'Beijing'
 			, type: 'json'
-			, filename: 'beijing-json-test.json'
+			, filename: 'beijing-json.json'
 		}, {
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=beirut'
 			, name: 'Beirut'
 			, type: 'json'
-			, filename: 'beirut-json-test.json'
+			, filename: 'beirut-json.json'
 		}, {
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=brussels'
 			, name: 'Brussels'
 			, type: 'json'
-			, filename: 'brussels-json-test.json'
+			, filename: 'brussels-json.json'
 		}, {
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=moscow'
 			, name: 'Moscow'
 			, type: 'json'
-			, filename: 'moscow-json-test.json'
+			, filename: 'moscow-json.json'
 		}, {
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
 			, name: 'Washington D.C.'
@@ -1185,7 +1185,7 @@ function createPage(storyObj) {
       , path = fs + (fs.substr(-1) === '/' ? '' : '/')
       , image = storyObj.image ? path + storyObj.image.split('/').pop() : config.missingImageRef.toURL()
       , topBar = $('<div/>', {
-        addClass: 'top-bar', text: storyObj.docType
+        addClass: 'top-bar', html: storyObj.docType || ''
       })
       , storyTitle = $('<div/>', {
         addClass: 'story-title', text: storyObj.title
@@ -1194,10 +1194,10 @@ function createPage(storyObj) {
         src: image, addClass: 'story-image'
       })
       , storyAuthor = $('<div/>', {
-        addClass: 'story-author', text: storyObj.author
+        addClass: 'story-author', text: storyObj.author || ''
       })
       , storyDate = $('<div/>', {
-        addClass: 'story-date', text: storyObj.publishDate || storyObj.pubDate
+        addClass: 'story-date', text: storyObj.publishDate || storyObj.pubDate || ''
       })
       , storyMeta = $('<div/>', {
         addClass: 'story-meta'
@@ -1570,15 +1570,21 @@ var getFileSystem = require('./getFileSystem')
 
 module.exports = function (filename, contents) {
 	return new Promise(function (resolve, reject) {
+
+		// full set of Crockford's problem characters https://github.com/douglascrockford/JSON-js/blob/master/json2.js
+		//[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff
+		var reg = /[\u000a\u000d\u2028\u2029]/g; // known problem characters, line terminators
+		contents = contents.replace(reg, '');
+
 		try {
-			JSON.parse(contents)
-			var reg = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff']/g;
-			contents = contents.replace(reg, '');
-		}
-		catch (e) {
-			analytics.trackEvent('Feed', 'Error', 'JSON Parse Error: ' + filename, 10);
+			JSON.parse(contents);
+		} catch (e) {
+			if (void 0 !== window.analytics) {
+				analytics.trackEvent('Feed', 'Error', 'JSON Parse Error: ' + filename, 10);
+			}
 			reject()
 		}
+
 		getFileSystem().then(function (filesystem) {
 			getFile(filesystem, filename, true).then(function (fileentry) {  
 				getFileEntry(fileentry).then(function (filewriter) {
@@ -1703,38 +1709,33 @@ module.exports = function (filesystem) {
 	});
 }
 },{"../app/config":2}],25:[function(require,module,exports){
+/*global module, require*/
 var removeFile = require('./removeFile');
 
 module.exports = function (fileentry) {
-    var reader = new FileReader()
-	    , errorHandler = window.onerror
-	    , restoreHandler = function () {
-		    window.onerror = errorHandler;
-	    };
+	var reader = new FileReader()
+		, errorHandler = window.onerror
+		, restoreHandler = function () {
+				window.onerror = errorHandler;
+			};
 
-    return new Promise(function (resolve, reject) {
-	      window.onerror = function (err) {
-		      console.log(err, arguments);
-		      removeFile(fileentry).then(function () {
-			      restoreHandler();
-			      reject()
-		      }, function () {
-			      restoreHandler();
-			      reject()
-		      })
-	      };
-        fileentry.file(function (f) {
-          reader.onloadend = function (s) {
-	          restoreHandler();
-	          resolve(s);
-          };
-          reader.onerror = function (e) {
-	          restoreHandler()
-	          reject(e);
-          };
-          reader.readAsText(f);
-        })
-    });
+	return new Promise(function (resolve, reject) {
+		var rejection = function (err) {
+			restoreHandler();
+			reject(err);
+		};
+		window.onerror = function (err) {
+			removeFile(fileentry).then(rejection, rejection)
+		};
+		fileentry.file(function (f) {
+			reader.onloadend = function (s) {
+				restoreHandler();
+				resolve(s);
+			};
+			reader.onerror = rejection;
+			reader.readAsText(f);
+		})
+	});
 };
 },{"./removeFile":26}],26:[function(require,module,exports){
 module.exports = function (fileentry) {
