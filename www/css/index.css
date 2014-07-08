@@ -901,6 +901,7 @@ section.story .story-text .comments .comment {
 }
 
 section.story .story-text .comments .comment:nth-last-child(2) {
+    padding-bottom: 0;
     border-bottom: none;
 }
 
@@ -943,7 +944,7 @@ section.story .story-text .bigButton a {
     color: white !important;
     background-color: #001c3d;
     padding: .625em 0;
-    margin: 1em auto 1em;
+    margin: 1em auto;
     width: 11em;
     text-transform: uppercase;
     display: block;
@@ -952,7 +953,7 @@ section.story .story-text .bigButton a {
 section.story .story-text .comments .button .msg {
     font: normal 0.9em "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: black;
-    margin-bottom: 3em;
+    margin-bottom: 1.5em;
 }
 
 section.story .story-text .relatedList li {
