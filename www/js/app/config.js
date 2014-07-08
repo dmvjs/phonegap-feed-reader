@@ -39,18 +39,18 @@ module.exports = {
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&lang=ru'
 			, name: 'Русский'
 			, type: 'json'
-			, filename: 'russian-json-test.json'
+			, filename: 'russian-json.json'
 		}, {
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&lang=zh'
 			, name: '中文'
 			, type: 'json'
-			, filename: 'china-json-test.json'
+			, filename: 'china-json.json'
 		}, {
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&lang=ar'
 			, name: 'عربي'
 			, dir: 'rtl'
 			, type: 'json'
-			, filename: 'arabic-json-test.json'
+			, filename: 'arabic-json.json'
 		}]
 	}, {
 		title: 'Global Centers'
@@ -59,22 +59,22 @@ module.exports = {
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=beijing'
 			, name: 'Beijing'
 			, type: 'json'
-			, filename: 'beijing-json-test.json'
+			, filename: 'beijing-json.json'
 		}, {
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=beirut'
 			, name: 'Beirut'
 			, type: 'json'
-			, filename: 'beirut-json-test.json'
+			, filename: 'beirut-json.json'
 		}, {
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=brussels'
 			, name: 'Brussels'
 			, type: 'json'
-			, filename: 'brussels-json-test.json'
+			, filename: 'brussels-json.json'
 		}, {
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=moscow'
 			, name: 'Moscow'
 			, type: 'json'
-			, filename: 'moscow-json-test.json'
+			, filename: 'moscow-json.json'
 		}, {
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
 			, name: 'Washington D.C.'
