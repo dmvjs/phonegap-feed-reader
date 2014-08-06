@@ -1716,8 +1716,8 @@ module.exports = function (fileentry) {
 	var reader = new FileReader()
 		, errorHandler = window.onerror
 		, restoreHandler = function () {
-				window.onerror = errorHandler;
-			};
+			window.onerror = errorHandler;
+		};
 
 	return new Promise(function (resolve, reject) {
 		var rejection = function (err) {
