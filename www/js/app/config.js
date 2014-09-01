@@ -2,147 +2,93 @@
 
 module.exports = {
 	fs: void 0
-	, appName: 'Carnegie'
-	, track: true
+	, appName: 'Strategic Europe'
+	, track: false
 	, trackId: 'UA-31877-29'
-	, folder: 'com.ceip.carnegie'
+	, folder: 'com.ceip.stragetegiceurope'
 	, storyFontSize: 1.0
 	, connectionMessage: 'No network connection detected'
 	, menuMessage: 'Not yet downloaded'
 	, missingImage: 'http://m.ceip.org/img/appsupport/image-unavailable_605x328.png'
 	, missingImageRef: void 0
 	, menu: [{
-		title: 'Analysis'
+		title: 'Strategic Europe'
 		, sub: 'Read Offline'
 		, feeds: [{
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
-			, name: 'Latest Analysis'
-			, filename: 'mobile-global.json'
-			, type: 'json'
-			, required: true
-		}, {
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-top5.json.txt'
-			, name: 'Most Popular'
-			, filename: 'top5.json'
-			, type: 'json'
-		}]
-	}, {
-		title: 'Languages'
-		, sub: 'Read Offline'
-		, feeds: [{
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
-			, name: 'English'
-			, filename: 'mobile-global.json'
-			, type: 'json'
-			, required: true
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&lang=ru'
-			, name: 'Русский'
-			, type: 'json'
-			, filename: 'russian-json.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&lang=zh'
-			, name: '中文'
-			, type: 'json'
-			, filename: 'china-json.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&lang=ar'
-			, name: 'عربي'
-			, dir: 'rtl'
-			, type: 'json'
-			, filename: 'arabic-json.json'
-		}]
-	}, {
-		title: 'Global Centers'
-		, sub: 'Read Offline'
-		, feeds: [{
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=beijing'
-			, name: 'Beijing'
-			, type: 'json'
-			, filename: 'beijing-json.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=beirut'
-			, name: 'Beirut'
-			, type: 'json'
-			, filename: 'beirut-json.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=brussels'
-			, name: 'Brussels'
-			, type: 'json'
-			, filename: 'brussels-json.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=moscow'
-			, name: 'Moscow'
-			, type: 'json'
-			, filename: 'moscow-json.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
-			, name: 'Washington D.C.'
-			, filename: 'mobile-global.json'
+			url: 'http://carnegieendowment.org/rss/solr/?fa=AppStrategicEurope'
+			, name: 'Refresh Posts'
+			, filename: 'europe.json'
 			, type: 'json'
 			, required: true
 		}]
 	}, {
-		title: 'Blogs'
-		, sub: 'From m.ceip.org'
+		title: 'Browse Issues'
 		, links: [{
-			url: 'http://carnegie.ru/eurasiaoutlook/?lang=en'
-			, name: 'Eurasia Outlook'
+			url: 'http://m.ceip.org/brussels/strategiceurope/issues/1207/'
+			, name: 'Energy and Climate'
 		}, {
-			url: 'http://carnegieendowment.org/sada/'
-			, name: 'Sada'
+			url: 'http://m.ceip.org/brussels/strategiceurope/issues/1191/'
+			, name: 'EU and the World'
 		}, {
-			url: 'http://carnegieeurope.eu/strategiceurope/'
-			, name: 'Strategic Europe'
+			url: 'http://m.ceip.org/brussels/strategiceurope/issues/1190/'
+			, name: 'Eurozone Crisis'
 		}, {
-			url: 'http://carnegieendowment.org/syriaincrisis/'
-			, name: 'Syria in Crisis'
-		}]
+			url: 'http://m.ceip.org/brussels/strategiceurope/issues/1208/'
+			, name: 'International Economics'
+		}, {
+            url: 'http://m.ceip.org/brussels/strategiceurope/issues/1209/'
+            , name: 'Nuclear Policy'
+        }, {
+            url: 'http://m.ceip.org/brussels/strategiceurope/issues/1210/'
+            , name: 'Political Reform'
+        }, {
+            url: 'http://m.ceip.org/brussels/strategiceurope/issues/1211/'
+            , name: 'Security'
+        }]
 	}, {
-		title: 'Global Resources'
+		title: 'Browse Regions'
 		, links: [{
-			url: 'http://carnegieendowment.org/topic/'
-			, name: 'Issues'
+			url: 'http://m.ceip.org/brussels/strategiceurope/regions/1206/'
+			, name: 'Americas'
 		}, {
-			url: 'http://carnegieendowment.org/regions/'
-			, name: 'Regions'
+			url: 'http://m.ceip.org/brussels/strategiceurope/regions/1200/'
+			, name: 'Balkans'
 		}, {
-			url: 'http://carnegieendowment.org/experts/'
-			, name: 'Experts'
+			url: 'http://m.ceip.org/brussels/strategiceurope/regions/1203/'
+			, name: 'Central Asia'
 		}, {
-			url: 'http://carnegieendowment.org/publications/'
-			, name: 'Publications'
+			url: 'http://m.ceip.org/brussels/strategiceurope/regions/1204/'
+			, name: 'East Asia'
 		}, {
-			url: 'http://carnegieendowment.org/events/'
-			, name: 'Events'
+			url: 'http://m.ceip.org/brussels/strategiceurope/regions/1199/'
+			, name: 'Eastern Europe'
 		}, {
-			url: 'http://carnegieendowment.org/programs/'
-			, name: 'Programs'
+			url: 'http://m.ceip.org/brussels/strategiceurope/regions/1201/'
+			, name: 'Middle East'
 		}, {
-			url: 'http://carnegieendowment.org/video/'
-			, name: 'Carnegie Video'
+			url: 'http://m.ceip.org/brussels/strategiceurope/regions/1202/'
+			, name: 'North Africa'
 		}, {
-			url: 'http://carnegieendowment.org/infographics'
-			, name: 'Infographics'
-		}]
+			url: 'http://m.ceip.org/brussels/strategiceurope/regions/1189/'
+			, name: 'Russia and Caucasus'
+		}, {
+            url: 'http://m.ceip.org/brussels/strategiceurope/regions/1205/'
+            , name: 'South Asia'
+        }, {
+            url: 'http://m.ceip.org/brussels/strategiceurope/regions/1188/'
+            , name: 'Western Europe'
+        }]
 	}, {
 		title: 'Explore'
 		, links: [{
-			url: 'http://carnegieendowment.org/resources/?fa=register'
-			, name: 'Stay in the Know'
+			url: 'http://m.ceip.org/brussels/strategiceurope/about/'
+			, name: 'About Judy Dempsey'
 		}, {
-			url: 'http://carnegieendowment.org/about/'
-			, name: 'About Us'
+			url: 'http://m.ceip.org/brussels/strategiceurope/'
+			, name: 'Complete Archive'
 		}, {
-			url: 'http://carnegieendowment.org/about/development/'
-			, name: 'Support Carnegie'
-		}, {
-			url: 'http://carnegieendowment.org/about/?fa=contact'
-			, name: 'Help Desk'
-		}, {
-			url: 'http://carnegieendowment.org/about/index.cfm?fa=privacy'
-			, name: 'Privacy Statement'
+			url: 'http://m.ceip.org/brussels/strategiceurope/issues/1213/'
+			, name: 'Judy Asks Archive'
 		}]
-	}
-	]
+	}]
 };
