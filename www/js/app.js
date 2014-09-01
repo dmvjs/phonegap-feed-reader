@@ -1,4 +1,4 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /*global require, module, $*/
 var notify = require('../util/notify')
   , config = require('./config')
@@ -226,9 +226,9 @@ module.exports = {
 module.exports = {
 	fs: void 0
 	, appName: 'Carnegie'
-	, track: true
+	, track: false
 	, trackId: 'UA-31877-29'
-	, folder: 'com.ceip.carnegie'
+	, folder: 'com.ceip.carnegieeurasiaoutlook'
 	, storyFontSize: 1.0
 	, connectionMessage: 'No network connection detected'
 	, menuMessage: 'Not yet downloaded'
@@ -238,70 +238,9 @@ module.exports = {
 		title: 'Analysis'
 		, sub: 'Read Offline'
 		, feeds: [{
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
+			url: 'http://carnegieendowment.org/rss/solr/?fa=AppEurasiaOutlook'
 			, name: 'Latest Analysis'
-			, filename: 'mobile-global.json'
-			, type: 'json'
-			, required: true
-		}, {
-			url: 'http://carnegieendowment.org/rss/feeds/mobile-carnegie-top5.json.txt'
-			, name: 'Most Popular'
-			, filename: 'top5.json'
-			, type: 'json'
-		}]
-	}, {
-		title: 'Languages'
-		, sub: 'Read Offline'
-		, feeds: [{
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
-			, name: 'English'
-			, filename: 'mobile-global.json'
-			, type: 'json'
-			, required: true
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&lang=ru'
-			, name: 'Русский'
-			, type: 'json'
-			, filename: 'russian-json.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&lang=zh'
-			, name: '中文'
-			, type: 'json'
-			, filename: 'china-json.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&lang=ar'
-			, name: 'عربي'
-			, dir: 'rtl'
-			, type: 'json'
-			, filename: 'arabic-json.json'
-		}]
-	}, {
-		title: 'Global Centers'
-		, sub: 'Read Offline'
-		, feeds: [{
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=beijing'
-			, name: 'Beijing'
-			, type: 'json'
-			, filename: 'beijing-json.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=beirut'
-			, name: 'Beirut'
-			, type: 'json'
-			, filename: 'beirut-json.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=brussels'
-			, name: 'Brussels'
-			, type: 'json'
-			, filename: 'brussels-json.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=moscow'
-			, name: 'Moscow'
-			, type: 'json'
-			, filename: 'moscow-json.json'
-		}, {
-			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
-			, name: 'Washington D.C.'
-			, filename: 'mobile-global.json'
+			, filename: 'eurasia.json'
 			, type: 'json'
 			, required: true
 		}]
@@ -309,65 +248,61 @@ module.exports = {
 		title: 'Blogs'
 		, sub: 'From m.ceip.org'
 		, links: [{
-			url: 'http://carnegie.ru/eurasiaoutlook/?lang=en'
-			, name: 'Eurasia Outlook'
+			url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1243/'
+			, name: 'Domestic Politics'
 		}, {
-			url: 'http://carnegieendowment.org/sada/'
-			, name: 'Sada'
+			url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1241/'
+			, name: 'Economics'
 		}, {
-			url: 'http://carnegieeurope.eu/strategiceurope/'
-			, name: 'Strategic Europe'
+			url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1232/'
+			, name: 'Geopolitics'
 		}, {
-			url: 'http://carnegieendowment.org/syriaincrisis/'
-			, name: 'Syria in Crisis'
-		}]
+			url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1357/'
+			, name: 'Humanitarian Issues'
+		}, {
+            url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1356/'
+            , name: 'Nuclear'
+        }, {
+            url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1239/'
+            , name: 'Religion, Culture, and Ethnicity'
+        }, {
+            url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1355/'
+            , name: 'Security and Conflict'
+        }]
 	}, {
-		title: 'Global Resources'
-		, links: [{
-			url: 'http://carnegieendowment.org/topic/'
-			, name: 'Issues'
-		}, {
-			url: 'http://carnegieendowment.org/regions/'
-			, name: 'Regions'
-		}, {
-			url: 'http://carnegieendowment.org/experts/'
-			, name: 'Experts'
-		}, {
-			url: 'http://carnegieendowment.org/publications/'
-			, name: 'Publications'
-		}, {
-			url: 'http://carnegieendowment.org/events/'
-			, name: 'Events'
-		}, {
-			url: 'http://carnegieendowment.org/programs/'
-			, name: 'Programs'
-		}, {
-			url: 'http://carnegieendowment.org/video/'
-			, name: 'Carnegie Video'
-		}, {
-			url: 'http://carnegieendowment.org/infographics'
-			, name: 'Infographics'
-		}]
-	}, {
+        title: 'Browse Regions'
+        , links: [{
+            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1359/'
+            , name: 'Caucasus'
+        }, {
+            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1358/'
+            , name: 'Central Asia'
+        }, {
+            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1261/'
+            , name: 'East and South Asia'
+        }, {
+            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1230/'
+            , name: 'EU'
+        }, {
+            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1360/'
+            , name: 'New Eastern Europe'
+        }, {
+            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1228/'
+            , name: 'Russia'
+        }, {
+            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1361/'
+            , name: 'Western Asia'
+        }]
+    }, {
 		title: 'Explore'
 		, links: [{
-			url: 'http://carnegieendowment.org/resources/?fa=register'
-			, name: 'Stay in the Know'
+			url: 'http://m.ceip.org/moscow/eurasiaoutlook/about/'
+			, name: 'About Eurasia Outlook'
 		}, {
-			url: 'http://carnegieendowment.org/about/'
-			, name: 'About Us'
-		}, {
-			url: 'http://carnegieendowment.org/about/development/'
-			, name: 'Support Carnegie'
-		}, {
-			url: 'http://carnegieendowment.org/about/?fa=contact'
-			, name: 'Help Desk'
-		}, {
-			url: 'http://carnegieendowment.org/about/index.cfm?fa=privacy'
-			, name: 'Privacy Statement'
+			url: 'http://m.ceip.org/moscow/eurasiaoutlook/'
+			, name: 'Archive'
 		}]
-	}
-	]
+	}]
 };
 },{}],3:[function(require,module,exports){
 module.exports = function () {
@@ -1810,4 +1745,4 @@ module.exports = {
 	y: y,
 	n: n
 };
-},{"../app/config":2}]},{},[11])
+},{"../app/config":2}]},{},[11]);
