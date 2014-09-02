@@ -226,8 +226,8 @@ module.exports = {
 module.exports = {
 	fs: void 0
 	, appName: 'Carnegie'
-	, track: false
-	, trackId: 'UA-31877-29'
+	, track: true
+	, trackId: 'UA-31877-23'
 	, folder: 'com.ceip.carnegieeurasiaoutlook'
 	, storyFontSize: 1.0
 	, connectionMessage: 'No network connection detected'
