@@ -446,7 +446,10 @@ section.menu.active {
     box-shadow: none;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
+}
 
+.android.legacy section.menu {
+    border-left: 1px solid #001c3d;
 }
 
 .tablet section.menu.active {
@@ -454,6 +457,18 @@ section.menu.active {
     box-shadow: -4px 0 8px 0 rgba(0, 0, 0, 0.5);
     -webkit-transform: translate3d(-320px, 0, 0);
     transform: translate3d(-320px, 0, 0);
+}
+
+.tablet section.menu.active {
+    -webkit-box-shadow: -4px 0 8px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: -4px 0 8px 0 rgba(0, 0, 0, 0.5);
+    -webkit-transform: translate3d(-320px, 0, 0);
+    transform: translate3d(-320px, 0, 0);
+}
+
+.android.legacy section.menu.active {
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 section.menu .section-header {
@@ -670,7 +685,7 @@ section.story .previous {
 
 section.story .story-behind {
     background-color: #001c3d;
-    height: 50%;
+    height: 2px;
     width: 100%;
     position: absolute;
 }

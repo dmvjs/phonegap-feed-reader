@@ -2,9 +2,9 @@
 
 module.exports = {
 	fs: void 0
-	, appName: 'Strategic Europe'
-	, track: false
-	, trackId: 'UA-31877-29'
+	, appName: 'Europe'
+	, track: true
+	, trackId: 'UA-31877-22'
 	, folder: 'com.ceip.stragetegiceurope'
 	, storyFontSize: 1.0
 	, connectionMessage: 'No network connection detected'
