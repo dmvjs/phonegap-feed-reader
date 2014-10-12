@@ -2,7 +2,3 @@
 *.perspectivev3
 *.pbxuser
 .DS_Store
-build/
-ios/
-android/
-blackberry/

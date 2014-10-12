@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.ceip.carnegieeurasiaoutlook" version="3.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Eurasia</name>
+    <description>
+        Carnegie Feed Reader
+    </description>
+    <author email="kirk@dmvjs.com" href="http://dmvjs.com">
+        Kirk Elliott
+    </author>
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="prerendered-icon" value="false" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="ios-statusbarstyle" value="black-translucent" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <preference name="ShowSplashScreenSpinner" value="true" />
+    <preference name="auto-hide-splash-screen" value="false" />
+    <preference name="fade-splash-screen" value="true" />
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="FadeSplashScreen" value="true" />
+    <preference name="disable-cursor" value="false" />
+    <preference name="android-minSdkVersion" value="16" />
+    <preference name="android-installLocation" value="auto" />
+    <preference name="SplashScreen" value="splash" />
+    <preference name="SplashScreenDelay" value="100000" />
+    <access origin="*" />
+</widget>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>317078E1-73FC-4DF7-8746-8538F2623775</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Eurasia Outlook</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4A4D5A9A-547B-43EF-9050-C9CDDC4645E5</key>
+		<string>ssh://github.com/dmvjs/phonegap-feed-reader.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>platforms/ios/Eurasia Outlook.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4A4D5A9A-547B-43EF-9050-C9CDDC4645E5</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/dmvjs/phonegap-feed-reader.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4A4D5A9A-547B-43EF-9050-C9CDDC4645E5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4A4D5A9A-547B-43EF-9050-C9CDDC4645E5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>eurasia</string>
+		</dict>
+	</array>
+</dict>
+</plist>

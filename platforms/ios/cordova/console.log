@@ -1,0 +1,60 @@
+2014-09-13 17:34:49.799 Eurasia[21721:70b] Multi-tasking -> Device: YES, App: YES
+2014-09-13 17:34:49.805 Eurasia[21721:70b] Unlimited access to network resources
+2014-09-13 17:34:49.806 Eurasia[21721:70b] 
+
+Started backup to iCloud! Please be careful.
+Your application might rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines"
+You could find it at the following address https://developer.apple.com/icloud/documentation/data-storage/ .
+
+2014-09-13 17:34:49.820 Eurasia[21721:70b] [CDVTimer][file] 0.519991ms
+2014-09-13 17:34:49.828 Eurasia[21721:70b] [CDVTimer][splashscreen] 7.896006ms
+2014-09-13 17:34:49.828 Eurasia[21721:70b] [CDVTimer][TotalPluginStartup] 9.202957ms
+2014-09-13 17:34:49.877 Eurasia[21721:70b] Resetting plugins due to page load.
+2014-09-13 17:34:49.966 Eurasia[21721:70b] Finished load of: file:///Users/kirk/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/08692C4D-9517-4629-8093-28B7E711F17D/Eurasia.app/www/index.html
+2014-09-13 17:34:50.122 Eurasia[21721:3e03] File Transfer Finished with response code 200
+2014-09-13 17:34:51.960 Eurasia[21721:1203] File Transfer Finished with response code 200
+2014-09-13 17:34:51.995 Eurasia[21721:1203] File Transfer Finished with response code 200
+2014-09-13 17:34:52.031 Eurasia[21721:3e03] File Transfer Finished with response code 200
+2014-09-13 17:34:52.061 Eurasia[21721:2c07] File Transfer Finished with response code 200
+2014-09-13 17:34:52.091 Eurasia[21721:2c07] File Transfer Finished with response code 200
+2014-09-13 17:34:52.130 Eurasia[21721:3e03] File Transfer Finished with response code 200
+2014-09-13 17:34:52.159 Eurasia[21721:1203] File Transfer Finished with response code 200
+2014-09-13 17:34:52.186 Eurasia[21721:1203] File Transfer Finished with response code 200
+2014-09-13 17:34:52.224 Eurasia[21721:2c07] File Transfer Finished with response code 200
+2014-09-13 17:34:52.268 Eurasia[21721:3e03] File Transfer Finished with response code 200
+2014-09-13 17:34:52.301 Eurasia[21721:3e03] File Transfer Finished with response code 200
+2014-09-13 17:34:52.335 Eurasia[21721:3703] File Transfer Finished with response code 200
+2014-09-13 17:34:52.370 Eurasia[21721:1203] File Transfer Finished with response code 200
+2014-09-13 17:34:52.401 Eurasia[21721:3e03] File Transfer Finished with response code 200
+2014-09-13 17:34:52.435 Eurasia[21721:3e03] File Transfer Finished with response code 200
+2014-09-13 17:34:52.462 Eurasia[21721:3e03] File Transfer Finished with response code 200
+2014-09-13 17:34:52.491 Eurasia[21721:1203] File Transfer Finished with response code 200
+2014-09-13 17:34:52.525 Eurasia[21721:3703] File Transfer Finished with response code 200
+2014-09-13 17:34:52.569 Eurasia[21721:3e03] File Transfer Finished with response code 200
+2014-09-13 17:34:52.599 Eurasia[21721:3703] File Transfer Finished with response code 200
+2014-09-21 17:24:50.886 Eurasia[45979:1495339] Multi-tasking -> Device: YES, App: YES
+2014-09-21 17:24:50.891 Eurasia[45979:1495339] Unlimited access to network resources
+2014-09-21 17:24:50.893 Eurasia[45979:1495339] 
+
+Started backup to iCloud! Please be careful.
+Your application might rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines"
+You could find it at the following address https://developer.apple.com/icloud/documentation/data-storage/ .
+
+2014-09-21 17:24:50.978 Eurasia[45979:1495339] [CDVTimer][file] 0.340044ms
+2014-09-21 17:24:50.979 Eurasia[45979:1495339] CDVPlugin class CDVSplashScreen (pluginName: splashscreen) does not exist.
+2014-09-21 17:24:50.979 Eurasia[45979:1495339] [CDVTimer][splashscreen] 0.079989ms
+2014-09-21 17:24:50.979 Eurasia[45979:1495339] [CDVTimer][TotalPluginStartup] 0.633955ms
+2014-09-21 17:24:51.006 Eurasia[45979:1495339] Resetting plugins due to page load.
+2014-09-21 17:24:51.122 Eurasia[45979:1495339] Finished load of: file:///Users/kirk/Library/Developer/CoreSimulator/Devices/2B78BCBA-0DD3-40CD-8ADA-EDB65D169F3E/data/Containers/Bundle/Application/1908E60B-90A4-4077-A107-508469BBC04C/Eurasia.app/www/index.html
+2014-09-21 17:24:53.487 Eurasia[45979:1495339] CDVPlugin class CDVSplashScreen (pluginName: SplashScreen) does not exist.
+2014-09-21 17:24:53.487 Eurasia[45979:1495339] ERROR: Plugin 'SplashScreen' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-21 17:24:53.487 Eurasia[45979:1495339] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "SplashScreen",
+  "hide",
+  [
+
+  ]
+]
