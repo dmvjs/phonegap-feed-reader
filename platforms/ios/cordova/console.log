@@ -1,0 +1,36 @@
+2014-10-11 23:29:59.326 Syria in Crisis[86136:1938813] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/kirk/Library/Developer/CoreSimulator/Devices/2B78BCBA-0DD3-40CD-8ADA-EDB65D169F3E/data/Containers/Data/Application/271D17FC-B5BC-4C01-9685-8C6F0B39F20D/Library/Cookies/Cookies.binarycookies
+2014-10-11 23:29:59.359 Syria in Crisis[86136:1938813] Multi-tasking -> Device: YES, App: YES
+2014-10-11 23:29:59.364 Syria in Crisis[86136:1938813] Unlimited access to network resources
+2014-10-11 23:29:59.368 Syria in Crisis[86136:1938813] 
+
+Started backup to iCloud! Please be careful.
+Your application might rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines"
+You could find it at the following address https://developer.apple.com/icloud/documentation/data-storage/ .
+
+2014-10-11 23:29:59.458 Syria in Crisis[86136:1938813] [CDVTimer][file] 3.754020ms
+2014-10-11 23:29:59.469 Syria in Crisis[86136:1938813] [CDVTimer][splashscreen] 11.664033ms
+2014-10-11 23:29:59.470 Syria in Crisis[86136:1938813] [CDVTimer][TotalPluginStartup] 15.692949ms
+2014-10-11 23:29:59.673 Syria in Crisis[86136:1938813] Resetting plugins due to page load.
+2014-10-11 23:29:59.788 Syria in Crisis[86136:1938813] Finished load of: file:///Users/kirk/Library/Developer/CoreSimulator/Devices/2B78BCBA-0DD3-40CD-8ADA-EDB65D169F3E/data/Containers/Bundle/Application/599A5991-AEA0-4C73-A8FD-115AC8AAB93C/Syria%20in%20Crisis.app/www/index.html
+2014-10-11 23:29:59.865 Syria in Crisis[86136:1938853] File Transfer Finished with response code 200
+2014-10-11 23:30:01.646 Syria in Crisis[86136:1938855] File Transfer Finished with response code 200
+2014-10-11 23:30:02.164 Syria in Crisis[86136:1938855] File Transfer Finished with response code 200
+2014-10-11 23:30:02.247 Syria in Crisis[86136:1938853] File Transfer Finished with response code 200
+2014-10-11 23:30:02.336 Syria in Crisis[86136:1938852] File Transfer Finished with response code 200
+2014-10-11 23:30:02.423 Syria in Crisis[86136:1938853] File Transfer Finished with response code 200
+2014-10-11 23:30:02.516 Syria in Crisis[86136:1938852] File Transfer Finished with response code 200
+2014-10-11 23:30:02.580 Syria in Crisis[86136:1938855] File Transfer Finished with response code 200
+2014-10-11 23:30:02.678 Syria in Crisis[86136:1938852] File Transfer Finished with response code 200
+2014-10-11 23:30:02.740 Syria in Crisis[86136:1938855] File Transfer Finished with response code 200
+2014-10-11 23:30:02.795 Syria in Crisis[86136:1938852] File Transfer Finished with response code 200
+2014-10-11 23:30:02.851 Syria in Crisis[86136:1938854] File Transfer Finished with response code 200
+2014-10-11 23:30:02.884 Syria in Crisis[86136:1938852] File Transfer Finished with response code 200
+2014-10-11 23:30:02.947 Syria in Crisis[86136:1938853] File Transfer Finished with response code 200
+2014-10-11 23:30:03.017 Syria in Crisis[86136:1939104] File Transfer Finished with response code 200
+2014-10-11 23:30:03.074 Syria in Crisis[86136:1939104] File Transfer Finished with response code 200
+2014-10-11 23:30:03.140 Syria in Crisis[86136:1938852] File Transfer Finished with response code 200
+2014-10-11 23:30:03.207 Syria in Crisis[86136:1938853] File Transfer Finished with response code 200
+2014-10-11 23:30:03.247 Syria in Crisis[86136:1938852] File Transfer Finished with response code 200
+2014-10-11 23:30:03.296 Syria in Crisis[86136:1938855] File Transfer Finished with response code 200
+2014-10-11 23:30:03.381 Syria in Crisis[86136:1938855] File Transfer Finished with response code 200
