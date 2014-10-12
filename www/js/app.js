@@ -225,7 +225,7 @@ module.exports = {
 
 module.exports = {
 	fs: void 0
-	, appName: 'Carnegie'
+	, appName: 'Eurasia'
 	, track: true
 	, trackId: 'UA-31877-23'
 	, folder: 'com.ceip.carnegieeurasiaoutlook'
