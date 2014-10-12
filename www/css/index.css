@@ -446,7 +446,11 @@ section.menu.active {
     box-shadow: none;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
+}
 
+.android.legacy section.menu,
+.amazon-fireos section.menu {
+    border-left: 1px solid #001c3d;
 }
 
 .tablet section.menu.active {
@@ -454,6 +458,19 @@ section.menu.active {
     box-shadow: -4px 0 8px 0 rgba(0, 0, 0, 0.5);
     -webkit-transform: translate3d(-320px, 0, 0);
     transform: translate3d(-320px, 0, 0);
+}
+
+.tablet section.menu.active {
+    -webkit-box-shadow: -4px 0 8px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: -4px 0 8px 0 rgba(0, 0, 0, 0.5);
+    -webkit-transform: translate3d(-320px, 0, 0);
+    transform: translate3d(-320px, 0, 0);
+}
+
+.android.legacy section.menu.active,
+.amazon-fireos section.menu.active {
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 section.menu .section-header {
@@ -670,7 +687,7 @@ section.story .previous {
 
 section.story .story-behind {
     background-color: #001c3d;
-    height: 50%;
+    height: 2px;
     width: 100%;
     position: absolute;
 }
@@ -792,7 +809,7 @@ section.story .previous .story-text object,
 section.story .previous .story-text embed,
 section.story .previous .story-text videoEmbed,
 section.story .previous .story-text dc {
-   display: none;
+    display: none;
 }
 
 section.story .story-text iframe,
@@ -1071,6 +1088,10 @@ footer.story-footer a.share.disabled.active {
     background-image: none;
 }
 
+.amazon-fireos footer.story-footer a.share {
+    display: none;
+}
+
 footer.story-footer a.text {
     height: 44px;
     width: 44px;
@@ -1083,6 +1104,10 @@ footer.story-footer a.text {
     background-size: auto 44px;
 }
 
+.amazon-fireos footer.story-footer a.text {
+    margin-left: 0;
+}
+
 footer.story-footer a.text.active {
     background-image: url('../img/footer-story-text-active.png');
 }
@@ -1091,6 +1116,10 @@ footer.story-footer .spacer {
     width: 50%;
     height: 44px;
     float: left;
+}
+
+.amazon-fireos footer.story-footer .spacer {
+    display: none;
 }
 
 #container {
