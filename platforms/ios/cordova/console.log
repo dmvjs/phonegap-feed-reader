@@ -1,0 +1,39 @@
+2014-08-31 10:59:02.247 Carnegie[6642:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-31 10:59:02.263 Carnegie[6642:70b] Unlimited access to network resources
+2014-08-31 10:59:02.265 Carnegie[6642:70b] 
+
+Started backup to iCloud! Please be careful.
+Your application might rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines"
+You could find it at the following address https://developer.apple.com/icloud/documentation/data-storage/ .
+
+2014-08-31 10:59:02.420 Carnegie[6642:70b] [CDVTimer][file] 0.331998ms
+2014-08-31 10:59:02.480 Carnegie[6642:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-08-31 10:59:02.480 Carnegie[6642:70b] [CDVTimer][splashscreen] 59.356987ms
+2014-08-31 10:59:02.480 Carnegie[6642:70b] [CDVTimer][TotalPluginStartup] 60.274005ms
+2014-08-31 10:59:02.485 Carnegie[6642:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-08-31 10:59:02.488 Carnegie[6642:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-08-31 10:59:02.489 Carnegie[6642:70b] WARNING: The splashscreen image named Default-Portrait was not found
+2014-08-31 10:59:02.538 Carnegie[6642:70b] Resetting plugins due to page load.
+2014-08-31 10:59:02.681 Carnegie[6642:70b] Finished load of: file:///Users/kirk/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/868B6FEE-2CE8-485F-8EFF-D71327ECAA8B/Carnegie.app/www/index.html
+2014-08-31 10:59:02.775 Carnegie[6642:2c07] File Transfer Finished with response code 200
+2014-08-31 10:59:04.840 Carnegie[6642:2c07] File Transfer Finished with response code 200
+2014-08-31 10:59:04.869 Carnegie[6642:1203] File Transfer Finished with response code 200
+2014-08-31 10:59:04.901 Carnegie[6642:4613] File Transfer Finished with response code 200
+2014-08-31 10:59:04.928 Carnegie[6642:1203] File Transfer Finished with response code 200
+2014-08-31 10:59:04.956 Carnegie[6642:7a07] File Transfer Finished with response code 200
+2014-08-31 10:59:04.979 Carnegie[6642:7a07] File Transfer Finished with response code 200
+2014-08-31 10:59:05.007 Carnegie[6642:1203] File Transfer Finished with response code 200
+2014-08-31 10:59:05.058 Carnegie[6642:7a07] File Transfer Finished with response code 200
+2014-08-31 10:59:05.089 Carnegie[6642:4613] File Transfer Finished with response code 200
+2014-08-31 10:59:05.115 Carnegie[6642:7a07] File Transfer Finished with response code 200
+2014-08-31 10:59:05.144 Carnegie[6642:4613] File Transfer Finished with response code 200
+2014-08-31 10:59:05.169 Carnegie[6642:1203] File Transfer Finished with response code 200
+2014-08-31 10:59:05.207 Carnegie[6642:1203] File Transfer Finished with response code 200
+2014-08-31 10:59:05.239 Carnegie[6642:7a07] File Transfer Finished with response code 200
+2014-08-31 10:59:05.264 Carnegie[6642:1203] File Transfer Finished with response code 200
+2014-08-31 10:59:05.294 Carnegie[6642:4613] File Transfer Finished with response code 200
+2014-08-31 10:59:05.317 Carnegie[6642:7a07] File Transfer Finished with response code 200
+2014-08-31 10:59:05.344 Carnegie[6642:4613] File Transfer Finished with response code 200
+2014-08-31 10:59:05.368 Carnegie[6642:2c07] File Transfer Finished with response code 200
+2014-08-31 10:59:05.391 Carnegie[6642:4613] File Transfer Finished with response code 200
