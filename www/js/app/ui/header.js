@@ -12,9 +12,11 @@ $(document)
 			if ($('section.menu').hasClass('active')) {
 				showStoryList();
 			} else {
-				showMenu();
+                $(window).trigger('force-refresh');
+				//showMenu();
+
 			}
-			ui.removeClass('active');
+            ui.removeClass('active');
 		}, 100);
 	})
 	.on('touchstart', 'header .story .back', function (e) {

@@ -227,7 +227,7 @@ module.exports = {
 	fs: void 0
 	, appName: 'Syria In Crisis'
 	, track: false
-	, trackId: 'UA-31877-29'
+	, trackId: 'UA-31877-24'
 	, folder: 'org.ceip.syria'
 	, storyFontSize: 1.0
 	, connectionMessage: 'No network connection detected'
@@ -243,64 +243,6 @@ module.exports = {
 			, filename: 'syria.json'
 			, type: 'json'
 			, required: true
-		}]
-	}, {
-		title: 'Browse Issues'
-		, sub: 'From m.ceip.org'
-		, links: [{
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1243/'
-			, name: 'Domestic Politics'
-		}, {
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1241/'
-			, name: 'Economics'
-		}, {
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1232/'
-			, name: 'Geopolitics'
-		}, {
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1357/'
-			, name: 'Humanitarian Issues'
-		}, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1356/'
-            , name: 'Nuclear'
-        }, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1239/'
-            , name: 'Religion, Culture, and Ethnicity'
-        }, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1355/'
-            , name: 'Security and Conflict'
-        }]
-	}, {
-		title: 'Browse Regions'
-		, links: [{
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1359/'
-			, name: 'Caucasus'
-		}, {
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1358/'
-			, name: 'Central Asia'
-		}, {
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1261/'
-			, name: 'East and South Asia'
-		}, {
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1230/'
-			, name: 'EU'
-		}, {
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1360/'
-			, name: 'New Eastern Europe'
-		}, {
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1228/'
-			, name: 'Russia'
-		}, {
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1361/'
-			, name: 'Western Asia'
-		}]
-	}, {
-		title: 'Explore'
-		, links: [{
-			url: 'http://m.ceip.org/moscow/syriaincrisis/about/'
-			, name: 'About Syria in Crisis'
-		}, {
-			url: 'http://m.ceip.org/moscow/syriaincrisis/'
-			, name: 'Archive'
 		}]
 	}]
 };
@@ -347,9 +289,11 @@ $(document)
 			if ($('section.menu').hasClass('active')) {
 				showStoryList();
 			} else {
-				showMenu();
+                $(window).trigger('force-refresh');
+				//showMenu();
+
 			}
-			ui.removeClass('active');
+            ui.removeClass('active');
 		}, 100);
 	})
 	.on('touchstart', 'header .story .back', function (e) {
@@ -709,7 +653,8 @@ var access = require('../access');
 var container_el, pullrefresh_el, pullrefresh_icon_el 
 	, PullToRefresh = (function() {
     function Main(container, slidebox, slidebox_icon, handler) {
-        var self = this;
+        var self = this,
+            el = $('#story-list-container');
 
         this.breakpoint = 80;
 
@@ -722,12 +667,33 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
         this._anim = null;
         this._dragged_down = false;
 
+        this.bsEvent = {
+            preventDefault: function () {
+                $.noop();
+            },
+            deltaY: 81
+        };
+
         this.hammertime = Hammer(this.container)
             .on("touch dragdown release", function(ev) {
                 if ($('.top-bar').eq(0).position().top > -25) {
             		  self.handleHammer(ev);
                 }
             });
+
+        $(window).on('force-refresh', function () {
+            Hammer(self.container).trigger('touch', self.bsEvent);
+            setTimeout(function () {
+                Hammer(self.container).trigger('dragdown', self.bsEvent);
+                setTimeout(function () {
+                    window.scrollTo(0, -44);
+                    //$(self.container).scrollTop('-44px');
+                    setTimeout(function () {
+                        Hammer(self.container).trigger('release', self.bsEvent);
+                    }, 100);
+                }, 100);
+            }, 100);
+        });
     }
 
 
@@ -737,6 +703,7 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
      */
     Main.prototype.handleHammer = function(ev) {
         var self = this;
+        console.log(ev);
 
         switch(ev.type) {
             // reset element on start
@@ -774,6 +741,9 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
             case 'dragdown':
                 // if we are not at the top move down
                 var scrollY = window.scrollY;
+                console.log('dragdown scrollY', scrollY);
+                console.log('dragdown deltaY', ev.gesture.deltaY);
+
                 if(scrollY > 5) {
                     return;
                 } else if(scrollY !== 0) {

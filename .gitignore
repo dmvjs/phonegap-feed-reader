@@ -1,9 +1,2 @@
-platforms/*
-!platforms/.*
-platforms/.DS_Store
-merges/*
-!merges/.*
-plugins/ios.json
-plugins/android.json
 .idea
 workspace.xml

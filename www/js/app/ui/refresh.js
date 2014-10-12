@@ -36,7 +36,8 @@ var access = require('../access');
 var container_el, pullrefresh_el, pullrefresh_icon_el 
 	, PullToRefresh = (function() {
     function Main(container, slidebox, slidebox_icon, handler) {
-        var self = this;
+        var self = this,
+            el = $('#story-list-container');
 
         this.breakpoint = 80;
 
@@ -49,12 +50,33 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
         this._anim = null;
         this._dragged_down = false;
 
+        this.bsEvent = {
+            preventDefault: function () {
+                $.noop();
+            },
+            deltaY: 81
+        };
+
         this.hammertime = Hammer(this.container)
             .on("touch dragdown release", function(ev) {
                 if ($('.top-bar').eq(0).position().top > -25) {
             		  self.handleHammer(ev);
                 }
             });
+
+        $(window).on('force-refresh', function () {
+            Hammer(self.container).trigger('touch', self.bsEvent);
+            setTimeout(function () {
+                Hammer(self.container).trigger('dragdown', self.bsEvent);
+                setTimeout(function () {
+                    window.scrollTo(0, -44);
+                    //$(self.container).scrollTop('-44px');
+                    setTimeout(function () {
+                        Hammer(self.container).trigger('release', self.bsEvent);
+                    }, 100);
+                }, 100);
+            }, 100);
+        });
     }
 
 
@@ -64,6 +86,7 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
      */
     Main.prototype.handleHammer = function(ev) {
         var self = this;
+        console.log(ev);
 
         switch(ev.type) {
             // reset element on start
@@ -101,6 +124,9 @@ var container_el, pullrefresh_el, pullrefresh_icon_el
             case 'dragdown':
                 // if we are not at the top move down
                 var scrollY = window.scrollY;
+                console.log('dragdown scrollY', scrollY);
+                console.log('dragdown deltaY', ev.gesture.deltaY);
+
                 if(scrollY > 5) {
                     return;
                 } else if(scrollY !== 0) {
