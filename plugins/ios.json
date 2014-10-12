@@ -125,31 +125,31 @@
     },
     "installed_plugins": {
         "com.danielcwilson.plugins.googleanalytics": {
-            "PACKAGE_NAME": "com.ceip.stragetegiceurope"
+            "PACKAGE_NAME": "com.ceip.strategiceurope"
         },
         "nl.x-services.plugins.socialsharing": {
-            "PACKAGE_NAME": "com.ceip.stragetegiceurope"
+            "PACKAGE_NAME": "com.ceip.strategiceurope"
         },
         "org.apache.cordova.device": {
-            "PACKAGE_NAME": "com.ceip.stragetegiceurope"
+            "PACKAGE_NAME": "com.ceip.strategiceurope"
         },
         "org.apache.cordova.dialogs": {
-            "PACKAGE_NAME": "com.ceip.stragetegiceurope"
+            "PACKAGE_NAME": "com.ceip.strategiceurope"
         },
         "org.apache.cordova.file": {
-            "PACKAGE_NAME": "com.ceip.stragetegiceurope"
+            "PACKAGE_NAME": "com.ceip.strategiceurope"
         },
         "org.apache.cordova.file-transfer": {
-            "PACKAGE_NAME": "com.ceip.stragetegiceurope"
+            "PACKAGE_NAME": "com.ceip.strategiceurope"
         },
         "org.apache.cordova.inappbrowser": {
-            "PACKAGE_NAME": "com.ceip.stragetegiceurope"
+            "PACKAGE_NAME": "com.ceip.strategiceurope"
         },
         "org.apache.cordova.network-information": {
-            "PACKAGE_NAME": "com.ceip.stragetegiceurope"
+            "PACKAGE_NAME": "com.ceip.strategiceurope"
         },
         "org.apache.cordova.splashscreen": {
-            "PACKAGE_NAME": "com.ceip.stragetegiceurope"
+            "PACKAGE_NAME": "com.ceip.strategiceurope"
         }
     },
     "dependent_plugins": {}
