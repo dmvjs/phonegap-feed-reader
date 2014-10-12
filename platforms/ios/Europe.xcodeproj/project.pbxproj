@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		028AD0691072455FB1EE91C4 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF54D10CA284C0CBD6B29C2 /* AdSupport.framework */; };
 		095F35DF6A024EF0B819FCE4 /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 783391A102A04CFBB5D0F540 /* CDVSplashScreen.m */; };

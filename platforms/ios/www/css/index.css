@@ -448,7 +448,8 @@ section.menu.active {
     transform: translate3d(0, 0, 0);
 }
 
-.android.legacy section.menu {
+.android.legacy section.menu,
+.amazon-fireos section.menu {
     border-left: 1px solid #001c3d;
 }
 
@@ -466,7 +467,8 @@ section.menu.active {
     transform: translate3d(-320px, 0, 0);
 }
 
-.android.legacy section.menu.active {
+.android.legacy section.menu.active,
+.amazon-fireos section.menu.active {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
@@ -1086,16 +1088,24 @@ footer.story-footer a.share.disabled.active {
     background-image: none;
 }
 
+.amazon-fireos footer.story-footer a.share {
+    display: none;
+}
+
 footer.story-footer a.text {
-    height: 44px;
-    width: 44px;
-    float: left;
-    margin-left: -66px;
-    left: 50%;
-    background-image: url('../img/footer-story-text.png');
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size: auto 44px;
+     height: 44px;
+     width: 44px;
+     float: left;
+     margin-left: -66px;
+     left: 50%;
+     background-image: url('../img/footer-story-text.png');
+     background-position: left;
+     background-repeat: no-repeat;
+     background-size: auto 44px;
+ }
+
+.amazon-fireos footer.story-footer a.text {
+    margin-left: 0;
 }
 
 footer.story-footer a.text.active {
@@ -1106,6 +1116,10 @@ footer.story-footer .spacer {
     width: 50%;
     height: 44px;
     float: left;
+}
+
+.amazon-fireos footer.story-footer .spacer {
+    display: none;
 }
 
 #container {
