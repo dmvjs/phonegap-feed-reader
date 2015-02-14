@@ -148,8 +148,8 @@ function friendlyDate (obj) {
 		if (navigator.connection.type !== 'none') {
 			var url = $(e.currentTarget).prop('href');
 			window.open(encodeURI(url), '_blank', 'location=no,toolbar=yes,enableViewportScale=yes');
-			$('section.menu li.active').removeClass('active');
-			$(e.currentTarget).closest('li').addClass('active');
+			/*$('section.menu li.active').removeClass('active');
+			$(e.currentTarget).closest('li').addClass('active');*/
 			if (config.track && analytics) {
 				analytics.trackEvent('Menu', 'Link Click ', url, 10);
 			}

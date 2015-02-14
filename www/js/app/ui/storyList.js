@@ -86,6 +86,9 @@ function show(feedObj, forceActive) {
 		});*/
 
     $('.story-item').on('click', function (e) {
+        if (e.clientY < (parseInt($('header').height()) + 4)) {
+            return false;
+        }
 	    if (connection.get() === 'none') {
 			$('body').addClass('offline')
 	    } else {

@@ -232,7 +232,7 @@ module.exports = {
 	, storyFontSize: 1.0
 	, connectionMessage: 'No network connection detected'
 	, menuMessage: 'Not yet downloaded'
-	, missingImage: 'http://m.ceip.org/img/appsupport/image-unavailable_605x328.png'
+	, missingImage: 'http://carnegieendowment.org/app-img-not-avail.png'
 	, missingImageRef: void 0
 	, menu: [{
 		title: 'Analysis'
@@ -309,7 +309,7 @@ module.exports = {
 		title: 'Blogs'
 		, sub: 'From m.ceip.org'
 		, links: [{
-			url: 'http://carnegie.ru/eurasiaoutlook/?lang=en'
+			url: 'http://carnegie.ru/eurasiaoutlook/'
 			, name: 'Eurasia Outlook'
 		}, {
 			url: 'http://carnegieendowment.org/sada/'
@@ -1275,6 +1275,14 @@ function update() {
   setTimeout(function () {
     $('section.story .next').scrollTop(0);
     $('section.story .previous').scrollTop(0);
+      if (index === 0) {
+          $('.story-list').scrollTop(0)
+      } else {
+          $('.story-list').scrollTop(
+              parseInt($('.story-list ul li').eq(0).height(), 10) +
+              ((index - 1) * parseInt($('.story-list ul li').eq(1).height(), 10))
+          )
+      }
   }, 350)
 }
 
@@ -1376,6 +1384,9 @@ function show(feedObj, forceActive) {
 		});*/
 
     $('.story-item').on('click', function (e) {
+        if (e.clientY < (parseInt($('header').height()) + 4)) {
+            return false;
+        }
 	    if (connection.get() === 'none') {
 			$('body').addClass('offline')
 	    } else {

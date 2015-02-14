@@ -208,14 +208,14 @@ header .menu .offline {
 }
 
 header .story .back {
-     height: 44px;
-     width: 100px;
-     float: left;
-     background-image: url('../img/header-btn-story-back.png');
-     background-position: left;
-     background-repeat: no-repeat;
-     background-size: auto 44px;
- }
+    height: 44px;
+    width: 100px;
+    float: left;
+	background-image: url('../img/header-btn-story-back.png');
+	background-position: left;
+    background-repeat: no-repeat;
+    background-size: auto 44px;
+}
 
 .tablet header .story .back {
     height: 66px;
@@ -238,15 +238,15 @@ header .story .btn-group {
 }
 
 header .story .btn-group .previous,
- header .story .btn-group .next {
-     height: 44px;
-     width: 44px;
-     float: right;
-     background-image: url('../img/header-btn-story-arrow.png');
-     background-position: center;
-     background-repeat: no-repeat;
-     background-size: auto 44px;
- }
+header .story .btn-group .next {
+    height: 44px;
+    width: 44px;
+    float: right;
+    background-image: url('../img/header-btn-story-arrow.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 44px;
+}
 
 .tablet header .story .btn-group .previous,
 .tablet header .story .btn-group .next {
@@ -306,15 +306,13 @@ section.story-list {
     transform: translate3d(-100%, 0, 0);
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
+    background-color: white;
 }
 
 
 section.story-list.active {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
-}
-
-section.story-list.active {
     display: block;
 }
 
@@ -446,6 +444,19 @@ section.story-list .story-image {
     width: auto;
     margin: 1px;
     float: right;
+    background-color: black;
+}
+
+section.story-list .story-list-behind {
+    height: 60.71625367vw; /* based on 360px viewport width*/
+    height: calc(54.049587vw + 24px);
+    width: 100%;
+    position: absolute;
+    background-color: #001c3d;
+}
+.tablet section.story-list .story-list-behind {
+    height: 57.174587vw; /* based on 768px viewport width*/
+    height: calc(54.049587vw + 24px);
 }
 
 .tablet section.story-list .story-image {
@@ -561,7 +572,9 @@ section.menu ul.menu-items li .hairline {
     transform: scaleY(0.5);
 }
 
-section.menu ul.menu-items li.active {
+section.menu ul.menu-items li.active,
+section.menu ul.menu-items li:focus,
+section.menu ul.menu-items li:active {
     background-color: #ccc7c2;
 }
 
@@ -739,10 +752,15 @@ section.story .previous {
 }
 
 section.story .story-behind {
-    background-color: #001c3d;
-    height: 2px;
+    height: 60.71625367vw; /* based on 360px viewport width*/
+    height: calc(54.049587vw + 24px);
     width: 100%;
     position: absolute;
+    background-color: #001c3d;
+}
+.tablet section.story .story-behind {
+    height: 57.174587vw; /* based on 768px viewport width*/
+    height: calc(54.049587vw + 24px);
 }
 
 section.story .page {

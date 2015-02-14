@@ -9,6 +9,10 @@
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-mdpi/icon.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-xhdpi/ic_launcher.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-xhdpi/icon.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-xxhdpi/ic_launcher.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-xxhdpi/icon.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-xxxhdpi/ic_launcher.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-xxxhdpi/icon.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/values/strings.xml \
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/xml/config.xml \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable/ic_launcher.png \
@@ -21,6 +25,10 @@
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-mdpi/icon.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-xhdpi/ic_launcher.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-xhdpi/icon.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-xxhdpi/ic_launcher.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-xxhdpi/icon.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-xxxhdpi/ic_launcher.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-xxxhdpi/icon.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/assets/_where-is-www.txt \
 /Users/kirk/Apps/Carnegie/global/platforms/android/assets/www \
 /Users/kirk/Apps/Carnegie/global/platforms/android/assets/www/config.xml \

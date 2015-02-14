@@ -235,7 +235,7 @@ module.exports = {
 	, missingImage: 'http://carnegieendowment.org/app-img-not-avail.png'
 	, missingImageRef: void 0
 	, menu: [{
-		title: 'Analysis'
+		title: ''
 		, sub: 'Read Offline'
 		, feeds: [{
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
@@ -251,7 +251,6 @@ module.exports = {
 		}]
 	}, {
 		title: 'Languages'
-		, sub: 'Read Offline'
 		, feeds: [{
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
 			, name: 'English'
@@ -277,7 +276,6 @@ module.exports = {
 		}]
 	}, {
 		title: 'Global Centers'
-		, sub: 'Read Offline'
 		, feeds: [{
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=beijing'
 			, name: 'Beijing'
@@ -307,9 +305,8 @@ module.exports = {
 		}]
 	}, {
 		title: 'Blogs'
-		, sub: 'From m.ceip.org'
 		, links: [{
-			url: 'http://carnegie.ru/eurasiaoutlook/?lang=en'
+			url: 'http://carnegie.ru/eurasiaoutlook/'
 			, name: 'Eurasia Outlook'
 		}, {
 			url: 'http://carnegieendowment.org/sada/'
@@ -662,8 +659,8 @@ function friendlyDate (obj) {
 		if (navigator.connection.type !== 'none') {
 			var url = $(e.currentTarget).prop('href');
 			window.open(encodeURI(url), '_blank', 'location=no,toolbar=yes,enableViewportScale=yes');
-			$('section.menu li.active').removeClass('active');
-			$(e.currentTarget).closest('li').addClass('active');
+			/*$('section.menu li.active').removeClass('active');
+			$(e.currentTarget).closest('li').addClass('active');*/
 			if (config.track && analytics) {
 				analytics.trackEvent('Menu', 'Link Click ', url, 10);
 			}
@@ -1275,6 +1272,14 @@ function update() {
   setTimeout(function () {
     $('section.story .next').scrollTop(0);
     $('section.story .previous').scrollTop(0);
+      if (index === 0) {
+          $('.story-list').scrollTop(0)
+      } else {
+          $('.story-list').scrollTop(
+              parseInt($('.story-list ul li').eq(0).height(), 10) +
+              ((index - 1) * parseInt($('.story-list ul li').eq(1).height(), 10))
+          )
+      }
   }, 350)
 }
 
@@ -1376,6 +1381,9 @@ function show(feedObj, forceActive) {
 		});*/
 
     $('.story-item').on('click', function (e) {
+        if (e.clientY < (parseInt($('header').height()) + 4)) {
+            return false;
+        }
 	    if (connection.get() === 'none') {
 			$('body').addClass('offline')
 	    } else {
