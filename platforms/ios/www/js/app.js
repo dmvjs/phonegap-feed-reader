@@ -147,13 +147,13 @@ function get(id) {
           //file exists
           getFileContents(filename).then(function (contents) {
 	          var o = (JSON.parse(contents.target._result));
-            if (o.lastBuildDate === obj.lastBuildDate) {
+            if ((o.lastBuildDate === obj.lastBuildDate) && !isAnyCommentNew(obj, o)) {
               //no updates since last build
               resolve(contents);
             } else {
               createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
             }
-          }, reject) // file was created but doesn't exist? unlikely
+          }, reject);// file was created but doesn't exist? unlikely
         }, function () {
           //file does not exist
           createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
@@ -163,6 +163,21 @@ function get(id) {
       doesFileExist(filename).then(resolve, reject);
     }
   })
+}
+
+// if any lastCommentPosted prop doesn't match it's twin then a comment has been updated
+function isAnyCommentNew (o1, o2) {
+    var updated = false;
+    if (o1 && o1.item && o1.item.length > 0 && o2 && o2.item && o2.item.length > 0) {
+        $.each(o1.item, function (i, e) {
+            var x = o2.item[i];
+            if (e.lastCommentPosted !== x.lastCommentPosted) {
+                updated = true;
+                return false;
+            }
+        });
+    }
+    return updated;
 }
 
 function removeOrphanedImages() {
@@ -232,7 +247,7 @@ module.exports = {
 	, storyFontSize: 1.0
 	, connectionMessage: 'No network connection detected'
 	, menuMessage: 'Not yet downloaded'
-	, missingImage: 'http://m.ceip.org/img/appsupport/image-unavailable_605x328.png'
+	, missingImage: 'http://carnegieendowment.org/app-img-not-avail.png'
 	, missingImageRef: void 0
 	, menu: [{
 		title: 'Analysis'
@@ -540,9 +555,9 @@ function friendlyDate (obj) {
 		e.preventDefault();
 		if (navigator.connection.type !== 'none') {
 			var url = $(e.currentTarget).prop('href');
-			window.open(encodeURI(url), '_blank', 'location=no,toolbar=yes,enableViewportScale=yes');
-			$('section.menu li.active').removeClass('active');
-			$(e.currentTarget).closest('li').addClass('active');
+			window.open(encodeURI(url), '_blank', 'location=no,toolbar=yes');
+			/*$('section.menu li.active').removeClass('active');
+			$(e.currentTarget).closest('li').addClass('active');*/
 			if (config.track && analytics) {
 				analytics.trackEvent('Menu', 'Link Click ', url, 10);
 			}
@@ -879,7 +894,7 @@ module.exports = (function () {
     , w = win.width()
     , h = win.height();
 
-  if (parseInt(Math.min(w, h), 10) >= 600) {
+  if (parseInt(Math.min(w, h), 10) >= 550) {
 	  $('body').addClass('tablet');
   }
 }());
@@ -1180,6 +1195,14 @@ function update() {
   setTimeout(function () {
     $('section.story .next').scrollTop(0);
     $('section.story .previous').scrollTop(0);
+      if (index === 0) {
+          $('.story-list').scrollTop(0)
+      } else {
+          $('.story-list').scrollTop(
+              parseInt($('.story-list ul li').eq(0).height(), 10) +
+              ((index - 1) * parseInt($('.story-list ul li').eq(1).height(), 10))
+          )
+      }
   }, 350)
 }
 
@@ -1281,21 +1304,23 @@ function show(feedObj, forceActive) {
 		});*/
 
     $('.story-item').on('click', function (e) {
-	    if (connection.get() === 'none') {
-			$('body').addClass('offline')
-	    } else {
-		    $('body').removeClass('offline')
-	    }
-      var li = $(this).closest('li')
-        , index = $('section.story-list ul li').index(li)
-        , feed = sent ? void 0 : feedObj;
+        if (e.clientY > (parseInt($('header').height()) + 5)) {
+            if (connection.get() === 'none') {
+                $('body').addClass('offline')
+            } else {
+                $('body').removeClass('offline')
+            }
+            var li = $(this).closest('li')
+                , index = $('section.story-list ul li').index(li)
+                , feed = sent ? void 0 : feedObj;
 
-        $('.story-item.active').removeClass('active'); 
-        $(this).addClass('active'); 
-        story.show(index, feed).then(function () {
-          header.showStory();
-        });
-        sent = true;
+            $('.story-item.active').removeClass('active');
+            $(this).addClass('active');
+            story.show(index, feed).then(function () {
+                header.showStory();
+            });
+            sent = true;
+        }
     });
 
     $('.story-image').on('error', function (e) {

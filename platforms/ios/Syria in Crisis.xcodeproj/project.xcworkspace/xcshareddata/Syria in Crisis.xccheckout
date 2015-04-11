@@ -11,17 +11,17 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>CEA7949B9417E9559DDE9D951F70A402D442E8B7</key>
-		<string>ssh://github.com/dmvjs/phonegap-feed-reader.git</string>
+		<string>github.com:dmvjs/phonegap-feed-reader.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>platforms/ios/Syria in Crisis.xcodeproj/project.xcworkspace</string>
+	<string>platforms/ios/Syria in Crisis.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>CEA7949B9417E9559DDE9D951F70A402D442E8B7</key>
 		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/dmvjs/phonegap-feed-reader.git</string>
+	<string>github.com:dmvjs/phonegap-feed-reader.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

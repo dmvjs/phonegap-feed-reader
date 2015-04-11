@@ -5,10 +5,8 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		02DE527851394579829CE68E /* SocialSharing.m in Sources */ = {isa = PBXBuildFile; fileRef = C126BE4B1B7948CAA7229975 /* SocialSharing.m */; };
-		074D34B820C54F98A5C8D1D5 /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D529401F936485D934BD32F /* CDVSplashScreen.m */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1E3ECF7F4E4142F39A78BB8C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81ED38BD3CF24BE3A7EAE8C2 /* AdSupport.framework */; };
@@ -537,7 +535,6 @@
 				E1C8312C72934B3E803E283F /* CDVInAppBrowser.m in Sources */,
 				24F328E3EAEF469B9005B863 /* CDVConnection.m in Sources */,
 				528C80F1D5C74F85A6949821 /* CDVReachability.m in Sources */,
-				074D34B820C54F98A5C8D1D5 /* CDVSplashScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
