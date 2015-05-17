@@ -2,6 +2,7 @@
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/classes/com/ceip/carnegie/BuildConfig.class \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/classes/com/ceip/carnegie/Carnegie.class \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/classes/com/ceip/carnegie/R$attr.class \
+/Users/kirk/Apps/Carnegie/global/platforms/android/bin/classes/com/ceip/carnegie/R$bool.class \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/classes/com/ceip/carnegie/R$drawable.class \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/classes/com/ceip/carnegie/R$string.class \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/classes/com/ceip/carnegie/R$xml.class \

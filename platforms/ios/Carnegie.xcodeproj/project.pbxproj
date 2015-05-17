@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		03B635612B674738A3D16022 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 26EBF65E23164B27B2D2339B /* libsqlite3.0.dylib */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
@@ -58,7 +57,6 @@
 		9B168232B24F43178D1E05C6 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9380E029234D9F9C354494 /* libGoogleAnalyticsServices.a */; };
 		A4348ABE71814CE69A22152E /* SocialSharing.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CAE2DAECCA4885989D0805 /* SocialSharing.m */; };
 		A59EEAD76C2F43838D03A422 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B96E652BD44D00BC51EA68 /* CDVDevice.m */; };
-		CF1FD496D4BB4038B1626BF9 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 240B11284E3F4AA58F20F995 /* CDVInAppBrowser.m */; };
 		D1309AA242D54274AE174610 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E2EBB3B971415CA212365D /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		E185045E7A88426C9E210156 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 44431CE28C1741538036C510 /* CDVNotification.bundle */; };
@@ -533,7 +531,6 @@
 				2DE1C23575304C35B13EE3DF /* CDVLocalFilesystem.m in Sources */,
 				96C8A68525B745088FE5AD73 /* CDVAssetLibraryFilesystem.m in Sources */,
 				311988D85D834CDCA588569F /* CDVFileTransfer.m in Sources */,
-				CF1FD496D4BB4038B1626BF9 /* CDVInAppBrowser.m in Sources */,
 				8C65BED99E2D42AE979E1FDF /* CDVConnection.m in Sources */,
 				1DFB817B9DB941DE966A0EA9 /* CDVReachability.m in Sources */,
 				FCB7F1312D19446390E5FEC4 /* CDVSplashScreen.m in Sources */,

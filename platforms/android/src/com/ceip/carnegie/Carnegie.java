@@ -21,6 +21,7 @@ package com.ceip.carnegie;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
+import android.content.pm.ActivityInfo;
 
 public class Carnegie extends CordovaActivity
 {
@@ -28,11 +29,10 @@ public class Carnegie extends CordovaActivity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        //super.init();
+        if(getResources().getBoolean(R.bool.portrait_only)){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
         super.setIntegerProperty("splashscreen", R.drawable.ic_launcher);
-        //super.loadUrl("file:///android_asset/www/index.html", 10000);
-        // Set by <content src="index.html" /> in config.xml
         super.loadUrl(Config.getStartUrl());
-        //super.loadUrl("file:///android_asset/www/index.html");
     }
 }

@@ -110,7 +110,7 @@ function friendlyDate (obj) {
 
 	$('a.menu-link .check').on('click', function (e) {
 		//download a feed
-		var index = $('section.menu li').index($(this).closest('li'))
+		var index = $('section.menu li').index($(this).closest('li'));
 		e.stopPropagation();
 
 		if ($(this).hasClass('checked') && $(this).hasClass('required') === false) {
@@ -147,7 +147,7 @@ function friendlyDate (obj) {
 		e.preventDefault();
 		if (navigator.connection.type !== 'none') {
 			var url = $(e.currentTarget).prop('href');
-			window.open(encodeURI(url), '_blank', 'location=no,toolbar=yes,enableViewportScale=yes');
+			window.open(encodeURI(url), '_blank', 'location=no,toolbar=yes');
 			/*$('section.menu li.active').removeClass('active');
 			$(e.currentTarget).closest('li').addClass('active');*/
 			if (config.track && analytics) {

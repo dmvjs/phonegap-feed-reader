@@ -12,7 +12,7 @@ module.exports = {
 	, missingImage: 'http://carnegieendowment.org/app-img-not-avail.png'
 	, missingImageRef: void 0
 	, menu: [{
-		title: 'Analysis'
+		title: ''
 		, sub: 'Read Offline'
 		, feeds: [{
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
@@ -28,7 +28,6 @@ module.exports = {
 		}]
 	}, {
 		title: 'Languages'
-		, sub: 'Read Offline'
 		, feeds: [{
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
 			, name: 'English'
@@ -54,7 +53,6 @@ module.exports = {
 		}]
 	}, {
 		title: 'Global Centers'
-		, sub: 'Read Offline'
 		, feeds: [{
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=beijing'
 			, name: 'Beijing'
@@ -84,7 +82,6 @@ module.exports = {
 		}]
 	}, {
 		title: 'Blogs'
-		, sub: 'From m.ceip.org'
 		, links: [{
 			url: 'http://carnegie.ru/eurasiaoutlook/'
 			, name: 'Eurasia Outlook'

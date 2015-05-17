@@ -147,7 +147,7 @@ function friendlyDate (obj) {
 		e.preventDefault();
 		if (navigator.connection.type !== 'none') {
 			var url = $(e.currentTarget).prop('href');
-			window.open(encodeURI(url), '_blank', 'location=no,toolbar=yes,enableViewportScale=yes');
+			window.open(encodeURI(url), '_blank', 'location=no,toolbar=yes');
 			/*$('section.menu li.active').removeClass('active');
 			$(e.currentTarget).closest('li').addClass('active');*/
 			if (config.track && analytics) {

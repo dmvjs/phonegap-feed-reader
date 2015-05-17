@@ -33,10 +33,6 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
                             "count": 1
                         },
@@ -90,9 +86,6 @@
             "PACKAGE_NAME": "com.ceip.carnegie"
         },
         "org.apache.cordova.file-transfer": {
-            "PACKAGE_NAME": "com.ceip.carnegie"
-        },
-        "org.apache.cordova.inappbrowser": {
             "PACKAGE_NAME": "com.ceip.carnegie"
         },
         "org.apache.cordova.network-information": {
