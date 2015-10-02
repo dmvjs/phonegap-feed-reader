@@ -83,9 +83,6 @@ module.exports = {
 	}, {
 		title: 'Blogs'
 		, links: [{
-			url: 'http://carnegie.ru/eurasiaoutlook/'
-			, name: 'Eurasia Outlook'
-		}, {
 			url: 'http://carnegieendowment.org/sada/'
 			, name: 'Sada'
 		}, {

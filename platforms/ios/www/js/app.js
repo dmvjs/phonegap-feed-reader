@@ -321,9 +321,6 @@ module.exports = {
 	}, {
 		title: 'Blogs'
 		, links: [{
-			url: 'http://carnegie.ru/eurasiaoutlook/'
-			, name: 'Eurasia Outlook'
-		}, {
 			url: 'http://carnegieendowment.org/sada/'
 			, name: 'Sada'
 		}, {
@@ -636,7 +633,7 @@ function friendlyDate (obj) {
 
 	$('a.menu-link .check').on('click', function (e) {
 		//download a feed
-		var index = $('section.menu li').index($(this).closest('li'))
+		var index = $('section.menu li').index($(this).closest('li'));
 		e.stopPropagation();
 
 		if ($(this).hasClass('checked') && $(this).hasClass('required') === false) {
@@ -749,6 +746,8 @@ module.exports = {
 };
 },{"../../io/doesFileExist":15,"../../io/getFileContents":19,"../../util/notify":30,"../access":1,"../config":2,"./header":4,"./storyList":9}],6:[function(require,module,exports){
 var access = require('../access');
+
+Hammer.defaults.stop_browser_behavior.touchAction = 'pan-y';
 
 /**
  * requestAnimationFrame and cancel polyfill
@@ -1377,7 +1376,7 @@ function show(feedObj, forceActive) {
         , storyItem = $('<div/>', {
           addClass: 'story-item'
         }).append(hairline).append(storyImage).append(storyText)
-        , li = $('<li/>', {}).append(storyItem)
+        , li = $('<li/>', {}).append(storyItem);
 
         ul.append(li);
     });

@@ -1,5 +1,7 @@
 var access = require('../access');
 
+Hammer.defaults.stop_browser_behavior.touchAction = 'pan-y';
+
 /**
  * requestAnimationFrame and cancel polyfill
  */

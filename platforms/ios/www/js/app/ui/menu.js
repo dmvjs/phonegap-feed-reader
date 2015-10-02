@@ -110,7 +110,7 @@ function friendlyDate (obj) {
 
 	$('a.menu-link .check').on('click', function (e) {
 		//download a feed
-		var index = $('section.menu li').index($(this).closest('li'))
+		var index = $('section.menu li').index($(this).closest('li'));
 		e.stopPropagation();
 
 		if ($(this).hasClass('checked') && $(this).hasClass('required') === false) {

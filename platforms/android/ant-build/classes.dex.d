@@ -1,6 +1,6 @@
 /Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes.dex : \
 /Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/com/ceip/carnegie/BuildConfig.class \
-/Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/com/ceip/carnegie/Carnegie.class \
+/Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/com/ceip/carnegie/MainActivity.class \
 /Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/com/ceip/carnegie/R$attr.class \
 /Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/com/ceip/carnegie/R$bool.class \
 /Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/com/ceip/carnegie/R$drawable.class \
@@ -83,20 +83,6 @@
 /Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/filetransfer/FileTransfer$TrackingInputStream.class \
 /Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/filetransfer/FileTransfer.class \
 /Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/filetransfer/FileUploadResult.class \
-/Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$1.class \
-/Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$2.class \
-/Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$3.class \
-/Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$4$1.class \
-/Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$4.class \
-/Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$1.class \
-/Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$2.class \
-/Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$3.class \
-/Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$4.class \
-/Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$5.class \
-/Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$InAppBrowserClient.class \
-/Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser.class \
-/Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowserDialog.class \
-/Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppChromeClient.class \
 /Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/networkinformation/NetworkManager$1.class \
 /Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/networkinformation/NetworkManager.class \
 /Users/kirk/Apps/Carnegie/global/platforms/android/ant-build/classes/org/apache/cordova/splashscreen/SplashScreen.class \

@@ -366,7 +366,7 @@ section.story-list .story-item.active {
 
 section.story-list .story-item .story-text {
     width: 100%;
-    margin: 0 2px;
+    margin: 5px;
 }
 
 section.story-list li:first-of-type .story-item .story-text {
@@ -376,9 +376,17 @@ section.story-list li:first-of-type .story-item .story-text {
     overflow: auto;
 }
 
+section.story-list .story-item .story-date {
+    display: none;
+}
+
 .tablet section.story-list .story-item .story-text {
     font-size: 1.5em;
     margin: 15px;
+}
+
+.tablet section.story-list .story-item .story-date {
+    display: block;
 }
 
 .tablet section.story-list li:first-of-type .story-item .story-text {
@@ -543,8 +551,16 @@ section.menu .section-header .sub {
     text-transform: uppercase;
 }
 
+section.menu .section-header.rtl .title {
+    float: right;
+}
+
 section.menu .section-header .sub {
     float: right;
+}
+
+section.menu .section-header.rtl .sub {
+    float: left;
 }
 
 section.menu ul.menu-items li {
@@ -564,6 +580,10 @@ section.menu ul.menu-items li.active {
     background-color: #cce1fa;
 }
 
+section.menu .menu-item.rtl {
+    text-align: right;
+}
+
 section.menu .menu-item a {
     display: block;
     height: 66px;
@@ -576,12 +596,23 @@ section.menu .menu-item-box {
     margin-top: 12px;
 }
 
+section.menu .menu-item.rtl .menu-item-box {
+    float: right;
+}
+
 section.menu .menu-item-box .label,
 section.menu .menu-item-box .sub {
     margin-left: 8px;
     font-size: 22px;
     font-weight: normal;
     color: black;
+}
+
+section.menu .menu-item.rtl .menu-item-box .label,
+section.menu .menu-item.rtl .menu-item-box .sub {
+    direction: rtl;
+    margin-right: 8px;
+    margin-left: 0;
 }
 
 section.menu .menu-item-box .sub {
@@ -602,6 +633,10 @@ section.menu .check {
     background-position: 50% 50%;
     background-size: 70%;
     background-repeat: no-repeat;
+}
+
+section.menu .menu-item.rtl .check {
+    float: left;
 }
 
 section.menu .check.checked {
@@ -1309,5 +1344,35 @@ footer.story-footer .spacer {
     url('../img/header-offline.png') no-repeat -9999px -9999px;
 }
 
+section.menu .checkrow {
+    text-align: center;
+}
+
+section.menu .checkrow select {
+    width: 200px;
+    margin: 8px auto;
+    height: 33px;
+    line-height: 33px;
+    font-size: 16px;
+}
+
+.menu .checkrow select {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 0;
+    -webkit-appearance:none;
+    color: white;
+    text-transform: uppercase;
+    padding-left: 15px;
+}
+
+.menu .checkrow .select-arrow {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid white;
+    display: inline-block;
+    margin-left: -30px;
+}
 
 

@@ -67,7 +67,7 @@ function show(feedObj, forceActive) {
         , storyItem = $('<div/>', {
           addClass: 'story-item'
         }).append(hairline).append(storyImage).append(storyText)
-        , li = $('<li/>', {}).append(storyItem)
+        , li = $('<li/>', {}).append(storyItem);
 
         ul.append(li);
     });
