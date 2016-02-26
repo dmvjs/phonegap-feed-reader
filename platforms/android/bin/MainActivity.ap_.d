@@ -1,6 +1,9 @@
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/MainActivity.ap_ \
  : /Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable/ic_launcher.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable/icon.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-hdpi/ic_action_next_item.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-hdpi/ic_action_previous_item.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-hdpi/ic_action_remove.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-hdpi/ic_launcher.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-hdpi/icon.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-land-xhdpi/ic_action_next_item.png \
@@ -17,10 +20,19 @@
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-land-xxxhdpi/icon.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-ldpi/ic_launcher.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-ldpi/icon.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-mdpi/ic_action_next_item.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-mdpi/ic_action_previous_item.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-mdpi/ic_action_remove.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-mdpi/ic_launcher.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-mdpi/icon.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-xhdpi/ic_action_next_item.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-xhdpi/ic_action_previous_item.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-xhdpi/ic_action_remove.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-xhdpi/ic_launcher.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-xhdpi/icon.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-xxhdpi/ic_action_next_item.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-xxhdpi/ic_action_previous_item.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-xxhdpi/ic_action_remove.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-xxhdpi/ic_launcher.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-xxhdpi/icon.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/drawable-xxxhdpi/ic_launcher.png \
@@ -34,6 +46,9 @@
 /Users/kirk/Apps/Carnegie/global/platforms/android/res/xml/config.xml \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable/ic_launcher.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable/icon.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-hdpi/ic_action_next_item.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-hdpi/ic_action_previous_item.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-hdpi/ic_action_remove.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-hdpi/ic_launcher.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-hdpi/icon.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-land-xhdpi/ic_action_next_item.png \
@@ -50,10 +65,19 @@
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-land-xxxhdpi/icon.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-ldpi/ic_launcher.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-ldpi/icon.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-mdpi/ic_action_next_item.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-mdpi/ic_action_previous_item.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-mdpi/ic_action_remove.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-mdpi/ic_launcher.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-mdpi/icon.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-xhdpi/ic_action_next_item.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-xhdpi/ic_action_previous_item.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-xhdpi/ic_action_remove.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-xhdpi/ic_launcher.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-xhdpi/icon.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-xxhdpi/ic_action_next_item.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-xxhdpi/ic_action_previous_item.png \
+/Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-xxhdpi/ic_action_remove.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-xxhdpi/ic_launcher.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-xxhdpi/icon.png \
 /Users/kirk/Apps/Carnegie/global/platforms/android/bin/res/drawable-xxxhdpi/ic_launcher.png \
@@ -153,6 +177,7 @@
 /Users/kirk/Apps/Carnegie/global/platforms/android/assets/www/plugins/org.apache.cordova.dialogs \
 /Users/kirk/Apps/Carnegie/global/platforms/android/assets/www/plugins/org.apache.cordova.file \
 /Users/kirk/Apps/Carnegie/global/platforms/android/assets/www/plugins/org.apache.cordova.file-transfer \
+/Users/kirk/Apps/Carnegie/global/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser \
 /Users/kirk/Apps/Carnegie/global/platforms/android/assets/www/plugins/org.apache.cordova.network-information \
 /Users/kirk/Apps/Carnegie/global/platforms/android/assets/www/plugins/org.apache.cordova.splashscreen \
 /Users/kirk/Apps/Carnegie/global/platforms/android/assets/www/plugins/com.danielcwilson.plugins.googleanalytics/www \
@@ -188,6 +213,8 @@
 /Users/kirk/Apps/Carnegie/global/platforms/android/assets/www/plugins/org.apache.cordova.file-transfer/www \
 /Users/kirk/Apps/Carnegie/global/platforms/android/assets/www/plugins/org.apache.cordova.file-transfer/www/FileTransfer.js \
 /Users/kirk/Apps/Carnegie/global/platforms/android/assets/www/plugins/org.apache.cordova.file-transfer/www/FileTransferError.js \
+/Users/kirk/Apps/Carnegie/global/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser/www \
+/Users/kirk/Apps/Carnegie/global/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js \
 /Users/kirk/Apps/Carnegie/global/platforms/android/assets/www/plugins/org.apache.cordova.network-information/www \
 /Users/kirk/Apps/Carnegie/global/platforms/android/assets/www/plugins/org.apache.cordova.network-information/www/Connection.js \
 /Users/kirk/Apps/Carnegie/global/platforms/android/assets/www/plugins/org.apache.cordova.network-information/www/network.js \

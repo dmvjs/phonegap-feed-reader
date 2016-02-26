@@ -74,6 +74,11 @@ module.exports = {
 			, type: 'json'
 			, filename: 'moscow-json.json'
 		}, {
+			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson&center=india'
+			, name: 'New Delhi'
+			, type: 'json'
+			, filename: 'newdelhi-json.json'
+		}, {
 			url: 'http://carnegieendowment.org/rss/solr/?fa=AppGlobalJson'
 			, name: 'Washington D.C.'
 			, filename: 'mobile-global.json'
@@ -123,7 +128,7 @@ module.exports = {
 		title: 'Explore'
 		, links: [{
 			url: 'http://carnegieendowment.org/resources/?fa=register'
-			, name: 'Stay in the Know'
+			, name: 'Subscribe'
 		}, {
 			url: 'http://carnegieendowment.org/about/'
 			, name: 'About Us'
