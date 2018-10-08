@@ -1,0 +1,9 @@
+{
+    "org.apache.cordova.splashscreen": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/apache/cordova-plugin-splashscreen.git",
+            "subdir": "."
+        }
+    }
+}

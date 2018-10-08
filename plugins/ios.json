@@ -9,72 +9,72 @@
                 "parents": {
                     "SystemConfiguration.framework": [
                         {
-                            "xml": "false",
+                            "xml": false,
                             "count": 1
                         },
                         {
-                            "xml": "true",
+                            "xml": true,
                             "count": 1
                         }
                     ],
                     "CoreData.framework": [
                         {
-                            "xml": "false",
+                            "xml": false,
                             "count": 1
                         }
                     ],
                     "AdSupport.framework": [
                         {
-                            "xml": "false",
+                            "xml": false,
                             "count": 1
                         }
                     ],
                     "libz.dylib": [
                         {
-                            "xml": "false",
+                            "xml": false,
                             "count": 1
                         }
                     ],
                     "libsqlite3.0.dylib": [
                         {
-                            "xml": "false",
+                            "xml": false,
                             "count": 1
                         }
                     ],
                     "Social.framework": [
                         {
-                            "xml": "true",
+                            "xml": true,
                             "count": 1
                         }
                     ],
                     "MessageUI.framework": [
                         {
-                            "xml": "true",
+                            "xml": true,
                             "count": 1
                         }
                     ],
                     "AudioToolbox.framework": [
                         {
-                            "xml": "true",
+                            "xml": true,
                             "count": 1
                         }
                     ],
                     "AssetsLibrary.framework": [
                         {
-                            "xml": "false",
+                            "xml": false,
                             "count": 2
                         }
                     ],
                     "MobileCoreServices.framework": [
                         {
-                            "xml": "false",
+                            "xml": false,
                             "count": 1
                         }
                     ],
                     "CoreGraphics.framework": [
                         {
-                            "xml": "false",
-                            "count": 2
+                            "xml": false,
+                            "count": 1
                         }
                     ]
                 }

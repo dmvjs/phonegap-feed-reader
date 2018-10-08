@@ -1,7 +1,8 @@
 /Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes.dex : \
 /Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/com/ceip/carnegieeurasiaoutlook/BuildConfig.class \
-/Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/com/ceip/carnegieeurasiaoutlook/EurasiaOutlook.class \
+/Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/com/ceip/carnegieeurasiaoutlook/MainActivity.class \
 /Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/com/ceip/carnegieeurasiaoutlook/R$attr.class \
+/Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/com/ceip/carnegieeurasiaoutlook/R$bool.class \
 /Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/com/ceip/carnegieeurasiaoutlook/R$drawable.class \
 /Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/com/ceip/carnegieeurasiaoutlook/R$string.class \
 /Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/com/ceip/carnegieeurasiaoutlook/R$xml.class \
@@ -98,6 +99,15 @@
 /Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppChromeClient.class \
 /Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/org/apache/cordova/networkinformation/NetworkManager$1.class \
 /Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/org/apache/cordova/networkinformation/NetworkManager.class \
+/Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/org/apache/cordova/splashscreen/SplashScreen$1.class \
+/Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/org/apache/cordova/splashscreen/SplashScreen$2.class \
+/Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/org/apache/cordova/splashscreen/SplashScreen$3.class \
+/Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/org/apache/cordova/splashscreen/SplashScreen$4.class \
+/Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/org/apache/cordova/splashscreen/SplashScreen$5$1.class \
+/Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/org/apache/cordova/splashscreen/SplashScreen$5.class \
+/Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/org/apache/cordova/splashscreen/SplashScreen$6$1.class \
+/Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/org/apache/cordova/splashscreen/SplashScreen$6.class \
+/Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/org/apache/cordova/splashscreen/SplashScreen$7.class \
 /Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/classes/org/apache/cordova/splashscreen/SplashScreen.class \
 /Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/dexedLibs/classes-27839bf300eb56819779f2db1509558a.jar \
 /Users/kirk/Apps/Carnegie/eurasia/platforms/android/ant-build/dexedLibs/libGoogleAnalyticsServices-18dcb10d7c79f0460ee91a9c164994f9.jar \

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ceip.carnegieeurasiaoutlook" version="3.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Eurasia</name>
+<widget id="com.ceip.carnegieeurasiaoutlook" version="3.0.7" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Eurasia Outlook</name>
     <description>
         Carnegie Feed Reader
     </description>

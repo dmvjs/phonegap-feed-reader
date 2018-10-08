@@ -147,13 +147,13 @@ function get(id) {
           //file exists
           getFileContents(filename).then(function (contents) {
 	          var o = (JSON.parse(contents.target._result));
-            if (o.lastBuildDate === obj.lastBuildDate) {
+            if ((o.lastBuildDate === obj.lastBuildDate) && !isAnyCommentNew(obj, o)) {
               //no updates since last build
               resolve(contents);
             } else {
               createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
             }
-          }, reject) // file was created but doesn't exist? unlikely
+          }, reject);// file was created but doesn't exist? unlikely
         }, function () {
           //file does not exist
           createFileWithContents(filename, JSON.stringify(obj)).then(resolve, reject);
@@ -163,6 +163,21 @@ function get(id) {
       doesFileExist(filename).then(resolve, reject);
     }
   })
+}
+
+// if any lastCommentPosted prop doesn't match it's twin then a comment has been updated
+function isAnyCommentNew (o1, o2) {
+    var updated = false;
+    if (o1 && o1.item && o1.item.length > 0 && o2 && o2.item && o2.item.length > 0) {
+        $.each(o1.item, function (i, e) {
+            var x = o2.item[i];
+            if (e.lastCommentPosted !== x.lastCommentPosted) {
+                updated = true;
+                return false;
+            }
+        });
+    }
+    return updated;
 }
 
 function removeOrphanedImages() {
@@ -225,14 +240,14 @@ module.exports = {
 
 module.exports = {
 	fs: void 0
-	, appName: 'Eurasia'
+	, appName: 'Eurasia Outlook'
 	, track: true
 	, trackId: 'UA-31877-23'
 	, folder: 'com.ceip.carnegieeurasiaoutlook'
 	, storyFontSize: 1.0
 	, connectionMessage: 'No network connection detected'
 	, menuMessage: 'Not yet downloaded'
-	, missingImage: 'http://m.ceip.org/img/appsupport/image-unavailable_605x328.png'
+	, missingImage: 'http://carnegieendowment.org/app-img-not-avail.png'
 	, missingImageRef: void 0
 	, menu: [{
 		title: 'Analysis'
@@ -248,58 +263,61 @@ module.exports = {
 		title: 'Blogs'
 		, sub: 'From m.ceip.org'
 		, links: [{
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1243/'
+			url: 'http://carnegie.ru/eurasiaoutlook/?fa=showIssue&id=1243&title=Domestic%20Politics'
 			, name: 'Domestic Politics'
 		}, {
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1241/'
+			url: 'http://carnegie.ru/eurasiaoutlook/?fa=showIssue&id=1241&title=Economics'
 			, name: 'Economics'
 		}, {
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1232/'
-			, name: 'Geopolitics'
+			url: 'http://carnegie.ru/eurasiaoutlook/?fa=showIssue&id=1235&title=Energy%20and%20Climate'
+			, name: 'Energy and Climate'
 		}, {
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1357/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showIssue&id=1232&title=Geopolitics'
+            , name: 'Geopolitics'
+        }, {
+			url: 'http://carnegie.ru/eurasiaoutlook/?fa=showIssue&id=1357&title=Humanitarian%20Issues'
 			, name: 'Humanitarian Issues'
 		}, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1356/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showIssue&id=1356&title=Nuclear'
             , name: 'Nuclear'
         }, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1239/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showIssue&id=1239&title=Religion,%20Culture,%20and%20Ethnicity'
             , name: 'Religion, Culture, and Ethnicity'
         }, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1355/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showIssue&id=1355&title=Security%20and%20Conflicts'
             , name: 'Security and Conflict'
         }]
 	}, {
         title: 'Browse Regions'
         , links: [{
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1359/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showRegion&lang=en&id=1359&title=Caucasus'
             , name: 'Caucasus'
         }, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1358/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showRegion&lang=en&id=1358&title=Central%20Asia'
             , name: 'Central Asia'
         }, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1261/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showRegion&lang=en&id=1261&title=East%20and%20South%20Asia'
             , name: 'East and South Asia'
         }, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1230/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showRegion&lang=en&id=1230&title=EU'
             , name: 'EU'
         }, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1360/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showRegion&lang=en&id=1360&title=New%20Eastern%20Europe'
             , name: 'New Eastern Europe'
         }, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1228/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showRegion&lang=en&id=1228&title=Russia'
             , name: 'Russia'
         }, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1361/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showRegion&lang=en&id=1361&title=Western%20Asia'
             , name: 'Western Asia'
         }]
     }, {
 		title: 'Explore'
 		, links: [{
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/about/'
+			url: 'http://carnegie.ru/eurasiaoutlook/?fa=about'
 			, name: 'About Eurasia Outlook'
 		}, {
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/'
+			url: 'http://carnegie.ru/eurasiaOutlook/?fa=archive'
 			, name: 'Archive'
 		}]
 	}]
@@ -596,9 +614,9 @@ function friendlyDate (obj) {
 		e.preventDefault();
 		if (navigator.connection.type !== 'none') {
 			var url = $(e.currentTarget).prop('href');
-			window.open(encodeURI(url), '_blank', 'location=no,toolbar=yes,enableViewportScale=yes');
-			$('section.menu li.active').removeClass('active');
-			$(e.currentTarget).closest('li').addClass('active');
+			window.open(encodeURI(url), '_blank', 'location=no,toolbar=yes');
+			/*$('section.menu li.active').removeClass('active');
+			$(e.currentTarget).closest('li').addClass('active');*/
 			if (config.track && analytics) {
 				analytics.trackEvent('Menu', 'Link Click ', url, 10);
 			}
@@ -672,6 +690,9 @@ module.exports = {
 };
 },{"../../io/doesFileExist":15,"../../io/getFileContents":19,"../../util/notify":30,"../access":1,"../config":2,"./header":4,"./storyList":9}],6:[function(require,module,exports){
 var access = require('../access');
+
+Hammer.defaults.stop_browser_behavior.touchAction = 'pan-y';
+
 
 /**
  * requestAnimationFrame and cancel polyfill
@@ -909,7 +930,7 @@ module.exports = (function () {
     , w = win.width()
     , h = win.height();
 
-  if (parseInt(Math.min(w, h), 10) >= 600) {
+  if (parseInt(Math.min(w, h), 10) >= 550) {
 	  $('body').addClass('tablet');
   }
 }());
@@ -1210,6 +1231,14 @@ function update() {
   setTimeout(function () {
     $('section.story .next').scrollTop(0);
     $('section.story .previous').scrollTop(0);
+      if (index === 0) {
+          $('.story-list').scrollTop(0)
+      } else {
+          $('.story-list').scrollTop(
+              parseInt($('.story-list ul li').eq(0).height(), 10) +
+              ((index - 1) * parseInt($('.story-list ul li').eq(1).height(), 10))
+          )
+      }
   }, 350)
 }
 
@@ -1311,21 +1340,23 @@ function show(feedObj, forceActive) {
 		});*/
 
     $('.story-item').on('click', function (e) {
-	    if (connection.get() === 'none') {
-			$('body').addClass('offline')
-	    } else {
-		    $('body').removeClass('offline')
-	    }
-      var li = $(this).closest('li')
-        , index = $('section.story-list ul li').index(li)
-        , feed = sent ? void 0 : feedObj;
+        if (e.clientY > (parseInt($('header').height()) + 5)) {
+            if (connection.get() === 'none') {
+                $('body').addClass('offline')
+            } else {
+                $('body').removeClass('offline')
+            }
+            var li = $(this).closest('li')
+                , index = $('section.story-list ul li').index(li)
+                , feed = sent ? void 0 : feedObj;
 
-        $('.story-item.active').removeClass('active'); 
-        $(this).addClass('active'); 
-        story.show(index, feed).then(function () {
-          header.showStory();
-        });
-        sent = true;
+            $('.story-item.active').removeClass('active');
+            $(this).addClass('active');
+            story.show(index, feed).then(function () {
+                header.showStory();
+            });
+            sent = true;
+        }
     });
 
     $('.story-image').on('error', function (e) {

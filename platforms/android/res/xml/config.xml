@@ -1,10 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ceip.carnegieeurasiaoutlook" version="3.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.ceip.carnegieeurasiaoutlook" version="3.0.8" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
-    <preference name="AndroidLaunchMode" value="singleTop" />
-    <feature name="App">
-        <param name="android-package" value="org.apache.cordova.App" />
-    </feature>
     <feature name="UniversalAnalytics">
         <param name="android-package" value="com.danielcwilson.plugins.analytics.UniversalAnalyticsPlugin" />
     </feature>
@@ -33,7 +29,17 @@
     <feature name="SplashScreen">
         <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
     </feature>
-    <name>Eurasia</name>
+    <icon density="ldpi" src="www/res/android/ldpi.png" />
+    <icon density="mdpi" src="www/res/android/mdpi.png" />
+    <icon density="hdpi" src="www/res/android/hdpi.png" />
+    <icon density="xhdpi" src="www/res/android/xhdpi.png" />
+    <splash density="ldpi" src="www/res/android/splash-ldpi.png" />
+    <splash density="mdpi" src="www/res/android/splash-mdpi.png" />
+    <splash density="hdpi" src="www/res/android/splash-hdpi.png" />
+    <splash density="xhdpi" src="www/res/android/splash-xhdpi.png" />
+    <splash density="land-hdpi" src="www/res/android/splash-land-hdpi.png" />
+    <splash density="land-xhdpi" src="www/res/android/splash-land-xhdpi.png" />
+    <name>Eurasia Outlook</name>
     <description>
         Carnegie Feed Reader
     </description>
@@ -58,7 +64,7 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="16" />
     <preference name="android-installLocation" value="auto" />
-    <preference name="SplashScreen" value="splash" />
-    <preference name="SplashScreenDelay" value="100000" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="10000" />
     <access origin="*" />
 </widget>

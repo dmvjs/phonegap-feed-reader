@@ -2,14 +2,14 @@
 
 module.exports = {
 	fs: void 0
-	, appName: 'Eurasia'
+	, appName: 'Eurasia Outlook'
 	, track: true
 	, trackId: 'UA-31877-23'
 	, folder: 'com.ceip.carnegieeurasiaoutlook'
 	, storyFontSize: 1.0
 	, connectionMessage: 'No network connection detected'
 	, menuMessage: 'Not yet downloaded'
-	, missingImage: 'http://m.ceip.org/img/appsupport/image-unavailable_605x328.png'
+	, missingImage: 'http://carnegieendowment.org/app-img-not-avail.png'
 	, missingImageRef: void 0
 	, menu: [{
 		title: 'Analysis'
@@ -25,58 +25,61 @@ module.exports = {
 		title: 'Blogs'
 		, sub: 'From m.ceip.org'
 		, links: [{
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1243/'
+			url: 'http://carnegie.ru/eurasiaoutlook/?fa=showIssue&id=1243&title=Domestic%20Politics'
 			, name: 'Domestic Politics'
 		}, {
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1241/'
+			url: 'http://carnegie.ru/eurasiaoutlook/?fa=showIssue&id=1241&title=Economics'
 			, name: 'Economics'
 		}, {
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1232/'
-			, name: 'Geopolitics'
+			url: 'http://carnegie.ru/eurasiaoutlook/?fa=showIssue&id=1235&title=Energy%20and%20Climate'
+			, name: 'Energy and Climate'
 		}, {
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1357/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showIssue&id=1232&title=Geopolitics'
+            , name: 'Geopolitics'
+        }, {
+			url: 'http://carnegie.ru/eurasiaoutlook/?fa=showIssue&id=1357&title=Humanitarian%20Issues'
 			, name: 'Humanitarian Issues'
 		}, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1356/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showIssue&id=1356&title=Nuclear'
             , name: 'Nuclear'
         }, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1239/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showIssue&id=1239&title=Religion,%20Culture,%20and%20Ethnicity'
             , name: 'Religion, Culture, and Ethnicity'
         }, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/issues/1355/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showIssue&id=1355&title=Security%20and%20Conflicts'
             , name: 'Security and Conflict'
         }]
 	}, {
         title: 'Browse Regions'
         , links: [{
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1359/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showRegion&lang=en&id=1359&title=Caucasus'
             , name: 'Caucasus'
         }, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1358/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showRegion&lang=en&id=1358&title=Central%20Asia'
             , name: 'Central Asia'
         }, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1261/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showRegion&lang=en&id=1261&title=East%20and%20South%20Asia'
             , name: 'East and South Asia'
         }, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1230/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showRegion&lang=en&id=1230&title=EU'
             , name: 'EU'
         }, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1360/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showRegion&lang=en&id=1360&title=New%20Eastern%20Europe'
             , name: 'New Eastern Europe'
         }, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1228/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showRegion&lang=en&id=1228&title=Russia'
             , name: 'Russia'
         }, {
-            url: 'http://m.ceip.org/moscow/eurasiaoutlook/regions/1361/'
+            url: 'http://carnegie.ru/eurasiaoutlook/?fa=showRegion&lang=en&id=1361&title=Western%20Asia'
             , name: 'Western Asia'
         }]
     }, {
 		title: 'Explore'
 		, links: [{
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/about/'
+			url: 'http://carnegie.ru/eurasiaoutlook/?fa=about'
 			, name: 'About Eurasia Outlook'
 		}, {
-			url: 'http://m.ceip.org/moscow/eurasiaoutlook/'
+			url: 'http://carnegie.ru/eurasiaOutlook/?fa=archive'
 			, name: 'Archive'
 		}]
 	}]

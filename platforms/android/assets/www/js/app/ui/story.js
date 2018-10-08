@@ -294,6 +294,14 @@ function update() {
   setTimeout(function () {
     $('section.story .next').scrollTop(0);
     $('section.story .previous').scrollTop(0);
+      if (index === 0) {
+          $('.story-list').scrollTop(0)
+      } else {
+          $('.story-list').scrollTop(
+              parseInt($('.story-list ul li').eq(0).height(), 10) +
+              ((index - 1) * parseInt($('.story-list ul li').eq(1).height(), 10))
+          )
+      }
   }, 350)
 }
 

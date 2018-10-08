@@ -1,12 +1,28 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ceip.carnegieeurasiaoutlook" version="3.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Eurasia</name>
+<widget id="com.ceip.carnegieeurasiaoutlook" version="3.0.8" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Eurasia Outlook</name>
     <description>
         Carnegie Feed Reader
     </description>
     <author email="kirk@dmvjs.com" href="http://dmvjs.com">
         Kirk Elliott
     </author>
+    <platform name="android">
+        <icon src="www/res/android/ldpi.png" density="ldpi" />
+        <icon src="www/res/android/mdpi.png" density="mdpi" />
+        <icon src="www/res/android/hdpi.png" density="hdpi" />
+        <icon src="www/res/android/xhdpi.png" density="xhdpi" />
+
+        <!-- you can use any density that exists in the Android project -->
+        <splash src="www/res/android/splash-ldpi.png" density="ldpi"/>
+        <splash src="www/res/android/splash-mdpi.png" density="mdpi"/>
+        <splash src="www/res/android/splash-hdpi.png" density="hdpi"/>
+        <splash src="www/res/android/splash-xhdpi.png" density="xhdpi"/>
+
+        <splash src="www/res/android/splash-land-hdpi.png" density="land-hdpi"/>
+        <splash src="www/res/android/splash-land-xhdpi.png" density="land-xhdpi"/>
+    </platform>
+
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="false" />
@@ -25,7 +41,7 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="16" />
     <preference name="android-installLocation" value="auto" />
-    <preference name="SplashScreen" value="splash" />
-    <preference name="SplashScreenDelay" value="100000" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="10000" />
     <access origin="*" />
 </widget>

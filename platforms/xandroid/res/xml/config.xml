@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.ceip.carnegieeurasiaoutlook" version="3.0.7" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <preference name="loglevel" value="DEBUG" />
+    <feature name="UniversalAnalytics">
+        <param name="android-package" value="com.danielcwilson.plugins.analytics.UniversalAnalyticsPlugin" />
+    </feature>
+    <feature name="SocialSharing">
+        <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+    </feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="FileTransfer">
+        <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+    </feature>
+    <icon density="ldpi" src="www/res/android/ldpi.png" />
+    <icon density="mdpi" src="www/res/android/mdpi.png" />
+    <icon density="hdpi" src="www/res/android/hdpi.png" />
+    <icon density="xhdpi" src="www/res/android/xhdpi.png" />
+    <icon density="xxhdpi" src="www/res/android/xxhdpi.png" />
+    <icon density="xxxhdpi" src="www/res/android/xxxhdpi.png" />
+    <splash density="ldpi" src="www/res/android/splash-ldpi.png" />
+    <splash density="mdpi" src="www/res/android/splash-mdpi.png" />
+    <splash density="hdpi" src="www/res/android/splash-hdpi.png" />
+    <splash density="xhdpi" src="www/res/android/splash-xhdpi.png" />
+    <splash density="xxhdpi" src="www/res/android/splash-xxhdpi.png" />
+    <splash density="xxxhdpi" src="www/res/android/splash-xxxhdpi.png" />
+    <splash density="land-hdpi" src="www/res/android/splash-land-hdpi.png" />
+    <splash density="land-xhdpi" src="www/res/android/splash-land-xhdpi.png" />
+    <splash density="land-xxhdpi" src="www/res/android/splash-land-xxhdpi.png" />
+    <splash density="land-xxxhdpi" src="www/res/android/splash-land-xxxhdpi.png" />
+    <name>Eurasia Outlook</name>
+    <description>
+        Carnegie Feed Reader
+    </description>
+    <author email="kirk@dmvjs.com" href="http://dmvjs.com">
+        Kirk Elliott
+    </author>
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="prerendered-icon" value="false" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="ios-statusbarstyle" value="black-translucent" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <preference name="ShowSplashScreenSpinner" value="true" />
+    <preference name="auto-hide-splash-screen" value="false" />
+    <preference name="fade-splash-screen" value="true" />
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="FadeSplashScreen" value="true" />
+    <preference name="disable-cursor" value="false" />
+    <preference name="android-minSdkVersion" value="16" />
+    <preference name="android-installLocation" value="auto" />
+    <preference name="SplashScreen" value="splash" />
+    <preference name="SplashScreenDelay" value="100000" />
+    <access origin="*" />
+</widget>

@@ -3,7 +3,7 @@ module.exports = (function () {
     , w = win.width()
     , h = win.height();
 
-  if (parseInt(Math.min(w, h), 10) >= 600) {
+  if (parseInt(Math.min(w, h), 10) >= 550) {
 	  $('body').addClass('tablet');
   }
 }());

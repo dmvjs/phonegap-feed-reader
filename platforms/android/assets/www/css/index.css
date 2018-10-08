@@ -92,10 +92,18 @@ header {
     background-image: none;
 }
 
+.tablet header {
+    height: 66px;
+}
+
 header.stay {
     background-image: url('../img/header-main.png');
     background-size: auto 44px;
     background-repeat: no-repeat;
+}
+
+.tablet header.stay {
+    background-size: auto 66px;
 }
 
 header .story-list,
@@ -107,6 +115,12 @@ header .menu {
     background-repeat: no-repeat;
 }
 
+.tablet header .story-list,
+.tablet header .menu {
+    height: 66px;
+    background-size: auto 66px;
+}
+
 header .story {
     height: 44px;
     background: url('../img/header-story.png');
@@ -114,6 +128,11 @@ header .story {
     background-repeat: no-repeat;
     background-color: #001c3d;
     background-position: center;
+}
+
+.tablet header .story {
+    height: 66px;
+    background-size: auto 66px;
 }
 
 header .story-list,
@@ -133,6 +152,13 @@ header .menu .show-menu {
     background-position: right;
     background-repeat: no-repeat;
     background-size: auto 44px;
+}
+
+.tablet header .story-list .show-menu,
+.tablet header .menu .show-menu {
+    height: 66px;
+    width: 66px;
+    background-size: auto 66px;
 }
 
 header .story-list.active,
@@ -175,14 +201,25 @@ header .menu .offline {
     display: none;
 }
 
+.tablet header .menu .offline {
+    height: 66px;
+    width: 66px;
+    background-size: auto 66px;
+}
+
 header .story .back {
     height: 44px;
     width: 100px;
     float: left;
-    background-image: url('../img/header-btn-story-back.png');
-    background-position: left;
+	background-image: url('../img/header-btn-story-back.png');
+	background-position: left;
     background-repeat: no-repeat;
     background-size: auto 44px;
+}
+
+.tablet header .story .back {
+    height: 66px;
+    background-size: auto 66px;
 }
 
 header .story .back.active {
@@ -195,6 +232,11 @@ header .story .btn-group {
     float: right;
 }
 
+.tablet header .story .btn-group {
+    height: 66px;
+    width: 132px;
+}
+
 header .story .btn-group .previous,
 header .story .btn-group .next {
     height: 44px;
@@ -204,6 +246,13 @@ header .story .btn-group .next {
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto 44px;
+}
+
+.tablet header .story .btn-group .previous,
+.tablet header .story .btn-group .next {
+    height: 66px;
+    width: 66px;
+    background-size: auto 66px;
 }
 
 header .story .btn-group .previous.active,
@@ -226,6 +275,10 @@ header .story .btn-group .next {
     left: 0;
     overflow: hidden;
     width: 100%;
+}
+
+.tablet .container {
+    top: 66px;
 }
 
 .container section {
@@ -253,15 +306,13 @@ section.story-list {
     transform: translate3d(-100%, 0, 0);
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
+    background-color: white;
 }
 
 
 section.story-list.active {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
-}
-
-section.story-list.active {
     display: block;
 }
 
@@ -393,6 +444,7 @@ section.story-list .story-image {
     width: auto;
     margin: 1px;
     float: right;
+    background-color: black;
 }
 
 .tablet section.story-list .story-image {
@@ -503,13 +555,13 @@ section.menu ul.menu-items li {
 }
 
 section.menu ul.menu-items li .hairline {
-    border-top: 1px solid #ccc7c2;
+    border-top: 1px solid #cce1fa;
     -webkit-transform: scaleY(0.5);
     transform: scaleY(0.5);
 }
 
 section.menu ul.menu-items li.active {
-    background-color: #ccc7c2;
+    background-color: #cce1fa;
 }
 
 section.menu .menu-item a {
@@ -685,11 +737,20 @@ section.story .previous {
     transition-duration: 350ms;
 }
 
-section.story .story-behind {
-    background-color: #001c3d;
-    height: 2px;
+section.story .story-behind,
+section.story-list .story-list-behind {
+    height: 218.578513px; /* based on 360px viewport width */
+    height: 60.71625367vw; /* based on 360px viewport width */
+    height: calc(54.049587vw + 24px);
     width: 100%;
     position: absolute;
+    background-color: #001c3d;
+}
+.tablet section.story .story-behind,
+.tablet section.story-list .story-list-behind {
+    height: 439.100828px; /* based on 768px viewport width */
+    height: 57.174587vw; /* based on 768px viewport width */
+    height: calc(54.049587vw + 24px);
 }
 
 section.story .page {
