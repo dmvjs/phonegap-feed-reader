@@ -632,6 +632,9 @@ module.exports = {
 },{"../../io/doesFileExist":15,"../../io/getFileContents":19,"../../util/notify":30,"../access":1,"../config":2,"./header":4,"./storyList":9}],6:[function(require,module,exports){
 var access = require('../access');
 
+Hammer.defaults.stop_browser_behavior.touchAction = 'pan-y';
+
+
 /**
  * requestAnimationFrame and cancel polyfill
  */
@@ -1403,6 +1406,7 @@ module.exports = (function () {
 		document.addEventListener('deviceready', appReady, false);
 
 		function appReady() {
+			navigator.splashscreen.show();
 			//setTimeout(function () {
 				$(function () {
 					if (config.track && analytics) {

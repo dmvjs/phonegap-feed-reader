@@ -23,6 +23,7 @@ module.exports = (function () {
 		document.addEventListener('deviceready', appReady, false);
 
 		function appReady() {
+			navigator.splashscreen.show();
 			//setTimeout(function () {
 				$(function () {
 					if (config.track && analytics) {
